@@ -17,21 +17,35 @@ Core behavior
 """
 from __future__ import annotations
 
+import sys
+from pathlib import Path
+
+_SCRIPT_ROOT = Path(__file__).resolve().parent
+_PROJECT_ROOT = _SCRIPT_ROOT.parent
+if str(_PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(_PROJECT_ROOT))
+
 import argparse
 import json
 import logging as log
 import math
 import re
-import sys
 from dataclasses import dataclass
-from pathlib import Path
-from typing import Dict, List, Sequence, Tuple, Iterable, Set
+from typing import Dict, Iterable, List, Sequence, Set, Tuple
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
 
 import gemmi
 from Bio.Align import PairwiseAligner
+
+from scripts.lib.config import load_config
+from scripts.lib.paths import (
+    PathResolver,
+    find_prediction_cif,
+    find_reference_cif,
+    normalize_pdbid,
+)
 
 INF = 1e9
 AA3_TO_1 = {
@@ -44,10 +58,6 @@ ELEM_ORDER = {e:i for i,e in enumerate(['C','N','O','P','S','F','CL','BR','I'])}
 MIN_LIG_HEAVY = 10
 
 # -------------------- small utilities --------------------
-
-def ensure_dir(p: Path) -> None:
-    p.mkdir(parents=True, exist_ok=True)
-
 
 def kabsch(P: np.ndarray, Q: np.ndarray) -> Tuple[np.ndarray, np.ndarray]:
     Pc = P - P.mean(axis=0, keepdims=True)
@@ -431,79 +441,110 @@ def local_pocket_fit(pred_st: gemmi.Structure, ref_st: gemmi.Structure, chain_pa
     return Rl, tl, len(P)
 
 
-# -------------------- paths --------------------
-@dataclass
-class Paths:
-    root: Path
-    analysis_dir: Path
-    data_dir: Path
-    pred: Path
-    ref: Path
-    pdbid_up: str
-
-
-def _resolve_ref_path_case_agnostic(base: Path, pdbid: str, ref: str|None) -> Path:
-    """
-    If --ref is provided, honor it.
-    Otherwise, look under raw_structures/monomers/<PDBID>/ for a .cif file:
-      1) Prefer a file whose stem matches the PDB ID case-insensitively.
-      2) Otherwise use the first .cif found (case-insensitive extension).
-      3) If nothing exists yet, fall back to <pdbid.lower()>.cif in that dir.
-    """
-    if ref:
-        return Path(ref)
-    dir_path = base / f"raw_structures/monomers/{pdbid.upper()}"
-    if dir_path.exists():
-        cands = [p for p in dir_path.iterdir() if p.is_file() and p.suffix.lower() == ".cif"]
-        if cands:
-            target = pdbid.lower()
-            exact = [p for p in cands if p.stem.lower() == target]
-            if exact:
-                return exact[0]
-            # deterministic choice if multiple
-            return sorted(cands)[0]
-    return dir_path / f"{pdbid.lower()}.cif"
-
-
-def infer_paths(base: Path, pdbid: str, pred: str|None, ref: str|None) -> Paths:
-    pdbid_up = pdbid.upper()
-    pred_p = Path(pred) if pred else base / f"model_outputs/{pdbid_up}_output/boltz_results_{pdbid_up}/predictions/{pdbid_up}/{pdbid_up}_model_0.cif"
-    ref_p  = _resolve_ref_path_case_agnostic(base, pdbid, ref)
-    root   = base / f"analysis/{pdbid_up}"
-    analysis_dir = root / f"{pdbid_up}_analysis"
-    data_dir     = root / f"{pdbid_up}_data"
-    return Paths(root=root, analysis_dir=analysis_dir, data_dir=data_dir, pred=pred_p, ref=ref_p, pdbid_up=pdbid_up)
-
-
 # -------------------- main --------------------
 
 def main(argv: Sequence[str]|None=None) -> int:
-    p = argparse.ArgumentParser(description="Benchmark Boltz poses vs PDB with LOCKED ligand RMSD and Chimera-style protein fit")
-    p.add_argument('pdbid', help='PDB ID (e.g., 1HMS)')
-    p.add_argument('--pred', help='Path to predicted CIF/PDB', default=None)
-    p.add_argument('--ref', help='Path to reference mmCIF/PDB', default=None)
-    p.add_argument('--include-h', action='store_true', help='Include hydrogens (default: heavy atoms only)')
-    p.add_argument('--include-small', action='store_true', help=f'Include small ligands (<{MIN_LIG_HEAVY} heavy atoms). Default skips them.')
-    p.add_argument('--no-pocket', action='store_true', help='Disable pocket-local alignment (report global frame only)')
-    p.add_argument('--pocket-radius', type=float, default=5.0, help='Å radius for pocket Cα alignment')
-    p.add_argument('--full', action='store_true', help='Add fixed-rank comparison and per-pair protein distances to data.csv')
-    p.add_argument('-v', '--verbose', action='store_true', help='Verbose logging')
+    p = argparse.ArgumentParser(
+        description="Benchmark Boltz poses vs PDB with LOCKED ligand RMSD and Chimera-style protein fit"
+    )
+    p.add_argument("pdbid", help="PDB ID (e.g., 1HMS)")
+    p.add_argument("--config", default=None, help="Path to project config (default: config.yaml)")
+    p.add_argument("--refs", default=None, help="Override references root directory")
+    p.add_argument("--preds", default=None, help="Override predictions root directory")
+    p.add_argument(
+        "--analysis-dir",
+        default=None,
+        help="Override analysis root directory (default from config)",
+    )
+    p.add_argument(
+        "--pred-file",
+        "--pred",
+        dest="pred_file",
+        default=None,
+        help="Explicit path to predicted CIF/PDB (skips auto-discovery)",
+    )
+    p.add_argument(
+        "--ref-file",
+        "--ref",
+        dest="ref_file",
+        default=None,
+        help="Explicit path to reference CIF/PDB (skips auto-discovery)",
+    )
+    p.add_argument(
+        "--include-h",
+        action="store_true",
+        help="Include hydrogens (default: heavy atoms only)",
+    )
+    p.add_argument(
+        "--include-small",
+        action="store_true",
+        help=f"Include small ligands (<{MIN_LIG_HEAVY} heavy atoms). Default skips them.",
+    )
+    p.add_argument(
+        "--no-pocket",
+        action="store_true",
+        help="Disable pocket-local alignment (report global frame only)",
+    )
+    p.add_argument(
+        "--pocket-radius",
+        type=float,
+        default=5.0,
+        help="Å radius for pocket Cα alignment",
+    )
+    p.add_argument(
+        "--full",
+        action="store_true",
+        help="Add fixed-rank comparison and per-pair protein distances to data.csv",
+    )
+    p.add_argument("-v", "--verbose", action="store_true", help="Verbose logging")
     args = p.parse_args(argv)
 
-    # Simple log format: no timestamps
-    log.basicConfig(level=log.DEBUG if args.verbose else log.INFO, format='[%(levelname)s] %(message)s')
+    log.basicConfig(
+        level=log.DEBUG if args.verbose else log.INFO,
+        format="[%(levelname)s] %(message)s",
+    )
 
-    base = Path.home() / 'lipid_docking_benchmark'
-    paths = infer_paths(base, args.pdbid, args.pred, args.ref)
-    ensure_dir(paths.root)
-    ensure_dir(paths.analysis_dir)
-    ensure_dir(paths.data_dir)
+    config = load_config(args.config)
+    resolver = PathResolver(
+        config,
+        refs=args.refs,
+        preds=args.preds,
+        analysis_dir=args.analysis_dir,
+    )
 
-    log.info('Output dir: %s', paths.root)
-    log.info('Reference file: %s', paths.ref)
-    log.info('Reading structures…')
-    ref_st = load_structure(paths.ref)
-    pred_st = load_structure(paths.pred)
+    pdbid_up = normalize_pdbid(args.pdbid)
+
+    if args.pred_file:
+        pred_path = Path(args.pred_file).expanduser().resolve()
+    else:
+        pred_path = find_prediction_cif(pdbid_up, resolver.preds_root)
+        if pred_path is None:
+            log.error("Unable to locate prediction CIF for %s under %s", pdbid_up, resolver.preds_root)
+            return 2
+    if not pred_path.exists():
+        log.error("Prediction file does not exist: %s", pred_path)
+        return 2
+
+    if args.ref_file:
+        ref_path = Path(args.ref_file).expanduser().resolve()
+    else:
+        ref_path = find_reference_cif(pdbid_up, resolver.refs_root)
+        if ref_path is None:
+            log.error("Unable to locate reference CIF for %s under %s", pdbid_up, resolver.refs_root)
+            return 2
+    if not ref_path.exists():
+        log.error("Reference file does not exist: %s", ref_path)
+        return 2
+
+    analysis_paths = resolver.analysis_paths_for(pdbid_up)
+    analysis_paths.ensure()
+
+    log.info("Analysis directory: %s", analysis_paths.root)
+    log.info("Reference file: %s", ref_path)
+    log.info("Prediction file: %s", pred_path)
+    log.info("Reading structures…")
+    ref_st = load_structure(ref_path)
+    pred_st = load_structure(pred_path)
 
     # ---- protein global fit with Chimera-style pruning ----
     pred_ch = extract_chain_sequences(pred_st)
@@ -529,7 +570,7 @@ def main(argv: Sequence[str]|None=None) -> int:
 
     # move predicted into reference frame using the pruned transform
     apply_rt_to_structure(pred_st, fit.R, fit.t)
-    write_transformed_structures(pred_st, 'global', paths.data_dir)
+    write_transformed_structures(pred_st, 'global', analysis_paths.structures_dir)
 
     # ---- ligands ----
     pred_ligs_all = collect_ligands(pred_st, include_h=args.include_h)
@@ -583,7 +624,7 @@ def main(argv: Sequence[str]|None=None) -> int:
         'pred_chain,pred_resname,pred_resid,ref_chain,ref_resname,ref_resid,policy,n,rmsd_locked_global,rmsd_locked_pocket,pocket_pairs'
     ]
     analysis_rows.append(
-        f"protein,{paths.pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},,,,,,,,,,,"
+        f"protein,{pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},,,,,,,,,,,"
     )
 
     data_rows = ['type,pair_index,pdbid,pred_chain,pred_resname,pred_resid,ref_chain,ref_resname,ref_resid,policy,n,locked_global,locked_pocket,pocket_pairs,protein_metric,protein_value']
@@ -591,8 +632,8 @@ def main(argv: Sequence[str]|None=None) -> int:
         d_all = np.sqrt(((P@fit.R + fit.t - Q)**2).sum(axis=1))
         for i_idx, d in enumerate(d_all):
             kept = 1 if fit.kept_mask[i_idx] else 0
-            data_rows.append(f"protein_pair,{i_idx},{paths.pdbid_up},,,,,,,,,,,kept,{kept}")
-            data_rows.append(f"protein_pair,{i_idx},{paths.pdbid_up},,,,,,,,,,,dist_A,{d:.3f}")
+            data_rows.append(f"protein_pair,{i_idx},{pdbid_up},,,,,,,,,,,kept,{kept}")
+            data_rows.append(f"protein_pair,{i_idx},{pdbid_up},,,,,,,,,,,dist_A,{d:.3f}")
 
     best_metrics: List[Dict] = []
 
@@ -609,12 +650,12 @@ def main(argv: Sequence[str]|None=None) -> int:
                 lp, _ = locked_rmsd(rp.atoms, rr.atoms, pairs, Rl, tl)
         # analysis row for the primary policy
         analysis_rows.append(
-            f"ligand,{paths.pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},"
+            f"ligand,{pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},"
             f"{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},{policy},{n},{lg:.3f},{lp:.3f},{pocket_pairs}"
         )
         # data row for the primary policy
         data_rows.append(
-            f"ligand,,{paths.pdbid_up},{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},{policy},{n},{lg:.3f},{lp:.3f},{pocket_pairs},,"
+            f"ligand,,{pdbid_up},{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},{policy},{n},{lg:.3f},{lp:.3f},{pocket_pairs},,"
         )
         best_metrics.append({
             'pred': {'chain': rp.chain_id, 'name': rp.res_name, 'id': rp.res_id},
@@ -646,19 +687,19 @@ def main(argv: Sequence[str]|None=None) -> int:
                     lp2, _ = locked_rmsd(rp.atoms, rr.atoms, pr2, Rl, tl)
                 # add a side-by-side fixed-rank row to *both* CSVs
                 analysis_rows.append(
-                    f"ligand,{paths.pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},"
+                    f"ligand,{pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},"
                     f"{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},fixed-rank,{n2},{lg2:.3f},{lp2:.3f},{pocket_pairs}"
                 )
                 data_rows.append(
-                    f"ligand,,{paths.pdbid_up},{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},fixed-rank,{n2},{lg2:.3f},{lp2:.3f},{pocket_pairs},,"
+                    f"ligand,,{pdbid_up},{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},fixed-rank,{n2},{lg2:.3f},{lp2:.3f},{pocket_pairs},,"
                 )
 
     # write CSVs
-    analysis_csv = paths.analysis_dir / f"{paths.pdbid_up}_analysis.csv"
-    (analysis_csv).write_text("\n".join(analysis_rows) + "\n")
+    analysis_csv = analysis_paths.analysis_csv
+    analysis_csv.write_text("\n".join(analysis_rows) + "\n")
 
-    data_csv = paths.data_dir / f"{paths.pdbid_up}_data.csv"
-    (data_csv).write_text("\n".join(data_rows) + "\n")
+    data_csv = analysis_paths.data_csv
+    data_csv.write_text("\n".join(data_rows) + "\n")
 
     # summary json
     summary = {
@@ -669,19 +710,19 @@ def main(argv: Sequence[str]|None=None) -> int:
         'protein_rmsd_ca_allfit': fit.rmsd_allfit,
         'ligand_best_metrics': best_metrics,
     }
-    (paths.analysis_dir/'summary.json').write_text(json.dumps(summary, indent=2))
-    log.info('Wrote %s', paths.analysis_dir/'summary.json')
+    summary_path = analysis_paths.summary_json
+    summary_path.write_text(json.dumps(summary, indent=2))
+    log.info('Wrote %s', summary_path)
 
     # pocket preview into DATA dir
     if not args.no_pocket and ref_ligs:
         Rl, tl, npairs = local_pocket_fit(pred_st, ref_st, chain_pairs, ref_ligs[0], args.pocket_radius)
         if npairs >= 3:
             apply_rt_to_structure(pred_st, Rl, tl)
-            write_transformed_structures(pred_st, 'pocket', paths.data_dir)
+            write_transformed_structures(pred_st, 'pocket', analysis_paths.structures_dir)
 
     return 0
 
 
 if __name__ == '__main__':
     sys.exit(main())
-
