@@ -205,3 +205,41 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# --- ORNL Lipid Docking Benchmark (project-specific) ---
+# Big/generated outputs
+model_outputs/
+analysis/
+logs/
+tmp/
+.cache/
+*.log
+
+# Raw structure/data drops (kept outside Git)
+raw_structures/
+raw_structures/monomers/
+raw_structures/benchmark_references/
+data/
+datasets/
+*.pdb
+*.cif
+*.mmCIF
+*.sdf
+*.mol2
+*.gz
+*.zip
+*.tar
+*.tar.gz
+*.7z
+
+# Notebooks & scratch (keep checkpoints out; Python template already ignores .ipynb_checkpoints)
+notebooks/output/
+scratch/
+
+# Local envs & tooling
+.venv/
+venv/
+.env
+.env.*
+.pyright/
+pytest_cache/
