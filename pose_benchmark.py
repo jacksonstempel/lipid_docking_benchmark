@@ -1,19 +1,15 @@
 #!/usr/bin/env python3
 """
-Pose Benchmark – protein+ligand (Boltz vs PDB)
+Pose Benchmark – protein+ligand (Boltz, Vina, or other predictions vs PDB)
 
-V17 — Name-based ligand pairing + altLoc dedupe + case-agnostic CIF
-  • Prefer **by-name** heavy-atom pairing (ChimeraX-like) when ≥3 common names.
-  • Fall back to **chimera-order** (file order) or **fixed-rank** as needed.
-  • Deduplicate ligand altLocs by keeping the highest-occupancy atom per name.
-  • Reference CIF discovery remains case-agnostic (filename & extension).
-  • Keeps V16 outputs: fixed-rank rows added under --full, CSV keys mirror summary.json.
-
-Core behavior
+Key points
+  • Heavy-atom pairing is strictly **by-name** (≥3 matches required); failures abort.
+  • Ligands deduplicate altLocs by choosing the highest-occupancy atom per name.
+  • Supports CIF/PDB predictions with paired proteins as well as ligand-only PDBQT
+    outputs (e.g., AutoDock Vina) when a protein template is available.
   • Protein fit: Chimera-style pruning (cutoff 2.0 Å; iteratively drop min(10% of kept,
     50% of kept beyond cutoff), refit until none > cutoff). Returns pruned transform.
-  • Ligands: **LOCKED** RMSD only (no ligand refit). Pairing policy = by-name →
-    chimera-order → fixed-rank-fallback. We report locked_global & locked_pocket.
+  • Ligands: LOCKED RMSD only (no ligand refit). Reports locked_global & locked_pocket.
 """
 from __future__ import annotations
 
@@ -29,9 +25,8 @@ import argparse
 import json
 import logging as log
 import math
-import re
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Sequence, Set, Tuple
+from typing import Any, Dict, Iterable, List, Sequence, Set, Tuple
 
 import numpy as np
 from scipy.optimize import linear_sum_assignment
@@ -54,7 +49,6 @@ AA3_TO_1 = {
     'SEC':'U','PYL':'O'
 }
 WAT_NAMES = {"HOH","H2O","WAT"}
-ELEM_ORDER = {e:i for i,e in enumerate(['C','N','O','P','S','F','CL','BR','I'])}
 MIN_LIG_HEAVY = 10
 
 # -------------------- small utilities --------------------
@@ -93,7 +87,13 @@ def is_water_res(res: gemmi.Residue) -> bool:
 # -------------------- IO helpers --------------------
 
 def load_structure(path: Path) -> gemmi.Structure:
-    st = gemmi.read_structure(str(path))
+    suffix = path.suffix.lower()
+    if suffix in {".pdb", ".ent"}:
+        st = gemmi.read_pdb(str(path))
+    elif suffix == ".pdbqt":
+        st = gemmi.read_pdb(str(path))
+    else:
+        st = gemmi.read_structure(str(path))
     st.remove_empty_chains()
     return st
 
@@ -140,6 +140,86 @@ def write_transformed_structures(st: gemmi.Structure, out_prefix: str, outdir: P
     except Exception as e:
         log.warning('CIF write failed (%s). PDB written at %s. Continuing.', e, pdb_path)
     return cif_path, pdb_path
+
+
+def structure_has_protein(st: gemmi.Structure) -> bool:
+    for model in st:
+        for chain in model:
+            for res in chain:
+                if is_protein_res(res):
+                    return True
+    return False
+
+
+def _clone_residue(src: gemmi.Residue) -> gemmi.Residue:
+    res = gemmi.Residue()
+    res.name = src.name
+    res.seqid = src.seqid
+    res.het_flag = src.het_flag
+    for atom in src:
+        res.add_atom(atom.clone())
+    return res
+
+
+def _clone_model_subset(src_model: gemmi.Model, *, keep_proteins: bool, keep_non_proteins: bool, fallback_chain: str = "L") -> gemmi.Model:
+    model = gemmi.Model(src_model.num)
+    for chain in src_model:
+        new_chain = gemmi.Chain(chain.name or fallback_chain)
+        for res in chain:
+            protein = is_protein_res(res)
+            if (protein and keep_proteins) or ((not protein) and keep_non_proteins):
+                new_chain.add_residue(_clone_residue(res))
+        if len(new_chain):
+            model.add_chain(new_chain)
+    return model
+
+
+def ensure_protein_backbone(pred_st: gemmi.Structure, ref_st: gemmi.Structure) -> gemmi.Structure:
+    if structure_has_protein(pred_st):
+        return pred_st
+
+    combined = gemmi.Structure()
+    combined.cell = ref_st.cell
+    combined.spacegroup_hm = ref_st.spacegroup_hm
+
+    ref_model = ref_st[0]
+    proteins = _clone_model_subset(ref_model, keep_proteins=True, keep_non_proteins=False)
+    combined.add_model(proteins)
+
+    lig_model = _clone_model_subset(pred_st[0], keep_proteins=False, keep_non_proteins=True)
+    if len(lig_model):
+        if len(combined) == 0:
+            combined.add_model(lig_model)
+        else:
+            dest_model = combined[0]
+            for chain in lig_model:
+                dest_model.add_chain(chain)
+    combined.remove_empty_chains()
+    return combined
+
+
+def split_models(st: gemmi.Structure, count: int) -> List[gemmi.Structure]:
+    total = len(st)
+    if total == 0:
+        return []
+    limit = max(1, min(count, total))
+    out: List[gemmi.Structure] = []
+    for idx in range(limit):
+        model = st[idx]
+        new_st = gemmi.Structure()
+        new_st.cell = st.cell
+        new_st.spacegroup_hm = st.spacegroup_hm
+        new_model = gemmi.Model(idx + 1)
+        for chain in model:
+            new_chain = gemmi.Chain(chain.name)
+            for res in chain:
+                new_chain.add_residue(_clone_residue(res))
+            if len(new_chain):
+                new_model.add_chain(new_chain)
+        new_st.add_model(new_model)
+        new_st.remove_empty_chains()
+        out.append(new_st)
+    return out
 
 
 # -------------------- sequence & chain pairing --------------------
@@ -298,59 +378,82 @@ class SimpleResidue:
     atoms: List[SimpleAtom]
 
 
-def collect_ligands(st: gemmi.Structure, include_h: bool=False) -> List[SimpleResidue]:
-    """Collect ligands (non-protein, non-water). Deduplicate altLocs by highest occupancy
-    per atom name; ignore H unless include_h=True."""
-    ligs: List[SimpleResidue] = []
+def load_ligand_template_names(pdbid: str, include_h: bool=False) -> List[str] | None:
+    template_path = _PROJECT_ROOT / "docking" / "prep" / pdbid / "ligand.pdb"
+    if not template_path.is_file():
+        return None
+    try:
+        st = load_structure(template_path)
+    except Exception:
+        return None
+    names: List[str] = []
     for model in st:
         for ch in model:
             for r in ch:
                 if is_protein_res(r) or is_water_res(r):
                     continue
-                best: Dict[str, Tuple[SimpleAtom, float]] = {}
                 for a in r:
                     el = a.element.name.upper()
                     if (el == 'H') and (not include_h):
                         continue
-                    name_raw = a.name.strip()
-                    key = name_raw.upper()
+                    names.append(a.name.strip())
+    return names or None
+
+
+def apply_template_names(residues: List[SimpleResidue], template_names: List[str] | None) -> None:
+    if not template_names:
+        return
+    for res in residues:
+        if len(res.atoms) != len(template_names):
+            continue
+        for atom, name in zip(res.atoms, template_names):
+            atom.name = name
+
+
+def collect_ligands(st: gemmi.Structure, include_h: bool=False) -> List[SimpleResidue]:
+    """Collect ligands (non-protein, non-water). Deduplicate altLocs by highest occupancy
+    per atom name; ignore H unless include_h=True."""
+    groups: Dict[Tuple[str, str, str], Dict[str, Any]] = {}
+    order: List[Tuple[str, str, str]] = []
+    for model in st:
+        for ch in model:
+            for r in ch:
+                if is_protein_res(r) or is_water_res(r):
+                    continue
+                chain_id = ch.name if ch.name else 'L'
+                res_key = (chain_id, r.name, str(r.seqid))
+                if res_key not in groups:
+                    groups[res_key] = {'atoms': [], 'altloc': {}}
+                    order.append(res_key)
+                bucket = groups[res_key]
+                for a in r:
+                    el = a.element.name.upper()
+                    if (el == 'H') and (not include_h):
+                        continue
                     xyz = np.array([a.pos.x, a.pos.y, a.pos.z], dtype=float)
-                    occ = getattr(a, 'occ', 1.0)
-                    sa = SimpleAtom(name=name_raw, element=el, xyz=xyz)
-                    if key not in best or occ > best[key][1]:
-                        best[key] = (sa, occ)
-                atoms = [v[0] for v in best.values()]
-                if atoms:
-                    ligs.append(SimpleResidue(ch.name, r.name, str(r.seqid), atoms))
+                    sa = SimpleAtom(name=a.name.strip(), element=el, xyz=xyz)
+                    raw_altloc = getattr(a, 'altloc', '').strip() if hasattr(a, 'altloc') else ''
+                    altloc = raw_altloc if raw_altloc and raw_altloc != '\x00' else ''
+                    if altloc:
+                        key = (a.name.strip().upper(), altloc)
+                        occ = getattr(a, 'occ', 1.0)
+                        prev = bucket['altloc'].get(key)
+                        if (prev is None) or (occ > prev[1]):
+                            bucket['altloc'][key] = (sa, occ)
+                    else:
+                        bucket['atoms'].append(sa)
+    ligs: List[SimpleResidue] = []
+    for chain_id, res_name, res_id in order:
+        entry = groups[(chain_id, res_name, res_id)]
+        atoms: List[SimpleAtom] = list(entry['atoms'])
+        atoms.extend(sa for sa, _ in entry['altloc'].values())
+        if atoms:
+            ligs.append(SimpleResidue(chain_id, res_name, res_id, atoms))
     return ligs
 
 
 def heavy_count(res: SimpleResidue) -> int:
     return sum(1 for a in res.atoms if a.element != 'H')
-
-_name_num_tail = re.compile(r"^(?P<base>[A-Z]+?)(?P<num>\d+)(?P<trail>[A-Z])?$")
-
-
-def _rank_key(atom: SimpleAtom) -> Tuple[int, int, str]:
-    el_ord = ELEM_ORDER.get(atom.element, 50)
-    m = _name_num_tail.match(atom.name.upper().strip())
-    num = int(m.group('num')) if m else 10**6
-    return (el_ord, num, atom.name.upper())
-
-
-def pairs_chimera_order(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int,int]]:
-    P = [i for i,a in enumerate(pred.atoms) if a.element != 'H']
-    R = [j for j,a in enumerate(ref.atoms) if a.element != 'H']
-    n = min(len(P), len(R))
-    return [(P[k], R[k]) for k in range(n)]
-
-
-def pairs_fixed_rank(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int,int]]:
-    P = sorted(range(len(pred.atoms)), key=lambda i: _rank_key(pred.atoms[i]))
-    R = sorted(range(len(ref.atoms)), key=lambda j: _rank_key(ref.atoms[j]))
-    n = min(len(P), len(R))
-    return [(P[k], R[k]) for k in range(n)]
-
 
 def pairs_by_name(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int,int]]:
     """Pair heavy atoms with the same atom NAME (case-insensitive)."""
@@ -464,6 +567,12 @@ def main(argv: Sequence[str]|None=None) -> int:
         help="Explicit path to predicted CIF/PDB (skips auto-discovery)",
     )
     p.add_argument(
+        "--pose-count",
+        type=int,
+        default=1,
+        help="Number of models/poses to evaluate from the prediction (default: 1)",
+    )
+    p.add_argument(
         "--ref-file",
         "--ref",
         dest="ref_file",
@@ -544,155 +653,274 @@ def main(argv: Sequence[str]|None=None) -> int:
     log.info("Prediction file: %s", pred_path)
     log.info("Reading structures…")
     ref_st = load_structure(ref_path)
-    pred_st = load_structure(pred_path)
+    raw_pred_st = load_structure(pred_path)
 
-    # ---- protein global fit with Chimera-style pruning ----
-    pred_ch = extract_chain_sequences(pred_st)
-    ref_ch  = extract_chain_sequences(ref_st)
-    chain_pairs = pair_chains(pred_ch, ref_ch)
+    pose_structs = split_models(raw_pred_st, max(1, args.pose_count))
+    if not pose_structs:
+        log.error("No models/poses found in prediction file: %s", pred_path)
+        return 2
+    if len(pose_structs) < args.pose_count:
+        log.info("Prediction provides %d pose(s); evaluating available subset.", len(pose_structs))
 
-    Pxyz: List[np.ndarray] = []
-    Qxyz: List[np.ndarray] = []
-    for cp in chain_pairs:
-        for ia, ib in cp.res_pairs:
-            a = cp.pred.ca_xyz[ia]; b = cp.ref.ca_xyz[ib]
-            if a is None or b is None:
-                continue
-            Pxyz.append(a); Qxyz.append(b)
-    if len(Pxyz) < 3:
-        raise RuntimeError('Not enough Cα pairs to align proteins')
-    P = np.stack(Pxyz, axis=0); Q = np.stack(Qxyz, axis=0)
-
-    fit = chimera_pruned_fit(P, Q, cutoff=2.0, full=args.full)
-    log.info('Protein Cα RMSD (pruned=%d): %.3f Å', fit.n_pruned, fit.rmsd_pruned)
-    log.info('Protein Cα RMSD (all under pruned): %.3f Å across %d pairs', fit.rmsd_all_under_pruned, fit.n_all)
-    log.info('Protein Cα RMSD (all-fit baseline): %.3f Å', fit.rmsd_allfit)
-
-    # move predicted into reference frame using the pruned transform
-    apply_rt_to_structure(pred_st, fit.R, fit.t)
-    write_transformed_structures(pred_st, 'global', analysis_paths.structures_dir)
-
-    # ---- ligands ----
-    pred_ligs_all = collect_ligands(pred_st, include_h=args.include_h)
-    ref_ligs_all  = collect_ligands(ref_st, include_h=args.include_h)
-
+    ref_ligs_all = collect_ligands(ref_st, include_h=args.include_h)
     if args.include_small:
-        pred_ligs = pred_ligs_all
-        ref_ligs  = ref_ligs_all
+        ref_ligs = ref_ligs_all
     else:
-        pred_ligs = [r for r in pred_ligs_all if heavy_count(r) >= MIN_LIG_HEAVY]
-        ref_ligs  = [r for r in ref_ligs_all  if heavy_count(r) >= MIN_LIG_HEAVY]
-        log.info('Skipping small ligands (<%d heavy atoms): kept %d/%d pred, %d/%d ref',
-                 MIN_LIG_HEAVY, len(pred_ligs), len(pred_ligs_all), len(ref_ligs), len(ref_ligs_all))
+        ref_ligs = [r for r in ref_ligs_all if heavy_count(r) >= MIN_LIG_HEAVY]
+        log.info(
+            'Skipping small ligands (<%d heavy atoms): kept %d/%d ref',
+            MIN_LIG_HEAVY,
+            len(ref_ligs),
+            len(ref_ligs_all),
+        )
 
-    log.info('Ref ligands to evaluate: %d; Pred candidates: %d', len(ref_ligs), len(pred_ligs))
+    template_names = load_ligand_template_names(pdbid_up, include_h=args.include_h)
 
-    def choose_pairs(rp: SimpleResidue, rr: SimpleResidue) -> Tuple[str, List[Tuple[int,int]]]:
-        # 1) Try exact NAME matching (ChimeraX semantics)
-        pn = pairs_by_name(rp, rr)
-        if len(pn) >= 3:
-            return 'by-name', pn
-        # 2) Fall back to file-order (legacy)
-        po = pairs_chimera_order(rp, rr)
-        if len(po) >= 3:
-            return 'chimera-order', po
-        # 3) Last resort fixed-rank
-        pf = pairs_fixed_rank(rp, rr)
-        return 'fixed-rank-fallback', pf
-
-    # Hungarian assignment cost on by-name locked_global (fallbacks where needed)
-    cache_pairs: List[List[Tuple[str, List[Tuple[int,int]]]]] = [[('none',[]) for _ in ref_ligs] for _ in pred_ligs]
-    M = [[INF]*len(ref_ligs) for _ in range(len(pred_ligs))]
-    for i, rp in enumerate(pred_ligs):
-        for j, rr in enumerate(ref_ligs):
-            pol, pr = choose_pairs(rp, rr)
-            cache_pairs[i][j] = (pol, pr)
-            if len(pr) >= 3:
-                lg_cost, _ = locked_rmsd(rp.atoms, rr.atoms, pr, np.eye(3), np.zeros(3))
-                if math.isfinite(lg_cost):
-                    M[i][j] = lg_cost
-    if len(pred_ligs) and len(ref_ligs):
-        ri, cj = linear_sum_assignment(np.array(M, dtype=float))
-        matches = [(i,j) for i,j in zip(ri,cj) if M[i][j] < INF/10]
-    else:
-        matches = []
-
-    # CSVs (analysis + data)
-    # Header uses *exact* summary.json key names where applicable
     analysis_rows = [
-        'type,pdbid,protein_pairs_pruned,protein_rmsd_ca_pruned,protein_pairs_all,protein_rmsd_ca_all_under_pruned,protein_rmsd_ca_allfit,'
-        'pred_chain,pred_resname,pred_resid,ref_chain,ref_resname,ref_resid,policy,n,rmsd_locked_global,rmsd_locked_pocket,pocket_pairs'
+        'type,pdbid,pose_index,protein_pairs_pruned,protein_rmsd_ca_pruned,protein_pairs_all,protein_rmsd_ca_all_under_pruned,'
+        'protein_rmsd_ca_allfit,pred_chain,pred_resname,pred_resid,ref_chain,ref_resname,ref_resid,policy,n,'
+        'rmsd_locked_global,rmsd_locked_pocket,pocket_pairs'
     ]
-    analysis_rows.append(
-        f"protein,{pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},,,,,,,,,,,"
-    )
-
-    data_rows = ['type,pair_index,pdbid,pred_chain,pred_resname,pred_resid,ref_chain,ref_resname,ref_resid,policy,n,locked_global,locked_pocket,pocket_pairs,protein_metric,protein_value']
-    if args.full and fit.kept_mask is not None:
-        d_all = np.sqrt(((P@fit.R + fit.t - Q)**2).sum(axis=1))
-        for i_idx, d in enumerate(d_all):
-            kept = 1 if fit.kept_mask[i_idx] else 0
-            data_rows.append(f"protein_pair,{i_idx},{pdbid_up},,,,,,,,,,,kept,{kept}")
-            data_rows.append(f"protein_pair,{i_idx},{pdbid_up},,,,,,,,,,,dist_A,{d:.3f}")
+    data_rows = [
+        'type,pair_index,pdbid,pose_index,pred_chain,pred_resname,pred_resid,ref_chain,ref_resname,ref_resid,policy,'
+        'n,locked_global,locked_pocket,pocket_pairs,protein_metric,protein_value'
+    ]
 
     best_metrics: List[Dict] = []
+    protein_metrics: FitResult | None = None
+    best_pose_entry: Dict | None = None
+    best_pose_structure: gemmi.Structure | None = None
+    best_chain_pairs: List[ChainPair] | None = None
 
-    for i,j in matches:
-        rp, rr = pred_ligs[i], ref_ligs[j]
-        policy, pairs = cache_pairs[i][j]
-        lg, n = locked_rmsd(rp.atoms, rr.atoms, pairs, np.eye(3), np.zeros(3))
-        pocket_pairs = 0
-        lp = lg
-        Rl = np.eye(3); tl = np.zeros(3)
-        if not args.no_pocket:
-            Rl, tl, pocket_pairs = local_pocket_fit(pred_st, ref_st, chain_pairs, rr, args.pocket_radius)
-            if pocket_pairs >= 3:
-                lp, _ = locked_rmsd(rp.atoms, rr.atoms, pairs, Rl, tl)
-        # analysis row for the primary policy
-        analysis_rows.append(
-            f"ligand,{pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},"
-            f"{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},{policy},{n},{lg:.3f},{lp:.3f},{pocket_pairs}"
+    for pose_idx, pose_st in enumerate(pose_structs, start=1):
+        pred_st = ensure_protein_backbone(pose_st, ref_st)
+
+        pred_ch = extract_chain_sequences(pred_st)
+        ref_ch = extract_chain_sequences(ref_st)
+        chain_pairs = pair_chains(pred_ch, ref_ch)
+
+        Pxyz: List[np.ndarray] = []
+        Qxyz: List[np.ndarray] = []
+        for cp in chain_pairs:
+            for ia, ib in cp.res_pairs:
+                a = cp.pred.ca_xyz[ia]
+                b = cp.ref.ca_xyz[ib]
+                if a is None or b is None:
+                    continue
+                Pxyz.append(a)
+                Qxyz.append(b)
+        if len(Pxyz) < 3:
+            raise RuntimeError('Not enough Cα pairs to align proteins')
+        P = np.stack(Pxyz, axis=0)
+        Q = np.stack(Qxyz, axis=0)
+
+        fit = chimera_pruned_fit(P, Q, cutoff=2.0, full=args.full and protein_metrics is None)
+        log.info(
+            'Pose %d: Protein Cα RMSD (pruned=%d): %.3f Å',
+            pose_idx,
+            fit.n_pruned,
+            fit.rmsd_pruned,
         )
-        # data row for the primary policy
-        data_rows.append(
-            f"ligand,,{pdbid_up},{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},{policy},{n},{lg:.3f},{lp:.3f},{pocket_pairs},,"
+        if protein_metrics is None:
+            protein_metrics = fit
+            analysis_rows.append(
+                ",".join(
+                    [
+                        "protein",
+                        pdbid_up,
+                        "1",
+                        str(fit.n_pruned),
+                        f"{fit.rmsd_pruned:.3f}",
+                        str(fit.n_all),
+                        f"{fit.rmsd_all_under_pruned:.3f}",
+                        f"{fit.rmsd_allfit:.3f}",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                    ]
+                )
+            )
+            if args.full and fit.kept_mask is not None:
+                d_all = np.sqrt(((P @ fit.R + fit.t - Q) ** 2).sum(axis=1))
+                for i_idx, d in enumerate(d_all):
+                    kept = 1 if fit.kept_mask[i_idx] else 0
+                    data_rows.append(
+                        ",".join(
+                            [
+                                "protein_pair",
+                                str(i_idx),
+                                pdbid_up,
+                                "1",
+                            ]
+                            + [""] * 11
+                            + [
+                                "kept",
+                                str(kept),
+                            ]
+                        )
+                    )
+                    data_rows.append(
+                        ",".join(
+                            [
+                                "protein_pair",
+                                str(i_idx),
+                                pdbid_up,
+                                "1",
+                            ]
+                            + [""] * 11
+                            + [
+                                "dist_A",
+                                f"{d:.3f}",
+                            ]
+                        )
+                    )
+
+        apply_rt_to_structure(pred_st, fit.R, fit.t)
+        out_prefix = 'global' if pose_idx == 1 else f'global_pose{pose_idx:02d}'
+        write_transformed_structures(pred_st, out_prefix, analysis_paths.structures_dir)
+
+        pred_ligs_all = collect_ligands(pred_st, include_h=args.include_h)
+        apply_template_names(pred_ligs_all, template_names)
+        if args.include_small:
+            pred_ligs = pred_ligs_all
+        else:
+            pred_ligs = [r for r in pred_ligs_all if heavy_count(r) >= MIN_LIG_HEAVY]
+
+        log.info(
+            'Pose %d: Ref ligands %d; Pred candidates %d',
+            pose_idx,
+            len(ref_ligs),
+            len(pred_ligs),
         )
-        best_metrics.append({
-            'pred': {'chain': rp.chain_id, 'name': rp.res_name, 'id': rp.res_id},
-            'ref' : {'chain': rr.chain_id, 'name': rr.res_name, 'id': rr.res_id},
-            'policy': policy,
-            'n': n,
-            'rmsd_locked_global': lg,
-            'rmsd_locked_pocket': lp,
-            'pocket_pairs': pocket_pairs,
-        })
 
-        if policy == 'by-name':
-            log.info('Ligand %s:%s (%s) ↔ %s:%s (%s) — by-name locked_global=%.3f Å, locked_pocket=%.3f Å (n=%d, pocket_pairs=%d)',
-                     rp.chain_id, rp.res_name, rp.res_id, rr.chain_id, rr.res_name, rr.res_id, lg, lp, n, pocket_pairs)
-        elif policy == 'chimera-order':
-            log.info('Ligand %s:%s (%s) ↔ %s:%s (%s) — chimera-order locked_global=%.3f Å, locked_pocket=%.3f Å (n=%d, pocket_pairs=%d)',
-                     rp.chain_id, rp.res_name, rp.res_id, rr.chain_id, rr.res_name, rr.res_id, lg, lp, n, pocket_pairs)
-        elif policy == 'fixed-rank-fallback':
-            log.error('By-name and chimera-order pairing failed (n<3) for %s:%s (%s) vs %s:%s (%s); using fixed-rank fallback (n=%d).',
-                      rp.chain_id, rp.res_name, rp.res_id, rr.chain_id, rr.res_name, rr.res_id, n)
+        if not ref_ligs or not pred_ligs:
+            continue
 
-        # When --full, also compute and record the fixed-rank comparison (if primary was not fallback)
-        if args.full and policy != 'fixed-rank-fallback':
-            pr2 = pairs_fixed_rank(rp, rr)
-            if len(pr2) >= 3:
-                lg2, n2 = locked_rmsd(rp.atoms, rr.atoms, pr2, np.eye(3), np.zeros(3))
-                lp2 = lg2
-                if not args.no_pocket and pocket_pairs >= 3:
-                    lp2, _ = locked_rmsd(rp.atoms, rr.atoms, pr2, Rl, tl)
-                # add a side-by-side fixed-rank row to *both* CSVs
-                analysis_rows.append(
-                    f"ligand,{pdbid_up},{fit.n_pruned},{fit.rmsd_pruned:.3f},{fit.n_all},{fit.rmsd_all_under_pruned:.3f},{fit.rmsd_allfit:.3f},"
-                    f"{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},fixed-rank,{n2},{lg2:.3f},{lp2:.3f},{pocket_pairs}"
+        cost = np.full((len(pred_ligs), len(ref_ligs)), INF, dtype=float)
+        cache_pairs: List[List[List[Tuple[int, int]]]] = [[[] for _ in ref_ligs] for _ in pred_ligs]
+
+        for i, rp in enumerate(pred_ligs):
+            for j, rr in enumerate(ref_ligs):
+                pr = pairs_by_name(rp, rr)
+                cache_pairs[i][j] = pr
+                if len(pr) >= 3:
+                    lg_cost, _ = locked_rmsd(rp.atoms, rr.atoms, pr, np.eye(3), np.zeros(3))
+                    if math.isfinite(lg_cost):
+                        cost[i, j] = lg_cost
+
+        for j, ref_lig in enumerate(ref_ligs):
+            if not np.isfinite(cost[:, j]).any():
+                raise RuntimeError(
+                    f"By-name pairing failed (pose {pose_idx}) for reference ligand {ref_lig.res_name}"
                 )
-                data_rows.append(
-                    f"ligand,,{pdbid_up},{rp.chain_id},{rp.res_name},{rp.res_id},{rr.chain_id},{rr.res_name},{rr.res_id},fixed-rank,{n2},{lg2:.3f},{lp2:.3f},{pocket_pairs},,"
+
+        ri, cj = linear_sum_assignment(cost)
+        matches = [
+            (i, j)
+            for i, j in zip(ri, cj)
+            if np.isfinite(cost[i, j])
+        ]
+
+        for i, j in matches:
+            rp, rr = pred_ligs[i], ref_ligs[j]
+            pairs = cache_pairs[i][j]
+            lg, n = locked_rmsd(rp.atoms, rr.atoms, pairs, np.eye(3), np.zeros(3))
+            pocket_pairs = 0
+            lp = lg
+            Rl = np.eye(3)
+            tl = np.zeros(3)
+            if not args.no_pocket:
+                Rl, tl, pocket_pairs = local_pocket_fit(pred_st, ref_st, chain_pairs, rr, args.pocket_radius)
+                if pocket_pairs >= 3:
+                    lp, _ = locked_rmsd(rp.atoms, rr.atoms, pairs, Rl, tl)
+
+            analysis_rows.append(
+                ",".join(
+                    [
+                        "ligand",
+                        pdbid_up,
+                        str(pose_idx),
+                        str(fit.n_pruned),
+                        f"{fit.rmsd_pruned:.3f}",
+                        str(fit.n_all),
+                        f"{fit.rmsd_all_under_pruned:.3f}",
+                        f"{fit.rmsd_allfit:.3f}",
+                        rp.chain_id,
+                        rp.res_name,
+                        rp.res_id,
+                        rr.chain_id,
+                        rr.res_name,
+                        rr.res_id,
+                        "by-name",
+                        str(n),
+                        f"{lg:.3f}",
+                        f"{lp:.3f}",
+                        str(pocket_pairs),
+                    ]
                 )
+            )
+            data_rows.append(
+                ",".join(
+                    [
+                        "ligand",
+                        "",
+                        pdbid_up,
+                        str(pose_idx),
+                        rp.chain_id,
+                        rp.res_name,
+                        rp.res_id,
+                        rr.chain_id,
+                        rr.res_name,
+                        rr.res_id,
+                        "by-name",
+                        str(n),
+                        f"{lg:.3f}",
+                        f"{lp:.3f}",
+                        str(pocket_pairs),
+                        "",
+                        "",
+                    ]
+                )
+            )
+            result_entry = {
+                'pose_index': pose_idx,
+                'pred': {'chain': rp.chain_id, 'name': rp.res_name, 'id': rp.res_id},
+                'ref': {'chain': rr.chain_id, 'name': rr.res_name, 'id': rr.res_id},
+                'policy': 'by-name',
+                'n': n,
+                'rmsd_locked_global': lg,
+                'rmsd_locked_pocket': lp,
+                'pocket_pairs': pocket_pairs,
+            }
+            best_metrics.append(result_entry)
+
+            if (best_pose_entry is None) or (lg < best_pose_entry.get('rmsd_locked_global', float('inf'))):
+                best_pose_entry = result_entry
+                best_pose_structure = pred_st
+                best_chain_pairs = chain_pairs
+
+            log.info(
+                'Pose %d: Ligand %s:%s (%s) ↔ %s:%s (%s) — by-name locked_global=%.3f Å, locked_pocket=%.3f Å (n=%d, pocket_pairs=%d)',
+                pose_idx,
+                rp.chain_id,
+                rp.res_name,
+                rp.res_id,
+                rr.chain_id,
+                rr.res_name,
+                rr.res_id,
+                lg,
+                lp,
+                n,
+                pocket_pairs,
+            )
 
     # write CSVs
     analysis_csv = analysis_paths.analysis_csv
@@ -702,24 +930,36 @@ def main(argv: Sequence[str]|None=None) -> int:
     data_csv.write_text("\n".join(data_rows) + "\n")
 
     # summary json
-    summary = {
-        'protein_rmsd_ca_pruned': fit.rmsd_pruned,
-        'protein_pairs_pruned': fit.n_pruned,
-        'protein_rmsd_ca_all_under_pruned': fit.rmsd_all_under_pruned,
-        'protein_pairs_all': fit.n_all,
-        'protein_rmsd_ca_allfit': fit.rmsd_allfit,
+    if protein_metrics is None:
+        raise RuntimeError('Protein alignment metrics were not computed.')
+
+    summary: Dict[str, Dict | float | int | List[Dict]] = {
+        'protein_rmsd_ca_pruned': protein_metrics.rmsd_pruned,
+        'protein_pairs_pruned': protein_metrics.n_pruned,
+        'protein_rmsd_ca_all_under_pruned': protein_metrics.rmsd_all_under_pruned,
+        'protein_pairs_all': protein_metrics.n_all,
+        'protein_rmsd_ca_allfit': protein_metrics.rmsd_allfit,
         'ligand_best_metrics': best_metrics,
+        'evaluated_pose_count': len(pose_structs),
     }
+    if best_pose_entry is not None:
+        summary['best_pose'] = best_pose_entry
     summary_path = analysis_paths.summary_json
     summary_path.write_text(json.dumps(summary, indent=2))
     log.info('Wrote %s', summary_path)
 
-    # pocket preview into DATA dir
-    if not args.no_pocket and ref_ligs:
-        Rl, tl, npairs = local_pocket_fit(pred_st, ref_st, chain_pairs, ref_ligs[0], args.pocket_radius)
+    # pocket preview into DATA dir using best pose when available
+    if (
+        not args.no_pocket
+        and ref_ligs
+        and best_pose_structure is not None
+        and best_chain_pairs is not None
+    ):
+        Rl, tl, npairs = local_pocket_fit(best_pose_structure, ref_st, best_chain_pairs, ref_ligs[0], args.pocket_radius)
         if npairs >= 3:
-            apply_rt_to_structure(pred_st, Rl, tl)
-            write_transformed_structures(pred_st, 'pocket', analysis_paths.structures_dir)
+            apply_rt_to_structure(best_pose_structure, Rl, tl)
+            pocket_prefix = 'pocket' if best_pose_entry and best_pose_entry.get('pose_index', 1) == 1 else f"pocket_pose{best_pose_entry.get('pose_index', 1):02d}"
+            write_transformed_structures(best_pose_structure, pocket_prefix, analysis_paths.structures_dir)
 
     return 0
 
