@@ -1,0 +1,13 @@
+paths:
+  refs: raw_structures/benchmark_references
+  preds: model_outputs
+  analysis_root: analysis
+  analysis_proteins: analysis/proteins
+  analysis_aggregates: analysis/aggregates/boltz
+  benchmark_inputs: model_inputs/benchmark_inputs
+  model_outputs: model_outputs
+reports:
+  missing_benchmark_runs: analysis/aggregates/boltz/missing_benchmark_runs.csv
+  unrun_proteins: model_inputs/unrun_proteins.txt
+scripts:
+  pose_benchmark: scripts/pose_benchmark.py
