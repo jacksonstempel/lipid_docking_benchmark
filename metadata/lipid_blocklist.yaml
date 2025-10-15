@@ -1,0 +1,18 @@
+excluded:
+  # Detergents and amphiphiles to exclude from being considered the sole lipid binder
+  - DDM    # n-Dodecyl-beta-D-maltoside
+  - LMNG   # Lauryl Maltose Neopentyl Glycol
+  - CHAPS
+  - CHS    # cholesteryl hemisuccinate
+  - BOG    # beta-Octylglucoside (OCTYL-BETA-D-GLUCOSIDE)
+  - OG     # n-Octyl-beta-D-glucopyranoside
+  - LDAO   # lauryldimethylamine N-oxide
+  - DM     # decyl maltoside variants
+  - CYMAL7 # heptyl-maltoside
+  - CYMAL5 # pentyl-maltoside
+  - FC12   # Fos-choline 12
+  - FC14   # Fos-choline 14
+  - FC16   # Fos-choline 16
+  - SPC    # sphingomyelin analog detergents
+  - DOPG   # if used as membrane mimic in micelles (conservative exclusion)
+

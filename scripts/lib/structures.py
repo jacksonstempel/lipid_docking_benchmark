@@ -98,6 +98,28 @@ def ensure_protein_backbone(prediction: gemmi.Structure, reference: gemmi.Struct
     return combined
 
 
+def protein_bounding_box(structure: gemmi.Structure) -> Tuple[np.ndarray, np.ndarray]:
+    """Return axis-aligned bounding box (min_xyz, max_xyz) over protein heavy atoms."""
+    mins = np.array([np.inf, np.inf, np.inf], dtype=float)
+    maxs = -mins
+    any_atom = False
+    for model in structure:
+        for chain in model:
+            for residue in chain:
+                if not is_protein_res(residue):
+                    continue
+                for atom in residue:
+                    if atom.element.name.upper() == "H":
+                        continue
+                    any_atom = True
+                    v = np.array([atom.pos.x, atom.pos.y, atom.pos.z], dtype=float)
+                    mins = np.minimum(mins, v)
+                    maxs = np.maximum(maxs, v)
+    if not any_atom:
+        return np.array([0.0, 0.0, 0.0]), np.array([0.0, 0.0, 0.0])
+    return mins, maxs
+
+
 def split_models(structure: gemmi.Structure, count: int) -> List[gemmi.Structure]:
     """Return up to `count` models, each as an isolated structure."""
     total = len(structure)

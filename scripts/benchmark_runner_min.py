@@ -34,6 +34,7 @@ from scripts.lib.results_io import (
     current_timestamp,
     infer_source_label,
     resolve_summary_directory,
+    build_random_aggregate_from_details,
 )
 
 
@@ -177,7 +178,8 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     summary_dir = resolve_summary_directory(resolver.aggregates_root, source_label)
     summary_path = summary_dir / f"full_run_summary_{run_timestamp}.csv"
-    build_and_write_summary(protein_summaries, source_label, summary_path, run_timestamp)
+    extra_rows = build_random_aggregate_from_details(all_details, source_label, run_timestamp)
+    build_and_write_summary(protein_summaries, source_label, summary_path, run_timestamp, extra_rows=extra_rows)
 
     LOGGER.info("Wrote aggregate results: %s", raw_data_path)
     LOGGER.info("Wrote summary: %s", summary_path)

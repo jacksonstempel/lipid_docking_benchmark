@@ -41,6 +41,7 @@ from scripts.lib.results_io import (
     current_timestamp,
     infer_source_label,
     resolve_summary_directory,
+    build_random_aggregate_from_details,
 )
 
 LOGGER = logging.getLogger("pose_benchmark")
@@ -198,10 +199,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     raw_data_path = resolver.analysis_root / "raw_data" / "all_results.csv"
     append_all_results(result.get("details", []), raw_data_path, source_label, run_timestamp)
 
+    details = result.get("details", [])
     summaries = [(pdbid, result.get("summary", {}))]
     summary_dir = resolve_summary_directory(resolver.aggregates_root, source_label)
     summary_path = summary_dir / f"full_run_summary_{run_timestamp}.csv"
-    build_and_write_summary(summaries, source_label, summary_path, run_timestamp)
+    extra_rows = build_random_aggregate_from_details(details, source_label, run_timestamp)
+    build_and_write_summary(summaries, source_label, summary_path, run_timestamp, extra_rows=extra_rows)
     LOGGER.info("Wrote summary to %s", summary_path)
 
     best_pose = result.get("summary", {}).get("best_pose")

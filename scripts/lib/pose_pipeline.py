@@ -17,6 +17,7 @@ from .ligands import (
     load_ligand_template_names,
     locked_rmsd,
     pairs_by_name,
+    randomized_copy,
 )
 from .paths import PathResolver
 from .pockets import local_pocket_fit
@@ -25,6 +26,7 @@ from .structures import (
     ensure_protein_backbone,
     load_structure,
     split_models,
+    protein_bounding_box,
 )
 
 LOGGER = logging.getLogger(__name__)
@@ -100,6 +102,7 @@ def run_pose_benchmark(
     best_chain_pairs = None
     ligand_evaluated_total = 0
     ligand_matched_total = 0
+    random_rows: List[Dict[str, Any]] = []
 
     for pose_index, pose_structure in enumerate(pose_structures, start=1):
         LOGGER.info("Evaluating pose %d/%d", pose_index, len(pose_structures))
@@ -273,6 +276,49 @@ def run_pose_benchmark(
                 pocket_pairs,
             )
 
+        # Random ligand placement control: evaluate a randomized copy of each reference ligand
+        # using the same protein alignment and pocket fit context.
+        rng = np.random.default_rng(abs(hash(pdbid)) % (2**32))
+        box_min, box_max = protein_bounding_box(pose_with_backbone)
+        for ref_ligand in ref_ligands:
+            rand_pred = randomized_copy(ref_ligand, rng=rng, box_min=box_min, box_max=box_max)
+            atom_pairs = pairs_by_name(rand_pred, ref_ligand)
+            rmsd_global, pair_count = locked_rmsd(rand_pred.atoms, ref_ligand.atoms, atom_pairs, np.eye(3), np.zeros(3))
+            rmsd_pocket = rmsd_global
+            pocket_pairs = 0
+            if enable_pocket and not math.isinf(rmsd_global):
+                R_local, t_local, pocket_pairs = local_pocket_fit(
+                    ref_structure,
+                    chain_pairs,
+                    ref_ligand,
+                    pocket_radius,
+                )
+                if pocket_pairs >= 3:
+                    rmsd_pocket, _ = locked_rmsd(rand_pred.atoms, ref_ligand.atoms, atom_pairs, R_local, t_local)
+            random_rows.append(
+                {
+                    "record_type": "ligand_random",
+                    "pdbid": pdbid,
+                    "pose_index": pose_index,
+                    "protein_pairs_pruned": fit.n_pruned,
+                    "protein_rmsd_ca_pruned": fit.rmsd_pruned,
+                    "protein_pairs_all": fit.n_all,
+                    "protein_rmsd_ca_all_under_pruned": fit.rmsd_all_under_pruned,
+                    "protein_rmsd_ca_allfit": fit.rmsd_allfit,
+                    "pred_chain": rand_pred.chain_id,
+                    "pred_resname": rand_pred.res_name,
+                    "pred_resid": rand_pred.res_id,
+                    "ref_chain": ref_ligand.chain_id,
+                    "ref_resname": ref_ligand.res_name,
+                    "ref_resid": ref_ligand.res_id,
+                    "policy": "random",
+                    "atom_pairs": pair_count,
+                    "rmsd_locked_global": rmsd_global,
+                    "rmsd_locked_pocket": rmsd_pocket,
+                    "pocket_pairs": pocket_pairs,
+                }
+            )
+
     if protein_metrics is None:
         raise RuntimeError("Protein alignment metrics were not computed.")
 
@@ -291,6 +337,6 @@ def run_pose_benchmark(
         summary["best_pose"] = dict(best_pose_entry)
 
     return {
-        "details": detail_rows,
+        "details": [*detail_rows, *random_rows],
         "summary": summary,
     }

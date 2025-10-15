@@ -133,3 +133,47 @@ def locked_rmsd(
     P = P @ rotation + translation
     rmsd = float(np.sqrt(((P - Q) ** 2).sum() / P.shape[0]))
     return rmsd, P.shape[0]
+
+
+def _random_rotation(rng: np.random.Generator) -> np.ndarray:
+    """Generate a random 3x3 rotation matrix via a unit quaternion."""
+    u1, u2, u3 = rng.random(3)
+    q1 = np.sqrt(1 - u1) * np.sin(2 * np.pi * u2)
+    q2 = np.sqrt(1 - u1) * np.cos(2 * np.pi * u2)
+    q3 = np.sqrt(u1) * np.sin(2 * np.pi * u3)
+    q4 = np.sqrt(u1) * np.cos(2 * np.pi * u3)
+    x, y, z, w = q1, q2, q3, q4
+    return np.array(
+        [
+            [1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)],
+            [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
+            [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)],
+        ],
+        dtype=float,
+    )
+
+
+def randomized_copy(residue: SimpleResidue, *, rng: np.random.Generator, box_min: np.ndarray, box_max: np.ndarray) -> SimpleResidue:
+    """Return a copy of the residue rigidly transformed to a random position/orientation.
+
+    The translation is sampled uniformly within the provided protein bounding box.
+    """
+    atoms = residue.atoms
+    if not atoms:
+        return residue
+    R = _random_rotation(rng)
+    # Uniform within bounding box
+    t = rng.uniform(box_min, box_max)
+    # Center original residue before rotation
+    coords = np.stack([a.xyz for a in atoms], axis=0)
+    centroid = coords.mean(axis=0)
+    new_atoms: List[SimpleAtom] = []
+    for a in atoms:
+        v = (a.xyz - centroid) @ R + t
+        new_atoms.append(SimpleAtom(name=a.name, element=a.element, xyz=v))
+    return SimpleResidue(
+        chain_id="R",
+        res_name=residue.res_name,
+        res_id="rand",
+        atoms=new_atoms,
+    )

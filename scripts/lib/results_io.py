@@ -214,13 +214,62 @@ def build_and_write_summary(
     source_label: str,
     summary_path: Path,
     run_timestamp: str,
+    *,
+    extra_rows: Sequence[dict] | None = None,
 ) -> None:
     protein_rows = [
         _build_protein_summary_row(pdbid, summary, source_label, run_timestamp)
         for pdbid, summary in per_protein_summaries
     ]
     aggregate_rows = _aggregate_metric_rows(protein_rows, source_label, run_timestamp)
-    write_summary_file([*protein_rows, *aggregate_rows], summary_path)
+    rows = [*protein_rows, *aggregate_rows]
+    if extra_rows:
+        rows.extend(extra_rows)
+    write_summary_file(rows, summary_path)
+
+
+def build_random_aggregate_from_details(
+    detail_rows: Sequence[dict], source_label: str, run_timestamp: str
+) -> List[dict]:
+    """Compute simple aggregate metrics for random ligand controls if present."""
+    values = [
+        float(row.get("rmsd_locked_global", 0.0))
+        for row in detail_rows
+        if row.get("record_type") == "ligand_random" and str(row.get("rmsd_locked_global", "")) != ""
+    ]
+    out: List[dict] = []
+    if values:
+        m = mean(values)
+        med = median(values)
+        for name, val in (
+            ("mean_random_locked_global_rmsd", m),
+            ("median_random_locked_global_rmsd", med),
+        ):
+            out.append(
+                {
+                    "run_timestamp": run_timestamp,
+                    "source_label": source_label,
+                    "record_type": "aggregate_metric",
+                    "metric_name": name,
+                    "metric_value": _format_value(val),
+                    "pdbid": "",
+                    "best_pose_index": "",
+                    "best_pred_chain": "",
+                    "best_pred_resname": "",
+                    "best_pred_resid": "",
+                    "best_ref_chain": "",
+                    "best_ref_resname": "",
+                    "best_ref_resid": "",
+                    "best_atom_pairs": "",
+                    "best_locked_global_rmsd": "",
+                    "best_locked_pocket_rmsd": "",
+                    "protein_rmsd_ca_pruned": "",
+                    "protein_pairs_pruned": "",
+                    "evaluated_pose_count": "",
+                    "ligand_matched_count": "",
+                }
+            )
+    return out
 
 
 def current_timestamp() -> str:
