@@ -1,0 +1,64 @@
+REMARK  Name = docking/prep/1YIV/ligand.pdb
+REMARK  15 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: N1_1  and  O1_2
+REMARK    2  A    between atoms: N1_1  and  CM1_3
+REMARK    3  A    between atoms: N1_1  and  CM2_4
+REMARK    4  A    between atoms: N1_1  and  C1_5
+REMARK    5  A    between atoms: C1_5  and  C2_6
+REMARK    6  A    between atoms: C2_6  and  C3_7
+REMARK    7  A    between atoms: C3_7  and  C4_8
+REMARK    8  A    between atoms: C4_8  and  C5_9
+REMARK    9  A    between atoms: C5_9  and  C6_10
+REMARK   10  A    between atoms: C6_10  and  C7_11
+REMARK   11  A    between atoms: C7_11  and  C8_12
+REMARK   12  A    between atoms: C8_12  and  C9_13
+REMARK   13  A    between atoms: C9_13  and  C10_14
+REMARK   14  A    between atoms: C10_14  and  C11_15
+REMARK   15  A    between atoms: C11_15  and  C12_16
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C4  LDA A2001     -10.849  23.069  12.271  0.00  0.00    -0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C3  LDA A2001      -9.633  23.433  11.417  0.00  0.00    -0.002 C 
+BRANCH   2   3
+ATOM      3  C2  LDA A2001      -8.680  22.252  11.311  0.00  0.00    -0.017 C 
+BRANCH   3   4
+ATOM      4  C1  LDA A2001      -7.509  22.557  10.392  0.00  0.00    -0.028 C 
+BRANCH   4   5
+ATOM      5  N1  LDA A2001      -6.918  21.293   9.904  0.00  0.00    +0.428 N 
+ATOM      6  CM1 LDA A2001      -5.582  21.529   9.348  0.00  0.00    -0.045 C 
+ATOM      7  CM2 LDA A2001      -7.727  20.675   8.833  0.00  0.00    -0.045 C 
+BRANCH   5   8
+ATOM      8  O1  LDA A2001      -6.767  20.443  10.811  0.00  0.00    -0.290 OA
+ATOM      9  H   LDA A2001      -6.378  19.637  10.437  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  10
+ATOM     10  C5  LDA A2001     -12.043  23.978  12.017  0.00  0.00    -0.000 C 
+BRANCH  10  11
+ATOM     11  C6  LDA A2001     -13.336  23.324  12.467  0.00  0.00    -0.000 C 
+BRANCH  11  12
+ATOM     12  C7  LDA A2001     -14.545  24.260  12.490  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C8  LDA A2001     -15.497  24.070  11.300  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C9  LDA A2001     -16.677  25.048  11.371  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C10 LDA A2001     -17.615  25.022  10.151  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C11 LDA A2001     -18.779  24.023  10.278  0.00  0.00    +0.000 C 
+ATOM     17  C12 LDA A2001     -19.926  24.333   9.314  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   1  10
+TORSDOF 12

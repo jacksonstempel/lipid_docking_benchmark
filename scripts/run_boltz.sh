@@ -17,7 +17,7 @@ ID_RAW="$1"
 ID_UPPER="${ID_RAW^^}"
 ID_LOWER="${ID_RAW,,}"
 
-INPUT_ROOT="$HOME/lipid_docking_benchmark/model_inputs/benchmark_inputs"
+INPUT_ROOT="$HOME/lipid_docking_benchmark/model_inputs/benchmark_expansion"
 CAND1="${INPUT_ROOT}/${ID_RAW}.yaml"
 CAND2="${INPUT_ROOT}/${ID_UPPER}.yaml"
 CAND3="${INPUT_ROOT}/${ID_LOWER}.yaml"
@@ -33,7 +33,7 @@ fi
 
 # ---------- 2) derive PDB ID & output dir ------------------------------------
 PDB_ID="$ID_UPPER"
-BASE_OUT="$HOME/lipid_docking_benchmark/model_outputs"
+BASE_OUT="$HOME/lipid_docking_benchmark/model_outputs/boltz"
 OUT_DIR="${BASE_OUT}/${PDB_ID}_output"
 mkdir -p "$OUT_DIR"
 echo "$OUT_DIR"

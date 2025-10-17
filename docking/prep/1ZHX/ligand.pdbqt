@@ -1,0 +1,65 @@
+REMARK  Name = docking/prep/1ZHX/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C17_20  and  C20_21
+REMARK    5  A    between atoms: C20_21  and  C21_22
+REMARK    6  A    between atoms: C20_21  and  C22_23
+REMARK    7  A    between atoms: C22_23  and  C23_24
+REMARK    8  A    between atoms: C23_24  and  C24_25
+REMARK    9  A    between atoms: C24_25  and  C25_26
+REMARK   10  A    between atoms: C25_26  and  C26_27
+REMARK   11  A    between atoms: C25_26  and  C27_28
+REMARK   12  A    between atoms: C25_26  and  O2_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HC3 A1001      57.564  32.601  28.880  0.00  0.00    +0.000 C 
+ATOM      2  C13 HC3 A1001      56.778  33.906  28.708  0.00  0.00    +0.000 C 
+ATOM      3  C12 HC3 A1001      57.585  35.120  29.181  0.00  0.00    +0.000 C 
+ATOM      4  C11 HC3 A1001      57.843  35.035  30.690  0.00  0.00    +0.000 C 
+ATOM      5  C9  HC3 A1001      56.547  34.924  31.505  0.00  0.00    +0.004 C 
+ATOM      6  C10 HC3 A1001      56.795  34.840  33.018  0.00  0.00    +0.015 C 
+ATOM      7  C19 HC3 A1001      57.822  33.750  33.342  0.00  0.00    +0.004 C 
+ATOM      8  C1  HC3 A1001      57.294  36.194  33.537  0.00  0.00    +0.006 C 
+ATOM      9  C2  HC3 A1001      57.323  36.294  35.067  0.00  0.00    +0.034 C 
+ATOM     10  C3  HC3 A1001      55.920  36.091  35.647  0.00  0.00    +0.156 C 
+ATOM     11  C4  HC3 A1001      55.408  34.698  35.269  0.00  0.00    +0.055 C 
+ATOM     12  C5  HC3 A1001      55.493  34.493  33.754  0.00  0.00    -0.047 C 
+ATOM     13  C6  HC3 A1001      54.383  34.013  33.068  0.00  0.00    -0.035 C 
+ATOM     14  C7  HC3 A1001      54.292  33.798  31.697  0.00  0.00    +0.025 C 
+ATOM     15  C8  HC3 A1001      55.659  33.776  31.005  0.00  0.00    +0.005 C 
+ATOM     16  C14 HC3 A1001      55.464  33.909  29.491  0.00  0.00    +0.000 C 
+ATOM     17  C15 HC3 A1001      54.673  32.793  28.809  0.00  0.00    +0.000 C 
+ATOM     18  C16 HC3 A1001      54.949  33.086  27.331  0.00  0.00    +0.000 C 
+ATOM     19  C17 HC3 A1001      56.150  34.041  27.316  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HC3 A1001      55.954  36.220  37.071  0.00  0.00    -0.223 OA
+ATOM     21  H   HC3 A1001      56.547  35.548  37.442  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  19  22
+ATOM     22  C20 HC3 A1001      57.054  33.809  26.098  0.00  0.00    +0.000 C 
+ATOM     23  C21 HC3 A1001      58.152  34.872  26.013  0.00  0.00    +0.000 C 
+BRANCH  22  24
+ATOM     24  C22 HC3 A1001      56.189  33.817  24.833  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C23 HC3 A1001      56.937  33.507  23.534  0.00  0.00    +0.003 C 
+BRANCH  25  26
+ATOM     26  C24 HC3 A1001      55.918  33.275  22.414  0.00  0.00    +0.030 C 
+BRANCH  26  27
+ATOM     27  C25 HC3 A1001      56.539  33.181  21.017  0.00  0.00    +0.127 C 
+ATOM     28  C26 HC3 A1001      57.600  32.079  20.962  0.00  0.00    +0.033 C 
+ATOM     29  C27 HC3 A1001      55.439  32.872  19.999  0.00  0.00    +0.033 C 
+BRANCH  27  30
+ATOM     30  O2  HC3 A1001      57.135  34.442  20.705  0.00  0.00    -0.226 OA
+ATOM     31  H   HC3 A1001      57.534  34.401  19.822  0.00  0.00    +0.000 HD
+ENDBRANCH  27  30
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  22  24
+ENDBRANCH  19  22
+TORSDOF 7

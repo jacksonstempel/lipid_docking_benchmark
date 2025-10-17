@@ -1,0 +1,60 @@
+REMARK  Name = docking/prep/5WVR/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1301      14.297   1.574  23.162  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1301      13.254   2.429  22.434  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1301      13.469   3.915  22.729  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1301      14.857   4.334  22.238  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1301      15.933   3.418  22.826  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1301      17.055   3.984  23.422  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1301      18.100   3.297  24.028  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1301      18.113   1.803  23.684  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1301      16.703   1.199  23.748  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1301      15.745   1.897  22.773  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1301      16.736  -0.325  23.566  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1301      17.732  -1.023  24.503  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1301      19.134  -0.430  24.340  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1301      19.026   1.061  24.663  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1301      20.494   1.484  24.679  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1301      21.087   0.384  25.565  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1301      20.127  -0.806  25.445  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1301      19.699  -0.680  22.935  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1301      16.014   1.446  21.333  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1301      20.872  -2.135  25.264  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1301      19.888  -3.305  25.309  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1301      21.932  -2.299  26.359  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1301      23.138  -3.131  25.914  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1301      24.328  -2.980  26.867  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1301      25.551  -3.798  26.436  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1301      25.292  -5.301  26.561  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1301      26.800  -3.407  27.228  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1301      12.472   4.690  22.057  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1301      12.537   4.541  21.101  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
