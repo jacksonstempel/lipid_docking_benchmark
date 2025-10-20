@@ -34,6 +34,8 @@ def _resolve_path(base: Path, raw: Optional[str | os.PathLike[str]], default: Pa
 class PathSettings:
     refs: Path
     preds: Path
+    boltz_preds: Path
+    vina_preds: Path
     analysis_root: Path
     proteins_dir: Path
     aggregates_dir: Path
@@ -77,6 +79,8 @@ def load_config(path: Optional[str | os.PathLike[str]] = None) -> Config:
 
     refs = _resolve_path(base_dir, paths_cfg.get("refs"), "raw_structures/benchmark_references")
     preds = _resolve_path(base_dir, paths_cfg.get("preds", paths_cfg.get("model_outputs")), "model_outputs")
+    boltz_preds = _resolve_path(base_dir, paths_cfg.get("boltz_preds"), preds / "boltz")
+    vina_preds = _resolve_path(base_dir, paths_cfg.get("vina_preds"), preds / "vina")
     analysis_root = _resolve_path(base_dir, paths_cfg.get("analysis_root"), "analysis")
     proteins_dir = _resolve_path(
         base_dir,
@@ -121,6 +125,8 @@ def load_config(path: Optional[str | os.PathLike[str]] = None) -> Config:
     paths = PathSettings(
         refs=refs,
         preds=preds,
+        boltz_preds=boltz_preds,
+        vina_preds=vina_preds,
         analysis_root=analysis_root,
         proteins_dir=proteins_dir,
         aggregates_dir=aggregates_dir,

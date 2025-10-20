@@ -7,6 +7,17 @@ from typing import Any, Dict, List, Sequence, Tuple
 import numpy as np
 
 from .constants import MIN_LIGAND_HEAVY_ATOMS
+
+# Optional RDKit import for chemistry-aware atom mapping
+try:  # pragma: no cover - optional dependency
+    from rdkit import Chem
+    from rdkit.Chem import rdchem
+    from rdkit.Chem import rdFMCS
+    from rdkit.Geometry import Point3D
+except Exception:  # pragma: no cover - gracefully degrade when RDKit absent
+    Chem = None  # type: ignore
+    rdchem = None  # type: ignore
+    rdFMCS = None  # type: ignore
 from .structures import is_protein_res, is_water_res, load_structure
 
 
@@ -31,9 +42,28 @@ class SimpleResidue:
         return {"chain": self.chain_id, "name": self.res_name, "id": self.res_id}
 
 
-def load_ligand_template_names(project_root: Path, pdbid: str, *, include_h: bool = False) -> List[str] | None:
-    """Return atom names from the docking prep template (if present)."""
-    template_path = project_root / "docking" / "prep" / pdbid / "ligand.pdb"
+def load_ligand_template_names(
+    project_root: Path,
+    pdbid: str,
+    *,
+    include_h: bool = False,
+    prefer_pdbqt: bool | None = None,
+) -> List[str] | None:
+    """Return atom names from the docking prep template (if present).
+
+    Prefer the PDBQT used for docking if available (to preserve the atom order
+    that Vina will output), falling back to the PDB copy otherwise.
+    """
+    prep_dir = project_root / "docking" / "prep" / pdbid
+    pdbqt_path = prep_dir / "ligand.pdbqt"
+    pdb_path = prep_dir / "ligand.pdb"
+    if prefer_pdbqt is True:
+        template_path = pdbqt_path if pdbqt_path.is_file() else pdb_path
+    elif prefer_pdbqt is False:
+        template_path = pdb_path if pdb_path.is_file() else pdbqt_path
+    else:
+        # Default preference: PDB (unique atom names), then PDBQT
+        template_path = pdb_path if pdb_path.is_file() else pdbqt_path
     if not template_path.is_file():
         return None
     try:
@@ -116,6 +146,128 @@ def pairs_by_name(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, in
     lookup_ref = {atom.name.upper(): index for index, atom in enumerate(ref.atoms) if atom.element != "H"}
     common = sorted(set(lookup_pred) & set(lookup_ref))
     return [(lookup_pred[name], lookup_ref[name]) for name in common]
+
+
+# Simplistic covalent radii (Å) for bond inference
+_COV_RADII = {
+    "H": 0.31,
+    "C": 0.76,
+    "N": 0.71,
+    "O": 0.66,
+    "F": 0.57,
+    "P": 1.07,
+    "S": 1.05,
+    "CL": 1.02,
+    "BR": 1.20,
+    "I": 1.39,
+}
+
+
+def _element_radius(sym: str) -> float:
+    return _COV_RADII.get(sym.upper(), 0.77)
+
+
+def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | None, List[int]]:
+    """Construct an RDKit molecule from a residue via proximity-based bonding.
+
+    Returns (mol, rd_to_res_index). When RDKit is unavailable, returns (None, []).
+    """
+    if Chem is None or rdchem is None:  # RDKit not available
+        return None, []
+
+    atoms = residue.atoms
+    if not atoms:
+        return None, []
+
+    # Build atoms
+    rw = rdchem.RWMol()
+    rd_to_res: List[int] = []
+    for idx, a in enumerate(atoms):
+        if a.element == "H":
+            continue
+        try:
+            z = Chem.GetPeriodicTable().GetAtomicNumber(a.element)
+        except Exception:
+            z = 6  # default to carbon
+        atom = rdchem.Atom(int(z))
+        rd_idx = rw.AddAtom(atom)
+        rd_to_res.append(idx)
+
+    # Coordinates
+    mol = rw.GetMol()
+    conf = rdchem.Conformer(mol.GetNumAtoms())
+    for rd_idx, res_idx in enumerate(rd_to_res):
+        xyz = atoms[res_idx].xyz
+        conf.SetAtomPosition(rd_idx, Point3D(float(xyz[0]), float(xyz[1]), float(xyz[2])))
+    mol.AddConformer(conf, assignId=True)
+
+    # Infer bonds from distances with a tolerance
+    coords = np.array([atoms[i].xyz for i in rd_to_res], float)
+    n = len(rd_to_res)
+    for i in range(n):
+        ei = atoms[rd_to_res[i]].element
+        ri = _element_radius(ei)
+        for j in range(i + 1, n):
+            ej = atoms[rd_to_res[j]].element
+            rj = _element_radius(ej)
+            d = float(np.linalg.norm(coords[i] - coords[j]))
+            # Allow a generous tolerance to accommodate crystallographic noise
+            if d <= (ri + rj + 0.5):
+                try:
+                    rw.AddBond(i, j, rdchem.BondType.SINGLE)
+                except Exception:
+                    pass
+
+    try:
+        out = rw.GetMol()
+        Chem.SanitizeMol(out)
+    except Exception:
+        out = rw.GetMol()
+    return out, rd_to_res
+
+
+def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, int]]:
+    """Map atoms using RDKit MCS (element-level) and return index pairs.
+
+    Falls back to an empty list if RDKit is unavailable or mapping fails.
+    """
+    if Chem is None or rdFMCS is None:
+        return []
+    mol_p, map_p = _build_rdkit_mol_from_residue(pred)
+    mol_r, map_r = _build_rdkit_mol_from_residue(ref)
+    if mol_p is None or mol_r is None or mol_p.GetNumAtoms() == 0 or mol_r.GetNumAtoms() == 0:
+        return []
+
+    try:
+        mcs = rdFMCS.FindMCS(
+            [mol_p, mol_r],
+            atomCompare=rdFMCS.AtomCompare.CompareElements,
+            bondCompare=rdFMCS.BondCompare.CompareAny,
+            ringMatchesRingOnly=True,
+            completeRingsOnly=False,
+            timeout=5,
+        )
+        if not mcs or not mcs.smartsString:
+            return []
+        query = Chem.MolFromSmarts(mcs.smartsString)
+        if query is None:
+            return []
+        match_p = mol_p.GetSubstructMatches(query)
+        match_r = mol_r.GetSubstructMatches(query)
+        if not match_p or not match_r:
+            return []
+        # Take first match (maximum size by MCS definition)
+        a_p = list(match_p[0])
+        a_r = list(match_r[0])
+        if len(a_p) != len(a_r) or len(a_p) < 3:
+            return []
+        # Translate RDKit indices back to residue atom indices
+        pairs: List[Tuple[int, int]] = []
+        for ip, ir in zip(a_p, a_r):
+            pairs.append((map_p[ip], map_r[ir]))
+        return pairs
+    except Exception:
+        return []
 
 
 def locked_rmsd(

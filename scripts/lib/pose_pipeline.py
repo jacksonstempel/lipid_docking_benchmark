@@ -16,6 +16,7 @@ from .ligands import (
     filter_large_ligands,
     load_ligand_template_names,
     locked_rmsd,
+    pairs_by_rdkit,
     pairs_by_name,
     randomized_copy,
 )
@@ -63,9 +64,17 @@ def _protein_alignment_pairs(chain_pairs) -> Tuple[np.ndarray, np.ndarray]:
     return np.stack(coords_pred, axis=0), np.stack(coords_ref, axis=0)
 
 
-def _template_names(project_root: Path, pdbid: str, include_h: bool) -> List[str] | None:
+def _template_names(project_root: Path, pdbid: str, pred_path: Path, include_h: bool) -> List[str] | None:
     try:
-        return load_ligand_template_names(project_root, pdbid, include_h=include_h)
+        # For Vina PDBQT outputs, prefer PDB template names (unique) rather than
+        # PDBQT names (often generic like 'C', 'O').
+        prefer_pdbqt = False if pred_path.suffix.lower() == ".pdbqt" else None
+        return load_ligand_template_names(
+            project_root,
+            pdbid,
+            include_h=include_h,
+            prefer_pdbqt=prefer_pdbqt,
+        )
     except Exception:
         return None
 
@@ -93,7 +102,7 @@ def run_pose_benchmark(
     ref_ligands_all = collect_ligands(ref_structure, include_h=include_h)
     ref_ligands = ref_ligands_all if include_small else filter_large_ligands(ref_ligands_all)
 
-    template_names = _template_names(project_root, pdbid, include_h)
+    template_names = _template_names(project_root, pdbid, pred_path, include_h)
 
     detail_rows: List[Dict[str, Any]] = []
     best_metrics: List[LigandMatch] = []
@@ -179,10 +188,19 @@ def run_pose_benchmark(
         cached_pairs: List[List[List[Tuple[int, int]]]] = [
             [[] for _ in ref_ligands] for _ in pred_ligands
         ]
+        pair_policies: List[List[str]] = [["" for _ in ref_ligands] for _ in pred_ligands]
         for i, pred_ligand in enumerate(pred_ligands):
             for j, ref_ligand in enumerate(ref_ligands):
-                atom_pairs = pairs_by_name(pred_ligand, ref_ligand)
+                # Prefer chemistry-aware mapping via RDKit; fallback to by-name
+                rd_pairs = pairs_by_rdkit(pred_ligand, ref_ligand)
+                if len(rd_pairs) >= 3:
+                    atom_pairs = rd_pairs
+                    policy = "chem"
+                else:
+                    atom_pairs = pairs_by_name(pred_ligand, ref_ligand)
+                    policy = "by-name"
                 cached_pairs[i][j] = atom_pairs
+                pair_policies[i][j] = policy
                 if len(atom_pairs) >= 3:
                     lg_cost, _ = locked_rmsd(pred_ligand.atoms, ref_ligand.atoms, atom_pairs, np.eye(3), np.zeros(3))
                     if math.isfinite(lg_cost):
@@ -201,6 +219,7 @@ def run_pose_benchmark(
             pred_ligand = pred_ligands[i]
             ref_ligand = ref_ligands[j]
             atom_pairs = cached_pairs[i][j]
+            policy = pair_policies[i][j] if pair_policies else "by-name"
             rmsd_global, pair_count = locked_rmsd(
                 pred_ligand.atoms, ref_ligand.atoms, atom_pairs, np.eye(3), np.zeros(3)
             )
@@ -234,7 +253,7 @@ def run_pose_benchmark(
                     "ref_chain": ref_ligand.chain_id,
                     "ref_resname": ref_ligand.res_name,
                     "ref_resid": ref_ligand.res_id,
-                    "policy": "by-name",
+                    "policy": policy,
                     "atom_pairs": pair_count,
                     "rmsd_locked_global": rmsd_global,
                     "rmsd_locked_pocket": rmsd_pocket,
@@ -246,7 +265,7 @@ def run_pose_benchmark(
                 pose_index=pose_index,
                 pred=pred_ligand.to_dict(),
                 ref=ref_ligand.to_dict(),
-                policy="by-name",
+                policy=policy,
                 n=pair_count,
                 rmsd_locked_global=rmsd_global,
                 rmsd_locked_pocket=rmsd_pocket,
@@ -262,7 +281,7 @@ def run_pose_benchmark(
                 best_chain_pairs = chain_pairs
 
             LOGGER.info(
-                "Pose %d: Ligand %s:%s (%s) ↔ %s:%s (%s) — by-name locked_global=%.3f Å, locked_pocket=%.3f Å (n=%d, pocket_pairs=%d)",
+                "Pose %d: Ligand %s:%s (%s) ↔ %s:%s (%s) — %s locked_global=%.3f Å, locked_pocket=%.3f Å (n=%d, pocket_pairs=%d)",
                 pose_index,
                 pred_ligand.chain_id,
                 pred_ligand.res_name,
@@ -270,6 +289,7 @@ def run_pose_benchmark(
                 ref_ligand.chain_id,
                 ref_ligand.res_name,
                 ref_ligand.res_id,
+                policy,
                 rmsd_global,
                 rmsd_pocket,
                 pair_count,

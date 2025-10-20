@@ -202,6 +202,30 @@ def find_prediction_cif(pdbid: str, preds_root: Path) -> Optional[Path]:
     return sorted(matches, key=score)[0]
 
 
+def find_vina_pose(pdbid: str, preds_root: Path) -> Optional[Path]:
+    """Locate the AutoDock Vina pose (PDBQT) for the given target."""
+    pid = normalize_pdbid(pdbid)
+    base = preds_root / pid
+    if not base.exists():
+        return None
+
+    latest = base / "latest" / f"{pid}_vina_pose.pdbqt"
+    if latest.is_file():
+        return latest
+
+    candidates = [p for p in base.glob(f"vina_run_*/*_vina_pose.pdbqt") if p.is_file()]
+    if not candidates:
+        return None
+
+    def mtime(path: Path) -> float:
+        try:
+            return path.stat().st_mtime
+        except Exception:
+            return 0.0
+
+    return max(candidates, key=mtime)
+
+
 def list_candidate_ids(refs_root: Path) -> list[str]:
     """Discover PDB IDs from the references root."""
     seen: set[str] = set()

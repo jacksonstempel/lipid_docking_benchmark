@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
-"""Deterministic batch runner for the pose benchmark pipeline.
+"""Batch pose benchmarking for Boltz and Vina predictions.
 
-Loads repository defaults from config.yaml, executes the pose pipeline for
-each target, and writes unified aggregate outputs under analysis/raw_data and
-analysis/aggregates/<label>/.
+The runner loads repository defaults from ``config.yaml`` and, by default,
+evaluates every protein that has predictions from both Boltz and Vina plus a
+reference structure. Results are written to a single timestamped CSV under the
+analysis directory and contain paired rows (Boltz then Vina) for each PDB ID.
 """
 from __future__ import annotations
 
 import argparse
+import csv
 import logging
 import sys
 from dataclasses import dataclass
+import tempfile
+import gemmi
 from pathlib import Path
-from typing import List, Optional
+from typing import Dict, List, Optional, Sequence, Tuple
 
 _SCRIPT_ROOT = Path(__file__).resolve().parent
 _PROJECT_ROOT = _SCRIPT_ROOT.parent
@@ -24,28 +28,37 @@ from scripts.lib.paths import (
     PathResolver,
     find_prediction_cif,
     find_reference_cif,
-    list_candidate_ids,
+    find_vina_pose,
     normalize_pdbid,
 )
 from scripts.lib.pose_pipeline import run_pose_benchmark
-from scripts.lib.results_io import (
-    append_all_results,
-    build_and_write_summary,
-    current_timestamp,
-    infer_source_label,
-    resolve_summary_directory,
-    build_random_aggregate_from_details,
-)
+from scripts.lib.results_io import current_timestamp
+from scripts.lib.structures import is_protein_res, load_structure
 
 
 LOGGER = logging.getLogger("benchmark_runner")
 
+OUTPUT_COLUMNS = [
+    "pdb_id",
+    "method",
+    "protein_rmsd",
+    "ligand",
+    "rmsd_global",
+    "rmsd_pocket",
+    "n_residues",
+    "policy",
+]
+
 
 @dataclass
 class Target:
+    """Container for a benchmark-ready protein."""
+
     pdbid: str
     ref: Path
-    pred: Path
+    boltz_pred: Path
+    vina_pred: Path
+    residue_count: int
 
 
 def _read_ids(path: Optional[Path]) -> Optional[List[str]]:
@@ -59,49 +72,132 @@ def _read_ids(path: Optional[Path]) -> Optional[List[str]]:
     return ids or None
 
 
-def discover_targets(
-    resolver: PathResolver,
-    ids: Optional[List[str]],
+def _ids_from_boltz(root: Path) -> set[str]:
+    ids: set[str] = set()
+    if not root.exists():
+        return ids
+    for entry in root.iterdir():
+        if not entry.is_dir():
+            continue
+        name = entry.name
+        if name.endswith("_output"):
+            ids.add(normalize_pdbid(name.split("_", 1)[0]))
+    return ids
+
+
+def _ids_from_vina(root: Path) -> set[str]:
+    if not root.exists():
+        return set()
+    return {normalize_pdbid(entry.name) for entry in root.iterdir() if entry.is_dir()}
+
+
+def _count_protein_residues(ref_path: Path) -> int:
+    structure = load_structure(ref_path)
+    count = 0
+    for model in structure:
+        for chain in model:
+            for residue in chain:
+                if is_protein_res(residue):
+                    count += 1
+    return count
+
+
+def _discover_targets(
+    *,
+    refs_root: Path,
+    boltz_root: Path,
+    vina_root: Path,
+    ids: Optional[Sequence[str]],
     verbose: bool,
 ) -> List[Target]:
     if ids:
-        todo = [normalize_pdbid(pid) for pid in ids if normalize_pdbid(pid)]
+        candidates = [normalize_pdbid(pid) for pid in ids if normalize_pdbid(pid)]
     else:
-        todo = list_candidate_ids(resolver.refs_root)
+        candidates = sorted(_ids_from_boltz(boltz_root) & _ids_from_vina(vina_root))
 
     targets: List[Target] = []
-    for pid in todo:
-        ref = find_reference_cif(pid, resolver.refs_root)
+    for pid in candidates:
+        ref = find_reference_cif(pid, refs_root)
         if ref is None:
             if verbose:
-                LOGGER.warning("[WARN] Missing ref for %s", pid)
+                LOGGER.warning("[WARN] Missing reference for %s", pid)
             continue
-        pred = find_prediction_cif(pid, resolver.preds_root)
-        if pred is None:
+
+        boltz_pred = find_prediction_cif(pid, boltz_root)
+        if boltz_pred is None:
             if verbose:
-                LOGGER.warning("[WARN] Missing pred for %s", pid)
+                LOGGER.warning("[WARN] Missing Boltz prediction for %s", pid)
             continue
-        targets.append(Target(pid, ref, pred))
+
+        vina_pred = find_vina_pose(pid, vina_root)
+        if vina_pred is None:
+            if verbose:
+                LOGGER.warning("[WARN] Missing Vina pose for %s", pid)
+            continue
+
+        residue_count = _count_protein_residues(ref)
+        targets.append(Target(pid, ref.resolve(), boltz_pred.resolve(), vina_pred.resolve(), residue_count))
+
     return targets
+
+
+def _build_row(
+    *,
+    pid: str,
+    method: str,
+    residue_count: int,
+    summary: Dict[str, object],
+) -> Dict[str, object]:
+    protein_rmsd = summary.get("protein_rmsd_ca_pruned")
+    best_pose = summary.get("best_pose") or {}
+
+    def _best_value(key: str) -> float | None:
+        value = best_pose.get(key)
+        if value is None:
+            return None
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return None
+
+    ligand_data = best_pose.get("ref") or best_pose.get("pred") or {}
+    ligand_label = ligand_data.get("name") or ""
+    policy = best_pose.get("policy") or ""
+
+    rmsd_global = _best_value("rmsd_locked_global")
+    rmsd_pocket = _best_value("rmsd_locked_pocket")
+
+    row = {
+        "pdb_id": pid,
+        "method": method,
+        "protein_rmsd": 0.0 if method == "vina" else (float(protein_rmsd) if protein_rmsd is not None else ""),
+        "ligand": ligand_label,
+        "rmsd_global": rmsd_global if rmsd_global is not None else "",
+        "rmsd_pocket": rmsd_pocket if rmsd_pocket is not None else "",
+        "n_residues": residue_count,
+        "policy": policy,
+    }
+    return row
 
 
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Batch runner for pose benchmarking with unified outputs",
+        description="Batch runner for pose benchmarking using Boltz and Vina predictions",
     )
     parser.add_argument("--config", default=None, help="Path to config file (default: config.yaml)")
     parser.add_argument("--refs", default=None, help="Override references root directory")
-    parser.add_argument("--preds", default=None, help="Override predictions root directory")
-    parser.add_argument("--analysis-dir", default=None, help="Override analysis root directory")
-    parser.add_argument("--aggregates-dir", default=None, help="Override aggregate output directory")
+    parser.add_argument("--boltz-preds", default=None, help="Override Boltz predictions root directory")
+    parser.add_argument("--vina-preds", default=None, help="Override Vina predictions root directory")
+    parser.add_argument("--analysis-dir", default=None, help="Override analysis output directory")
+    parser.add_argument("--vina-topk", type=int, default=1, help="Number of Vina poses to evaluate per target across candidate files")
+    parser.add_argument("--vina-all-runs", action="store_true", help="Consider poses from all vina_run_* directories (not only latest)")
     parser.add_argument("--ids", type=Path, help="Optional text file of PDB IDs (one per line)")
     parser.add_argument("--pose-count", type=int, default=1, help="Number of poses to evaluate per prediction")
     parser.add_argument("--include-h", action="store_true", help="Include hydrogens when pairing ligands")
-    parser.add_argument("--include-small", action="store_true", help="Include small ligands below the heavy-atom threshold")
+    parser.add_argument("--include-small", action="store_true", help="Include ligands below the heavy-atom threshold")
     parser.add_argument("--no-pocket", action="store_true", help="Disable pocket-local alignment")
     parser.add_argument("--pocket-radius", type=float, default=5.0, help="Å radius for pocket Cα alignment")
-    parser.add_argument("--full", action="store_true", help="Capture per-pair protein diagnostics")
-    parser.add_argument("--source-label", default=None, help="Label for aggregate outputs (default: inferred from prediction path)")
+    parser.add_argument("--full", action="store_true", help="Capture per-pair protein diagnostics (slower)")
     parser.add_argument("-v", "--verbose", action="store_true", help="Verbose logging")
     return parser
 
@@ -116,76 +212,147 @@ def main(argv: Optional[List[str]] = None) -> int:
     )
 
     config = load_config(args.config)
-    resolver = PathResolver(
-        config,
-        refs=args.refs,
-        preds=args.preds,
-        analysis_dir=args.analysis_dir,
-        aggregates_dir=args.aggregates_dir,
-    )
-
-    run_timestamp = current_timestamp()
-    source_candidates: List[Path | str] = []
-    if args.preds:
-        source_candidates.append(Path(args.preds))
-    else:
-        source_candidates.append(resolver.preds_root)
-    source_label = args.source_label or infer_source_label(source_candidates)
+    refs_root = Path(args.refs).expanduser().resolve() if args.refs else config.paths.refs
+    boltz_root = Path(args.boltz_preds).expanduser().resolve() if args.boltz_preds else config.paths.boltz_preds
+    vina_root = Path(args.vina_preds).expanduser().resolve() if args.vina_preds else config.paths.vina_preds
+    analysis_root = Path(args.analysis_dir).expanduser().resolve() if args.analysis_dir else config.paths.analysis_root
+    analysis_root.mkdir(parents=True, exist_ok=True)
 
     ids_list = _read_ids(args.ids)
     if ids_list and args.verbose:
         LOGGER.info("Loaded %d IDs from %s", len(ids_list), args.ids)
 
-    targets = discover_targets(resolver, ids_list, args.verbose)
+    targets = _discover_targets(
+        refs_root=refs_root,
+        boltz_root=boltz_root,
+        vina_root=vina_root,
+        ids=ids_list,
+        verbose=args.verbose,
+    )
     if not targets:
-        LOGGER.error("No targets found. Check --refs/--preds and --ids.")
+        LOGGER.error("No targets found with reference + Boltz + Vina predictions.")
         return 2
 
-    all_details: List[dict] = []
-    protein_summaries: List[tuple[str, dict]] = []
-    failures: List[str] = []
+    boltz_resolver = PathResolver(
+        config,
+        refs=refs_root,
+        preds=boltz_root,
+        analysis_dir=analysis_root,
+    )
+    vina_resolver = PathResolver(
+        config,
+        refs=refs_root,
+        preds=vina_root,
+        analysis_dir=analysis_root,
+    )
+
+    rows: List[Dict[str, object]] = []
+    failures: List[Tuple[str, str]] = []
 
     for target in targets:
-        LOGGER.info("Running benchmark for %s", target.pdbid)
-        try:
-            result = run_pose_benchmark(
-                pdbid=target.pdbid,
-                resolver=resolver,
-                project_root=config.base_dir,
-                ref_path=target.ref,
-                pred_path=target.pred,
-                pose_count=max(1, args.pose_count),
-                include_h=args.include_h,
-                include_small=args.include_small,
-                enable_pocket=not args.no_pocket,
-                pocket_radius=args.pocket_radius,
-                capture_full=args.full,
+        LOGGER.info("Benchmarking %s", target.pdbid)
+        for method, pred_path, resolver in (
+            ("boltz", target.boltz_pred, boltz_resolver),
+            ("vina", target.vina_pred, vina_resolver),
+        ):
+            try:
+                # For Vina, optionally evaluate top-K poses from multiple candidate files (oracle selection)
+                if method == "vina" and (args.vina_topk > 1 or args.vina_all_runs):
+                    vina_dir = vina_root / target.pdbid
+                    candidates: List[Path] = []
+                    latest = vina_dir / "latest" / f"{target.pdbid}_vina_pose.pdbqt"
+                    if latest.is_file():
+                        candidates.append(latest)
+                    if args.vina_all_runs:
+                        for p in sorted(vina_dir.glob("vina_run_*/*_vina_pose.pdbqt")):
+                            if p.is_file():
+                                candidates.append(p)
+                    # Deduplicate while preserving order
+                    seen = set()
+                    uniq: List[Path] = []
+                    for c in candidates:
+                        key = str(c.resolve())
+                        if key not in seen:
+                            uniq.append(c)
+                            seen.add(key)
+                    if not uniq:
+                        uniq = [pred_path]
+                    # Take top-K by recency
+                    uniq.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+                    uniq = uniq[: max(1, args.vina_topk)]
+                    # Evaluate each candidate file with top-K poses from that file and keep the best (oracle)
+                    best_result = None
+                    best_rmsd = float("inf")
+                    for cand in uniq:
+                        cand_result = run_pose_benchmark(
+                            pdbid=target.pdbid,
+                            resolver=resolver,
+                            project_root=config.base_dir,
+                            ref_path=target.ref,
+                            pred_path=cand,
+                            pose_count=max(1, args.vina_topk),
+                            include_h=args.include_h,
+                            include_small=args.include_small,
+                            enable_pocket=not args.no_pocket,
+                            pocket_radius=args.pocket_radius,
+                            capture_full=args.full,
+                        )
+                        bp = (cand_result.get("summary", {}) or {}).get("best_pose", {})
+                        val = bp.get("rmsd_locked_global")
+                        try:
+                            valf = float(val)
+                        except (TypeError, ValueError):
+                            valf = float("inf")
+                        if valf < best_rmsd:
+                            best_rmsd = valf
+                            best_result = cand_result
+                    result = best_result if best_result is not None else cand_result
+                else:
+                    result = run_pose_benchmark(
+                        pdbid=target.pdbid,
+                        resolver=resolver,
+                        project_root=config.base_dir,
+                        ref_path=target.ref,
+                        pred_path=pred_path,
+                        pose_count=max(1, args.pose_count),
+                        include_h=args.include_h,
+                        include_small=args.include_small,
+                        enable_pocket=not args.no_pocket,
+                        pocket_radius=args.pocket_radius,
+                        capture_full=args.full,
+                    )
+            except Exception as exc:  # pragma: no cover - runtime guard
+                LOGGER.exception("Benchmark failed for %s (%s): %s", target.pdbid, method, exc)
+                failures.append((target.pdbid, method))
+                continue
+
+            summary = result.get("summary", {})
+            rows.append(
+                _build_row(
+                    pid=target.pdbid,
+                    method=method,
+                    residue_count=target.residue_count,
+                    summary=summary,
+                )
             )
-        except Exception as exc:  # pragma: no cover - top-level guard
-            LOGGER.exception("Benchmark failed for %s: %s", target.pdbid, exc)
-            failures.append(target.pdbid)
-            continue
 
-        all_details.extend(result.get("details", []))
-        protein_summaries.append((target.pdbid, result.get("summary", {})))
-
-    if not protein_summaries:
-        LOGGER.error("No successful benchmarks were recorded.")
+    if not rows:
+        LOGGER.error("All benchmarks failed.")
         return 2
 
-    raw_data_path = resolver.analysis_root / "raw_data" / "all_results.csv"
-    append_all_results(all_details, raw_data_path, source_label, run_timestamp)
+    timestamp = current_timestamp()
+    output_path = analysis_root / f"benchmark_{timestamp}.csv"
+    with output_path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, OUTPUT_COLUMNS)
+        writer.writeheader()
+        for row in rows:
+            writer.writerow(row)
 
-    summary_dir = resolve_summary_directory(resolver.aggregates_root, source_label)
-    summary_path = summary_dir / f"full_run_summary_{run_timestamp}.csv"
-    extra_rows = build_random_aggregate_from_details(all_details, source_label, run_timestamp)
-    build_and_write_summary(protein_summaries, source_label, summary_path, run_timestamp, extra_rows=extra_rows)
-
-    LOGGER.info("Wrote aggregate results: %s", raw_data_path)
-    LOGGER.info("Wrote summary: %s", summary_path)
+    LOGGER.info("Wrote benchmark results: %s", output_path)
 
     if failures:
-        LOGGER.warning("Failed targets: %s", ",".join(failures))
+        failed = ", ".join(f"{pid}:{method}" for pid, method in failures)
+        LOGGER.warning("Failures encountered for: %s", failed)
         return 1
 
     return 0
