@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import logging
 import math
+import hashlib
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
@@ -298,7 +299,9 @@ def run_pose_benchmark(
 
         # Random ligand placement control: evaluate a randomized copy of each reference ligand
         # using the same protein alignment and pocket fit context.
-        rng = np.random.default_rng(abs(hash(pdbid)) % (2**32))
+        seed_bytes = hashlib.sha256(pdbid.encode("utf-8")).digest()
+        seed = int.from_bytes(seed_bytes[:8], byteorder="big", signed=False)
+        rng = np.random.default_rng(seed)
         box_min, box_max = protein_bounding_box(pose_with_backbone)
         for ref_ligand in ref_ligands:
             rand_pred = randomized_copy(ref_ligand, rng=rng, box_min=box_min, box_max=box_max)

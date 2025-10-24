@@ -170,7 +170,8 @@ def _build_row(
     row = {
         "pdb_id": pid,
         "method": method,
-        "protein_rmsd": 0.0 if method == "vina" else (float(protein_rmsd) if protein_rmsd is not None else ""),
+        # Vina uses the reference protein; mark protein_rmsd as N/A for vina rows.
+        "protein_rmsd": "" if method == "vina" else (float(protein_rmsd) if protein_rmsd is not None else ""),
         "ligand": ligand_label,
         "rmsd_global": rmsd_global if rmsd_global is not None else "",
         "rmsd_pocket": rmsd_pocket if rmsd_pocket is not None else "",

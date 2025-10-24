@@ -142,10 +142,28 @@ def filter_large_ligands(residues: Sequence[SimpleResidue]) -> List[SimpleResidu
 
 
 def pairs_by_name(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, int]]:
-    lookup_pred = {atom.name.upper(): index for index, atom in enumerate(pred.atoms) if atom.element != "H"}
-    lookup_ref = {atom.name.upper(): index for index, atom in enumerate(ref.atoms) if atom.element != "H"}
-    common = sorted(set(lookup_pred) & set(lookup_ref))
-    return [(lookup_pred[name], lookup_ref[name]) for name in common]
+    """Match atoms by label with an element-consistency check.
+
+    Only pairs heavy atoms (excludes H) and requires that the elements for the
+    matched labels are identical between prediction and reference.
+    """
+    lookup_pred = {
+        atom.name.upper(): (index, atom.element.upper())
+        for index, atom in enumerate(pred.atoms)
+        if atom.element != "H"
+    }
+    lookup_ref = {
+        atom.name.upper(): (index, atom.element.upper())
+        for index, atom in enumerate(ref.atoms)
+        if atom.element != "H"
+    }
+    pairs: List[Tuple[int, int]] = []
+    for name in sorted(set(lookup_pred) & set(lookup_ref)):
+        ip, ep = lookup_pred[name]
+        ir, er = lookup_ref[name]
+        if ep == er:
+            pairs.append((ip, ir))
+    return pairs
 
 
 # Simplistic covalent radii (Å) for bond inference
@@ -194,13 +212,6 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
         rd_to_res.append(idx)
 
     # Coordinates
-    mol = rw.GetMol()
-    conf = rdchem.Conformer(mol.GetNumAtoms())
-    for rd_idx, res_idx in enumerate(rd_to_res):
-        xyz = atoms[res_idx].xyz
-        conf.SetAtomPosition(rd_idx, Point3D(float(xyz[0]), float(xyz[1]), float(xyz[2])))
-    mol.AddConformer(conf, assignId=True)
-
     # Infer bonds from distances with a tolerance
     coords = np.array([atoms[i].xyz for i in rd_to_res], float)
     n = len(rd_to_res)
@@ -218,12 +229,23 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
                 except Exception:
                     pass
 
+    mol = rw.GetMol()
+    conf = rdchem.Conformer(mol.GetNumAtoms())
+    for rd_idx, res_idx in enumerate(rd_to_res):
+        xyz = atoms[res_idx].xyz
+        conf.SetAtomPosition(rd_idx, Point3D(float(xyz[0]), float(xyz[1]), float(xyz[2])))
+    mol.AddConformer(conf, assignId=True)
+
     try:
-        out = rw.GetMol()
-        Chem.SanitizeMol(out)
+        Chem.SanitizeMol(mol)
     except Exception:
-        out = rw.GetMol()
-    return out, rd_to_res
+        # Ensure basic properties (valence, rings) are available even when full sanitization fails.
+        mol.UpdatePropertyCache(strict=False)
+        try:
+            Chem.GetSymmSSSR(mol)
+        except Exception:
+            pass
+    return mol, rd_to_res
 
 
 def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, int]]:
