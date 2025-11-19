@@ -1,0 +1,26 @@
+{
+  "pdbid": "2WEX",
+  "timestamp_utc": "20251017-012333",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/2WEX/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2WEX/vina_run_20251017-012333/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2WEX/vina_run_20251017-012333/2WEX_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2WEX/vina_run_20251017-012333/2WEX_vina.log",
+  "center": [
+    7.816,
+    3.652,
+    25.638
+  ],
+  "size": [
+    10.917,
+    21.186,
+    11.374
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

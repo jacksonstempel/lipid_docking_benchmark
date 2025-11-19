@@ -1,0 +1,26 @@
+{
+  "pdbid": "1FDQ",
+  "timestamp_utc": "20251012-205747",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/1FDQ/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/1FDQ/vina_run_20251012-205747/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/1FDQ/vina_run_20251012-205747/1FDQ_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/1FDQ/vina_run_20251012-205747/1FDQ_vina.log",
+  "center": [
+    5.21,
+    9.33,
+    1.581
+  ],
+  "size": [
+    14.487,
+    14.654,
+    11.921
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

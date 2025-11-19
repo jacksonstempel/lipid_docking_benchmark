@@ -1,0 +1,23 @@
+{
+  "pdbid": "4KII",
+  "source_cif": "raw_structures/pdb_lipid_candidates/4KII.cif",
+  "prep_dir": "docking/prep/4KII",
+  "receptor_pdb": "docking/prep/4KII/receptor_no_ligand.pdb",
+  "ligand_pdb": "docking/prep/4KII/ligand.pdb",
+  "receptor_pdbqt": "docking/prep/4KII/receptor.pdbqt",
+  "ligand_pdbqt": "docking/prep/4KII/ligand.pdbqt",
+  "box_file": "docking/vina/box/4KII.txt",
+  "center": [
+    34.185,
+    44.847,
+    110.577
+  ],
+  "size": [
+    22.156,
+    14.307,
+    12.431
+  ],
+  "ph": 7.4,
+  "keep_waters": false,
+  "keep_ions": true
+}

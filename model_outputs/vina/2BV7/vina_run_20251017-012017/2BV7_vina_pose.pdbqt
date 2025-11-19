@@ -1,0 +1,3380 @@
+MODEL 1
+REMARK VINA RESULT:    -7.903      0.000      0.000
+REMARK INTER + INTRA:         -25.288
+REMARK INTER:                 -22.457
+REMARK INTRA:                  -2.832
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.817 -13.808  15.707  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.503 -12.547  15.440  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.248 -12.001  16.301  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       3.378 -12.551  17.488  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.382 -12.112  14.566  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       3.958 -10.699  15.964  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.164  -9.506  16.494  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       3.822  -8.175  16.140  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.225  -8.363  15.542  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       5.934  -7.030  15.256  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       7.317  -7.203  14.622  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       7.932  -5.860  14.223  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.441  -5.919  13.941  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.142  -6.989  14.787  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      11.535  -7.360  14.271  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      11.919  -8.797  14.624  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      13.303  -9.174  14.094  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      13.925  -8.049  13.275  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      15.333  -7.708  13.750  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.804  -6.316  13.345  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      15.280  -5.890  11.978  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      14.712  -4.472  12.030  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      13.415  -4.354  11.243  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      13.596  -3.502   9.990  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.169  -4.328   8.859  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       0.302 -13.597  15.572  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.074 -13.059  14.295  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.237 -12.207  14.287  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -1.295 -11.507  12.927  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -1.656 -10.023  13.024  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -2.755  -9.817  14.070  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -2.291 -10.271  15.448  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.295 -11.312  15.408  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -3.146  -8.438  14.186  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.102  -8.385  14.341  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -2.125  -9.609  11.738  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -3.032  -9.929  11.606  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -0.072 -11.801  12.249  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -0.251 -12.389  11.499  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -3.467 -10.660  16.347  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -3.000 -10.733  17.698  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -2.330 -11.430  17.772  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       2.375 -14.728  14.626  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       1.307 -15.359  13.910  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       0.920 -16.059  14.457  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       3.280 -15.794  15.219  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       4.604 -15.767  14.484  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       5.487 -14.633  14.991  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       6.278 -13.976  13.868  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       5.771 -12.566  13.663  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:    -7.876      1.271      1.837
+REMARK INTER + INTRA:         -25.212
+REMARK INTER:                 -22.842
+REMARK INTRA:                  -2.370
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.399 -12.046  16.572  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.372 -11.143  15.964  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.599 -11.195  16.254  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       4.015 -12.051  17.162  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.062 -10.475  15.310  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.574 -10.246  15.574  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.453  -8.843  16.167  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       5.596  -7.932  15.724  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       6.111  -8.289  14.321  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       6.910  -7.148  13.672  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       7.661  -6.281  14.686  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       9.130  -6.097  14.299  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      10.097  -7.033  15.040  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      11.309  -7.406  14.179  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      12.168  -8.522  14.782  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      13.376  -8.859  13.908  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      14.678  -8.890  14.708  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      15.837  -8.272  13.934  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      15.945  -6.770  14.171  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      16.230  -5.962  12.910  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      14.988  -5.267  12.362  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.227  -4.768  10.938  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      13.949  -4.782  10.112  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      13.993  -3.747   8.993  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      13.254  -2.490   9.396  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       0.107 -11.270  16.870  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.357 -10.508  15.746  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.737 -10.704  15.377  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -1.996  -9.912  14.093  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -3.327  -9.156  14.104  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -4.419 -10.024  14.735  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -4.075 -10.376  16.176  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -2.658 -10.411  16.439  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -5.697  -9.366  14.752  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -5.566  -8.407  14.815  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -3.664  -8.859  12.746  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -3.066  -8.176  12.406  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -0.835  -9.115  13.848  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -1.097  -8.188  13.738  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -4.756 -11.669  16.627  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -5.674 -11.356  17.680  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -5.886 -12.162  18.176  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       1.205 -13.106  15.493  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212      -0.185 -13.415  15.343  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      -0.705 -12.872  15.955  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       1.969 -14.376  15.822  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       3.034 -14.587  14.765  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.248 -15.300  15.349  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       5.533 -14.508  15.145  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       5.435 -13.730  13.853  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:    -7.771      2.213      4.307
+REMARK INTER + INTRA:         -24.912
+REMARK INTER:                 -22.399
+REMARK INTRA:                  -2.513
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.198 -12.709  16.191  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       1.745 -11.358  16.102  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.872 -11.063  16.590  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       3.557 -11.979  17.237  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       1.220 -10.658  15.651  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       3.404  -9.645  16.450  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.774  -9.655  15.773  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       5.360  -8.251  15.643  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       6.288  -8.121  14.426  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       6.753  -6.677  14.183  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       8.010  -6.303  14.974  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       9.289  -6.652  14.210  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      10.451  -7.107  15.105  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      11.529  -7.853  14.310  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      12.101  -7.041  13.145  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      13.537  -7.445  12.808  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      13.964  -8.721  13.533  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      15.416  -8.657  13.991  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      15.533  -8.570  15.509  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.075  -9.827  16.240  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      13.704  -9.665  16.887  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      13.795  -9.818  18.404  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      15.174 -10.288  18.843  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      15.306 -10.296  20.363  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.947 -11.655  20.924  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      -0.322 -12.627  16.393  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.781 -11.288  16.634  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.459 -10.646  15.536  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -2.801 -10.123  16.056  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -3.964 -10.375  15.094  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.519 -10.120  13.652  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -2.381 -11.053  13.257  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.569 -11.476  14.370  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.583 -10.325  12.708  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.786  -9.487  12.263  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -5.016  -9.472  15.445  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -4.659  -8.574  15.525  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -2.970 -10.639  17.378  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -2.525 -11.498  17.450  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -1.523 -10.466  12.134  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -0.849  -9.308  12.636  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -1.107  -9.158  13.559  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       1.574 -13.311  14.842  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       0.493 -13.167  13.914  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      -0.316 -12.932  14.393  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       1.932 -14.781  14.972  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       3.362 -14.889  15.458  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.318 -14.191  14.499  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       5.762 -14.632  14.704  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       6.665 -13.796  13.826  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -7.684      2.182      6.059
+REMARK INTER + INTRA:         -24.664
+REMARK INTER:                 -21.522
+REMARK INTRA:                  -3.142
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.209 -11.579  16.383  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.971 -10.347  16.568  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       4.078 -10.157  15.992  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       4.589 -11.107  15.241  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.611  -9.646  17.158  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.819  -8.845  16.202  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       5.667  -8.510  14.975  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       5.853  -7.005  14.800  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       7.140  -6.666  14.033  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       8.275  -6.192  14.954  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       9.671  -6.481  14.393  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212      10.481  -7.388  15.321  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      11.634  -8.129  14.627  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      12.168  -7.354  13.417  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      13.059  -8.195  12.498  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      13.873  -7.331  11.533  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      14.248  -5.980  12.142  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      15.736  -5.891  12.457  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      16.061  -6.440  13.842  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      17.282  -7.352  13.877  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      16.924  -8.808  14.148  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.469  -8.936  14.599  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      15.346  -8.946  16.116  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.321  -9.972  16.588  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      13.750  -9.579  17.933  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       2.854 -12.701  17.211  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212       2.333 -14.000  16.891  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212       2.715 -14.535  15.609  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212       2.092 -15.926  15.477  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212       3.046 -16.965  14.882  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212       3.851 -16.344  13.737  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212       4.691 -15.172  14.229  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212       4.132 -14.505  15.379  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212       4.751 -17.286  13.129  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212       4.401 -18.184  13.237  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212       2.251 -18.046  14.388  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212       2.616 -18.887  14.705  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212       1.533 -16.260  16.749  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212       0.606 -16.524  16.636  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212       5.002 -14.180  13.107  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212       5.835 -13.144  13.636  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212       5.698 -12.328  13.128  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       0.825 -11.199  16.897  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212      -0.064 -12.318  16.805  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       0.437 -13.140  16.915  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       0.247 -10.031  16.118  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      -1.229 -10.285  15.891  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      -1.584 -10.161  14.414  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      -1.380 -11.470  13.663  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      -2.096 -11.396  12.334  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -7.640      1.069      2.257
+REMARK INTER + INTRA:         -24.542
+REMARK INTER:                 -21.515
+REMARK INTRA:                  -3.026
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.323 -13.223  15.388  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.171 -12.035  15.344  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.107 -11.855  16.173  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       3.300 -12.733  17.132  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.008 -11.356  14.651  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       3.975 -10.610  16.069  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.170  -9.367  16.444  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.029  -8.104  16.438  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.275  -8.256  15.553  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       5.770  -6.916  14.987  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       7.059  -7.042  14.171  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       8.204  -6.234  14.785  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.065  -5.482  13.759  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.431  -6.149  13.557  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      10.741  -7.232  14.595  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      12.013  -8.011  14.255  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      12.559  -7.652  12.873  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      14.028  -7.247  12.929  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      14.411  -6.326  11.776  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      14.850  -4.933  12.214  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      13.699  -3.934  12.247  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      13.309  -3.506  10.833  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      14.324  -2.544  10.233  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.511  -2.787   8.738  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.406  -4.262   8.418  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      -0.069 -12.832  15.907  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.255 -11.411  15.986  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.084 -10.825  14.964  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -2.228 -10.081  15.657  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -3.587 -10.298  14.989  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.434 -10.274  13.466  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -2.501 -11.382  12.991  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.518 -11.768  13.972  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.688 -10.455  12.788  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -5.332 -10.848  13.397  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -4.448  -9.236  15.407  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -4.353  -8.484  14.802  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -2.164 -10.410  17.047  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -2.091 -11.372  17.148  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -1.847 -11.044  11.650  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -1.455  -9.668  11.671  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -0.892  -9.481  10.903  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       1.296 -13.669  13.930  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212      -0.026 -14.074  13.558  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      -0.081 -15.041  13.560  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       2.261 -14.816  13.684  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       2.788 -15.299  15.018  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.203 -15.847  14.879  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       5.255 -14.838  15.321  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       5.631 -13.966  14.145  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:    -7.625      1.743      5.443
+REMARK INTER + INTRA:         -24.497
+REMARK INTER:                 -21.772
+REMARK INTRA:                  -2.725
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.189 -11.988  16.116  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.624 -10.652  16.513  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.724 -10.168  16.125  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       4.527 -10.897  15.382  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.044 -10.114  17.099  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.118  -8.761  16.549  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       5.349  -8.296  15.773  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       5.094  -6.993  15.019  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       6.336  -6.516  14.251  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       7.610  -7.280  14.644  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       8.867  -6.407  14.637  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212      10.077  -7.146  15.212  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      11.212  -7.376  14.203  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      12.127  -8.532  14.621  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      13.358  -8.693  13.723  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      14.625  -8.988  14.526  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      15.602  -7.812  14.516  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      15.968  -7.387  13.099  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      15.583  -5.939  12.820  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      14.550  -5.774  11.710  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      13.574  -4.635  11.977  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      13.632  -3.594  10.860  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      13.947  -4.228   9.513  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      13.709  -3.252   8.365  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      12.893  -2.066   8.831  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       2.567 -12.990  17.218  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212       2.806 -14.311  16.711  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212       3.393 -14.386  15.396  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212       2.457 -15.214  14.512  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212       3.194 -16.213  13.616  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212       4.463 -15.572  13.047  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212       5.415 -15.158  14.162  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212       4.751 -14.850  15.404  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212       5.184 -16.464  12.181  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212       4.888 -16.336  11.266  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212       2.310 -16.570  12.551  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212       2.648 -16.212  11.716  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212       1.456 -15.773  15.365  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212       0.631 -15.884  14.866  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212       6.342 -14.020  13.729  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212       5.544 -12.866  13.449  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212       4.669 -13.146  13.136  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       0.680 -11.822  15.974  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       0.259 -12.206  14.660  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       0.423 -11.477  14.042  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       0.254 -10.389  16.240  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      -1.194 -10.231  15.825  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      -1.326  -9.242  14.672  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      -2.165  -9.801  13.530  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      -2.992 -10.959  14.042  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:    -7.605      2.078      3.803
+REMARK INTER + INTRA:         -24.441
+REMARK INTER:                 -21.679
+REMARK INTRA:                  -2.762
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.179 -13.639  15.791  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       1.459 -12.208  15.873  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.442 -11.759  16.527  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       3.210 -12.591  17.194  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       0.866 -11.577  15.405  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       2.702 -10.261  16.560  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.170  -9.968  16.254  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.443  -8.471  16.130  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.850  -8.181  15.586  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       5.905  -6.915  14.718  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       7.176  -6.814  13.872  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       8.171  -5.809  14.457  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.297  -5.405  13.493  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.568  -6.234  13.715  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      10.514  -7.111  14.969  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      11.534  -8.249  14.923  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      12.574  -8.050  13.821  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      13.614  -9.163  13.811  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      14.947  -8.705  14.393  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.218  -9.218  15.803  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      14.117 -10.140  16.316  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      13.728  -9.779  17.749  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      14.792  -8.926  18.426  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      15.480  -9.683  19.558  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.655 -10.878  19.982  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      -0.341 -13.859  15.828  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -1.072 -12.651  16.084  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.751 -12.072  14.953  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -1.451 -10.571  14.943  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -2.677  -9.709  14.632  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.508 -10.358  13.522  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -4.006 -11.735  13.945  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -3.151 -12.388  14.905  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.664  -9.576  13.178  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -5.449  -9.953  13.605  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -2.205  -8.430  14.200  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -2.044  -7.867  14.974  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -0.779 -10.268  16.167  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -0.971 -10.958  16.821  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -4.282 -12.638  12.741  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -5.297 -12.027  11.939  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -6.010 -11.703  12.510  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       1.791 -14.025  14.449  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       0.874 -13.744  13.385  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       0.260 -14.487  13.283  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       2.166 -15.496  14.414  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       3.376 -15.707  15.300  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.667 -15.449  14.531  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       5.252 -14.077  14.836  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       6.384 -13.796  13.874  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:    -7.545      2.080      3.521
+REMARK INTER + INTRA:         -24.270
+REMARK INTER:                 -21.381
+REMARK INTRA:                  -2.890
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.290 -13.685  14.251  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       1.761 -12.618  15.129  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.138 -12.848  16.312  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       2.065 -14.071  16.789  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       1.783 -11.694  14.790  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       2.641 -11.703  17.177  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       2.813 -10.437  16.339  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.263 -10.225  15.911  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       4.848  -8.920  16.473  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       4.048  -7.678  16.051  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       4.887  -6.643  15.299  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       5.765  -7.291  14.227  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       7.258  -7.345  14.585  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212       7.903  -5.954  14.566  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212       9.394  -5.977  14.213  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      10.152  -7.063  14.975  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      11.437  -7.482  14.261  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      11.994  -8.791  14.810  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      13.225  -9.255  14.041  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      14.348  -8.224  13.985  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      15.623  -8.703  14.670  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.302  -9.703  15.780  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      15.174  -9.022  17.135  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.248  -9.797  18.067  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.921 -10.056  19.397  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      -0.116 -13.337  13.740  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.415 -11.937  13.845  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.729 -11.608  14.338  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -2.077 -10.202  13.843  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -2.740  -9.329  14.911  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.743 -10.156  15.718  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -3.054 -11.314  16.428  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.865 -11.777  15.757  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.410  -9.376  16.725  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -3.992  -8.503  16.787  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -3.417  -8.264  14.238  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -4.362  -8.293  14.454  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -0.896  -9.660  13.248  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -0.219  -9.535  13.931  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -4.018 -12.467  16.712  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -3.375 -13.695  16.353  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -3.988 -14.243  15.838  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       2.330 -13.685  13.136  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       1.827 -12.998  11.985  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       1.648 -12.073  12.214  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       2.723 -15.099  12.745  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       4.210 -15.270  12.976  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.517 -15.420  14.462  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       5.372 -14.275  14.989  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       6.107 -13.632  13.836  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:    -7.534      1.405      2.400
+REMARK INTER + INTRA:         -24.240
+REMARK INTER:                 -21.682
+REMARK INTRA:                  -2.558
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.619 -13.694  14.204  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.201 -12.512  14.833  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.563 -12.513  16.042  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       2.371 -13.587  16.775  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.314 -11.692  14.299  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       3.185 -11.261  16.642  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.345 -10.774  15.775  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.582  -9.273  15.922  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.533  -8.728  14.846  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       6.153  -7.376  15.229  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       7.061  -6.795  14.141  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       8.211  -5.979  14.735  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.237  -5.493  13.700  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.502  -6.357  13.696  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      10.568  -7.349  14.861  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      11.890  -8.116  14.894  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      12.556  -8.180  13.519  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      14.062  -7.963  13.604  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      14.619  -7.321  12.339  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      13.828  -6.109  11.858  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      14.624  -4.812  11.947  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.154  -4.404  10.573  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      14.044  -4.343   9.534  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.210  -3.143   8.606  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      13.023  -2.212   8.717  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       0.116 -13.460  13.982  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.640 -13.502  15.202  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.201 -12.249  15.640  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -2.077 -12.530  16.863  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -3.408 -11.775  16.842  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.196 -10.349  16.330  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -2.643 -10.352  14.910  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.870 -11.528  14.595  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.415  -9.588  16.309  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.594  -9.288  15.404  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -3.906 -11.742  18.182  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -4.453 -12.527  18.344  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -2.175 -13.950  16.993  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -1.653 -14.242  17.757  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -1.864  -9.074  14.596  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -1.091  -9.292  13.412  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -1.338 -10.143  13.016  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       2.391 -13.791  12.893  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       1.729 -13.042  11.868  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       2.199 -12.206  11.724  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       2.540 -15.234  12.444  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       3.643 -15.881  13.254  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       5.014 -15.405  12.786  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       5.998 -15.268  13.940  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       5.363 -14.445  15.038  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:    -7.503      2.169      5.139
+REMARK INTER + INTRA:         -24.151
+REMARK INTER:                 -21.279
+REMARK INTRA:                  -2.872
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.855 -12.408  15.695  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       3.115 -11.120  16.332  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       4.015 -10.341  15.912  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       4.776 -10.711  14.906  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.573 -10.852  17.109  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.229  -9.000  16.598  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       5.470  -8.307  16.038  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       5.120  -7.030  15.278  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       6.198  -6.653  14.250  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       7.556  -7.311  14.543  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       8.727  -6.326  14.505  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       9.980  -6.906  15.165  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      11.102  -7.262  14.178  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      11.970  -8.418  14.689  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      13.165  -8.732  13.783  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      14.327  -9.359  14.555  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      15.404  -8.335  14.913  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      16.755  -8.694  14.307  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      17.514  -7.459  13.831  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      17.490  -7.261  12.320  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      16.689  -6.034  11.898  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.190  -6.327  11.924  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      14.365  -5.050  11.990  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.825  -4.032  10.951  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      13.912  -2.826  10.943  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       3.789 -13.468  16.298  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212       4.812 -13.893  15.385  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212       4.440 -14.933  14.460  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212       4.677 -14.407  13.043  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212       3.549 -14.755  12.069  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212       3.067 -16.188  12.313  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212       2.525 -16.351  13.728  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212       3.116 -15.444  14.680  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212       2.018 -16.573  11.409  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212       2.388 -17.118  10.697  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212       4.072 -14.637  10.743  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212       4.849 -15.210  10.650  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212       4.987 -13.016  13.156  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212       4.189 -12.527  13.409  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212       2.614 -17.799  14.211  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212       1.341 -18.423  14.012  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212       1.466 -19.289  13.595  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       1.391 -12.662  16.037  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       0.770 -13.449  15.014  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       1.021 -13.104  14.143  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       0.627 -11.360  16.203  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      -0.704 -11.661  16.859  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      -1.753 -10.627  16.464  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      -1.280  -9.738  15.321  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      -2.480  -9.269  14.529  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -7.438      2.194      4.092
+REMARK INTER + INTRA:         -23.966
+REMARK INTER:                 -21.251
+REMARK INTRA:                  -2.715
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.169 -12.908  15.877  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.327 -11.459  15.967  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.387 -10.932  16.405  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       4.363 -11.701  16.836  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       1.586 -10.878  15.680  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       3.508  -9.417  16.457  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.796  -8.961  15.771  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.919  -7.439  15.735  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.776  -6.956  14.555  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       7.217  -7.486  14.609  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       8.272  -6.377  14.606  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       9.595  -6.847  15.216  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      10.725  -7.041  14.194  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      11.740  -8.094  14.653  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      12.701  -8.540  13.547  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      13.142  -7.376  12.660  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      14.654  -7.360  12.435  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      15.415  -6.993  13.704  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      16.491  -8.020  14.041  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.948  -9.316  14.632  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      15.794  -9.255  16.148  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      14.449  -9.834  16.583  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      14.076  -9.400  17.993  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      15.236  -9.594  18.964  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.930 -10.701  19.949  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       0.674 -13.258  15.934  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.154 -12.267  15.307  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.567 -12.362  15.578  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -2.110 -10.940  15.742  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -3.087 -10.795  16.910  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -4.016 -12.010  16.973  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -3.224 -13.294  17.189  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.880 -13.236  16.673  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.970 -11.914  18.044  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.503 -11.749  18.879  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -3.854  -9.608  16.685  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -3.339  -8.988  16.145  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -0.984 -10.060  15.766  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -1.282  -9.150  15.612  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -3.970 -14.521  16.661  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -5.044 -14.076  15.827  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -5.473 -13.307  16.234  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       2.789 -13.229  14.521  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       1.782 -13.245  13.504  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       1.797 -14.101  13.047  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       3.504 -14.568  14.543  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       3.023 -15.392  13.367  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       3.625 -16.792  13.400  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       4.543 -17.050  12.212  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       5.904 -17.469  12.719  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -7.429      1.627      2.388
+REMARK INTER + INTRA:         -23.942
+REMARK INTER:                 -21.265
+REMARK INTRA:                  -2.677
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.603 -12.661  16.106  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       3.012 -11.307  15.742  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.985 -10.359  16.575  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       2.534 -10.576  17.791  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       3.317 -11.130  14.823  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       3.445  -8.972  16.151  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.963  -8.854  16.271  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       5.611  -8.423  14.956  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       6.216  -7.014  15.043  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       7.384  -6.806  14.067  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       8.488  -5.905  14.627  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       9.883  -6.424  14.269  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      10.467  -7.413  15.289  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      11.691  -8.152  14.736  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      12.189  -7.595  13.399  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      13.579  -8.118  13.036  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      14.216  -8.909  14.179  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      15.417  -8.183  14.773  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      16.665  -8.342  13.911  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      17.262  -7.023  13.435  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      16.746  -6.602  12.064  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.671  -5.524  12.194  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      15.570  -4.671  10.938  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.158  -4.686  10.363  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      13.747  -3.300   9.915  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       1.284 -12.999  15.393  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212       0.163 -12.279  15.926  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -0.853 -11.900  14.977  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -0.834 -10.374  14.853  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -2.231  -9.750  14.824  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.170 -10.604  13.967  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -3.303 -12.011  14.535  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -2.146 -12.445  15.277  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.494 -10.049  13.890  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.894 -10.285  13.039  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -2.108  -8.444  14.256  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -2.157  -8.505  13.289  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212       0.041  -9.880  15.870  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212       0.212 -10.581  16.518  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -3.687 -13.028  13.459  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -3.802 -12.344  12.207  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -3.668 -12.972  11.481  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       3.767 -13.509  15.607  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       4.866 -12.673  15.227  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       5.608 -12.819  15.833  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       3.359 -14.370  14.424  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       4.014 -13.818  13.176  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.409 -14.943  12.225  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       4.197 -16.318  12.843  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       5.486 -17.103  12.760  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -7.391      1.805      2.872
+REMARK INTER + INTRA:         -23.833
+REMARK INTER:                 -20.754
+REMARK INTRA:                  -3.078
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.286 -13.902  14.799  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.946 -12.599  14.791  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.393 -12.074  15.848  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       3.222 -12.686  16.999  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       3.045 -12.118  13.937  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.092 -10.725  15.780  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.272  -9.662  16.510  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       3.957  -8.297  16.493  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.366  -8.363  15.885  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       5.710  -7.125  15.042  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       6.931  -7.325  14.141  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       7.956  -6.202  14.313  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.235  -6.625  15.051  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.422  -6.789  14.095  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      11.483  -7.770  14.601  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      12.660  -7.900  13.633  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      13.366  -9.250  13.758  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      13.919  -9.476  15.160  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      15.196  -8.680  15.406  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      16.364  -9.090  14.516  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      17.242  -7.911  14.113  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      17.240  -7.724  12.597  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      16.020  -6.948  12.123  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      15.737  -5.748  13.021  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.644  -4.884  12.431  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       1.058 -13.852  13.878  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.180 -13.966  14.594  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -0.663 -12.759  15.217  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -1.547 -13.162  16.399  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -2.831 -12.335  16.507  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -2.536 -10.864  16.202  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -1.993 -10.695  14.788  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.295 -11.856  14.296  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -3.708 -10.039  16.309  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.485 -10.599  16.461  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -3.317 -12.467  17.845  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -2.602 -12.784  18.420  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -1.729 -14.578  16.326  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -2.441 -14.844  16.928  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -1.141  -9.433  14.650  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -1.985  -8.360  14.222  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -1.443  -7.577  14.034  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       3.373 -14.832  14.269  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       4.355 -15.077  15.282  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       5.185 -15.358  14.866  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       4.051 -14.248  13.042  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       4.159 -15.332  11.989  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       3.620 -14.845  10.649  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       2.873 -13.524  10.776  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       1.921 -13.378   9.611  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -7.374      1.375      2.014
+REMARK INTER + INTRA:         -23.785
+REMARK INTER:                 -20.664
+REMARK INTRA:                  -3.120
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.558 -12.969  16.079  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       1.650 -11.542  15.784  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.187 -10.731  16.588  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       2.636 -11.165  17.744  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       1.282 -11.204  14.935  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       2.276  -9.257  16.221  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.593  -8.663  16.719  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.794  -9.201  15.944  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.808  -8.097  15.608  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       6.290  -8.154  14.150  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       6.876  -6.830  13.652  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       7.934  -6.279  14.610  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.076  -5.521  13.917  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.369  -6.343  13.874  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      10.443  -7.422  14.959  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      11.756  -8.203  14.909  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      12.380  -8.198  13.513  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      13.894  -8.038  13.565  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      14.436  -7.320  12.334  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.195  -6.036  12.648  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      15.013  -4.966  11.578  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      14.080  -3.859  12.067  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      13.605  -2.974  10.924  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.550  -1.799  10.695  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.967  -1.721   9.243  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       0.093 -13.417  15.961  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.453 -13.195  14.652  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.517 -12.227  14.568  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -1.440 -11.564  13.191  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -1.646 -10.048  13.234  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -2.761  -9.697  14.222  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -2.410 -10.157  15.632  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.530 -11.298  15.663  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -3.008  -8.282  14.287  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -2.434  -7.824  13.654  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -2.010  -9.625  11.918  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -1.833  -8.676  11.822  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -0.226 -12.004  12.579  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -0.045 -12.920  12.841  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -3.659 -10.395  16.483  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -4.803  -9.954  15.744  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -4.599  -9.116  15.301  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       2.445 -13.591  15.005  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       2.158 -13.013  13.727  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       2.874 -12.409  13.478  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       2.252 -15.096  14.932  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       3.488 -15.769  15.491  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       3.335 -17.286  15.477  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       2.094 -17.745  16.230  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       2.491 -18.782  17.256  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -7.272      2.071      5.510
+REMARK INTER + INTRA:         -23.496
+REMARK INTER:                 -20.478
+REMARK INTRA:                  -3.018
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212      -0.788 -12.006  15.644  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       0.547 -11.845  16.212  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       1.074 -10.707  16.359  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       0.431  -9.637  15.950  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       1.050 -12.645  16.487  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       2.460 -10.594  16.977  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.158  -9.324  16.491  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.514  -9.622  15.856  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.526  -8.490  16.093  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       5.165  -7.202  15.338  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       6.198  -6.810  14.278  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       7.594  -7.333  14.623  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       8.638  -6.231  14.857  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      10.002  -6.595  14.259  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      10.793  -7.598  15.105  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      12.080  -8.048  14.414  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      12.518  -9.444  14.859  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      13.285  -9.408  16.176  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      14.790  -9.519  15.963  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.374  -8.425  15.075  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      16.664  -8.852  14.384  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      17.332  -7.663  13.694  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      16.530  -6.383  13.872  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      15.959  -5.890  12.546  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.843  -6.796  12.074  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      -0.776 -13.173  14.646  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212       0.020 -14.281  15.094  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212       1.194 -14.572  14.310  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212       2.335 -14.897  15.277  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212       3.666 -14.253  14.885  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212       3.864 -14.337  13.369  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212       2.755 -13.597  12.630  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212       1.512 -13.546  13.357  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212       5.112 -13.762  12.948  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212       4.951 -13.122  12.238  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212       4.706 -14.973  15.551  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212       4.571 -14.924  16.511  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212       1.869 -14.596  16.595  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212       0.930 -14.354  16.558  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212       2.551 -14.140  11.214  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212       3.685 -13.776  10.421  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212       3.687 -12.816  10.280  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212      -1.641 -12.301  16.873  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212      -2.463 -13.451  16.645  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      -3.396 -13.190  16.654  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212      -2.523 -11.117  17.232  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      -3.776 -11.174  16.384  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      -4.241  -9.772  16.004  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      -4.077  -9.496  14.516  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      -2.669  -9.010  14.254  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -7.271      2.453      4.351
+REMARK INTER + INTRA:         -23.492
+REMARK INTER:                 -20.781
+REMARK INTRA:                  -2.711
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       0.856 -13.553  12.426  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       1.926 -12.975  13.234  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.006 -13.592  13.446  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       3.163 -14.807  12.970  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       1.800 -12.079  13.624  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.098 -12.934  14.277  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.964 -13.332  15.746  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       3.598 -12.144  16.632  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       4.092 -10.812  16.047  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       3.202  -9.623  16.440  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       3.940  -8.281  16.421  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       5.353  -8.416  15.850  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       5.776  -7.255  14.938  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212       7.269  -7.308  14.596  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212       7.940  -5.931  14.573  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212       9.425  -6.017  14.218  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      10.126  -7.170  14.937  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      11.464  -7.513  14.293  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      12.233  -8.557  15.095  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      13.433  -9.144  14.360  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      14.715  -9.086  15.184  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      15.893  -8.630  14.325  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      15.922  -7.117  14.162  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      17.141  -6.663  13.364  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      17.307  -7.502  12.116  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      -0.494 -13.284  13.108  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.600 -11.949  13.626  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.874 -11.594  14.199  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -2.253 -10.207  13.675  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -2.834  -9.288  14.752  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.779 -10.078  15.662  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -3.042 -11.210  16.366  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -1.907 -11.706  15.630  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.368  -9.254  16.682  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -5.311  -9.130  16.493  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -3.555  -8.247  14.088  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -4.471  -8.232  14.408  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -1.116  -9.695  12.975  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -1.392  -8.969  12.395  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -3.987 -12.346  16.764  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -4.703 -11.951  17.938  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -5.451 -12.551  18.079  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       0.997 -12.811  11.102  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       0.275 -11.574  11.145  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      -0.623 -11.713  10.808  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       0.491 -13.649   9.941  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       1.392 -13.415   8.747  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       0.601 -12.865   7.565  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       0.731 -13.745   6.329  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      -0.315 -14.835   6.385  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -7.249      1.890      2.637
+REMARK INTER + INTRA:         -23.429
+REMARK INTER:                 -21.011
+REMARK INTRA:                  -2.419
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       1.980 -13.741  14.209  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.347 -12.497  14.879  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       2.367 -12.401  16.138  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       2.004 -13.430  16.872  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.585 -11.712  14.335  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       2.779 -11.088  16.786  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       4.024 -10.524  16.103  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       4.170  -9.021  16.326  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       5.564  -8.509  15.932  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       5.508  -7.292  14.996  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       6.795  -7.085  14.193  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       7.615  -5.907  14.723  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       9.077  -5.896  14.253  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212       9.918  -6.959  14.968  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      11.200  -7.332  14.217  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      12.013  -8.397  14.953  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      13.256  -8.820  14.171  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      13.073  -8.640  12.669  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      13.837  -7.431  12.141  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      15.202  -7.228  12.790  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      15.642  -5.768  12.792  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      14.697  -4.913  11.950  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      15.267  -4.634  10.567  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.162  -4.359   9.551  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      14.635  -3.380   8.498  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       0.586 -13.586  13.582  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      -0.458 -13.498  14.563  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      -1.169 -12.246  14.617  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      -1.423 -11.915  16.090  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      -2.833 -11.382  16.358  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      -3.251 -10.418  15.245  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      -3.270 -11.119  13.892  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      -2.351 -12.225  13.802  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      -4.564  -9.873  15.460  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      -4.637  -9.018  15.009  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      -2.802 -10.694  17.611  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      -3.309  -9.870  17.540  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      -1.042 -13.062  16.852  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      -0.133 -13.314  16.624  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      -3.073 -10.136  12.736  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      -3.477  -8.835  13.173  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      -2.945  -8.571  13.941  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       3.076 -13.892  13.159  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       4.261 -13.203  13.574  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212       4.896 -13.841  13.935  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       2.629 -13.356  11.811  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212       2.851 -14.429  10.766  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212       4.004 -15.345  11.162  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212       4.401 -16.288  10.034  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212       3.672 -15.887   8.772  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:    -7.212      7.651     12.293
+REMARK INTER + INTRA:         -23.325
+REMARK INTER:                 -20.992
+REMARK INTRA:                  -2.333
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212      14.170  -8.782  16.424  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212      14.928  -8.726  15.178  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212      16.161  -8.998  15.137  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212      16.796  -9.294  16.248  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212      14.466  -8.469  14.347  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212      16.898  -8.946  13.807  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212      17.221  -7.500  13.433  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212      16.843  -7.183  11.987  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212      16.796  -5.671  11.719  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212      15.363  -5.136  11.577  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212      15.213  -4.093  10.466  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212      14.123  -4.482   9.464  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212      13.903  -3.453   8.344  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212      13.666  -2.044   8.898  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212      12.430  -1.356   8.310  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      12.620   0.155   8.173  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      14.094   0.559   8.204  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      14.427   1.584   7.127  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      13.906   2.973   7.479  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      13.305   3.728   6.298  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      14.052   5.018   5.982  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      14.799   4.904   4.654  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      16.164   4.254   4.827  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      17.007   4.988   5.865  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      18.112   5.777   5.198  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      12.694  -8.471  16.132  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      12.308  -8.809  14.792  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      11.275  -7.992  14.207  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      11.935  -7.055  13.193  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      11.405  -5.621  13.256  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212       9.887  -5.631  13.456  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212       9.510  -6.322  14.760  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      10.461  -7.319  15.180  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212       9.334  -4.305  13.502  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212       8.940  -4.149  14.375  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      11.729  -4.987  12.016  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      11.322  -4.106  11.988  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      13.350  -7.197  13.348  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      13.596  -6.999  14.264  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212       8.090  -6.892  14.716  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212       7.491  -6.520  13.470  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212       8.173  -6.176  12.873  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212      14.382 -10.221  16.881  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212      13.484 -11.099  16.193  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      12.580 -10.952  16.512  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212      14.175 -10.362  18.379  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      15.280  -9.613  19.092  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      15.377 -10.043  20.552  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      14.879 -11.466  20.765  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      15.112 -11.863  22.205  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:    -7.153      6.222     14.318
+REMARK INTER + INTRA:         -23.156
+REMARK INTER:                 -21.497
+REMARK INTRA:                  -1.659
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212      13.742  -5.104  11.995  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212      12.379  -4.615  12.188  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212      11.493  -5.322  12.743  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212      11.781  -6.548  13.119  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212      12.147  -3.711  11.876  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212      10.094  -4.755  12.940  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       9.086  -5.885  13.147  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       8.635  -5.992  14.602  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       7.140  -6.325  14.721  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       6.681  -7.381  13.703  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       5.983  -8.581  14.347  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       5.574  -8.294  15.794  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       4.170  -8.797  16.162  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212       4.083 -10.327  16.134  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212       2.954 -10.891  17.002  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212       1.576 -10.425  16.532  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212       0.517 -11.519  16.671  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212       0.472 -12.427  15.449  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212       0.567 -13.901  15.828  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212       1.634 -14.204  16.875  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212       3.032 -14.313  16.278  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212       3.023 -15.190  15.026  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212       4.427 -15.619  14.626  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212       5.468 -14.582  15.038  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212       5.946 -13.797  13.836  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212      13.698  -6.602  11.656  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212      14.853  -7.313  12.128  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212      14.826  -7.713  13.512  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212      16.262  -8.024  13.938  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212      16.382  -9.289  14.791  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212      15.225  -9.361  15.791  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212      13.882  -9.412  15.072  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212      13.895  -8.773  13.781  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212      15.302 -10.525  16.632  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212      15.837 -11.205  16.195  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212      17.627  -9.220  15.491  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212      18.348  -9.080  14.857  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212      17.067  -7.997  12.757  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212      17.591  -8.812  12.704  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212      12.746  -8.879  15.946  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212      11.744  -8.315  15.094  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212      10.865  -8.529  15.443  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212      14.239  -4.258  10.828  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212      15.608  -4.564  10.539  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      16.159  -4.338  11.305  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212      14.107  -2.775  11.123  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      13.749  -2.056   9.839  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      14.684  -0.877   9.594  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      14.165   0.051   8.505  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      12.708  -0.257   8.244  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL
+MODEL 20
+REMARK VINA RESULT:    -7.023      3.126      6.327
+REMARK INTER + INTRA:         -22.788
+REMARK INTER:                 -19.681
+REMARK INTRA:                  -3.107
+REMARK UNBOUND:                -2.832
+REMARK  Name = docking/prep/2BV7/ligand.pdb
+REMARK  36 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: OBB_1  and  CBA_2
+REMARK    2  A    between atoms: CBA_2  and  CBC_3
+REMARK    3  A    between atoms: CBA_2  and  CAY_8
+REMARK    4  A    between atoms: CBC_3  and  CBD_4
+REMARK    5  A    between atoms: CBD_4  and  CBE_5
+REMARK    6  A    between atoms: CBE_5  and  CBF_6
+REMARK    7  A    between atoms: CBF_6  and  CBG_7
+REMARK    8  A    between atoms: CAY_8  and  CAX_9
+REMARK    9  A    between atoms: CAY_8  and  NAZ_22
+REMARK   10  A    between atoms: CAX_9  and  OAD_10
+REMARK   11  A    between atoms: OAD_10  and  CAB_11
+REMARK   12  A    between atoms: CAO_12  and  OAP_13
+REMARK   13  A    between atoms: CAQ_14  and  OAR_15
+REMARK   14  A    between atoms: CAS_16  and  O1_17
+REMARK   15  A    between atoms: CAT_18  and  CAV_19
+REMARK   16  A    between atoms: CAV_19  and  OAW_20
+REMARK   17  A    between atoms: CBR_23  and  CBS_25
+REMARK   18  A    between atoms: CBS_25  and  CBU_26
+REMARK   19  A    between atoms: CBU_26  and  CBV_27
+REMARK   20  A    between atoms: CBV_27  and  CBW_28
+REMARK   21  A    between atoms: CBW_28  and  CBX_29
+REMARK   22  A    between atoms: CBX_29  and  CBY_30
+REMARK   23  A    between atoms: CBY_30  and  CBZ_31
+REMARK   24  A    between atoms: CBZ_31  and  CCA_32
+REMARK   25  A    between atoms: CCA_32  and  CCB_33
+REMARK   26  A    between atoms: CCB_33  and  CCC_34
+REMARK   27  A    between atoms: CCC_34  and  CCD_35
+REMARK   28  A    between atoms: CCD_35  and  CCE_36
+REMARK   29  A    between atoms: CCE_36  and  CCF_37
+REMARK   30  A    between atoms: CCF_37  and  CCG_38
+REMARK   31  A    between atoms: CCG_38  and  CCH_39
+REMARK   32  A    between atoms: CCH_39  and  CCI_40
+REMARK   33  A    between atoms: CCI_40  and  CCJ_41
+REMARK   34  A    between atoms: CCJ_41  and  CCK_42
+REMARK   35  A    between atoms: CCK_42  and  CCL_43
+REMARK   36  A    between atoms: CCL_43  and  CCM_44
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  CAY GM3 A1212       2.197 -14.249  14.231  0.00  0.00    +0.155 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  NAZ GM3 A1212       2.735 -13.334  15.233  0.00  0.00    -0.202 N 
+ATOM      3  CBR GM3 A1212       3.719 -12.583  14.987  0.00  0.00    +0.241 C 
+ATOM      4  OBT GM3 A1212       4.311 -12.652  13.815  0.00  0.00    -0.273 OA
+ATOM      5  H   GM3 A1212       2.320 -13.303  16.125  0.00  0.00    +0.000 HD
+BRANCH   3   6
+ATOM      6  CBS GM3 A1212       4.226 -11.632  16.061  0.00  0.00    +0.087 C 
+BRANCH   6   7
+ATOM      7  CBU GM3 A1212       3.061 -11.093  16.889  0.00  0.00    +0.010 C 
+BRANCH   7   8
+ATOM      8  CBV GM3 A1212       2.713  -9.652  16.521  0.00  0.00    +0.001 C 
+BRANCH   8   9
+ATOM      9  CBW GM3 A1212       3.947  -8.738  16.527  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  CBX GM3 A1212       3.615  -7.287  16.148  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  CBY GM3 A1212       4.742  -6.585  15.386  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  CBZ GM3 A1212       5.881  -7.548  15.041  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  CCA GM3 A1212       6.926  -6.966  14.077  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  CCB GM3 A1212       8.222  -6.580  14.799  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  CCC GM3 A1212       9.073  -5.567  14.028  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  CCD GM3 A1212      10.441  -6.134  13.646  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  CCE GM3 A1212      10.864  -7.288  14.555  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  CCF GM3 A1212      12.109  -7.996  14.035  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  CCG GM3 A1212      12.765  -8.860  15.107  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  CCH GM3 A1212      14.249  -9.118  14.873  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  CCI GM3 A1212      14.941  -9.721  16.090  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  CCJ GM3 A1212      14.048  -9.629  17.326  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  CCK GM3 A1212      14.850  -9.321  18.582  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  CCL GM3 A1212      14.776 -10.464  19.589  0.00  0.00    +0.000 C 
+ATOM     25  CCM GM3 A1212      15.546 -10.122  20.846  0.00  0.00    +0.000 C 
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   3   6
+ENDBRANCH   1   2
+BRANCH   1  26
+ATOM     26  CAX GM3 A1212       2.789 -15.649  14.453  0.00  0.00    +0.169 C 
+BRANCH  26  27
+ATOM     27  OAD GM3 A1212       3.859 -15.951  13.546  0.00  0.00    -0.327 OA
+BRANCH  27  28
+ATOM     28  CAB GM3 A1212       3.481 -16.613  12.323  0.00  0.00    +0.270 C 
+ATOM     29  CAO GM3 A1212       3.964 -15.751  11.154  0.00  0.00    +0.241 C 
+ATOM     30  CAQ GM3 A1212       2.937 -15.626  10.027  0.00  0.00    +0.220 C 
+ATOM     31  CAS GM3 A1212       2.251 -16.973   9.788  0.00  0.00    +0.214 C 
+ATOM     32  CAT GM3 A1212       1.515 -17.443  11.037  0.00  0.00    +0.183 C 
+ATOM     33  OAU GM3 A1212       2.086 -16.949  12.264  0.00  0.00    -0.326 OA
+BRANCH  31  34
+ATOM     34  O1  GM3 A1212       1.288 -16.915   8.723  0.00  0.00    -0.218 OA
+ATOM     35  H   GM3 A1212       0.943 -16.011   8.648  0.00  0.00    +0.000 HD
+ENDBRANCH  31  34
+BRANCH  30  36
+ATOM     36  OAR GM3 A1212       3.637 -15.220   8.848  0.00  0.00    -0.217 OA
+ATOM     37  H   GM3 A1212       3.069 -14.641   8.317  0.00  0.00    +0.000 HD
+ENDBRANCH  30  36
+BRANCH  29  38
+ATOM     38  OAP GM3 A1212       4.430 -14.517  11.705  0.00  0.00    -0.215 OA
+ATOM     39  H   GM3 A1212       4.738 -14.664  12.613  0.00  0.00    +0.000 HD
+ENDBRANCH  29  38
+BRANCH  32  40
+ATOM     40  CAV GM3 A1212       1.357 -18.964  11.069  0.00  0.00    +0.214 C 
+BRANCH  40  41
+ATOM     41  OAW GM3 A1212       2.591 -19.558  10.652  0.00  0.00    -0.218 OA
+ATOM     42  H   GM3 A1212       3.037 -19.950  11.419  0.00  0.00    +0.000 HD
+ENDBRANCH  40  41
+ENDBRANCH  32  40
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH   1  26
+BRANCH   1  43
+ATOM     43  CBA GM3 A1212       0.697 -14.202  14.504  0.00  0.00    +0.174 C 
+BRANCH  43  44
+ATOM     44  OBB GM3 A1212       0.092 -15.457  14.177  0.00  0.00    -0.221 OA
+ATOM     45  H   GM3 A1212      -0.296 -15.408  13.290  0.00  0.00    +0.000 HD
+ENDBRANCH  43  44
+BRANCH  43  46
+ATOM     46  CBC GM3 A1212       0.024 -13.097  13.709  0.00  0.00    +0.035 C 
+BRANCH  46  47
+ATOM     47  CBD GM3 A1212      -0.971 -12.392  14.608  0.00  0.00    +0.003 C 
+BRANCH  47  48
+ATOM     48  CBE GM3 A1212      -0.502 -12.409  16.058  0.00  0.00    +0.000 C 
+BRANCH  48  49
+ATOM     49  CBF GM3 A1212      -0.669 -11.053  16.731  0.00  0.00    +0.000 C 
+ATOM     50  CBG GM3 A1212      -0.816  -9.987  15.669  0.00  0.00    +0.000 C 
+ENDBRANCH  48  49
+ENDBRANCH  47  48
+ENDBRANCH  46  47
+ENDBRANCH  43  46
+ENDBRANCH   1  43
+TORSDOF 34
+ENDMDL

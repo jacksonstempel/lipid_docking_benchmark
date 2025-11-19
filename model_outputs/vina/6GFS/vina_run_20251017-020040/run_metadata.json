@@ -1,0 +1,26 @@
+{
+  "pdbid": "6GFS",
+  "timestamp_utc": "20251017-020040",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/6GFS/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/6GFS/vina_run_20251017-020040/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/6GFS/vina_run_20251017-020040/6GFS_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/6GFS/vina_run_20251017-020040/6GFS_vina.log",
+  "center": [
+    9.383,
+    -2.36,
+    55.819
+  ],
+  "size": [
+    22.1,
+    11.464,
+    10.518
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

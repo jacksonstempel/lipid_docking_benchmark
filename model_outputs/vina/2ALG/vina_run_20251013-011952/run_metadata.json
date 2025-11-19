@@ -1,0 +1,26 @@
+{
+  "pdbid": "2ALG",
+  "timestamp_utc": "20251013-011952",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/2ALG/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2ALG/vina_run_20251013-011952/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2ALG/vina_run_20251013-011952/2ALG_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2ALG/vina_run_20251013-011952/2ALG_vina.log",
+  "center": [
+    -12.73,
+    25.716,
+    -6.168
+  ],
+  "size": [
+    15.579,
+    10.911,
+    15.113
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

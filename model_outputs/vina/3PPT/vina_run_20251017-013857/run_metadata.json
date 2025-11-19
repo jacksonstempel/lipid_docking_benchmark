@@ -1,0 +1,26 @@
+{
+  "pdbid": "3PPT",
+  "timestamp_utc": "20251017-013857",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/3PPT/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3PPT/vina_run_20251017-013857/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3PPT/vina_run_20251017-013857/3PPT_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3PPT/vina_run_20251017-013857/3PPT_vina.log",
+  "center": [
+    11.748,
+    50.684,
+    4.125
+  ],
+  "size": [
+    13.529,
+    12.883,
+    10.537
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

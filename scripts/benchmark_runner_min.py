@@ -167,11 +167,13 @@ def _build_row(
     rmsd_global = _best_value("rmsd_locked_global")
     rmsd_pocket = _best_value("rmsd_locked_pocket")
 
+    is_vina = method.lower().startswith("vina")
+
     row = {
         "pdb_id": pid,
         "method": method,
         # Vina uses the reference protein; mark protein_rmsd as N/A for vina rows.
-        "protein_rmsd": "" if method == "vina" else (float(protein_rmsd) if protein_rmsd is not None else ""),
+        "protein_rmsd": "" if is_vina else (float(protein_rmsd) if protein_rmsd is not None else ""),
         "ligand": ligand_label,
         "rmsd_global": rmsd_global if rmsd_global is not None else "",
         "rmsd_pocket": rmsd_pocket if rmsd_pocket is not None else "",
@@ -252,90 +254,148 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     for target in targets:
         LOGGER.info("Benchmarking %s", target.pdbid)
-        for method, pred_path, resolver in (
-            ("boltz", target.boltz_pred, boltz_resolver),
-            ("vina", target.vina_pred, vina_resolver),
-        ):
-            try:
-                # For Vina, optionally evaluate top-K poses from multiple candidate files (oracle selection)
-                if method == "vina" and (args.vina_topk > 1 or args.vina_all_runs):
-                    vina_dir = vina_root / target.pdbid
-                    candidates: List[Path] = []
-                    latest = vina_dir / "latest" / f"{target.pdbid}_vina_pose.pdbqt"
-                    if latest.is_file():
-                        candidates.append(latest)
-                    if args.vina_all_runs:
-                        for p in sorted(vina_dir.glob("vina_run_*/*_vina_pose.pdbqt")):
-                            if p.is_file():
-                                candidates.append(p)
-                    # Deduplicate while preserving order
-                    seen = set()
-                    uniq: List[Path] = []
-                    for c in candidates:
-                        key = str(c.resolve())
-                        if key not in seen:
-                            uniq.append(c)
-                            seen.add(key)
-                    if not uniq:
-                        uniq = [pred_path]
-                    # Take top-K by recency
-                    uniq.sort(key=lambda p: p.stat().st_mtime, reverse=True)
-                    uniq = uniq[: max(1, args.vina_topk)]
-                    # Evaluate each candidate file with top-K poses from that file and keep the best (oracle)
-                    best_result = None
-                    best_rmsd = float("inf")
-                    for cand in uniq:
-                        cand_result = run_pose_benchmark(
-                            pdbid=target.pdbid,
-                            resolver=resolver,
-                            project_root=config.base_dir,
-                            ref_path=target.ref,
-                            pred_path=cand,
-                            pose_count=max(1, args.vina_topk),
-                            include_h=args.include_h,
-                            include_small=args.include_small,
-                            enable_pocket=not args.no_pocket,
-                            pocket_radius=args.pocket_radius,
-                            capture_full=args.full,
-                        )
-                        bp = (cand_result.get("summary", {}) or {}).get("best_pose", {})
-                        val = bp.get("rmsd_locked_global")
-                        try:
-                            valf = float(val)
-                        except (TypeError, ValueError):
-                            valf = float("inf")
-                        if valf < best_rmsd:
-                            best_rmsd = valf
-                            best_result = cand_result
-                    result = best_result if best_result is not None else cand_result
-                else:
-                    result = run_pose_benchmark(
-                        pdbid=target.pdbid,
-                        resolver=resolver,
-                        project_root=config.base_dir,
-                        ref_path=target.ref,
-                        pred_path=pred_path,
-                        pose_count=max(1, args.pose_count),
-                        include_h=args.include_h,
-                        include_small=args.include_small,
-                        enable_pocket=not args.no_pocket,
-                        pocket_radius=args.pocket_radius,
-                        capture_full=args.full,
-                    )
-            except Exception as exc:  # pragma: no cover - runtime guard
-                LOGGER.exception("Benchmark failed for %s (%s): %s", target.pdbid, method, exc)
-                failures.append((target.pdbid, method))
-                continue
-
-            summary = result.get("summary", {})
+        # Evaluate Boltz predictions (single best pose selection)
+        try:
+            boltz_result = run_pose_benchmark(
+                pdbid=target.pdbid,
+                resolver=boltz_resolver,
+                project_root=config.base_dir,
+                ref_path=target.ref,
+                pred_path=target.boltz_pred,
+                pose_count=max(1, args.pose_count),
+                include_h=args.include_h,
+                include_small=args.include_small,
+                enable_pocket=not args.no_pocket,
+                pocket_radius=args.pocket_radius,
+                capture_full=args.full,
+            )
+        except Exception as exc:  # pragma: no cover - runtime guard
+            LOGGER.exception("Benchmark failed for %s (boltz): %s", target.pdbid, exc)
+            failures.append((target.pdbid, "boltz"))
+        else:
             rows.append(
                 _build_row(
                     pid=target.pdbid,
-                    method=method,
+                    method="boltz",
                     residue_count=target.residue_count,
-                    summary=summary,
+                    summary=boltz_result.get("summary", {}),
                 )
             )
+
+        # Evaluate Vina predictions with both top pose and best-of-topk selection
+        try:
+            vina_dir = vina_root / target.pdbid
+            candidate_paths: List[Path]
+            base_candidate = target.vina_pred
+
+            if args.vina_topk > 1 or args.vina_all_runs:
+                candidates: List[Path] = []
+                latest = vina_dir / "latest" / f"{target.pdbid}_vina_pose.pdbqt"
+                if latest.is_file():
+                    candidates.append(latest)
+                if args.vina_all_runs:
+                    for p in sorted(vina_dir.glob("vina_run_*/*_vina_pose.pdbqt")):
+                        if p.is_file():
+                            candidates.append(p)
+
+                seen = set()
+                uniq: List[Path] = []
+                for c in candidates:
+                    key = str(c.resolve())
+                    if key not in seen:
+                        uniq.append(c)
+                        seen.add(key)
+
+                if not uniq:
+                    uniq = [base_candidate]
+
+                uniq.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+                candidate_paths = uniq[: max(1, args.vina_topk)]
+            else:
+                candidate_paths = [base_candidate]
+
+            # Evaluate best pose (oracle across candidate_paths using args.vina_topk poses each)
+            vina_best_result = None
+            vina_best_candidate = None
+            last_result = None
+            best_rmsd = float("inf")
+            for cand in candidate_paths:
+                cand_result = run_pose_benchmark(
+                    pdbid=target.pdbid,
+                    resolver=vina_resolver,
+                    project_root=config.base_dir,
+                    ref_path=target.ref,
+                    pred_path=cand,
+                    pose_count=max(1, args.vina_topk if args.vina_topk > 1 or args.vina_all_runs else args.pose_count),
+                    include_h=args.include_h,
+                    include_small=args.include_small,
+                    enable_pocket=not args.no_pocket,
+                    pocket_radius=args.pocket_radius,
+                    capture_full=args.full,
+                )
+                last_result = cand_result
+                bp = (cand_result.get("summary", {}) or {}).get("best_pose", {})
+                val = bp.get("rmsd_locked_global")
+                try:
+                    valf = float(val)
+                except (TypeError, ValueError):
+                    valf = float("inf")
+                if valf < best_rmsd:
+                    best_rmsd = valf
+                    vina_best_result = cand_result
+                    vina_best_candidate = cand
+
+            if vina_best_result is None:
+                vina_best_result = last_result
+            if vina_best_candidate is None:
+                vina_best_candidate = candidate_paths[0]
+
+        except Exception as exc:  # pragma: no cover - runtime guard
+            LOGGER.exception("Benchmark failed for %s (vina_best): %s", target.pdbid, exc)
+            failures.append((target.pdbid, "vina_best"))
+            continue
+
+        # Evaluate and record the top-1 pose from the best candidate file
+        vina_top_summary: Dict[str, object] | None = None
+        try:
+            vina_top_result = run_pose_benchmark(
+                pdbid=target.pdbid,
+                resolver=vina_resolver,
+                project_root=config.base_dir,
+                ref_path=target.ref,
+                pred_path=vina_best_candidate,
+                pose_count=1,
+                include_h=args.include_h,
+                include_small=args.include_small,
+                enable_pocket=not args.no_pocket,
+                pocket_radius=args.pocket_radius,
+                capture_full=args.full,
+            )
+        except Exception as exc:  # pragma: no cover - runtime guard
+            LOGGER.exception("Benchmark failed for %s (vina_top): %s", target.pdbid, exc)
+            failures.append((target.pdbid, "vina_top"))
+        else:
+            vina_top_summary = vina_top_result.get("summary", {})
+
+        if vina_top_summary is not None:
+            rows.append(
+                _build_row(
+                    pid=target.pdbid,
+                    method="vina_top",
+                    residue_count=target.residue_count,
+                    summary=vina_top_summary,
+                )
+            )
+
+        # Record vina_best row
+        rows.append(
+            _build_row(
+                pid=target.pdbid,
+                method="vina_best",
+                residue_count=target.residue_count,
+                summary=vina_best_result.get("summary", {}),
+            )
+        )
 
     if not rows:
         LOGGER.error("All benchmarks failed.")

@@ -1,0 +1,23 @@
+{
+  "pdbid": "3GPE",
+  "source_cif": "raw_structures/pdb_lipid_candidates/3GPE.cif",
+  "prep_dir": "docking/prep/3GPE",
+  "receptor_pdb": "docking/prep/3GPE/receptor_no_ligand.pdb",
+  "ligand_pdb": "docking/prep/3GPE/ligand.pdb",
+  "receptor_pdbqt": "docking/prep/3GPE/receptor.pdbqt",
+  "ligand_pdbqt": "docking/prep/3GPE/ligand.pdbqt",
+  "box_file": "docking/vina/box/3GPE.txt",
+  "center": [
+    32.337,
+    -22.594,
+    18.477
+  ],
+  "size": [
+    13.306,
+    11.168,
+    12.506
+  ],
+  "ph": 7.4,
+  "keep_waters": false,
+  "keep_ions": true
+}

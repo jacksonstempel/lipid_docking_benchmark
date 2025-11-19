@@ -1,0 +1,1340 @@
+MODEL 1
+REMARK VINA RESULT:   -11.358      0.000      0.000
+REMARK INTER + INTRA:         -15.883
+REMARK INTER:                 -15.010
+REMARK INTRA:                  -0.873
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      18.310  26.296  15.925  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      16.813  26.632  16.106  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      16.123  25.565  16.964  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      16.787  25.509  18.357  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      18.266  25.259  18.209  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      18.828  24.307  18.958  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      20.303  24.017  19.046  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      21.134  25.114  18.370  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      20.452  25.575  17.048  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      19.047  26.174  17.288  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      21.380  26.526  16.262  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      22.853  26.044  16.129  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      23.435  25.674  17.516  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      22.519  24.571  18.045  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      23.268  23.962  19.236  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      24.747  24.083  18.833  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      24.773  24.896  17.502  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      23.451  26.930  18.441  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      19.090  27.562  18.000  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      26.078  25.707  17.365  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      26.444  25.861  15.868  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      27.278  25.104  18.126  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      28.289  24.314  17.274  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      28.022  22.788  17.450  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      28.869  21.969  16.459  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      30.350  22.091  16.885  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      28.423  20.489  16.512  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      14.744  25.875  17.182  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      14.610  26.832  17.093  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:   -11.142      2.380      4.677
+REMARK INTER + INTRA:         -15.597
+REMARK INTER:                 -14.269
+REMARK INTRA:                  -1.328
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      15.504  26.400  20.081  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      13.961  26.392  20.165  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      13.361  27.343  19.121  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      13.780  26.888  17.706  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      15.283  26.811  17.616  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      15.888  27.385  16.573  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      17.354  27.287  16.247  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      18.053  26.230  17.111  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      17.526  26.290  18.575  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      16.010  25.999  18.667  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      18.367  25.375  19.492  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.907  25.514  19.324  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      20.309  25.376  17.835  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      19.554  26.495  17.118  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      20.198  26.591  15.730  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      21.669  26.230  15.988  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      21.757  25.795  17.484  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      19.920  23.961  17.305  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      15.658  24.508  18.375  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      22.880  24.759  17.702  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      23.504  24.952  19.107  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      23.995  24.805  16.636  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      25.398  25.187  17.142  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      25.736  26.633  16.667  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      25.549  27.642  17.814  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      26.812  28.530  17.878  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      24.304  28.512  17.527  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      11.932  27.322  19.150  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      11.587  27.915  18.464  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:   -10.904      3.569      9.607
+REMARK INTER + INTRA:         -15.283
+REMARK INTER:                 -13.749
+REMARK INTRA:                  -1.534
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      21.919  25.668  17.311  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      23.247  24.877  17.284  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      23.711  24.561  18.711  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      22.642  23.706  19.427  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      21.315  24.419  19.401  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      20.623  24.518  20.539  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      19.227  25.066  20.672  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      18.569  25.268  19.301  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      19.598  25.844  18.285  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      20.797  24.895  18.059  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      18.895  26.242  16.968  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      17.587  27.066  17.145  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      16.625  26.359  18.131  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      17.410  26.248  19.437  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      16.372  25.876  20.502  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      15.096  26.589  20.028  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      15.431  27.206  18.634  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      16.209  24.966  17.566  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      20.414  23.607  17.267  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      14.176  27.287  17.740  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      14.207  28.596  16.912  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      12.844  27.203  18.515  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      11.952  25.990  18.194  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      12.395  25.377  16.830  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      12.567  23.852  16.948  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      13.555  23.398  15.850  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      13.135  23.511  18.345  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      24.916  23.791  18.714  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      24.815  23.034  19.312  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:   -10.671      2.032      4.405
+REMARK INTER + INTRA:         -14.974
+REMARK INTER:                 -14.039
+REMARK INTRA:                  -0.936
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      15.186  26.112  19.993  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      13.653  25.929  20.054  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      12.971  26.737  18.943  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      13.471  26.248  17.565  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      14.974  26.342  17.504  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      15.533  26.917  16.436  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      17.007  26.972  16.140  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      17.804  26.059  17.080  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      17.241  26.147  18.529  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      15.767  25.687  18.616  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      18.161  25.395  19.515  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.678  25.702  19.362  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      20.126  25.521  17.890  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      19.264  26.498  17.093  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      19.923  26.584  15.712  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      21.420  26.414  16.014  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      21.524  26.084  17.536  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      19.917  24.041  17.446  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      15.597  24.149  18.414  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      22.755  25.202  17.837  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      23.535  25.786  19.041  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      23.714  25.030  16.640  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      24.731  26.165  16.421  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      26.145  25.547  16.196  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      27.151  26.101  17.221  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      26.567  27.409  17.802  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      27.350  25.063  18.350  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      11.553  26.550  18.951  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      11.166  27.048  19.687  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:   -10.559      2.306      4.035
+REMARK INTER + INTRA:         -14.828
+REMARK INTER:                 -13.711
+REMARK INTRA:                  -1.116
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      14.715  26.082  16.426  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      13.274  26.603  16.624  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      12.565  25.815  17.732  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      13.336  25.980  19.060  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      14.769  25.551  18.877  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      15.305  24.721  19.776  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      16.750  24.302  19.832  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      17.616  25.142  18.885  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      16.870  25.388  17.541  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      15.549  26.168  17.734  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      17.811  26.052  16.512  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.218  25.401  16.393  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      19.878  25.268  17.788  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      18.916  24.401  18.598  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      19.704  23.977  19.842  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      21.148  23.855  19.331  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      21.135  24.367  17.857  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      20.084  26.679  18.419  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      15.775  27.661  18.127  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      22.492  24.991  17.468  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      22.739  24.801  15.950  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      23.694  24.429  18.256  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      24.607  25.470  18.929  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      26.045  25.345  18.340  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      26.419  26.608  17.543  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      26.246  26.291  16.040  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      25.478  27.764  17.952  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      11.243  26.307  17.965  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      11.281  27.060  18.576  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:   -10.525      1.496      2.823
+REMARK INTER + INTRA:         -14.782
+REMARK INTER:                 -14.758
+REMARK INTRA:                  -0.024
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      19.609  23.987  20.333  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      18.117  23.582  20.334  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      17.228  24.808  20.097  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      17.567  25.439  18.728  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      19.035  25.774  18.669  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      19.394  26.988  18.243  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      20.804  27.446  17.986  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      21.792  26.273  18.020  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      21.430  25.292  19.174  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      20.023  24.676  19.003  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      22.534  24.225  19.344  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      23.987  24.780  19.361  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      24.239  25.691  18.134  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      23.201  26.805  18.251  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      23.653  27.883  17.259  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      25.186  27.783  17.290  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      25.526  26.548  18.181  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      24.083  24.868  16.817  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      19.944  23.656  17.825  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      26.850  25.887  17.743  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      27.141  26.231  16.261  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      26.881  24.355  17.929  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      28.263  23.688  17.802  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      28.273  22.770  16.542  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      29.438  21.766  16.608  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      30.727  22.503  16.179  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      29.581  21.249  18.058  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      15.843  24.453  20.049  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      15.707  23.620  20.527  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:   -10.387      3.134      9.469
+REMARK INTER + INTRA:         -14.599
+REMARK INTER:                 -13.153
+REMARK INTRA:                  -1.446
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      22.901  24.209  19.367  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      24.436  24.289  19.522  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      25.111  24.375  18.147  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      24.623  25.641  17.409  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      23.119  25.629  17.310  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      22.557  25.882  16.126  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      21.083  26.051  15.873  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      20.295  26.157  17.185  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      20.852  25.151  18.235  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      22.331  25.427  18.589  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      19.939  25.106  19.480  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      18.418  24.990  19.174  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      17.978  26.080  18.166  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      18.830  25.833  16.922  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      18.175  26.663  15.812  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      16.679  26.619  16.163  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      16.574  25.895  17.541  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      18.211  27.497  18.775  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      22.525  26.733  19.421  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      15.355  26.395  18.346  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      14.749  25.223  19.158  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      14.253  27.043  17.482  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      12.968  26.216  17.294  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      12.837  25.808  15.795  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      12.935  24.280  15.635  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      14.407  23.928  15.325  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      12.493  23.602  16.952  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      26.531  24.493  18.264  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      26.957  23.979  17.561  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:   -10.383      3.428      9.332
+REMARK INTER + INTRA:         -14.594
+REMARK INTER:                 -13.408
+REMARK INTRA:                  -1.186
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      22.600  27.514  17.328  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      23.993  27.371  16.674  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      24.772  26.216  17.316  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      23.996  24.895  17.119  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      22.604  25.030  17.680  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      22.146  24.067  18.484  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      20.742  23.964  19.017  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      19.803  24.960  18.326  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      20.518  26.327  18.118  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      21.769  26.206  17.217  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      19.519  27.391  17.612  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      18.171  27.446  18.387  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      17.532  26.038  18.473  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      18.569  25.178  19.193  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      17.826  23.897  19.590  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      16.395  24.382  19.870  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      16.357  25.889  19.469  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      17.210  25.509  17.041  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      21.418  25.920  15.724  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      14.950  26.307  18.992  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      14.622  27.729  19.513  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      13.827  25.336  19.413  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      12.743  25.058  18.356  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      13.055  23.704  17.648  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      12.839  23.821  16.128  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      12.325  25.248  15.829  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      14.183  23.579  15.404  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      26.049  26.034  16.698  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      26.005  26.326  15.773  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:   -10.329      3.404      9.516
+REMARK INTER + INTRA:         -14.523
+REMARK INTER:                 -13.175
+REMARK INTRA:                  -1.348
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      23.623  24.993  18.740  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      24.999  25.678  18.573  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      25.159  26.219  17.147  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      24.052  27.258  16.860  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      22.697  26.640  17.090  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      21.759  26.796  16.152  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      20.320  26.373  16.273  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      19.971  25.966  17.711  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      21.137  25.148  18.341  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      22.450  25.960  18.421  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      20.712  24.563  19.705  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.318  23.872  19.718  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      18.238  24.808  19.122  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      18.715  25.105  17.702  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      17.508  25.733  16.994  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      16.304  25.028  17.640  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      16.879  24.146  18.792  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      18.112  26.098  19.990  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      22.395  27.103  19.481  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      15.857  23.984  19.937  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      15.410  22.504  20.034  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      14.613  24.888  19.804  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      14.561  26.107  20.743  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      14.058  27.347  19.942  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      13.427  26.913  18.606  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      11.893  27.046  18.739  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      13.943  27.836  17.478  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      26.407  26.897  16.979  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      26.257  27.855  16.979  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:   -10.178      3.222      9.085
+REMARK INTER + INTRA:         -14.324
+REMARK INTER:                 -13.076
+REMARK INTRA:                  -1.248
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      23.782  26.962  16.844  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      25.190  26.679  16.272  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      26.009  25.833  17.256  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      25.296  24.485  17.500  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      23.891  24.730  17.987  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      23.463  24.061  19.060  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      22.057  24.073  19.598  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      21.085  24.743  18.620  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      21.743  26.000  17.978  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      23.011  25.651  17.165  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      20.705  26.793  17.153  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.345  27.034  17.868  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      18.768  25.703  18.408  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      19.831  25.174  19.369  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      19.139  24.059  20.162  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      17.683  24.540  20.268  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      17.585  25.831  19.398  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      18.491  24.722  17.226  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      22.697  24.879  15.847  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      16.168  26.005  18.811  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      15.558  27.341  19.304  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      15.202  24.848  19.142  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      14.769  23.970  17.954  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      14.843  24.811  16.643  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      13.568  24.623  15.802  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      12.688  23.562  16.502  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      12.810  25.969  15.720  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      27.302  25.521  16.731  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      27.909  25.327  17.462  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -9.991      1.497      2.669
+REMARK INTER + INTRA:         -14.076
+REMARK INTER:                 -13.125
+REMARK INTRA:                  -0.951
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      15.809  26.917  17.398  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      14.328  27.026  17.827  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      13.793  25.656  18.262  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      14.617  25.134  19.460  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      16.079  25.089  19.095  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      16.768  23.978  19.363  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      18.255  23.807  19.200  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      18.949  25.147  18.931  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      18.098  26.014  17.957  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      16.704  26.351  18.535  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      18.883  27.271  17.522  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      20.352  27.007  17.082  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      21.107  26.190  18.159  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      20.312  24.893  18.299  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      21.222  23.945  19.088  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      22.636  24.339  18.634  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      22.469  25.596  17.725  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      21.172  26.996  19.493  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      16.764  27.362  19.722  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      23.711  26.510  17.797  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      24.084  27.000  16.376  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      24.942  25.849  18.451  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      26.315  26.364  17.980  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      27.360  25.213  18.097  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      26.949  24.012  17.226  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      26.731  24.524  15.784  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      28.080  22.958  17.248  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      12.436  25.737  18.706  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      12.388  25.495  19.644  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -9.988      3.241      9.352
+REMARK INTER + INTRA:         -14.073
+REMARK INTER:                 -13.772
+REMARK INTRA:                  -0.300
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      25.539  26.595  17.212  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      26.925  26.135  16.705  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      27.522  25.087  17.653  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      26.589  23.858  17.721  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      25.206  24.288  18.139  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      24.596  23.609  19.115  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      23.172  23.805  19.562  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      22.397  24.706  18.592  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      23.292  25.888  18.116  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      24.549  25.406  17.356  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      22.459  26.907  17.308  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      21.102  27.306  17.954  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      20.282  26.046  18.327  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      21.171  25.271  19.298  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      20.253  24.221  19.935  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      18.887  24.924  19.995  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      19.061  26.283  19.248  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      19.948  25.227  17.042  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      24.220  24.809  15.953  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      17.739  26.735  18.592  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      17.991  27.991  17.721  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      16.604  27.026  19.597  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      15.280  26.279  19.355  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      14.117  27.072  20.024  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      13.078  27.505  18.974  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      13.831  27.823  17.662  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      12.077  26.350  18.743  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      28.786  24.613  17.183  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      29.441  25.326  17.242  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -9.965      3.341      9.188
+REMARK INTER + INTRA:         -14.042
+REMARK INTER:                 -13.241
+REMARK INTRA:                  -0.802
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      23.406  27.223  17.420  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      24.889  26.889  17.139  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      25.463  26.011  18.257  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      24.667  24.690  18.340  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      23.203  24.985  18.537  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      22.545  24.330  19.496  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      21.061  24.392  19.742  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      20.330  25.101  18.596  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      21.148  26.335  18.112  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      22.540  25.941  17.567  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      20.326  27.169  17.105  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      18.859  27.458  17.535  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      18.138  26.147  17.934  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      18.967  25.576  19.083  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      18.091  24.485  19.709  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      16.661  25.020  19.528  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      16.786  26.317  18.669  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      18.069  25.181  16.711  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      22.469  25.185  16.204  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      15.523  26.546  17.812  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      15.784  27.679  16.788  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      14.257  26.876  18.630  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      13.222  25.744  18.760  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      12.761  25.308  17.336  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      12.980  23.799  17.130  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      13.843  23.612  15.861  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      13.715  23.220  18.360  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      26.823  25.652  17.998  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      27.344  26.454  17.836  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -9.927      3.098      9.140
+REMARK INTER + INTRA:         -13.992
+REMARK INTER:                 -12.670
+REMARK INTRA:                  -1.321
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      24.738  24.866  19.098  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      26.219  25.021  18.684  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      26.460  24.392  17.306  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      25.577  25.098  16.253  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      24.130  25.031  16.669  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      23.227  24.638  15.768  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      21.734  24.646  15.962  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      21.336  25.407  17.233  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      22.326  25.085  18.391  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      23.775  25.510  18.062  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      21.816  25.681  19.722  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      20.313  25.418  20.026  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      19.431  25.834  18.823  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      19.933  24.987  17.655  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      18.864  25.128  16.565  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      17.555  25.263  17.359  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      17.962  25.349  18.863  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      19.578  27.364  18.557  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      23.966  27.058  18.043  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      16.948  26.185  19.672  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      16.762  25.563  21.079  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      15.570  26.335  18.992  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      14.345  26.225  19.918  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      13.472  25.014  19.470  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      14.301  24.027  18.627  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      14.589  22.783  19.498  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      13.490  23.622  17.376  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      27.815  24.561  16.881  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      27.947  24.102  16.036  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -9.896      1.973      4.576
+REMARK INTER + INTRA:         -13.950
+REMARK INTER:                 -13.389
+REMARK INTRA:                  -0.561
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      14.680  27.302  19.157  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      13.207  26.860  19.309  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      12.542  26.723  17.934  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      13.292  25.661  17.100  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      14.751  26.025  16.998  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      15.332  25.996  15.796  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      16.800  26.190  15.527  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      17.618  26.172  16.825  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      16.867  26.943  17.950  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      15.497  26.308  18.286  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      17.771  27.105  19.192  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.218  27.590  18.892  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      19.875  26.707  17.803  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      18.964  26.843  16.584  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      19.770  26.269  15.412  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      21.222  26.630  15.761  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      21.187  27.255  17.190  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      19.986  25.234  18.303  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      15.625  24.936  19.017  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      22.504  26.992  17.951  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      22.297  27.260  19.462  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      23.702  27.821  17.442  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      24.998  27.036  17.168  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      24.699  25.509  17.260  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      25.475  24.871  18.427  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      24.478  24.033  19.259  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      26.588  23.960  17.859  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      11.190  26.273  18.045  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      10.677  26.600  17.289  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -9.860      3.276      9.419
+REMARK INTER + INTRA:         -13.902
+REMARK INTER:                 -12.629
+REMARK INTRA:                  -1.274
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      24.136  24.646  16.180  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      25.679  24.741  16.193  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      26.127  26.201  16.055  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      25.573  27.028  17.236  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      24.073  26.892  17.297  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      23.338  27.999  17.421  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      21.849  28.044  17.638  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      21.285  26.656  17.963  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      21.967  25.572  17.077  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      23.493  25.492  17.314  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      21.263  24.208  17.252  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      19.710  24.257  17.183  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      19.153  25.330  18.151  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      19.786  26.642  17.691  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      18.992  27.744  18.401  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      17.571  27.165  18.490  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      17.662  25.699  17.965  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      19.530  24.969  19.621  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      23.863  24.892  18.706  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      16.606  24.796  18.636  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      15.417  24.573  17.668  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      16.076  25.337  19.981  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      14.549  25.498  20.089  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      14.200  27.016  20.167  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      13.130  27.383  19.122  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      13.857  27.870  17.848  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      12.282  26.131  18.802  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      27.551  26.322  16.107  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      27.801  26.883  16.858  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -9.567      1.347      2.797
+REMARK INTER + INTRA:         -13.516
+REMARK INTER:                 -12.990
+REMARK INTRA:                  -0.525
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      18.533  25.623  20.421  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      17.132  24.988  20.576  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      16.225  25.397  19.409  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      16.842  24.911  18.078  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      18.241  25.453  17.935  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      18.586  26.028  16.780  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      19.969  26.494  16.410  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      21.016  25.999  17.415  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      20.464  26.097  18.868  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      19.207  25.222  19.079  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      21.580  25.798  19.893  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      22.925  26.533  19.632  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      23.397  26.309  18.174  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      22.268  26.861  17.306  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      22.858  26.966  15.895  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      24.336  27.304  16.145  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      24.548  27.222  17.689  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      23.654  24.791  17.922  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      19.520  23.694  19.073  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      25.994  26.807  18.035  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      26.897  28.064  18.104  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      26.609  25.788  17.053  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      27.322  24.582  17.691  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      28.680  24.347  16.961  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      28.994  22.843  16.865  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      28.156  22.256  15.706  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      30.501  22.656  16.576  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      14.936  24.787  19.506  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      14.954  24.100  20.190  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:    -9.133      2.486      3.651
+REMARK INTER + INTRA:         -12.943
+REMARK INTER:                 -12.525
+REMARK INTRA:                  -0.418
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      16.826  26.528  16.200  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      15.498  27.318  16.215  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      14.585  26.812  17.339  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      15.287  27.002  18.702  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      16.623  26.305  18.691  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      16.935  25.511  19.719  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      18.270  24.853  19.944  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      19.337  25.401  18.988  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      18.737  25.606  17.566  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      17.576  26.626  17.558  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      19.850  25.959  16.554  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      21.115  25.058  16.630  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      21.648  24.984  18.082  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      20.491  24.410  18.897  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      21.105  24.011  20.244  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      22.531  23.572  19.875  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      22.708  23.890  18.358  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      22.073  26.404  18.568  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      18.051  28.092  17.801  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      24.180  24.210  18.020  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      24.822  25.008  19.181  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      24.369  24.986  16.699  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      25.370  26.154  16.740  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      24.587  27.501  16.670  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      25.094  28.482  17.743  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      26.629  28.332  17.838  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      24.727  29.924  17.326  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      13.365  27.557  17.402  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      13.564  28.505  17.365  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:    -9.100      3.198      9.443
+REMARK INTER + INTRA:         -12.899
+REMARK INTER:                 -12.186
+REMARK INTRA:                  -0.713
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      25.335  24.400  16.051  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      26.805  24.086  16.412  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      27.536  25.362  16.846  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      26.840  25.961  18.088  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      25.384  26.208  17.790  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      24.861  27.395  18.107  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      23.405  27.766  18.013  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      22.527  26.536  17.752  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      23.214  25.587  16.727  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      24.573  25.054  17.236  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      22.249  24.456  16.305  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      20.812  24.923  15.935  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      20.219  25.809  17.059  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      21.186  26.984  17.186  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      20.445  28.027  18.031  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      18.972  27.835  17.633  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      18.932  26.587  16.696  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      20.102  24.988  18.380  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      24.427  24.034  18.407  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      17.583  25.845  16.808  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      16.712  26.153  15.565  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      16.786  26.177  18.087  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      15.256  26.038  17.984  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      14.590  27.378  18.424  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      13.543  27.129  19.525  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      12.148  27.113  18.860  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      13.826  25.766  20.197  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      28.887  25.090  17.228  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      29.052  25.453  18.112  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL
+MODEL 20
+REMARK VINA RESULT:    -8.956      3.121      9.132
+REMARK INTER + INTRA:         -12.708
+REMARK INTER:                 -11.814
+REMARK INTRA:                  -0.894
+REMARK UNBOUND:                -0.873
+REMARK  Name = docking/prep/1N83/ligand.pdb
+REMARK  11 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C3_3  and  O1_28
+REMARK    2  A    between atoms: C10_10  and  C19_19
+REMARK    3  A    between atoms: C13_13  and  C18_18
+REMARK    4  A    between atoms: C17_17  and  C20_20
+REMARK    5  A    between atoms: C20_20  and  C21_21
+REMARK    6  A    between atoms: C20_20  and  C22_22
+REMARK    7  A    between atoms: C22_22  and  C23_23
+REMARK    8  A    between atoms: C23_23  and  C24_24
+REMARK    9  A    between atoms: C24_24  and  C25_25
+REMARK   10  A    between atoms: C25_25  and  C26_26
+REMARK   11  A    between atoms: C25_25  and  C27_27
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  CLR A1000      25.244  24.383  16.074  0.00  0.00    +0.006 C 
+ATOM      2  C2  CLR A1000      26.722  24.098  16.428  0.00  0.00    +0.034 C 
+ATOM      3  C3  CLR A1000      27.433  25.392  16.843  0.00  0.00    +0.156 C 
+ATOM      4  C4  CLR A1000      26.735  25.992  18.083  0.00  0.00    +0.055 C 
+ATOM      5  C5  CLR A1000      25.272  26.210  17.793  0.00  0.00    -0.047 C 
+ATOM      6  C6  CLR A1000      24.731  27.391  18.102  0.00  0.00    -0.035 C 
+ATOM      7  C7  CLR A1000      23.268  27.734  18.015  0.00  0.00    +0.025 C 
+ATOM      8  C8  CLR A1000      22.410  26.486  17.773  0.00  0.00    +0.005 C 
+ATOM      9  C9  CLR A1000      23.106  25.538  16.753  0.00  0.00    +0.004 C 
+ATOM     10  C10 CLR A1000      24.479  25.036  17.258  0.00  0.00    +0.015 C 
+ATOM     11  C11 CLR A1000      22.160  24.386  16.350  0.00  0.00    +0.000 C 
+ATOM     12  C12 CLR A1000      20.712  24.823  15.986  0.00  0.00    +0.000 C 
+ATOM     13  C13 CLR A1000      20.111  25.710  17.104  0.00  0.00    +0.000 C 
+ATOM     14  C14 CLR A1000      21.057  26.904  17.212  0.00  0.00    +0.000 C 
+ATOM     15  C15 CLR A1000      20.303  27.942  18.051  0.00  0.00    +0.000 C 
+ATOM     16  C16 CLR A1000      18.832  27.719  17.666  0.00  0.00    +0.000 C 
+ATOM     17  C17 CLR A1000      18.807  26.462  16.743  0.00  0.00    +0.000 C 
+ATOM     18  C18 CLR A1000      20.018  24.901  18.435  0.00  0.00    +0.000 C 
+ATOM     19  C19 CLR A1000      24.359  24.025  18.440  0.00  0.00    +0.004 C 
+ENDROOT
+BRANCH  17  20
+ATOM     20  C20 CLR A1000      17.473  25.697  16.873  0.00  0.00    +0.000 C 
+ATOM     21  C21 CLR A1000      16.796  25.586  15.483  0.00  0.00    +0.000 C 
+BRANCH  20  22
+ATOM     22  C22 CLR A1000      16.482  26.324  17.876  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C23 CLR A1000      14.988  26.106  17.575  0.00  0.00    +0.000 C 
+BRANCH  23  24
+ATOM     24  C24 CLR A1000      14.395  25.114  18.622  0.00  0.00    +0.000 C 
+BRANCH  24  25
+ATOM     25  C25 CLR A1000      14.277  23.700  18.026  0.00  0.00    +0.000 C 
+ATOM     26  C26 CLR A1000      14.223  22.693  19.198  0.00  0.00    +0.000 C 
+ATOM     27  C27 CLR A1000      12.981  23.608  17.188  0.00  0.00    +0.000 C 
+ENDBRANCH  24  25
+ENDBRANCH  23  24
+ENDBRANCH  22  23
+ENDBRANCH  20  22
+ENDBRANCH  17  20
+BRANCH   3  28
+ATOM     28  O1  CLR A1000      28.791  25.149  17.217  0.00  0.00    -0.223 OA
+ATOM     29  H   CLR A1000      28.874  24.247  17.566  0.00  0.00    +0.000 HD
+ENDBRANCH   3  28
+TORSDOF 6
+ENDMDL

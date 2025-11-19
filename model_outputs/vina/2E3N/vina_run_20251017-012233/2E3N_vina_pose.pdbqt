@@ -1,0 +1,2280 @@
+MODEL 1
+REMARK VINA RESULT:    -7.186      0.000      0.000
+REMARK INTER + INTRA:         -18.704
+REMARK INTER:                 -16.008
+REMARK INTRA:                  -2.696
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.491  29.408  -2.219  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.694  28.413  -3.357  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.069  27.231  -3.415  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.344  26.288  -4.565  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       7.809  26.264  -4.972  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       7.970  26.610  -6.452  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       6.610  26.536  -7.137  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       6.682  25.862  -8.499  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       7.869  26.444  -9.249  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       7.506  26.785 -10.690  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       8.512  26.147 -11.639  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       8.956  24.768 -11.156  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       8.439  23.646 -12.048  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       7.335  22.870 -11.345  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       7.709  22.589  -9.897  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       8.406  21.251  -9.784  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.546  28.909  -1.244  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.534  27.939  -1.273  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.831  29.710  -1.516  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600      10.193  28.164  -1.962  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.981  29.164  -2.633  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.933  29.972  -2.446  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.899  30.803  -2.973  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.902  29.554  -3.763  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.842  28.430  -4.791  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.387  28.863  -6.142  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      12.089  27.706  -6.844  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.252  27.247  -8.035  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.755  30.857  -0.494  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.510  31.575  -0.596  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       6.560  32.207  -1.330  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:    -7.139      1.988      2.487
+REMARK INTER + INTRA:         -18.599
+REMARK INTER:                 -16.156
+REMARK INTRA:                  -2.443
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.353  29.591  -2.188  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.554  28.685  -3.398  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.628  27.352  -3.309  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.854  26.523  -4.554  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.564  25.958  -5.129  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.356  26.429  -6.568  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       4.129  27.331  -6.631  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.355  27.169  -7.930  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       4.321  26.678  -8.995  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       3.739  26.839 -10.394  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       3.148  25.515 -10.862  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       3.559  25.182 -12.295  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       4.574  24.049 -12.360  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       5.990  24.590 -12.224  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       6.840  23.668 -11.361  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.858  24.158  -9.930  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.488  28.976  -1.205  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.816  29.177  -0.315  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.708  29.926  -1.529  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       9.968  28.209  -1.873  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.806  29.164  -2.620  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.810  30.045  -2.489  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.818  30.833  -3.080  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.732  29.405  -3.786  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.913  28.067  -4.492  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.048  28.230  -5.998  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600       9.849  27.626  -6.721  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       8.677  28.603  -6.675  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.677  31.182  -0.643  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.492  31.223   0.176  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       6.636  30.700   0.980  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:    -7.123      2.018      2.823
+REMARK INTER + INTRA:         -18.564
+REMARK INTER:                 -15.545
+REMARK INTRA:                  -3.019
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.369  29.566  -2.115  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.542  28.693  -3.354  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.727  27.369  -3.296  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.917  26.576  -4.569  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.604  26.090  -5.162  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.488  26.491  -6.633  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       4.169  27.222  -6.854  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.307  26.558  -7.916  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       2.839  27.633  -8.882  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       3.613  27.580 -10.194  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       4.182  26.182 -10.401  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       5.708  26.191 -10.457  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       6.274  27.591 -10.654  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       7.048  28.034  -9.420  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       8.535  27.758  -9.587  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       8.919  26.488  -8.860  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.507  28.934  -1.140  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.901  29.018  -0.258  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.736  29.863  -1.464  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600      10.044  28.226  -1.864  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.842  29.186  -2.594  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.821  30.033  -2.436  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.795  30.829  -3.014  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.744  29.475  -3.768  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       9.907  29.283  -5.027  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      10.174  27.941  -5.690  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.657  27.770  -5.999  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.915  28.105  -7.466  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.724  31.070  -0.511  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.433  31.246   0.104  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       6.024  32.060  -0.229  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -7.044      1.265      1.975
+REMARK INTER + INTRA:         -18.388
+REMARK INTER:                 -15.347
+REMARK INTRA:                  -3.041
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.380  29.412  -2.209  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.677  28.183  -3.061  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.397  28.114  -4.368  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.699  26.849  -5.139  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.450  26.193  -5.708  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       4.635  27.193  -6.528  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       4.429  26.642  -7.935  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       5.740  26.442  -8.678  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       6.102  27.754  -9.355  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       7.533  28.171  -9.034  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       8.166  28.824 -10.256  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       8.805  27.794 -11.185  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       9.970  27.064 -10.528  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       9.951  25.587 -10.895  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       8.697  24.913 -10.358  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       8.449  23.609 -11.084  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.385  29.126  -1.197  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.812  29.086  -0.327  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.665  29.922  -1.523  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       9.944  28.212  -1.749  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.811  29.157  -2.513  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.808  30.035  -2.436  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.837  30.816  -3.035  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.786  29.389  -3.640  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.034  29.120  -4.939  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      10.279  27.713  -5.458  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      10.526  27.722  -6.963  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      12.027  27.778  -7.235  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.487  31.254  -0.776  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.474  31.157   0.245  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       5.708  31.696  -0.007  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -7.039      2.526      3.089
+REMARK INTER + INTRA:         -18.375
+REMARK INTER:                 -16.652
+REMARK INTRA:                  -1.724
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.395  29.660  -2.243  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.454  28.789  -3.493  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.609  27.460  -3.453  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.684  26.669  -4.739  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.320  26.206  -5.228  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       4.618  27.313  -6.013  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       4.357  26.834  -7.437  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.004  27.287  -7.963  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       3.070  27.298  -9.482  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       4.503  27.143  -9.979  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       4.498  26.641 -11.417  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       3.417  25.586 -11.648  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       3.376  25.103 -13.091  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       4.772  24.730 -13.571  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       4.870  24.836 -15.086  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.259  25.276 -15.493  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.517  29.091  -1.244  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.080  29.804  -0.753  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.803  29.837  -1.637  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600      10.152  28.231  -1.897  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.909  29.096  -2.726  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.865  29.926  -2.643  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.805  30.651  -3.307  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.781  29.276  -3.943  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.661  27.999  -4.767  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.621  27.989  -5.946  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      10.896  27.628  -7.238  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       9.401  27.485  -6.962  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.922  31.031  -0.675  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.715  31.218   0.090  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       6.143  31.859  -0.360  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:    -7.000      4.271      9.147
+REMARK INTER + INTRA:         -18.290
+REMARK INTER:                 -16.065
+REMARK INTRA:                  -2.225
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       8.502  25.994  -9.757  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       9.918  26.449  -9.421  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600      10.266  26.935  -8.223  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600      11.687  27.390  -7.975  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600      11.818  28.265  -6.738  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600      10.454  28.502  -6.090  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600      10.522  28.116  -4.616  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600      10.671  29.325  -3.706  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600      10.220  28.923  -2.312  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       8.847  29.497  -1.982  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       7.961  28.408  -1.390  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       6.626  28.299  -2.124  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       6.584  29.154  -3.383  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.699  28.282  -4.626  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       6.488  26.815  -4.279  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       7.520  25.957  -4.976  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       7.740  25.712  -8.560  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       7.225  26.497  -8.313  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.767  27.070 -10.583  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       7.906  27.762 -13.353  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       7.163  26.864 -12.984  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       6.996  26.521 -11.703  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       6.305  25.851 -11.496  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       6.377  26.046 -13.978  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       6.966  26.335 -15.354  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600       6.098  25.782 -16.473  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600       6.952  25.340 -17.657  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       6.144  24.397 -18.546  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       6.855  27.983  -9.747  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       7.620  28.913  -8.955  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       8.343  28.442  -8.512  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:    -6.992      1.756      2.722
+REMARK INTER + INTRA:         -18.271
+REMARK INTER:                 -15.920
+REMARK INTRA:                  -2.351
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.546  29.117  -2.306  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.838  27.948  -3.241  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.000  27.558  -4.209  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.350  26.372  -5.079  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       7.178  26.757  -6.295  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       6.403  26.498  -7.587  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       7.293  25.737  -8.564  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       6.499  24.803  -9.465  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       7.441  24.262 -10.528  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       6.786  23.151 -11.341  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       5.295  23.427 -11.483  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       4.982  24.238 -12.739  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       4.147  25.476 -12.438  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       3.197  25.212 -11.280  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       3.249  26.348 -10.268  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       4.163  27.448 -10.760  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.637  28.732  -1.249  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.834  27.825  -0.966  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.852  29.651  -1.680  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600      10.266  28.157  -2.004  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600      10.004  29.069  -2.775  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.928  29.852  -2.656  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.852  30.619  -3.268  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.891  29.368  -3.958  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.747  28.199  -4.926  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      10.855  28.642  -6.376  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.817  27.747  -7.150  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.061  27.024  -8.261  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.669  30.941  -0.864  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.469  31.643  -1.242  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       5.706  31.240  -0.800  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:    -6.962      4.736      7.362
+REMARK INTER + INTRA:         -18.206
+REMARK INTER:                 -15.350
+REMARK INTRA:                  -2.856
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       7.527  28.179 -11.697  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       7.750  26.676 -11.825  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       7.656  26.018 -12.986  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       7.867  24.521 -13.027  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       7.319  23.815 -11.796  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.838  23.480 -11.973  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       5.003  24.410 -11.100  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.691  24.804 -11.760  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       3.789  26.266 -12.164  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       4.093  26.416 -13.650  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       3.642  25.167 -14.397  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       3.946  25.256 -15.891  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       5.170  26.114 -16.185  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.413  25.246 -16.315  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       6.935  25.259 -17.744  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.078  24.376 -18.625  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       6.374  28.474 -10.875  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       6.556  29.257 -10.332  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       8.770  28.863 -11.090  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       8.324  28.804  -8.267  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.137  28.045  -8.773  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       9.446  28.051 -10.074  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600      10.181  27.467 -10.371  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       9.852  27.005  -7.946  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      11.339  27.334  -8.010  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.740  28.367  -6.969  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.235  27.972  -5.585  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      10.953  29.228  -4.766  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       9.802  29.320 -12.133  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       9.593  30.693 -12.520  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600      10.175  30.912 -13.263  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:    -6.907      6.926     10.417
+REMARK INTER + INTRA:         -18.082
+REMARK INTER:                 -14.029
+REMARK INTRA:                  -4.053
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       5.620  26.599 -16.258  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.627  26.379 -15.134  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       7.103  25.173 -14.804  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       8.080  25.033 -13.659  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       7.440  24.462 -12.403  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       8.415  24.502 -11.227  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       9.501  25.535 -11.507  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600      10.481  25.676 -10.353  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600      10.282  27.049  -9.733  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       9.196  27.027  -8.662  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       8.351  28.290  -8.760  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       6.930  27.989  -9.234  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       6.842  27.841 -10.747  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       7.252  29.133 -11.437  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       8.235  28.856 -12.565  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       9.527  29.607 -12.333  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.414  25.391 -17.027  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       6.234  25.160 -17.491  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       4.266  27.074 -15.690  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       3.103  24.561 -14.982  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       3.477  25.329 -14.108  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       3.975  26.544 -14.354  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       4.160  27.126 -13.582  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       3.420  24.938 -12.652  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       3.974  26.114 -11.855  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600       3.751  25.946 -10.361  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600       3.180  27.220  -9.748  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       3.403  27.205  -8.237  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       4.100  28.602 -15.669  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       3.708  29.110 -16.960  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       2.741  29.092 -17.035  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:    -6.894      3.709      6.012
+REMARK INTER + INTRA:         -18.054
+REMARK INTER:                 -14.804
+REMARK INTRA:                  -3.250
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       4.675  27.350  -8.539  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       4.475  26.448  -9.751  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       3.863  26.852 -10.871  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       3.680  25.888 -12.022  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       4.022  24.454 -11.651  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.156  23.920 -12.526  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       6.462  23.960 -11.739  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       7.633  24.442 -12.582  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       8.149  25.735 -11.971  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       7.276  26.923 -12.359  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       7.319  27.124 -13.868  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       5.932  27.401 -14.446  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       5.612  26.512 -15.640  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.643  25.400 -15.772  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       7.242  25.381 -17.171  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.191  24.991 -18.187  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       3.446  27.513  -7.793  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       3.632  27.976  -6.961  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       5.760  26.773  -7.605  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       8.266  25.790  -8.566  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       8.162  26.956  -8.213  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       7.044  27.476  -7.698  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       7.085  28.398  -7.355  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       9.313  27.919  -8.359  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.587  27.083  -8.414  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.627  27.563  -7.415  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      10.974  27.957  -6.094  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.288  29.419  -5.786  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       5.336  26.697  -6.129  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       5.303  28.002  -5.519  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       5.017  27.920  -4.596  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -6.877      1.911      2.450
+REMARK INTER + INTRA:         -18.016
+REMARK INTER:                 -15.568
+REMARK INTRA:                  -2.449
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       7.025  27.833  -2.936  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.478  27.881  -4.358  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.900  27.067  -5.333  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.326  27.194  -6.726  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       6.476  25.921  -7.545  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.941  26.118  -8.963  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       4.592  26.826  -8.899  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.952  26.979 -10.270  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       3.117  25.738 -10.540  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       3.338  25.213 -11.955  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       4.436  24.158 -11.946  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       5.725  24.671 -12.587  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       6.969  24.043 -11.973  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.587  23.076 -10.861  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       7.818  22.635 -10.082  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       7.652  21.211  -9.600  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       7.875  26.679  -2.736  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       7.326  25.904  -2.536  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.828  29.112  -2.619  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600      10.551  28.255  -2.748  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600      10.084  28.943  -3.644  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.841  29.432  -3.630  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.586  30.053  -4.351  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.894  29.276  -4.873  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      11.240  27.954  -5.547  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      12.064  28.157  -6.809  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.466  27.385  -7.981  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       9.956  27.259  -7.793  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       6.952  30.353  -2.377  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.039  30.152  -1.281  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       5.482  29.378  -1.462  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -6.835      3.903      6.361
+REMARK INTER + INTRA:         -17.922
+REMARK INTER:                 -14.370
+REMARK INTRA:                  -3.552
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       4.154  27.458 -10.097  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       4.214  26.567 -11.333  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       3.274  25.662 -11.629  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       3.419  24.797 -12.861  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       3.825  25.589 -14.094  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       4.978  24.905 -14.826  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       5.873  25.965 -15.461  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       7.074  26.306 -14.593  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       6.770  27.600 -13.856  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       7.831  27.906 -12.805  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       7.825  26.821 -11.736  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       9.227  26.548 -11.192  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       9.491  25.063 -10.987  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       8.707  24.235 -11.996  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       7.919  23.136 -11.298  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.447  23.254 -11.628  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       2.788  27.699  -9.686  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       2.191  27.127 -10.195  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       4.928  26.817  -8.926  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       7.426  25.844  -7.935  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       7.266  27.043  -8.117  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       6.112  27.582  -8.521  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       6.052  28.564  -8.548  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       8.398  28.019  -7.914  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       9.532  27.251  -7.246  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      10.848  27.415  -7.990  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.968  27.812  -7.035  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.399  28.010  -5.632  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       4.064  26.536  -7.686  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       3.853  27.730  -6.906  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       3.363  27.506  -6.100  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -6.816      4.485      7.641
+REMARK INTER + INTRA:         -17.880
+REMARK INTER:                 -14.305
+REMARK INTRA:                  -3.575
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       7.442  28.470 -13.234  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       7.189  26.985 -13.001  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       7.162  26.083 -13.989  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.878  24.630 -13.680  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.471  24.404 -13.150  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.505  23.698 -11.795  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       6.955  23.523 -11.355  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       7.163  23.873  -9.890  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       6.624  25.276  -9.661  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       6.836  25.727  -8.220  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       5.763  26.738  -7.834  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       4.356  26.184  -8.047  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       3.297  27.278  -8.059  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       2.879  27.604  -9.486  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       3.407  26.558 -10.456  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       3.795  27.205 -11.767  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       6.218  29.171 -13.552  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.540  28.954 -12.893  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       8.084  29.115 -11.987  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       8.607  28.627  -9.220  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.284  28.077 -10.076  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       9.142  28.297 -11.386  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       9.796  27.880 -11.992  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.341  27.067  -9.703  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.365  26.992  -8.180  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.681  27.491  -7.605  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.442  28.410  -6.412  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      10.138  28.020  -5.719  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       8.622  30.535 -12.226  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       7.557  31.504 -12.274  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       6.837  31.166 -12.830  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -6.809      5.277      8.023
+REMARK INTER + INTRA:         -17.864
+REMARK INTER:                 -14.661
+REMARK INTRA:                  -3.204
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       7.920  24.138 -12.327  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       7.196  25.418 -12.731  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       7.484  26.101 -13.844  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.738  27.378 -14.162  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       6.713  28.352 -12.995  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       5.296  28.501 -12.440  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       5.265  28.003 -10.998  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.865  27.615 -10.549  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       3.885  26.143 -10.169  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       3.005  25.315 -11.098  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       3.856  24.703 -12.204  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       3.559  25.331 -13.565  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       4.034  24.461 -14.721  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       4.425  25.322 -15.914  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       5.267  24.528 -16.901  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.550  25.268 -17.212  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       9.101  23.922 -13.134  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       9.893  24.074 -12.594  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       8.326  24.189 -10.839  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600      10.827  25.548 -11.091  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.870  26.117 -10.586  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.687  25.533 -10.378  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.008  26.042  -9.879  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       9.956  27.565 -10.170  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       9.260  27.680  -8.819  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      10.106  27.112  -7.691  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.522  27.678  -7.733  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.798  28.459  -6.450  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.275  23.597  -9.885  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       7.742  22.381  -9.271  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       8.620  22.529  -8.887  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -6.797      3.914      6.296
+REMARK INTER + INTRA:         -17.837
+REMARK INTER:                 -14.768
+REMARK INTRA:                  -3.069
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       4.710  27.066  -7.867  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       4.124  26.256  -9.018  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       4.124  26.681 -10.287  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       3.499  25.830 -11.370  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       4.236  24.518 -11.587  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       4.575  24.320 -13.064  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       3.638  25.172 -13.914  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       3.689  24.798 -15.387  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       4.676  25.727 -16.074  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       5.897  24.968 -16.581  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       7.086  25.234 -15.667  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       7.044  26.641 -15.072  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       7.246  26.639 -13.563  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.448  27.761 -12.915  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       5.651  28.530 -13.958  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       4.263  28.836 -13.439  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       3.672  27.580  -7.000  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       3.459  28.491  -7.256  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       5.682  26.204  -7.035  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       7.379  28.194  -8.187  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       7.752  27.031  -8.131  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       6.996  26.034  -7.663  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       7.347  25.117  -7.746  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       9.137  26.635  -8.578  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.057  27.809  -8.263  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.478  27.357  -7.969  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.906  27.775  -6.567  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.288  29.129  -6.226  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       5.876  26.699  -5.592  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       5.858  28.138  -5.519  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       4.942  28.452  -5.569  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -6.797      1.914      4.792
+REMARK INTER + INTRA:         -17.836
+REMARK INTER:                 -14.470
+REMARK INTRA:                  -3.366
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600      10.203  28.774  -3.850  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600      10.731  28.877  -5.277  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600      11.411  27.894  -5.879  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600      11.926  28.083  -7.288  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600      11.349  27.072  -8.267  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       9.830  26.982  -8.126  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       9.211  26.717  -9.495  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600      10.245  26.295 -10.527  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       9.682  25.113 -11.300  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       8.621  24.373 -10.493  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       7.816  23.464 -11.412  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       6.336  23.439 -11.034  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       5.461  24.138 -12.067  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.318  24.914 -13.056  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       6.046  26.408 -12.951  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       7.300  27.194 -13.266  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600      10.565  29.935  -3.068  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600      10.143  29.881  -2.196  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       8.667  28.622  -3.850  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       6.226  28.325  -5.307  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       7.057  27.428  -5.317  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.194  27.465  -4.616  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.755  26.656  -4.614  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       6.860  26.195  -6.162  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       5.609  26.427  -7.001  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600       5.822  26.053  -8.459  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600       5.471  27.218  -9.378  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       3.960  27.261  -9.595  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       8.045  28.581  -2.444  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       8.825  27.771  -1.543  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       8.368  27.702  -0.691  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -6.789      2.114      2.827
+REMARK INTER + INTRA:         -17.821
+REMARK INTER:                 -15.183
+REMARK INTRA:                  -2.638
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       6.395  28.983  -1.992  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.571  28.678  -3.475  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       5.702  27.942  -4.179  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       5.961  27.662  -5.643  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.126  26.509  -6.179  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       4.394  26.914  -7.458  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       5.415  27.306  -8.521  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       6.251  26.124  -8.986  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       7.713  26.459  -8.744  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       7.949  27.965  -8.747  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       8.649  28.375 -10.036  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       7.659  28.873 -11.088  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       7.897  28.244 -12.454  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.641  27.540 -12.946  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       5.396  28.168 -12.336  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       4.152  27.482 -12.857  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       6.301  27.769  -1.211  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       5.453  27.752  -0.740  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.574  29.831  -1.468  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       9.910  28.197  -1.678  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       9.718  29.096  -2.484  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.684  29.940  -2.420  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       8.665  30.689  -3.058  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600      10.649  29.306  -3.652  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.317  28.234  -4.683  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      10.746  28.638  -6.084  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      11.870  27.740  -6.591  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.580  27.322  -8.031  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       7.170  31.240  -1.006  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       6.438  31.202   0.235  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       6.789  31.875   0.839  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:    -6.765      3.643      5.996
+REMARK INTER + INTRA:         -17.767
+REMARK INTER:                 -14.507
+REMARK INTRA:                  -3.260
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       7.471  26.225  -8.570  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.714  25.080  -9.234  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       6.913  24.710 -10.504  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       6.103  23.580 -11.099  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       5.360  23.988 -12.362  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       4.051  24.700 -12.018  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       3.292  25.006 -13.305  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       4.006  24.481 -14.540  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       3.670  25.399 -15.704  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       4.929  25.869 -16.425  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       6.121  25.033 -15.978  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       7.309  25.905 -15.575  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       7.265  26.301 -14.105  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       6.577  27.648 -13.933  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       6.115  27.839 -12.496  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       4.676  28.304 -12.465  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       7.162  27.494  -9.193  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       7.958  28.049  -9.206  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       7.130  26.303  -7.067  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       8.361  26.228  -4.488  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       8.438  27.238  -5.173  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       7.841  27.373  -6.361  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       7.883  28.257  -6.795  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       9.252  28.425  -4.722  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600      10.718  28.053  -4.909  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600      11.350  28.796  -6.076  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600      12.080  27.833  -7.006  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600      11.105  27.290  -8.047  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       5.625  26.424  -6.775  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       5.111  27.712  -7.165  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       5.848  28.296  -7.402  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:    -6.675      4.328      8.878
+REMARK INTER + INTRA:         -17.565
+REMARK INTER:                 -15.045
+REMARK INTRA:                  -2.519
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600       5.439  26.482  -9.333  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600       6.536  25.810 -10.152  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600       7.331  24.851  -9.663  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600       8.414  24.251 -10.531  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600       9.078  25.275 -11.438  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600      10.267  25.933 -10.738  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       9.963  27.410 -10.509  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       9.613  27.713  -9.061  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600      10.593  26.964  -8.173  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600      11.681  27.889  -7.639  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600      11.102  28.801  -6.566  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600      11.270  28.212  -5.166  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600      10.077  28.505  -4.266  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600      10.542  29.044  -2.920  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       9.355  29.483  -2.075  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       8.332  28.372  -1.989  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600       5.988  27.455  -8.414  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600       6.182  27.025  -7.566  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       4.420  27.179 -10.259  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       4.210  28.315 -12.873  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       4.198  27.101 -12.732  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       4.232  26.494 -11.542  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       4.123  25.516 -11.525  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       4.166  26.179 -13.925  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       5.451  25.359 -13.886  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600       6.673  26.200 -14.220  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600       7.442  25.602 -15.394  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       6.474  25.284 -16.530  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       3.046  27.412  -9.610  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       3.061  27.085  -8.206  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       2.576  27.764  -7.711  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL
+MODEL 20
+REMARK VINA RESULT:    -6.665      1.739      4.286
+REMARK INTER + INTRA:         -17.544
+REMARK INTER:                 -14.274
+REMARK INTRA:                  -3.270
+REMARK UNBOUND:                -2.696
+REMARK  Name = docking/prep/2E3N/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C19_2  and  C20_24
+REMARK    2  A    between atoms: N2_3  and  C2_4
+REMARK    3  A    between atoms: C2_4  and  C1_5
+REMARK    4  A    between atoms: C2_4  and  C3_7
+REMARK    5  A    between atoms: C1_5  and  O1_6
+REMARK    6  A    between atoms: C3_7  and  C4_8
+REMARK    7  A    between atoms: C3_7  and  O3_23
+REMARK    8  A    between atoms: C5_9  and  C6_10
+REMARK    9  A    between atoms: C6_10  and  C7_11
+REMARK   10  A    between atoms: C7_11  and  C8_12
+REMARK   11  A    between atoms: C8_12  and  C9_13
+REMARK   12  A    between atoms: C9_13  and  C10_14
+REMARK   13  A    between atoms: C10_14  and  C11_15
+REMARK   14  A    between atoms: C11_15  and  C12_16
+REMARK   15  A    between atoms: C12_16  and  C13_17
+REMARK   16  A    between atoms: C13_17  and  C14_18
+REMARK   17  A    between atoms: C14_18  and  C15_19
+REMARK   18  A    between atoms: C15_19  and  C16_20
+REMARK   19  A    between atoms: C16_20  and  C17_21
+REMARK   20  A    between atoms: C17_21  and  C18_22
+REMARK   21  A    between atoms: C20_24  and  C21_25
+REMARK   22  A    between atoms: C21_25  and  C22_26
+REMARK   23  A    between atoms: C22_26  and  C23_27
+REMARK   24  A    between atoms: C23_27  and  C24_28
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  6CM A 600      10.929  28.851  -4.392  0.00  0.00    +0.196 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  6CM A 600      10.949  27.949  -5.621  0.00  0.00    +0.003 C 
+ATOM      3  C5  6CM A 600      11.542  28.292  -6.771  0.00  0.00    -0.028 C 
+BRANCH   3   4
+ATOM      4  C6  6CM A 600      11.497  27.352  -7.954  0.00  0.00    +0.026 C 
+BRANCH   4   5
+ATOM      5  C7  6CM A 600      10.081  26.941  -8.327  0.00  0.00    +0.005 C 
+BRANCH   5   6
+ATOM      6  C8  6CM A 600       9.356  28.075  -9.051  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  6CM A 600       9.654  27.992 -10.544  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 6CM A 600       8.773  28.920 -11.365  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 6CM A 600       7.332  28.466 -11.202  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 6CM A 600       6.770  27.913 -12.507  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 6CM A 600       6.535  26.414 -12.372  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C14 6CM A 600       7.640  25.601 -13.043  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C15 6CM A 600       8.539  24.899 -12.034  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C16 6CM A 600       8.377  23.389 -12.132  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C17 6CM A 600       7.796  22.823 -10.844  0.00  0.00    +0.000 C 
+ATOM     16  C18 6CM A 600       6.367  22.377 -11.064  0.00  0.00    +0.000 C 
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   2
+BRANCH   1  17
+ATOM     17  O3  6CM A 600      11.305  30.208  -4.726  0.00  0.00    -0.216 OA
+ATOM     18  H   6CM A 600      11.371  30.297  -5.690  0.00  0.00    +0.000 HD
+ENDBRANCH   1  17
+BRANCH   1  19
+ATOM     19  C2  6CM A 600       9.527  28.860  -3.747  0.00  0.00    +0.163 C 
+BRANCH  19  22
+ATOM     20  O19 6CM A 600       6.723  28.813  -4.298  0.00  0.00    -0.273 OA
+ATOM     21  C19 6CM A 600       7.391  27.799  -4.441  0.00  0.00    +0.241 C 
+ATOM     22  N2  6CM A 600       8.692  27.724  -4.149  0.00  0.00    -0.201 N 
+ATOM     23  H   6CM A 600       9.122  26.840  -4.207  0.00  0.00    +0.000 HD
+BRANCH  21  24
+ATOM     24  C20 6CM A 600       6.779  26.536  -4.994  0.00  0.00    +0.087 C 
+BRANCH  24  25
+ATOM     25  C21 6CM A 600       6.821  26.651  -6.513  0.00  0.00    +0.010 C 
+BRANCH  25  26
+ATOM     26  C22 6CM A 600       5.430  26.781  -7.114  0.00  0.00    +0.001 C 
+BRANCH  26  27
+ATOM     27  C23 6CM A 600       5.393  26.217  -8.530  0.00  0.00    +0.000 C 
+ATOM     28  C24 6CM A 600       6.694  25.474  -8.820  0.00  0.00    +0.000 C 
+ENDBRANCH  26  27
+ENDBRANCH  25  26
+ENDBRANCH  24  25
+ENDBRANCH  21  24
+ENDBRANCH  19  22
+BRANCH  19  29
+ATOM     29  C1  6CM A 600       9.547  28.949  -2.212  0.00  0.00    +0.207 C 
+BRANCH  29  30
+ATOM     30  O1  6CM A 600       8.428  29.708  -1.711  0.00  0.00    -0.218 OA
+ATOM     31  H   6CM A 600       7.712  29.698  -2.364  0.00  0.00    +0.000 HD
+ENDBRANCH  29  30
+ENDBRANCH  19  29
+ENDBRANCH   1  19
+TORSDOF 22
+ENDMDL

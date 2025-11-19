@@ -1,0 +1,26 @@
+{
+  "pdbid": "3RGQ",
+  "timestamp_utc": "20251013-012413",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/3RGQ/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3RGQ/vina_run_20251013-012413/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3RGQ/vina_run_20251013-012413/3RGQ_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3RGQ/vina_run_20251013-012413/3RGQ_vina.log",
+  "center": [
+    36.799,
+    -10.464,
+    17.97
+  ],
+  "size": [
+    16.121,
+    16.187,
+    13.935
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

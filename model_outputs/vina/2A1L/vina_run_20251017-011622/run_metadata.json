@@ -1,0 +1,26 @@
+{
+  "pdbid": "2A1L",
+  "timestamp_utc": "20251017-011622",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/2A1L/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2A1L/vina_run_20251017-011622/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2A1L/vina_run_20251017-011622/2A1L_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2A1L/vina_run_20251017-011622/2A1L_vina.log",
+  "center": [
+    1.627,
+    8.969,
+    50.356
+  ],
+  "size": [
+    19.181,
+    30.523,
+    14.424
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

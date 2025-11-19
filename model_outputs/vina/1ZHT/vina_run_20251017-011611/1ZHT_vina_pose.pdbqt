@@ -1,0 +1,1224 @@
+MODEL 1
+REMARK VINA RESULT:   -10.472      0.000      0.000
+REMARK INTER + INTRA:         -15.547
+REMARK INTER:                 -14.145
+REMARK INTRA:                  -1.402
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      55.823  33.857  23.998  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      57.233  33.270  24.147  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      57.242  32.059  25.085  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      56.853  32.479  26.505  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      57.739  33.600  27.072  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.307  34.031  28.481  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      55.817  34.367  28.518  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      57.604  32.887  29.460  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.453  33.278  30.936  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      58.408  34.421  31.293  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      58.074  35.645  30.434  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      58.064  35.284  28.948  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      58.771  36.101  28.068  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      58.863  35.816  26.568  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.824  34.790  26.103  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      58.224  34.287  24.714  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      58.268  35.325  23.594  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      58.500  34.409  22.389  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      57.919  33.048  22.793  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      58.286  34.764  32.674  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      58.067  33.970  33.186  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      58.660  37.031  25.847  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      59.516  37.383  25.559  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.026  32.459  21.694  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      57.632  31.168  21.136  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.838  33.484  20.573  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      55.368  33.814  20.302  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      54.735  32.767  19.378  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      53.768  31.804  20.073  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      54.310  30.377  20.162  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      53.445  32.328  21.475  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:   -10.362      2.545      4.722
+REMARK INTER + INTRA:         -15.398
+REMARK INTER:                 -14.140
+REMARK INTRA:                  -1.258
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.708  32.736  28.178  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      57.005  34.081  27.949  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      57.838  35.249  28.485  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      57.984  35.150  30.006  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.637  35.072  30.743  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.808  34.935  32.262  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      57.747  33.779  32.605  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      57.380  36.247  32.815  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.366  36.335  34.347  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      55.936  36.219  34.882  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      55.351  34.863  34.471  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      55.470  34.652  32.961  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      54.339  34.229  32.265  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      54.329  34.022  30.750  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      55.742  33.967  30.159  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      55.642  34.143  28.641  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      54.864  33.074  27.877  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      55.170  33.500  26.438  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.510  34.243  26.507  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      55.921  36.328  36.306  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      55.046  36.079  36.641  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      53.661  32.797  30.449  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      53.783  32.584  29.511  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.483  33.767  25.421  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.026  34.954  24.621  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.780  32.777  24.491  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.655  33.288  23.054  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      55.313  32.874  22.440  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      54.635  31.687  23.131  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      53.214  32.004  23.600  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      54.616  30.485  22.183  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:   -10.336      1.066      1.157
+REMARK INTER + INTRA:         -15.363
+REMARK INTER:                 -13.897
+REMARK INTRA:                  -1.466
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      55.504  33.907  24.154  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.738  33.072  24.521  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      56.360  31.850  25.364  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      55.781  32.289  26.713  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.718  33.215  27.505  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.102  33.672  28.834  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      54.711  34.268  28.618  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      56.005  32.462  29.775  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      55.640  32.827  31.220  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      56.688  33.769  31.821  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      56.738  35.060  30.997  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.955  34.753  29.514  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      57.947  35.458  28.835  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      58.277  35.208  27.362  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.189  34.400  26.648  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      57.759  33.878  25.326  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      58.193  34.926  24.304  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      58.495  34.021  23.106  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      57.624  32.774  23.306  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      56.362  34.085  33.176  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      55.587  34.668  33.194  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      58.426  36.463  26.697  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      58.007  37.160  27.224  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.874  32.389  22.025  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      57.418  31.079  21.450  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.998  33.513  20.993  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      55.904  33.469  19.923  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      54.529  33.758  20.535  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      53.575  32.559  20.555  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      54.165  31.318  19.885  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      53.189  32.239  22.002  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -9.622      1.447      2.535
+REMARK INTER + INTRA:         -14.399
+REMARK INTER:                 -13.115
+REMARK INTRA:                  -1.284
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      54.674  34.020  26.297  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      55.891  33.086  26.339  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      55.710  31.974  27.377  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      55.635  32.565  28.788  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.847  33.439  29.148  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.732  34.050  30.550  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      55.397  34.775  30.724  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      56.849  32.927  31.590  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.001  33.429  33.032  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      58.257  34.293  33.175  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      58.140  35.510  32.251  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      57.842  35.079  30.814  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      58.613  35.624  29.790  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      58.429  35.239  28.321  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.108  34.504  28.071  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      57.178  33.832  26.697  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      57.340  34.754  25.490  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      57.166  33.740  24.355  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.311  32.610  24.943  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      58.412  34.736  34.524  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      58.948  35.545  34.539  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      58.454  36.420  27.520  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      59.134  36.332  26.835  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      55.160  32.219  24.009  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      55.402  30.836  23.399  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      55.008  33.268  22.904  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      54.515  32.679  21.581  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      55.416  33.115  20.419  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      56.906  33.198  20.764  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      57.608  31.841  20.701  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      57.594  34.187  19.819  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -9.617      2.448      8.611
+REMARK INTER + INTRA:         -14.393
+REMARK INTER:                 -13.291
+REMARK INTRA:                  -1.101
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.449  31.641  27.229  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.447  32.803  27.260  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      55.034  32.337  26.896  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      54.991  31.835  25.450  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      55.490  32.873  24.431  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      55.474  32.336  22.993  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      56.212  31.000  22.899  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      54.016  32.153  22.550  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      53.853  31.861  21.052  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      54.428  33.006  20.213  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      55.923  33.152  20.516  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.164  33.302  22.019  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      56.991  34.336  22.453  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      57.273  34.604  23.932  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      56.867  33.428  24.827  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      56.822  33.914  26.278  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      58.136  34.415  26.875  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      57.711  34.602  28.334  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.547  33.627  28.550  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      54.251  32.745  18.820  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      53.913  33.542  18.382  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      58.669  34.850  24.106  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      58.818  35.266  24.969  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.715  32.812  29.838  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      55.352  32.469  30.445  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      57.561  33.597  30.843  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      57.850  32.814  32.125  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      57.434  33.619  33.362  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      56.514  34.808  33.070  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      55.074  34.574  33.529  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      57.077  36.066  33.738  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:    -9.577      1.788      2.561
+REMARK INTER + INTRA:         -14.338
+REMARK INTER:                 -13.718
+REMARK INTRA:                  -0.620
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      56.333  31.569  25.573  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      57.214  32.822  25.660  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      58.465  32.573  26.508  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      58.077  32.279  27.960  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      57.214  33.381  28.595  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.806  33.047  30.036  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      56.166  31.662  30.118  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      58.056  33.093  30.926  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.751  33.025  32.429  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      56.865  34.200  32.854  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      55.538  34.134  32.090  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      55.779  34.051  30.582  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      55.068  34.917  29.754  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      55.255  34.950  28.237  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      56.001  33.718  27.713  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      56.473  34.005  26.285  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      55.389  34.270  25.243  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      56.243  34.305  23.972  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      57.476  33.448  24.285  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      56.607  34.151  34.258  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      57.366  33.755  34.713  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      53.974  35.010  27.608  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      53.466  35.747  27.980  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.780  32.454  23.158  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.784  33.048  22.166  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.485  32.072  22.438  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.596  32.160  20.914  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      55.476  33.030  20.333  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      54.124  32.322  20.196  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      54.260  30.809  20.018  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      53.260  32.628  21.423  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:    -9.421      3.162      9.691
+REMARK INTER + INTRA:         -14.128
+REMARK INTER:                 -13.099
+REMARK INTRA:                  -1.029
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.718  33.119  31.597  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.590  34.086  31.211  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      55.381  33.340  30.640  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      55.752  32.644  29.327  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.335  33.600  28.275  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.735  32.875  26.983  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      57.646  31.685  27.282  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      55.462  32.387  26.276  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      55.703  31.867  24.852  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      56.302  32.966  23.970  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      57.648  33.406  24.555  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      57.501  33.801  26.026  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      58.054  35.010  26.440  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      57.937  35.525  27.876  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.491  34.431  28.854  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      57.037  35.098  30.155  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      58.090  35.894  30.922  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      57.309  36.205  32.202  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.269  35.085  32.329  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      56.498  32.489  22.638  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      56.900  31.607  22.667  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      59.205  36.026  28.299  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      59.833  35.981  27.562  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.233  34.497  33.745  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      54.832  34.620  34.349  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      57.257  35.211  34.630  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.638  35.826  35.887  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      56.382  37.325  35.693  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      57.648  38.178  35.570  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      57.700  38.983  34.271  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      57.747  39.120  36.773  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:    -9.314      2.621      8.629
+REMARK INTER + INTRA:         -13.983
+REMARK INTER:                 -12.511
+REMARK INTRA:                  -1.472
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      56.938  34.771  28.787  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.963  33.252  28.576  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      58.279  32.794  27.941  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      58.425  33.377  26.532  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      57.242  33.042  25.609  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.391  33.668  24.216  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      57.669  35.167  24.315  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      58.550  32.975  23.485  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      58.647  33.331  21.995  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      57.363  32.933  21.260  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      56.179  33.697  21.862  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.115  33.499  23.378  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      54.892  33.147  23.943  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      54.717  32.886  25.441  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      55.900  33.405  26.265  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      55.831  32.779  27.661  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      54.601  33.112  28.503  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      55.012  32.481  29.836  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.545  32.480  29.834  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      57.466  33.239  19.869  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      56.715  33.792  19.603  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      53.527  33.533  25.893  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      52.865  33.524  25.185  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.119  33.014  31.152  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.344  32.201  31.579  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.045  32.970  32.242  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.004  34.239  33.095  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      56.528  35.446  32.307  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      57.784  36.096  32.895  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      58.924  36.211  31.883  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      57.432  37.480  33.447  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:    -9.293      2.272      8.515
+REMARK INTER + INTRA:         -13.955
+REMARK INTER:                 -13.004
+REMARK INTRA:                  -0.951
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.750  32.088  27.939  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.552  33.017  27.702  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      55.537  32.392  26.741  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      56.157  32.208  25.352  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.721  33.510  24.761  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.371  33.295  23.387  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      58.398  32.164  23.438  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      56.274  32.951  22.370  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      56.754  32.958  20.912  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      57.294  34.338  20.527  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      58.485  34.684  21.428  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      58.109  34.553  22.905  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      58.432  35.603  23.761  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      58.072  35.600  25.247  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.671  34.207  25.748  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      56.975  34.359  27.103  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      57.806  34.951  28.239  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      56.841  34.746  29.410  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      55.962  33.554  29.011  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      57.713  34.350  19.162  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      56.963  34.122  18.591  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      59.197  36.049  26.003  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      59.869  36.406  25.401  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      55.840  32.529  30.146  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      54.459  32.608  30.803  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.937  32.772  31.185  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.385  33.119  32.570  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      57.044  34.390  33.118  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      56.083  35.355  33.820  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      54.703  34.745  34.068  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      56.698  35.815  35.144  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:    -9.182      2.308      4.665
+REMARK INTER + INTRA:         -13.805
+REMARK INTER:                 -12.908
+REMARK INTRA:                  -0.897
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      56.732  34.757  27.558  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      55.954  33.480  27.902  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      54.594  33.801  28.528  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      54.778  34.508  29.874  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      55.648  33.716  30.864  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      55.850  34.461  32.191  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      56.358  35.882  31.950  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      54.510  34.510  32.938  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      54.625  35.004  34.387  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      55.548  34.090  35.198  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      56.947  34.102  34.573  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.883  33.758  33.084  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      57.759  32.791  32.595  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      57.759  32.339  31.133  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      56.982  33.298  30.225  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      56.710  32.594  28.893  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      57.930  32.189  28.069  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      57.242  31.725  26.783  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      55.912  32.489  26.732  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      55.631  34.535  36.553  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      54.737  34.652  36.910  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      59.107  32.261  30.668  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      59.711  32.268  31.426  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      55.664  33.112  25.353  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      54.560  32.357  24.607  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.959  33.100  24.536  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      57.121  34.338  23.651  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      57.891  33.997  22.370  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      57.006  33.699  21.155  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      57.565  34.281  19.855  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      56.825  32.185  21.015  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -9.179      3.462      5.892
+REMARK INTER + INTRA:         -13.801
+REMARK INTER:                 -13.915
+REMARK INTRA:                   0.114
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.418  31.742  29.083  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.921  33.119  28.623  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      57.897  34.230  29.018  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      57.985  34.347  30.543  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.621  34.570  31.216  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.729  34.646  32.745  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      57.483  33.439  33.303  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      57.468  35.938  33.124  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.424  36.261  34.624  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      55.977  36.426  35.099  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      55.216  35.116  34.866  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      55.345  34.661  33.411  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      54.185  34.295  32.732  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      54.188  33.860  31.266  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      55.594  33.521  30.760  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      55.562  33.473  29.230  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      54.661  32.416  28.595  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      55.064  32.569  27.126  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.494  33.123  27.149  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      55.939  36.756  36.488  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      56.769  37.188  36.740  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      53.360  32.707  31.118  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      52.675  32.711  31.804  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.419  32.357  26.196  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.787  32.120  26.841  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      57.576  33.135  24.887  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      57.196  34.611  25.018  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      57.947  35.463  23.988  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      59.022  36.380  24.580  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      58.972  37.799  24.012  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      58.875  36.421  26.103  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -8.870      2.714      9.170
+REMARK INTER + INTRA:         -13.384
+REMARK INTER:                 -12.431
+REMARK INTRA:                  -0.953
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.671  35.078  29.563  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      57.268  33.600  29.466  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      58.356  32.765  28.785  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      58.537  33.206  27.329  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      57.236  33.157  26.512  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.433  33.639  25.069  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      58.111  35.008  25.036  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      58.299  32.615  24.321  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      58.365  32.847  22.805  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      56.965  32.776  22.186  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      56.084  33.868  22.803  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.094  33.780  24.330  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      54.872  33.808  24.997  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      54.757  33.690  26.518  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      56.100  33.909  27.224  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      55.980  33.405  28.665  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      54.959  34.109  29.555  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      55.292  33.466  30.904  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.764  33.044  30.803  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      57.032  32.964  20.771  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      57.944  33.170  20.516  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      53.827  34.662  26.995  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      53.961  35.497  26.522  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.567  33.473  32.038  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.429  32.317  32.553  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.614  33.955  33.135  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      57.293  34.865  34.161  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      57.277  36.325  33.692  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      57.453  37.356  34.812  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      57.706  38.769  34.285  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      56.215  37.348  35.713  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -8.679      2.460      8.958
+REMARK INTER + INTRA:         -13.125
+REMARK INTER:                 -12.022
+REMARK INTRA:                  -1.103
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      57.983  32.764  29.504  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.878  33.804  29.275  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      55.708  33.217  28.480  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      56.162  32.827  27.070  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.805  33.989  26.295  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.286  33.566  24.900  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      58.181  32.330  24.980  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      56.061  33.262  24.027  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      56.390  33.070  22.540  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      57.038  34.332  21.963  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      58.344  34.616  22.713  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      58.106  34.674  24.223  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      58.629  35.755  24.929  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      58.422  35.937  26.434  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.921  34.658  27.114  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      57.385  35.022  28.501  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      58.387  35.615  29.489  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      57.527  35.641  30.757  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.485  34.532  30.567  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      57.318  34.162  20.572  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      57.056  34.962  20.090  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      59.660  36.318  27.035  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      60.308  36.513  26.341  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.365  33.643  31.811  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      54.899  33.486  32.226  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      57.181  34.242  32.959  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.350  34.491  34.219  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      56.034  35.983  34.379  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      57.235  36.851  34.769  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      57.546  37.934  33.735  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      56.980  37.491  36.136  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -8.187      3.315     10.016
+REMARK INTER + INTRA:         -12.461
+REMARK INTER:                 -11.651
+REMARK INTRA:                  -0.810
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      55.945  35.218  30.798  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      57.473  35.108  30.702  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      58.051  36.145  29.735  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      57.560  35.879  28.308  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      57.868  34.457  27.813  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.334  34.202  26.398  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      55.852  34.564  26.297  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      58.142  35.049  25.405  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.878  34.702  23.933  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      58.232  33.238  23.652  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      57.358  32.331  24.525  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      57.465  32.724  26.000  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      57.703  31.718  26.933  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      57.866  31.997  28.428  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.381  33.398  28.816  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      57.921  33.731  30.209  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      57.460  32.833  31.356  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      58.040  33.603  32.547  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      58.142  35.061  32.081  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      58.013  32.924  22.276  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      58.292  32.012  22.104  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      57.118  31.034  29.169  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      57.011  31.341  30.082  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      57.573  36.034  33.121  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.349  37.354  33.110  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      57.627  35.397  34.512  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.369  35.663  35.342  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      56.267  37.144  35.722  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      57.192  37.575  36.865  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      56.811  38.931  37.460  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      57.183  36.504  37.959  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -8.028      3.229      5.893
+REMARK INTER + INTRA:         -12.245
+REMARK INTER:                 -11.266
+REMARK INTRA:                  -0.980
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      55.469  34.791  29.709  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.763  34.080  30.124  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      56.486  32.932  31.099  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      55.911  33.473  32.412  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.804  34.534  33.076  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      56.190  35.088  34.369  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      54.759  35.569  34.134  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      56.195  33.981  35.432  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      55.841  34.472  36.842  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      56.839  35.536  37.310  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      56.785  36.733  36.355  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.987  36.286  34.906  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      57.913  36.977  34.129  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      58.225  36.595  32.681  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.175  35.650  32.087  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      57.747  35.028  30.810  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      58.088  35.988  29.672  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      58.420  34.983  28.565  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      57.639  33.711  28.920  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      56.524  35.971  38.634  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      55.785  36.597  38.601  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      58.275  37.779  31.885  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      58.117  38.554  32.447  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.886  33.148  27.708  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      57.461  31.790  27.296  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.966  34.135  26.541  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.572  33.512  25.200  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      55.050  33.362  25.093  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      54.579  32.014  24.538  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      53.355  32.139  23.630  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      55.728  31.346  23.777  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -8.008      2.922      9.183
+REMARK INTER + INTRA:         -12.219
+REMARK INTER:                 -11.393
+REMARK INTRA:                  -0.827
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      56.025  35.171  28.402  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      56.833  33.879  28.580  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      58.224  33.994  27.951  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      58.112  34.167  26.433  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      57.308  33.048  25.751  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.177  33.261  24.237  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      56.644  34.659  23.925  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      58.558  33.079  23.591  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      58.523  33.018  22.058  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      57.657  31.848  21.583  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      56.223  32.042  22.089  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      56.204  32.255  23.604  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      55.310  31.503  24.362  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      55.228  31.605  25.886  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      55.943  32.848  26.428  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      56.144  32.675  27.936  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      54.881  32.557  28.787  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      55.498  32.604  30.188  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.815  33.374  30.028  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      57.649  31.776  20.156  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      57.195  32.553  19.796  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      53.857  31.659  26.280  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      53.630  32.567  26.534  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.977  34.457  31.103  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      58.423  34.960  31.152  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      56.561  33.901  32.467  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      55.687  34.869  33.268  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      56.394  35.306  34.556  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      56.459  36.822  34.765  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      57.002  37.211  36.141  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      57.319  37.453  33.667  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -7.678      2.218      4.365
+REMARK INTER + INTRA:         -11.774
+REMARK INTER:                 -10.936
+REMARK INTRA:                  -0.837
+REMARK UNBOUND:                -1.402
+REMARK  Name = docking/prep/1ZHT/ligand.pdb
+REMARK  12 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C18_1  and  C13_2
+REMARK    2  A    between atoms: C10_6  and  C19_7
+REMARK    3  A    between atoms: C3_10  and  O1_11
+REMARK    4  A    between atoms: C7_15  and  O2_16
+REMARK    5  A    between atoms: C17_21  and  C20_22
+REMARK    6  A    between atoms: C20_22  and  C21_23
+REMARK    7  A    between atoms: C20_22  and  C22_24
+REMARK    8  A    between atoms: C22_24  and  C23_25
+REMARK    9  A    between atoms: C23_25  and  C24_26
+REMARK   10  A    between atoms: C24_26  and  C25_27
+REMARK   11  A    between atoms: C25_27  and  C27_28
+REMARK   12  A    between atoms: C25_27  and  C26_29
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C18 HCR A1001      58.485  34.263  27.305  0.00  0.00    +0.000 C 
+ATOM      2  C13 HCR A1001      57.004  34.055  27.646  0.00  0.00    +0.000 C 
+ATOM      3  C12 HCR A1001      56.332  35.368  28.059  0.00  0.00    +0.000 C 
+ATOM      4  C11 HCR A1001      56.951  35.902  29.355  0.00  0.00    +0.000 C 
+ATOM      5  C9  HCR A1001      56.904  34.892  30.512  0.00  0.00    +0.006 C 
+ATOM      6  C10 HCR A1001      57.563  35.433  31.788  0.00  0.00    +0.015 C 
+ATOM      7  C19 HCR A1001      58.971  35.951  31.500  0.00  0.00    +0.004 C 
+ATOM      8  C1  HCR A1001      56.697  36.572  32.345  0.00  0.00    +0.006 C 
+ATOM      9  C2  HCR A1001      57.107  37.034  33.750  0.00  0.00    +0.034 C 
+ATOM     10  C3  HCR A1001      57.008  35.877  34.749  0.00  0.00    +0.156 C 
+ATOM     11  C4  HCR A1001      57.956  34.753  34.316  0.00  0.00    +0.055 C 
+ATOM     12  C5  HCR A1001      57.693  34.346  32.865  0.00  0.00    -0.044 C 
+ATOM     13  C6  HCR A1001      57.557  32.990  32.577  0.00  0.00    -0.002 C 
+ATOM     14  C7  HCR A1001      57.255  32.469  31.171  0.00  0.00    +0.173 C 
+ATOM     15  C8  HCR A1001      57.486  33.533  30.092  0.00  0.00    +0.035 C 
+ATOM     16  C14 HCR A1001      56.812  33.068  28.799  0.00  0.00    +0.003 C 
+ATOM     17  C15 HCR A1001      57.333  31.773  28.180  0.00  0.00    +0.000 C 
+ATOM     18  C16 HCR A1001      56.563  31.781  26.856  0.00  0.00    +0.000 C 
+ATOM     19  C17 HCR A1001      56.262  33.257  26.567  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH  10  20
+ATOM     20  O1  HCR A1001      57.363  36.315  36.062  0.00  0.00    -0.223 OA
+ATOM     21  H   HCR A1001      56.801  35.869  36.714  0.00  0.00    +0.000 HD
+ENDBRANCH  10  20
+BRANCH  14  22
+ATOM     22  O2  HCR A1001      58.096  31.349  30.896  0.00  0.00    -0.218 OA
+ATOM     23  H   HCR A1001      58.925  31.658  30.497  0.00  0.00    +0.000 HD
+ENDBRANCH  14  22
+BRANCH  19  24
+ATOM     24  C20 HCR A1001      56.601  33.637  25.120  0.00  0.00    +0.000 C 
+ATOM     25  C21 HCR A1001      55.388  34.259  24.424  0.00  0.00    +0.000 C 
+BRANCH  24  26
+ATOM     26  C22 HCR A1001      57.075  32.398  24.356  0.00  0.00    +0.000 C 
+BRANCH  26  27
+ATOM     27  C23 HCR A1001      56.696  32.427  22.873  0.00  0.00    +0.000 C 
+BRANCH  27  28
+ATOM     28  C24 HCR A1001      55.587  31.413  22.573  0.00  0.00    +0.000 C 
+BRANCH  28  29
+ATOM     29  C25 HCR A1001      54.775  31.712  21.308  0.00  0.00    +0.000 C 
+ATOM     30  C27 HCR A1001      54.514  30.466  20.460  0.00  0.00    +0.000 C 
+ATOM     31  C26 HCR A1001      53.447  32.367  21.697  0.00  0.00    +0.000 C 
+ENDBRANCH  28  29
+ENDBRANCH  27  28
+ENDBRANCH  26  27
+ENDBRANCH  24  26
+ENDBRANCH  19  24
+TORSDOF 7
+ENDMDL

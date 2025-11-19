@@ -1,0 +1,2020 @@
+MODEL 1
+REMARK VINA RESULT:    -7.007      0.000      0.000
+REMARK INTER + INTRA:         -16.196
+REMARK INTER:                 -14.790
+REMARK INTRA:                  -1.406
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.120 -12.440  13.332  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.133 -13.238  14.635  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.581 -12.395  15.709  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -2.026 -12.849  16.192  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.781 -13.460  15.461  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -2.547 -12.428  17.403  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -2.549 -11.034  17.662  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -3.095 -10.822  19.094  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -3.761 -12.026  19.437  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -4.706 -11.941  19.239  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -3.526 -10.278  16.700  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -4.803 -10.580  17.197  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -4.719 -11.029  18.053  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       1.322 -13.043  12.474  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       2.447 -12.063  12.108  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       3.608 -12.689  11.288  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       3.594 -14.234  11.236  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       4.989 -14.880  11.408  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       4.994 -16.428  11.443  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       3.828 -17.057  12.238  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       4.271 -18.140  13.266  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       3.203 -19.220  13.575  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       1.886 -19.013  12.808  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       0.573 -17.146  13.961  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       0.683 -18.685  13.725  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:    -6.986      2.951      7.844
+REMARK INTER + INTRA:         -16.151
+REMARK INTER:                 -14.978
+REMARK INTRA:                  -1.172
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       3.972 -16.400  11.929  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       4.414 -17.381  13.042  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       3.920 -18.712  12.821  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       2.992 -19.158  14.032  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201       2.824 -20.330  14.307  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       2.209 -18.245  14.715  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       0.854 -18.120  14.316  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       0.591 -16.627  14.005  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -0.698 -16.344  14.525  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -1.252 -17.138  14.465  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -0.119 -18.507  15.480  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       0.576 -18.150  16.645  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -0.015 -17.657  17.236  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       4.984 -15.179  11.757  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       4.366 -13.850  11.298  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       2.814 -13.811  11.338  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       2.224 -12.574  12.055  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       0.897 -12.855  12.799  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       0.136 -11.594  13.277  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201      -0.997 -11.871  14.289  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201      -0.927 -10.997  15.577  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201      -2.139 -10.052  15.788  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201      -2.253  -9.519  17.226  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201      -4.807  -9.627  17.187  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201      -3.515 -10.018  17.970  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:    -6.932      0.877      1.319
+REMARK INTER + INTRA:         -16.038
+REMARK INTER:                 -14.259
+REMARK INTRA:                  -1.779
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.198 -11.287  13.499  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -1.258 -10.945  14.574  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.930 -11.505  15.857  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -2.140 -12.384  16.394  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.641 -13.261  15.718  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -2.779 -12.081  17.584  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -3.082 -10.718  17.832  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -3.718 -10.627  19.240  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -4.072 -11.955  19.592  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -3.972 -12.072  20.550  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -4.154 -10.182  16.826  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -5.380 -10.575  17.385  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -6.055  -9.908  17.186  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       0.271 -12.809  13.568  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       1.184 -13.286  12.429  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       2.338 -12.310  12.073  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       3.533 -12.970  11.346  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       3.475 -14.516  11.320  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       4.851 -15.220  11.224  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       5.212 -16.094  12.445  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       5.183 -17.626  12.161  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       4.029 -18.395  12.854  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       3.070 -17.482  13.635  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       0.663 -16.674  13.942  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       1.689 -17.313  12.954  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -6.923      2.211      2.903
+REMARK INTER + INTRA:         -16.019
+REMARK INTER:                 -14.527
+REMARK INTRA:                  -1.493
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       1.481 -12.799  12.468  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       0.456 -11.854  13.140  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.619 -12.575  13.765  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -0.950 -11.939  15.184  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -1.950 -12.246  15.802  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -0.203 -10.894  15.697  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -0.744  -9.588  15.583  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       0.407  -8.635  15.183  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -0.199  -7.576  14.459  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201       0.436  -7.215  13.822  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -1.287  -9.074  16.958  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -0.523  -7.927  17.224  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -1.103  -7.150  17.245  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       2.723 -12.011  11.852  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       3.809 -12.873  11.192  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       3.607 -14.404  11.353  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       4.918 -15.210  11.507  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       4.747 -16.732  11.295  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       5.273 -17.617  12.452  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       4.208 -18.001  13.503  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       3.222 -19.111  13.032  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       1.821 -18.600  12.609  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       1.517 -17.176  13.101  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       0.042 -18.549  14.675  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       0.389 -17.117  14.160  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -6.910      2.781      6.600
+REMARK INTER + INTRA:         -15.990
+REMARK INTER:                 -14.477
+REMARK INTRA:                  -1.513
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       4.484 -18.283  13.047  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       3.156 -19.072  12.935  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       2.068 -18.244  12.495  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       0.715 -18.706  13.191  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -0.007 -19.544  12.686  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       0.222 -18.059  14.310  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       0.910 -16.899  14.748  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       1.719 -17.280  16.011  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201       0.759 -17.576  17.013  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201       1.210 -17.916  17.801  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -0.090 -15.777  15.187  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -0.930 -15.608  14.075  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -1.597 -14.932  14.273  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       4.295 -16.729  12.745  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       5.140 -16.157  11.597  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       4.773 -14.706  11.184  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       3.277 -14.353  11.350  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       2.939 -12.881  11.011  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       2.198 -12.107  12.129  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       1.020 -12.874  12.771  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201      -0.275 -12.025  12.937  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201      -0.149 -10.827  13.914  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201      -1.026 -10.969  15.169  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201      -3.116 -12.436  15.030  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201      -1.593 -12.396  15.367  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:    -6.795      1.340      3.597
+REMARK INTER + INTRA:         -15.748
+REMARK INTER:                 -14.069
+REMARK INTRA:                  -1.679
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.180 -14.576  15.401  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.702 -13.126  15.253  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -2.112 -13.027  15.508  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -2.481 -11.552  15.971  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -1.737 -10.614  15.763  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -3.582 -11.301  16.771  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -3.384 -10.488  17.916  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -2.937 -11.410  19.076  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -4.129 -11.959  19.615  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -4.442 -12.676  19.043  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -4.721  -9.816  18.375  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -5.722 -10.569  17.740  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -5.493 -10.688  16.805  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -0.211 -15.378  14.023  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.674 -16.631  13.952  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       1.471 -16.934  15.250  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       2.516 -18.066  15.109  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       2.194 -19.081  13.987  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       3.233 -19.141  12.840  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       4.587 -18.472  13.165  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       4.754 -17.047  12.557  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       3.654 -16.638  11.544  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       3.259 -15.155  11.638  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       3.913 -12.705  11.312  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       4.363 -14.190  11.142  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:    -6.795      1.958      3.919
+REMARK INTER + INTRA:         -15.748
+REMARK INTER:                 -13.912
+REMARK INTRA:                  -1.835
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.212 -13.562  13.470  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.340 -12.484  14.434  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.491 -12.979  15.775  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -1.609 -12.149  16.541  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.363 -12.678  17.334  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -1.877 -10.831  16.218  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -1.124  -9.830  16.882  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -2.097  -9.021  17.772  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -1.284  -8.159  18.551  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -0.521  -7.872  18.026  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -0.507  -8.813  15.863  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       0.588  -8.261  16.546  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       0.635  -7.309  16.365  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -0.423 -15.000  13.738  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.574 -16.151  13.937  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       0.033 -17.338  14.779  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       0.363 -18.734  14.202  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       1.031 -18.695  12.808  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       2.518 -19.125  12.783  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       3.380 -18.525  13.916  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       4.260 -17.318  13.474  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       4.195 -16.984  11.961  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       3.407 -15.701  11.652  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       3.478 -13.173  11.271  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       4.308 -14.495  11.292  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:    -6.793      1.136      3.726
+REMARK INTER + INTRA:         -15.744
+REMARK INTER:                 -14.043
+REMARK INTRA:                  -1.701
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.299 -15.755  15.925  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.331 -14.652  15.039  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.480 -13.409  15.743  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -2.009 -13.166  16.105  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.904 -13.531  15.368  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -2.379 -12.388  17.187  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -2.351 -10.980  17.018  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -2.502 -10.335  18.416  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -2.373  -8.937  18.214  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -1.638  -8.599  18.749  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -3.570 -10.485  16.169  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -4.643 -10.484  17.073  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -4.308 -10.626  17.972  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       1.114 -16.828  15.074  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.811 -16.867  13.569  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       0.949 -18.269  12.917  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       2.043 -19.162  13.546  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       3.430 -19.025  12.873  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       4.389 -18.016  13.552  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       5.138 -17.083  12.575  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       4.266 -16.573  11.389  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       3.489 -15.261  11.668  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       4.186 -14.009  11.109  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       1.988 -13.019  11.963  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       3.371 -12.708  11.308  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:    -6.754      3.587      8.739
+REMARK INTER + INTRA:         -15.661
+REMARK INTER:                 -14.493
+REMARK INTRA:                  -1.168
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       3.983 -13.370  11.300  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       4.442 -14.810  10.966  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       5.074 -15.452  12.085  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       4.512 -16.929  12.257  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201       5.251 -17.893  12.285  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       3.154 -17.193  12.216  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       2.690 -18.332  12.921  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       1.248 -18.626  12.443  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201       0.422 -17.673  13.092  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201       0.132 -17.006  12.450  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201       2.597 -18.051  14.458  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       1.932 -19.174  14.975  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       1.487 -18.933  15.803  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       2.396 -13.236  11.368  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       1.841 -12.342  12.486  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       0.348 -12.590  12.832  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       0.100 -13.792  13.773  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201      -0.089 -13.398  15.257  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201      -0.591 -11.952  15.491  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201      -2.070 -11.847  15.925  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201      -2.271 -11.311  17.373  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201      -2.774  -9.846  17.462  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201      -4.017  -9.575  16.599  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201      -5.130  -9.467  18.899  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201      -5.349  -9.721  17.375  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:    -6.735      2.032      2.289
+REMARK INTER + INTRA:         -15.622
+REMARK INTER:                 -13.784
+REMARK INTRA:                  -1.839
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.351 -13.893  13.241  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.567 -13.854  14.486  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.264 -12.747  15.351  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -1.583 -12.254  16.089  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.405 -13.040  16.518  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -1.929 -10.915  16.129  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -0.873  -9.969  16.157  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -1.202  -8.928  17.253  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -0.136  -7.993  17.232  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -0.378  -7.214  17.756  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -0.783  -9.178  14.808  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       0.593  -9.116  14.535  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       1.050  -8.687  15.275  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       0.898 -12.449  12.843  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       2.154 -12.423  11.959  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       2.763 -13.820  11.659  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       4.261 -13.795  11.277  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       4.910 -15.197  11.192  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       4.039 -16.355  11.739  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       4.728 -17.227  12.811  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       4.270 -18.716  12.809  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       3.071 -19.030  13.742  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       1.707 -18.906  13.044  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       1.355 -17.103  14.823  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       0.947 -17.606  13.403  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -6.735      1.285      3.217
+REMARK INTER + INTRA:         -15.622
+REMARK INTER:                 -14.288
+REMARK INTRA:                  -1.334
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.098 -10.974  13.972  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.501 -11.126  15.459  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -1.687 -10.381  15.780  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -2.826 -11.363  16.295  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.844 -12.537  15.982  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -3.930 -10.889  16.981  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -3.705 -10.297  18.249  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -3.038 -11.361  19.154  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -4.102 -12.115  19.713  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -4.895 -11.560  19.774  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -5.054  -9.909  18.943  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -6.025 -10.643  18.245  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -6.904 -10.433  18.598  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -0.477 -12.257  13.105  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.231 -13.564  13.489  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201      -0.716 -14.694  13.976  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       0.009 -15.951  14.510  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       1.006 -16.575  13.505  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       1.357 -18.060  13.767  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       2.319 -18.686  12.733  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       3.710 -19.078  13.315  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       4.900 -18.247  12.771  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       4.636 -16.732  12.768  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       4.805 -14.613  11.346  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       5.494 -15.958  11.738  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -6.696      1.282      2.144
+REMARK INTER + INTRA:         -15.539
+REMARK INTER:                 -14.019
+REMARK INTRA:                  -1.520
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.343 -14.337  15.140  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.599 -13.112  16.051  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -1.991 -12.764  16.114  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -2.184 -11.438  16.970  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -1.417 -10.500  16.873  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -3.131 -11.360  17.975  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -3.793 -10.118  18.152  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -4.509 -10.158  19.524  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -5.098 -11.445  19.617  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -6.018 -11.402  19.312  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -4.911  -9.911  17.077  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -5.958  -9.296  17.781  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -6.601  -8.932  17.152  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -0.266 -13.942  13.597  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.575 -12.702  13.259  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       1.505 -12.867  12.026  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       2.767 -11.973  12.053  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       4.009 -12.621  11.397  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       3.839 -14.109  11.004  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       4.847 -15.070  11.673  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       4.418 -16.567  11.637  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       3.595 -17.039  12.863  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       2.168 -16.468  12.896  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       1.180 -18.751  12.307  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       1.091 -17.519  13.260  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -6.629      3.778      8.316
+REMARK INTER + INTRA:         -15.399
+REMARK INTER:                 -13.917
+REMARK INTRA:                  -1.482
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       4.075 -13.370  11.316  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       4.119 -14.914  11.208  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       5.325 -15.463  11.763  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       5.008 -16.826  12.517  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201       5.868 -17.664  12.707  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       3.712 -17.186  12.842  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       3.535 -18.053  13.950  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       3.277 -19.475  13.398  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201       2.621 -20.182  14.439  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201       2.559 -19.616  15.224  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201       2.265 -17.663  14.779  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       2.714 -17.639  16.108  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       2.742 -16.722  16.423  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       2.600 -12.790  11.143  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       2.088 -11.898  12.284  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       0.717 -12.326  12.875  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       0.611 -13.830  13.219  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201      -0.824 -14.296  13.560  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201      -1.783 -13.172  14.026  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201      -2.341 -13.355  15.455  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201      -1.656 -12.455  16.525  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201      -2.425 -11.154  16.871  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201      -1.820  -9.898  16.223  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       0.552  -8.946  16.155  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201      -0.381 -10.109  15.694  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -6.621      1.805      2.404
+REMARK INTER + INTRA:         -15.382
+REMARK INTER:                 -13.993
+REMARK INTRA:                  -1.389
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       1.385 -13.090  12.391  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       0.175 -12.238  12.844  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.008 -12.269  14.269  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -0.592 -10.879  14.775  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -0.296  -9.830  14.238  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -1.327 -10.789  15.944  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -1.983  -9.559  16.208  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -1.308  -8.923  17.447  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -0.454  -7.908  16.945  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -0.124  -7.370  17.681  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -3.484  -9.785  16.590  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -3.541 -11.130  16.988  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -4.394 -11.509  16.726  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       2.582 -12.198  11.831  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       3.664 -12.944  11.037  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       3.770 -14.460  11.354  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       5.196 -15.043  11.218  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       5.432 -16.324  12.054  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       4.145 -17.079  12.470  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       4.351 -18.579  12.779  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       3.186 -19.227  13.584  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       1.808 -18.538  13.406  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       1.126 -18.184  14.738  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201      -0.059 -15.998  14.142  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       1.056 -16.661  15.009  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -6.582      3.457      7.498
+REMARK INTER + INTRA:         -15.298
+REMARK INTER:                 -14.046
+REMARK INTRA:                  -1.252
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.037 -15.219  15.409  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       0.245 -16.334  16.463  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       1.081 -17.395  15.973  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       0.189 -18.529  15.306  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -0.867 -18.880  15.796  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       0.652 -19.277  14.238  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       1.564 -18.651  13.351  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       0.984 -18.764  11.922  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -0.196 -19.542  12.043  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -0.972 -18.976  11.912  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201       2.940 -19.397  13.330  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       2.855 -20.310  14.393  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       1.930 -20.393  14.674  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       0.057 -13.761  16.055  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201      -1.234 -13.316  16.757  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201      -1.663 -11.854  16.457  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201      -0.868 -11.175  15.317  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201      -1.262 -11.659  13.902  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201      -0.141 -11.554  12.839  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       0.812 -12.768  12.787  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       2.223 -12.444  12.211  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       2.800 -13.521  11.256  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       4.334 -13.612  11.295  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       3.757 -16.090  11.557  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       4.869 -15.061  11.181  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -6.563      2.269      4.370
+REMARK INTER + INTRA:         -15.259
+REMARK INTER:                 -13.368
+REMARK INTRA:                  -1.891
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.393 -15.021  14.195  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       0.041 -13.851  15.146  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.354 -12.669  14.429  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -1.444 -11.865  15.262  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -2.614 -11.850  14.934  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -1.081 -11.018  16.294  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -1.310  -9.631  16.110  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -0.066  -9.038  15.407  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -0.565  -8.212  14.367  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -1.286  -7.661  14.710  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -1.438  -8.888  17.483  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -0.570  -7.792  17.364  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       0.216  -7.940  17.913  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -0.092 -16.431  14.760  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.400 -16.800  16.167  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       1.917 -17.120  16.258  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201       2.477 -17.913  15.055  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       3.851 -17.408  14.554  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       4.297 -17.976  13.185  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       3.481 -17.464  11.978  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       3.298 -15.917  11.945  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       4.552 -15.122  11.499  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       4.293 -13.616  11.336  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       2.477 -11.970  12.067  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       2.791 -13.255  11.238  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -6.381      4.502      9.123
+REMARK INTER + INTRA:         -14.875
+REMARK INTER:                 -13.448
+REMARK INTRA:                  -1.428
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201       0.247 -17.058  14.617  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       1.098 -17.427  15.857  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       2.474 -17.666  15.519  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       2.568 -18.675  14.295  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201       2.416 -19.872  14.442  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       2.989 -18.255  13.045  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       3.953 -17.217  12.997  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       3.422 -16.126  12.037  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201       4.257 -16.176  10.892  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201       5.179 -16.291  11.170  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201       5.304 -17.722  12.387  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       6.220 -16.700  12.682  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       5.814 -16.071  13.298  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       0.352 -15.512  14.245  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201      -0.831 -14.632  14.676  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201      -1.432 -13.757  13.543  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201      -0.401 -12.874  12.801  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       0.190 -11.738  13.668  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201      -0.855 -10.788  14.303  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201      -0.929 -10.852  15.845  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201      -2.376 -10.985  16.407  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201      -3.271  -9.735  16.204  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201      -4.631  -9.837  16.912  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201      -5.812  -9.389  19.136  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201      -4.519  -9.935  18.453  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:    -6.381      2.057      3.713
+REMARK INTER + INTRA:         -14.875
+REMARK INTER:                 -13.078
+REMARK INTRA:                  -1.797
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.025 -11.335  13.670  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -1.315 -11.252  14.521  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -1.033 -11.155  15.926  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -1.426  -9.712  16.464  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -0.954  -8.701  15.980  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -2.189  -9.551  17.608  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -3.304 -10.411  17.773  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -4.514  -9.754  17.066  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -5.642 -10.537  17.422  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -6.121 -10.797  16.620  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -3.696 -10.549  19.283  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -3.922 -11.924  19.456  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -4.750 -12.173  19.017  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -0.014 -12.605  12.705  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.603 -13.887  13.284  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201      -0.423 -15.001  13.626  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201      -0.661 -15.209  15.140  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       0.607 -15.624  15.923  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       0.722 -17.139  16.225  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201      -0.315 -18.021  15.496  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       0.269 -18.835  14.303  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       1.623 -18.311  13.758  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       2.739 -19.368  13.780  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       4.355 -17.436  13.340  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       4.020 -18.928  13.029  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:    -6.354      3.400      6.801
+REMARK INTER + INTRA:         -14.817
+REMARK INTER:                 -13.467
+REMARK INTRA:                  -1.350
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.268 -13.645  16.082  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201      -0.478 -15.068  15.509  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201       0.014 -15.190  14.165  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201       0.555 -16.664  13.915  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201      -0.195 -17.620  13.879  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201       1.910 -16.941  13.891  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201       2.378 -17.980  14.736  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201       3.347 -17.349  15.765  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201       2.570 -17.095  16.924  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201       2.010 -16.318  16.773  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201       3.211 -19.034  13.933  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201       2.726 -20.272  14.380  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201       2.499 -20.826  13.616  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201      -1.591 -13.055  16.748  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201      -2.150 -11.772  16.116  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201      -1.118 -10.952  15.296  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201      -0.948 -11.419  13.831  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       0.439 -11.096  13.227  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       1.142 -12.288  12.531  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       2.599 -12.011  12.099  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       3.095 -12.909  10.926  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       4.249 -13.878  11.291  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       3.806 -15.348  11.379  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       6.323 -15.686  11.678  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       4.977 -16.354  11.255  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL
+MODEL 20
+REMARK VINA RESULT:    -6.346      1.873      4.264
+REMARK INTER + INTRA:         -14.801
+REMARK INTER:                 -13.496
+REMARK INTRA:                  -1.305
+REMARK UNBOUND:                -1.406
+REMARK  Name = docking/prep/7JX2/ligand.pdb
+REMARK  21 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C11_1  and  C10_2
+REMARK    2  A    between atoms: C11_1  and  C12_4
+REMARK    3  A    between atoms: C10_2  and  C09_16
+REMARK    4  A    between atoms: C15_3  and  C14_6
+REMARK    5  A    between atoms: C15_3  and  C16_17
+REMARK    6  A    between atoms: C12_4  and  C13_5
+REMARK    7  A    between atoms: C13_5  and  C14_6
+REMARK    8  A    between atoms: C19_7  and  C18_19
+REMARK    9  A    between atoms: C01_8  and  C02_9
+REMARK   10  A    between atoms: C01_8  and  O02_21
+REMARK   11  A    between atoms: C02_9  and  C03_10
+REMARK   12  A    between atoms: C02_9  and  O01_20
+REMARK   13  A    between atoms: C03_10  and  O03_22
+REMARK   14  A    between atoms: C04_11  and  C05_12
+REMARK   15  A    between atoms: C04_11  and  O01_20
+REMARK   16  A    between atoms: C05_12  and  C06_13
+REMARK   17  A    between atoms: C06_13  and  C07_14
+REMARK   18  A    between atoms: C07_14  and  C08_15
+REMARK   19  A    between atoms: C08_15  and  C09_16
+REMARK   20  A    between atoms: C16_17  and  C17_18
+REMARK   21  A    between atoms: C17_18  and  C18_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C07 VLP A 201      -0.705 -14.359  13.955  0.00  0.00    +0.001 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C06 VLP A 201       0.058 -13.155  13.349  0.00  0.00    +0.012 C 
+BRANCH   2   3
+ATOM      3  C05 VLP A 201      -0.766 -11.982  13.254  0.00  0.00    +0.110 C 
+BRANCH   3   4
+ATOM      4  C04 VLP A 201      -0.295 -10.897  14.316  0.00  0.00    +0.317 C 
+ATOM      5  O04 VLP A 201       0.407  -9.957  13.998  0.00  0.00    -0.250 OA
+BRANCH   4   6
+ATOM      6  O01 VLP A 201      -0.527 -11.065  15.669  0.00  0.00    -0.447 OA
+BRANCH   6   7
+ATOM      7  C02 VLP A 201      -1.780 -10.635  16.175  0.00  0.00    +0.234 C 
+BRANCH   7   8
+ATOM      8  C03 VLP A 201      -1.582  -9.229  16.791  0.00  0.00    +0.228 C 
+BRANCH   8   9
+ATOM      9  O03 VLP A 201      -2.595  -9.090  17.773  0.00  0.00    -0.216 OA
+ATOM     10  H   VLP A 201      -2.231  -8.640  18.551  0.00  0.00    +0.000 HD
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+BRANCH   7  11
+ATOM     11  C01 VLP A 201      -2.273 -11.561  17.337  0.00  0.00    +0.228 C 
+BRANCH  11  12
+ATOM     12  O02 VLP A 201      -2.413 -12.822  16.738  0.00  0.00    -0.216 OA
+ATOM     13  H   VLP A 201      -2.693 -12.713  15.815  0.00  0.00    +0.000 HD
+ENDBRANCH  11  12
+ENDBRANCH   7  11
+ENDBRANCH   6   7
+ENDBRANCH   4   6
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  14
+ATOM     14  C08 VLP A 201       0.273 -15.535  14.405  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C09 VLP A 201       0.245 -15.900  15.897  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C10 VLP A 201       0.641 -17.369  16.210  0.00  0.00    +0.000 C 
+BRANCH  16  17
+ATOM     17  C11 VLP A 201      -0.104 -18.427  15.363  0.00  0.00    +0.000 C 
+BRANCH  17  18
+ATOM     18  C12 VLP A 201       0.659 -18.861  14.089  0.00  0.00    +0.000 C 
+BRANCH  18  19
+ATOM     19  C13 VLP A 201       2.156 -19.192  14.305  0.00  0.00    +0.000 C 
+BRANCH  19  20
+ATOM     20  C14 VLP A 201       3.127 -18.397  13.404  0.00  0.00    +0.000 C 
+BRANCH  20  21
+ATOM     21  C15 VLP A 201       2.429 -17.356  12.480  0.00  0.00    +0.000 C 
+BRANCH  21  22
+ATOM     22  C16 VLP A 201       3.371 -16.635  11.482  0.00  0.00    +0.000 C 
+BRANCH  22  23
+ATOM     23  C17 VLP A 201       4.773 -16.365  12.053  0.00  0.00    +0.000 C 
+BRANCH  23  25
+ATOM     24  C19 VLP A 201       4.378 -13.939  11.350  0.00  0.00    +0.000 C 
+ATOM     25  C18 VLP A 201       5.431 -15.082  11.492  0.00  0.00    +0.000 C 
+ENDBRANCH  23  25
+ENDBRANCH  22  23
+ENDBRANCH  21  22
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH  18  19
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH   1  14
+TORSDOF 20
+ENDMDL

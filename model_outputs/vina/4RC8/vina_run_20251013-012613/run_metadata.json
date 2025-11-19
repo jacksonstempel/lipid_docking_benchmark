@@ -1,0 +1,26 @@
+{
+  "pdbid": "4RC8",
+  "timestamp_utc": "20251013-012613",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/4RC8/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/4RC8/vina_run_20251013-012613/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/4RC8/vina_run_20251013-012613/4RC8_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/4RC8/vina_run_20251013-012613/4RC8_vina.log",
+  "center": [
+    6.257,
+    -11.421,
+    34.037
+  ],
+  "size": [
+    19.26,
+    10.089,
+    13.887
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

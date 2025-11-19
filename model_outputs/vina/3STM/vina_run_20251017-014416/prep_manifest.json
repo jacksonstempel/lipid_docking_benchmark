@@ -1,0 +1,23 @@
+{
+  "pdbid": "3STM",
+  "source_cif": "raw_structures/pdb_lipid_candidates/3STM.cif",
+  "prep_dir": "docking/prep/3STM",
+  "receptor_pdb": "docking/prep/3STM/receptor_no_ligand.pdb",
+  "ligand_pdb": "docking/prep/3STM/ligand.pdb",
+  "receptor_pdbqt": "docking/prep/3STM/receptor.pdbqt",
+  "ligand_pdbqt": "docking/prep/3STM/ligand.pdbqt",
+  "box_file": "docking/vina/box/3STM.txt",
+  "center": [
+    6.377,
+    -9.031,
+    -13.748
+  ],
+  "size": [
+    10.917,
+    14.46,
+    12.723
+  ],
+  "ph": 7.4,
+  "keep_waters": false,
+  "keep_ions": true
+}

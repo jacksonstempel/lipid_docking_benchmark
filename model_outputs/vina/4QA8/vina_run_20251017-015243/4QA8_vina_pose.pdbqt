@@ -1,0 +1,2180 @@
+MODEL 1
+REMARK VINA RESULT:    -8.999      0.000      0.000
+REMARK INTER + INTRA:         -22.131
+REMARK INTER:                 -18.994
+REMARK INTRA:                  -3.137
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -8.350   3.927 -18.286  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.501   3.648 -20.046  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -7.363   3.053 -18.985  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -7.132   1.759 -18.574  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.983   0.731 -18.911  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.546   0.735 -20.166  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -7.771  -0.595 -18.256  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -8.572  -0.960 -17.049  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.434  -1.785 -15.843  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -7.920  -1.657 -15.901  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -4.307  -2.415 -14.513  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.772  -2.130 -14.549  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -4.391  -2.612 -11.945  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -3.601  -2.578 -13.207  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.600  -4.561  -9.034  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.155  -4.234 -10.379  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -3.724  -2.882 -10.638  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -8.579   3.739 -16.944  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -7.845   4.450 -16.026  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.586   5.775 -16.282  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -6.909   3.701 -15.142  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -6.522   2.305 -15.490  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.823   1.272 -13.246  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -5.496   1.612 -14.660  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.549   1.507 -11.013  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -4.747   0.820 -12.320  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -4.574   0.248  -8.776  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -3.810   0.804  -9.926  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -2.885   0.406  -6.844  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -3.834  -0.401  -7.658  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -1.805  -1.628  -5.726  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.275  -0.225  -5.643  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -0.495  -1.727  -3.598  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -1.512  -2.356  -4.468  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:    -8.963      1.424      5.900
+REMARK INTER + INTRA:         -22.055
+REMARK INTER:                 -19.290
+REMARK INTRA:                  -2.766
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -7.843   3.386 -16.794  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.254   1.697 -15.690  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -7.111   2.912 -15.582  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -7.097   3.649 -14.419  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -5.981   3.711 -13.616  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -5.067   4.712 -13.846  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -6.094   3.189 -12.221  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.412   1.748 -11.993  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -4.564   1.595 -10.187  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -5.725   0.992 -10.904  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -3.978  -0.454  -8.720  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -4.127   1.023  -8.877  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -2.115  -0.429  -6.940  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -3.368  -1.025  -7.482  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -1.110  -2.847  -4.004  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -1.559  -2.365  -5.342  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -1.544  -0.907  -5.647  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -7.187   4.182 -17.703  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -6.821   3.659 -18.919  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -5.776   4.242 -19.594  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -7.849   2.919 -19.705  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -7.537   1.562 -20.234  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -8.544   0.220 -18.290  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -7.447   0.420 -19.281  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -7.194  -1.661 -17.148  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -8.366  -0.741 -17.166  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.566  -1.757 -15.165  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -6.775  -2.280 -15.857  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -4.675  -1.572 -12.760  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -5.108  -2.413 -13.909  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -3.084  -2.971 -11.323  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -4.368  -2.245 -11.470  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -2.317  -5.213 -10.525  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -2.922  -3.907 -10.185  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:    -8.913      1.208      1.615
+REMARK INTER + INTRA:         -21.950
+REMARK INTER:                 -19.823
+REMARK INTRA:                  -2.127
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -8.047   3.848 -18.239  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -5.976   4.211 -19.714  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -6.959   3.281 -19.088  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.760   1.921 -19.186  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.424   1.159 -20.121  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -6.938   1.134 -21.407  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -8.163  -0.047 -19.641  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -8.712  -0.074 -18.252  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -8.346  -1.580 -16.178  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -7.855  -0.528 -17.117  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -6.003  -1.739 -15.093  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -7.374  -2.294 -15.296  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -5.360  -2.119 -12.627  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -5.088  -2.338 -14.075  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.381  -4.080 -10.967  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.173  -3.292 -11.954  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -4.528  -2.793 -11.588  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -8.232   3.353 -16.969  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -7.173   3.318 -16.096  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -6.591   2.103 -15.823  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -7.061   4.403 -15.081  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -5.739   4.700 -14.461  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -6.096   3.107 -12.479  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -5.177   3.743 -13.467  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.585   1.235 -11.546  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.539   2.356 -11.320  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -4.141   1.034  -9.025  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -3.703   0.792 -10.427  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.561   1.084  -6.521  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -3.236   0.650  -7.906  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -1.641  -0.401  -5.706  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.727   0.561  -5.405  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -1.467  -2.580  -4.491  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -1.039  -1.167  -4.590  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -8.810      1.428      4.117
+REMARK INTER + INTRA:         -21.732
+REMARK INTER:                 -18.908
+REMARK INTRA:                  -2.824
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -7.775   1.273 -20.216  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.788   2.377 -22.315  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -6.826   2.247 -20.830  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.096   3.123 -20.056  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -6.676   4.226 -19.471  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -7.683   4.871 -20.149  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -6.696   4.295 -17.979  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -7.741   3.547 -17.218  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.412   1.869 -15.762  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -7.421   2.962 -15.882  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -5.204   2.638 -13.607  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.821   1.553 -14.426  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -5.527   1.378 -11.383  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -4.779   2.374 -12.200  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -3.224   1.116  -8.204  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.769   1.569  -9.516  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -5.060   1.015 -10.014  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -7.370   0.539 -19.126  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -8.240  -0.354 -18.551  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -9.485  -0.508 -19.112  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -8.069  -0.671 -17.105  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -7.399  -1.939 -16.701  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.807  -1.919 -14.687  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -7.158  -2.198 -15.254  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.071  -2.233 -12.803  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.456  -2.404 -13.323  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -3.246  -3.532 -10.748  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -3.833  -2.295 -11.332  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.111  -2.381  -8.453  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -3.063  -3.621  -9.273  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -1.989  -1.854  -6.213  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -3.078  -2.514  -6.972  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -0.801  -1.409  -4.058  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -1.761  -2.251  -4.803  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -8.739      1.893      2.687
+REMARK INTER + INTRA:         -21.582
+REMARK INTER:                 -18.252
+REMARK INTRA:                  -3.330
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -6.248   7.483 -16.863  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -5.465   5.637 -18.468  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -6.578   6.363 -17.793  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -7.868   5.898 -17.926  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -8.159   4.553 -17.891  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.226   3.869 -19.081  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -7.757   3.784 -16.675  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -7.040   2.483 -16.826  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.153   0.281 -15.794  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.806   1.613 -15.636  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -4.899  -1.727 -14.751  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.584  -0.410 -14.597  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -4.680  -2.139 -12.217  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -4.167  -2.337 -13.601  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.256  -4.477 -10.183  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -2.838  -3.683 -11.303  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -4.033  -2.826 -11.062  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -5.882   7.194 -15.570  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -4.577   6.869 -15.292  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -3.581   7.511 -15.988  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -4.293   5.519 -14.729  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -5.392   4.735 -14.100  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -6.014   3.040 -12.274  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -5.050   3.523 -13.303  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.214   1.451 -11.328  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.598   2.000 -11.292  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -4.581   0.483  -8.978  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -3.667   0.775 -10.117  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.014  -1.219  -7.858  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -4.026  -0.135  -7.742  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -2.067  -0.752  -5.525  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.366  -1.713  -6.613  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -1.018  -2.624  -4.242  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -1.138  -1.164  -4.446  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:    -8.652      4.084     10.061
+REMARK INTER + INTRA:         -21.399
+REMARK INTER:                 -18.323
+REMARK INTRA:                  -3.076
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -3.052  -2.413  -9.340  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -2.638  -4.794 -10.208  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -3.152  -3.414 -10.442  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -3.833  -3.134 -11.606  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -3.174  -2.789 -12.764  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -2.073  -3.525 -13.131  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -3.968  -2.146 -13.854  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -5.426  -2.443 -13.981  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -7.568  -1.895 -15.328  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.119  -2.248 -15.289  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -7.555  -0.129 -17.219  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -8.160  -1.336 -16.582  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -7.112   0.182 -19.738  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -8.017   0.327 -18.564  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -7.700   2.227 -23.048  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -7.137   1.804 -21.733  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -7.587   0.528 -21.109  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -3.084  -2.847  -8.035  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -2.814  -1.961  -7.021  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -2.290  -2.450  -5.848  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -3.582  -0.685  -6.978  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -2.907   0.595  -7.331  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -4.581   1.033  -9.228  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -3.232   1.247  -8.631  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -5.458   0.487 -11.593  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -4.850   1.449 -10.632  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.287   1.461 -13.962  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -6.127   1.007 -12.820  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -6.843   3.217 -15.012  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -5.948   2.038 -15.165  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -6.898   3.393 -17.566  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -7.369   3.866 -16.243  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -5.955   4.866 -19.352  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -7.153   4.237 -18.757  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:    -8.644      1.285      4.166
+REMARK INTER + INTRA:         -21.382
+REMARK INTER:                 -18.952
+REMARK INTRA:                  -2.429
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -6.873   1.345 -19.334  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -7.056   2.699 -21.508  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -6.741   2.646 -20.051  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.479   3.816 -19.373  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.265   4.235 -18.323  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.631   4.154 -18.458  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -6.701   4.130 -16.944  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -7.159   3.033 -16.039  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.131   3.507 -13.711  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.309   2.607 -14.888  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -4.877   1.649 -12.420  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.613   2.948 -12.426  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -4.884   1.307  -9.867  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -4.195   1.172 -11.180  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.754   1.058  -6.568  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.475   1.632  -7.740  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -4.275   0.741  -8.628  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -7.927   0.516 -19.638  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -8.587  -0.139 -18.628  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -9.936  -0.363 -18.765  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -8.016  -0.069 -17.253  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -6.999  -1.070 -16.825  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.533  -1.992 -14.930  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -6.774  -1.293 -15.369  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.048  -2.613 -12.912  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.398  -2.458 -13.521  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -2.986  -3.613 -10.799  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -3.918  -2.636 -11.427  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.087  -2.441  -8.512  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -2.899  -3.681  -9.314  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -1.964  -2.170  -6.228  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -3.146  -2.563  -7.031  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -0.947  -1.830  -3.968  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -1.893  -2.595  -4.810  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:    -8.582      4.365     10.488
+REMARK INTER + INTRA:         -21.251
+REMARK INTER:                 -17.573
+REMARK INTRA:                  -3.679
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -1.933  -1.016  -6.273  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -3.822  -2.626  -6.933  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -2.593  -1.868  -7.305  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -2.179  -1.853  -8.619  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -2.730  -2.694  -9.560  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -2.797  -4.037  -9.275  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -3.767  -2.132 -10.477  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -4.464  -3.030 -11.445  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -4.568  -2.470 -13.970  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -5.190  -2.452 -12.614  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -6.880  -1.974 -15.020  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.421  -2.250 -15.178  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -7.028  -1.114 -17.444  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -7.704  -1.571 -16.198  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301     -10.088  -0.212 -19.747  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -9.245  -0.396 -18.531  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -7.820  -0.809 -18.671  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -1.748   0.322  -6.527  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -2.837   1.157  -6.580  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -3.774   1.075  -5.578  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -3.265   1.672  -7.911  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -4.253   0.902  -8.718  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.885   0.817 -10.698  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -4.752   1.484  -9.995  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -5.163   1.416 -13.102  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -6.237   1.213 -12.090  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -6.455   2.377 -15.102  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -5.510   1.367 -14.551  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -7.840   3.264 -17.078  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -6.851   2.293 -16.535  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -7.204   2.485 -19.433  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -8.104   3.255 -18.542  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -6.988   1.562 -21.747  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -7.259   2.738 -20.892  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:    -8.469      1.487      5.432
+REMARK INTER + INTRA:         -21.013
+REMARK INTER:                 -17.944
+REMARK INTRA:                  -3.069
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -6.477   4.623 -18.117  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -4.233   5.332 -17.090  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -5.641   4.876 -16.907  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.181   4.839 -15.641  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.167   3.941 -15.302  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.464   4.234 -15.652  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -6.792   2.499 -15.193  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -5.390   2.124 -14.842  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.024   1.943 -12.339  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -4.987   1.984 -13.412  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -4.240   1.452 -10.531  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.663   1.431 -10.982  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -3.393  -0.246  -8.787  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -3.890   1.119  -9.118  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.616   0.152  -4.951  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.180   0.404  -6.308  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -2.933  -0.573  -7.406  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -5.883   4.110 -19.246  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -6.669   3.634 -20.267  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.827   4.308 -20.570  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -6.583   2.185 -20.604  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -7.697   1.271 -20.225  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -8.334   0.241 -17.961  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -7.461   0.246 -19.170  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -7.091  -1.782 -16.950  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -7.969  -0.591 -16.781  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.363  -1.486 -15.074  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -6.375  -2.333 -15.764  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -5.170  -1.963 -12.555  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -4.602  -2.054 -13.927  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -3.107  -3.212 -11.696  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -4.464  -2.669 -11.452  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -2.757  -3.856  -9.305  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -2.546  -4.188 -10.731  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:    -8.157      2.358      5.900
+REMARK INTER + INTRA:         -20.354
+REMARK INTER:                 -17.245
+REMARK INTRA:                  -3.109
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -5.923   7.501 -15.814  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -3.884   8.730 -14.850  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -4.764   7.527 -14.874  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -4.579   6.534 -13.936  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -3.938   5.356 -14.247  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -2.696   5.127 -13.704  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -4.782   4.165 -14.564  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.122   4.016 -13.923  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -5.883   1.960 -12.367  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.241   3.395 -12.571  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -4.240   1.261 -10.496  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -5.638   1.449 -10.985  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -3.357  -0.378  -8.714  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -3.979   0.930  -9.063  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.551   0.133  -4.897  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.040   0.393  -6.281  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -2.985  -0.690  -7.303  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -6.009   6.491 -16.743  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -6.845   6.636 -17.823  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.957   7.432 -17.688  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -6.869   5.551 -18.845  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -7.633   4.300 -18.575  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -7.848   2.209 -17.102  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -6.986   3.217 -17.782  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -6.427   0.126 -16.551  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -7.258   1.277 -16.101  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.892  -1.799 -14.937  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -5.492  -0.519 -15.584  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -4.970  -1.877 -12.538  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -4.989  -2.414 -13.926  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -2.902  -3.249 -11.912  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -4.174  -2.603 -11.513  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -3.053  -4.513  -9.759  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -2.287  -4.237 -10.994  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -8.147      1.799      4.594
+REMARK INTER + INTRA:         -20.333
+REMARK INTER:                 -17.573
+REMARK INTRA:                  -2.761
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -6.786   0.311 -19.137  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -8.822  -0.069 -20.655  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -7.445   0.470 -20.466  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.871   1.223 -21.466  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.324   2.488 -21.770  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.062   2.658 -22.917  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -7.584   3.426 -20.638  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.503   4.350 -20.179  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.893   3.708 -17.702  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.329   4.637 -18.725  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -7.387   3.784 -15.164  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -6.408   3.780 -16.291  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -5.854   2.679 -13.412  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -6.914   3.668 -13.752  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -4.990   1.327  -9.819  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -5.437   1.365 -11.241  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -5.286   2.618 -12.034  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -7.561   0.051 -18.032  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -7.159  -0.907 -17.134  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.613  -2.193 -17.302  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -6.762  -0.467 -15.766  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -5.324  -0.229 -15.456  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.557  -1.788 -13.429  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -4.752  -0.801 -14.204  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -3.834  -2.875 -11.844  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.134  -2.180 -12.055  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -3.461  -1.700  -9.592  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -3.214  -2.863 -10.488  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.217  -0.634  -7.265  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -2.794  -1.655  -8.261  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -1.205  -1.024  -5.731  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.643  -0.708  -5.894  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -1.066  -2.796  -3.971  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -0.711  -1.422  -4.392  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -8.143      1.796      5.408
+REMARK INTER + INTRA:         -20.325
+REMARK INTER:                 -17.283
+REMARK INTRA:                  -3.042
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -6.260   4.702 -21.402  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -5.925   6.682 -19.801  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -6.139   5.221 -20.008  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.363   4.409 -18.918  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.567   4.411 -18.251  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.714   4.638 -18.976  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -7.685   3.573 -17.020  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.956   3.973 -15.780  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -5.307   2.404 -14.547  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.680   2.965 -14.715  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -5.594   2.106 -11.993  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -4.944   1.706 -13.277  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -4.169   1.537  -9.923  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -5.381   1.299 -10.755  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -3.377  -1.339  -7.358  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.447  -0.565  -8.631  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -3.985   0.824  -8.626  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -6.006   3.373 -21.647  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -7.051   2.522 -21.910  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.875   2.807 -22.972  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -7.596   1.708 -20.787  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -7.312   0.246 -20.729  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -8.106   0.154 -18.289  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -7.313  -0.437 -19.405  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -7.415  -1.727 -16.664  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -7.927  -0.348 -16.899  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.345  -2.233 -15.231  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -6.821  -2.067 -15.339  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -5.058  -1.831 -12.708  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -4.754  -2.633 -13.924  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -3.329  -3.130 -11.337  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -4.580  -2.338 -11.393  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -2.063  -5.011 -10.282  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -3.031  -3.906 -10.110  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -8.100      1.407      5.477
+REMARK INTER + INTRA:         -20.234
+REMARK INTER:                 -17.422
+REMARK INTRA:                  -2.812
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -7.794   3.502 -17.055  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.717   1.935 -15.330  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -7.132   3.309 -15.732  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.768   4.382 -14.949  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -5.854   5.316 -15.381  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -6.326   6.510 -15.875  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -4.504   5.321 -14.741  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -3.997   4.084 -14.076  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -4.769   2.350 -12.315  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -4.421   3.754 -12.683  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -4.330   0.611 -10.451  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -4.822   1.956 -10.875  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -3.399   1.157  -8.112  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -4.203   0.275  -9.002  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.055   0.005  -4.598  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -2.087   0.381  -6.040  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -3.345   0.907  -6.642  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -7.070   3.292 -18.205  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -7.531   2.399 -19.141  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.609   2.806 -20.451  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -8.429   1.301 -18.684  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -8.188  -0.093 -19.151  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -8.134  -1.017 -16.756  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -7.689  -1.104 -18.176  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -5.991  -2.062 -15.769  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -7.463  -1.841 -15.712  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -3.784  -2.564 -14.556  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -5.271  -2.483 -14.533  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.634  -2.764 -11.997  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -3.065  -3.043 -13.343  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -3.553  -3.148  -9.467  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.978  -3.381 -10.813  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -3.127  -2.779  -7.031  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -2.733  -3.473  -8.276  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -7.660      3.373     10.215
+REMARK INTER + INTRA:         -19.306
+REMARK INTER:                 -16.231
+REMARK INTRA:                  -3.075
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -4.476   1.580  -9.607  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.215   0.377 -11.065  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -4.927   1.120 -10.953  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -4.258   1.490 -12.099  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -4.700   2.525 -12.891  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -3.797   3.492 -13.266  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -5.846   2.259 -13.812  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.853   3.332 -14.070  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -6.807   2.904 -16.623  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -7.115   3.794 -15.465  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -6.579   3.841 -19.023  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -7.406   3.197 -17.960  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -6.354   3.352 -21.543  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -7.105   3.970 -20.415  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -7.055   2.295 -25.267  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -6.616   2.233 -23.844  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -6.910   3.371 -22.927  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -3.320   1.059  -9.074  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -3.374   0.363  -7.891  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -3.701   1.047  -6.744  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -2.564  -0.881  -7.770  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -3.077  -2.155  -8.348  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -3.090  -3.155 -10.713  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -3.610  -2.152  -9.740  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.774  -2.630 -12.597  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -3.403  -3.019 -12.163  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -6.350  -1.721 -14.409  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -4.972  -2.067 -13.963  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -7.930  -1.216 -16.373  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -6.559  -1.217 -15.794  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -7.114  -0.752 -18.755  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -8.135  -0.568 -17.696  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -8.493   0.549 -20.386  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -7.144   0.144 -19.935  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -7.629      3.502     10.297
+REMARK INTER + INTRA:         -19.240
+REMARK INTER:                 -16.682
+REMARK INTRA:                  -2.558
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -4.483   1.449  -9.607  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.414   0.637 -11.093  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -4.986   1.044 -10.952  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -4.207   1.177 -12.080  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -4.559   2.023 -13.107  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -4.007   3.282 -13.134  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -4.944   1.411 -14.414  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.354   1.520 -14.895  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -7.169   3.919 -15.425  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.729   2.570 -15.887  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -6.294   5.033 -17.590  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -7.176   5.064 -16.385  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -7.771   6.620 -18.981  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -6.425   6.077 -18.649  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -8.568   8.541 -22.321  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -8.529   7.466 -21.288  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -7.919   7.739 -19.956  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -3.335   0.870  -9.119  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -3.168   0.737  -7.763  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -3.255   1.863  -6.979  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -2.369  -0.417  -7.262  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -2.886  -1.803  -7.434  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -2.741  -3.149  -9.615  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -3.482  -2.194  -8.743  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.342  -2.612 -11.567  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -3.173  -3.359 -11.025  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.849  -2.209 -13.606  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -4.497  -2.474 -13.044  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -7.389  -2.126 -15.664  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -6.018  -2.132 -15.084  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -7.858  -0.534 -17.614  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -7.533  -1.896 -17.127  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -9.794  -0.333 -19.184  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -8.325  -0.370 -19.011  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -7.569      1.641      5.082
+REMARK INTER + INTRA:         -19.113
+REMARK INTER:                 -15.812
+REMARK INTRA:                  -3.301
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -6.448   2.811 -21.513  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -7.026   5.144 -22.418  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -6.555   4.284 -21.295  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -6.370   4.840 -20.048  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.378   5.520 -19.403  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.561   4.861 -19.166  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -6.990   6.604 -18.451  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -7.609   6.652 -17.092  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -7.850   4.512 -15.654  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -7.107   5.757 -16.008  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -5.701   3.224 -15.012  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -7.169   3.446 -14.859  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -5.086   2.485 -12.621  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -4.978   2.294 -14.095  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -3.769   0.890  -9.274  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -4.495   1.789 -10.218  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -4.465   1.508 -11.681  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -7.499   2.002 -21.152  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -7.341   1.106 -20.124  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -7.832  -0.167 -20.285  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -7.194   1.641 -18.741  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -7.925   0.991 -17.617  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -7.485  -1.262 -16.466  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -7.156   0.183 -16.628  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -5.451  -2.207 -15.189  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -6.925  -2.031 -15.320  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.386  -1.874 -12.644  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -4.876  -2.564 -13.860  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.630  -3.134 -11.252  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -4.772  -2.183 -11.323  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -3.435  -2.566  -8.763  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.940  -3.309  -9.946  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -2.970  -1.457  -6.570  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -2.568  -2.475  -7.564  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -7.558      3.794     10.158
+REMARK INTER + INTRA:         -19.090
+REMARK INTER:                 -15.635
+REMARK INTRA:                  -3.454
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -4.093  -2.424 -10.658  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -2.821  -3.155 -12.767  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -3.994  -2.474 -12.147  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -5.024  -2.035 -12.949  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -4.824  -1.721 -14.275  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -5.130  -2.668 -15.223  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -4.930  -0.286 -14.675  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.231   0.249 -15.174  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -7.560   1.173 -17.196  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.532   0.246 -16.637  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -7.398   0.319 -19.632  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -7.592   1.440 -18.665  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -7.565   1.921 -21.644  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -7.611   0.537 -21.094  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -8.651   1.484 -25.400  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -8.628   1.351 -23.915  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -7.666   2.158 -23.113  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -2.992  -2.048  -9.926  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -3.114  -1.858  -8.571  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -3.094  -2.961  -7.751  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -3.810  -0.630  -8.093  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -3.291   0.711  -8.482  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.211   1.090 -10.144  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -3.803   1.349  -9.727  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -5.788   2.938 -11.851  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.673   1.494 -11.501  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -7.105   3.709 -13.916  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -5.808   3.338 -13.288  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -5.867   4.361 -16.073  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -7.138   4.050 -15.365  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -7.100   5.188 -18.159  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -5.910   4.549 -17.548  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -6.051   4.953 -20.417  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -7.294   5.076 -19.624  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:    -7.516      1.548      2.844
+REMARK INTER + INTRA:         -19.002
+REMARK INTER:                 -16.062
+REMARK INTRA:                  -2.939
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -8.257   3.083 -18.988  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -6.706   1.225 -19.846  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -7.440   1.864 -18.717  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -7.236   1.408 -17.433  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -7.508   0.107 -17.076  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -8.171  -0.691 -17.978  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -6.581  -0.562 -16.114  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -6.421  -0.011 -14.736  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -4.670  -1.381 -13.408  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.076  -0.919 -13.602  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -3.351  -3.146 -12.053  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -4.257  -1.959 -12.094  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -3.040  -2.835  -9.514  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -2.784  -3.618 -10.755  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -2.269  -2.946  -5.657  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -2.833  -2.520  -6.970  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -2.578  -3.340  -8.188  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -8.611   3.899 -17.939  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -8.326   5.241 -18.001  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -8.691   5.936 -19.129  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -7.190   5.757 -17.185  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -5.881   5.046 -17.209  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -6.500   3.978 -14.957  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -5.551   4.106 -16.100  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.650   2.929 -13.494  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -6.086   3.255 -13.723  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -5.104   1.922 -11.176  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -4.184   2.627 -12.110  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.474   0.818  -9.522  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -4.665   1.674  -9.775  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -3.940   0.683  -7.008  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.968   0.710  -8.127  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -2.051   0.479  -5.382  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -3.444   0.910  -5.630  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:    -7.490      3.920     11.529
+REMARK INTER + INTRA:         -18.946
+REMARK INTER:                 -16.824
+REMARK INTRA:                  -2.122
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -2.939  -3.315 -12.747  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -4.951  -2.753 -11.254  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -3.481  -2.946 -11.407  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -2.676  -2.923 -10.289  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -3.060  -3.520  -9.109  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -2.838  -4.868  -8.959  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -3.070  -2.681  -7.874  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -2.904  -1.201  -7.982  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -3.448   0.911  -9.378  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -3.867  -0.396  -8.791  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -5.541   0.885 -10.898  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -4.258   1.521 -10.476  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -5.980   2.816 -12.548  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -6.448   1.580 -11.860  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -7.541   3.638 -16.064  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -6.808   2.923 -14.980  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -6.820   3.469 -13.593  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -2.779  -2.335 -13.698  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -3.879  -1.654 -14.159  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -4.101  -0.380 -13.696  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -5.045  -2.446 -14.644  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -6.422  -1.895 -14.501  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -7.932  -1.544 -16.547  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -6.953  -0.997 -15.564  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -7.505   0.460 -18.116  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -8.283  -0.760 -17.765  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -6.805   2.218 -19.852  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -7.547   0.972 -19.517  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -6.856   1.835 -22.394  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -6.895   2.766 -21.234  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -6.053   2.240 -24.791  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -7.099   2.391 -23.752  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -7.518   3.376 -26.470  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -6.144   3.067 -26.018  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL
+MODEL 20
+REMARK VINA RESULT:    -7.440      2.427      3.926
+REMARK INTER + INTRA:         -18.842
+REMARK INTER:                 -16.394
+REMARK INTRA:                  -2.448
+REMARK UNBOUND:                -3.137
+REMARK  Name = docking/prep/4QA8/ligand.pdb
+REMARK  22 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  O2_3
+REMARK    3  A    between atoms: C2_2  and  C3_4
+REMARK    4  A    between atoms: O2_3  and  C46_33
+REMARK    5  A    between atoms: C3_4  and  O3_5
+REMARK    6  A    between atoms: O3_5  and  C26_20
+REMARK    7  A    between atoms: C12_6  and  C13_7
+REMARK    8  A    between atoms: C13_7  and  C14_8
+REMARK    9  A    between atoms: C15_9  and  C16_10
+REMARK   10  A    between atoms: C17_11  and  C18_12
+REMARK   11  A    between atoms: C19_13  and  C20_14
+REMARK   12  A    between atoms: C21_15  and  C22_16
+REMARK   13  A    between atoms: C23_17  and  C24_18
+REMARK   14  A    between atoms: C24_18  and  C25_19
+REMARK   15  A    between atoms: C25_19  and  C26_20
+REMARK   16  A    between atoms: C35_22  and  C36_23
+REMARK   17  A    between atoms: C37_24  and  C38_25
+REMARK   18  A    between atoms: C39_26  and  C40_27
+REMARK   19  A    between atoms: C41_28  and  C42_29
+REMARK   20  A    between atoms: C43_30  and  C44_31
+REMARK   21  A    between atoms: C44_31  and  C45_32
+REMARK   22  A    between atoms: C45_32  and  C46_33
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  PJZ A 301      -3.705   6.154 -17.502  0.00  0.00    +0.252 C 
+ENDROOT
+BRANCH   1   3
+ATOM      2  C1  PJZ A 301      -4.259   8.314 -18.776  0.00  0.00    +0.051 C 
+ATOM      3  C2  PJZ A 301      -4.532   6.871 -18.515  0.00  0.00    +0.212 C 
+BRANCH   3   4
+ATOM      4  O2  PJZ A 301      -5.436   6.200 -19.310  0.00  0.00    -0.448 OA
+BRANCH   4   5
+ATOM      5  C46 PJZ A 301      -6.760   6.572 -19.372  0.00  0.00    +0.317 C 
+ATOM      6  O47 PJZ A 301      -7.205   7.209 -20.506  0.00  0.00    -0.250 OA
+BRANCH   5   7
+ATOM      7  C45 PJZ A 301      -7.750   5.759 -18.604  0.00  0.00    +0.114 C 
+BRANCH   7   8
+ATOM      8  C44 PJZ A 301      -7.799   4.278 -18.795  0.00  0.00    +0.038 C 
+BRANCH   8  10
+ATOM      9  C42 PJZ A 301      -7.535   2.867 -16.641  0.00  0.00    -0.005 C 
+ATOM     10  C43 PJZ A 301      -6.979   3.383 -17.926  0.00  0.00    -0.026 C 
+BRANCH   9  12
+ATOM     11  C40 PJZ A 301      -7.251   0.309 -16.383  0.00  0.00    -0.000 C 
+ATOM     12  C41 PJZ A 301      -6.888   1.698 -15.972  0.00  0.00    -0.000 C 
+BRANCH  11  14
+ATOM     13  C38 PJZ A 301      -5.906  -0.801 -14.486  0.00  0.00    -0.000 C 
+ATOM     14  C39 PJZ A 301      -6.482  -0.859 -15.858  0.00  0.00    -0.000 C 
+BRANCH  13  17
+ATOM     15  C35 PJZ A 301      -3.082  -3.082 -12.968  0.00  0.00    +0.031 C 
+ATOM     16  C36 PJZ A 301      -3.815  -1.872 -13.441  0.00  0.00    -0.026 C 
+ATOM     17  C37 PJZ A 301      -5.229  -1.992 -13.896  0.00  0.00    -0.005 C 
+ENDBRANCH  13  17
+ENDBRANCH  11  14
+ENDBRANCH   9  12
+ENDBRANCH   8  10
+ENDBRANCH   7   8
+ENDBRANCH   5   7
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   1  18
+ATOM     18  O3  PJZ A 301      -3.554   6.703 -16.250  0.00  0.00    -0.445 OA
+BRANCH  18  19
+ATOM     19  C26 PJZ A 301      -4.603   6.666 -15.365  0.00  0.00    +0.317 C 
+ATOM     20  O28 PJZ A 301      -5.407   7.775 -15.258  0.00  0.00    -0.250 OA
+BRANCH  19  21
+ATOM     21  C25 PJZ A 301      -4.507   5.743 -14.199  0.00  0.00    +0.114 C 
+BRANCH  21  22
+ATOM     22  C24 PJZ A 301      -4.742   4.284 -14.392  0.00  0.00    +0.038 C 
+BRANCH  22  24
+ATOM     23  C22 PJZ A 301      -5.533   2.855 -12.411  0.00  0.00    -0.005 C 
+ATOM     24  C23 PJZ A 301      -4.424   3.349 -13.276  0.00  0.00    -0.026 C 
+BRANCH  23  26
+ATOM     25  C20 PJZ A 301      -4.820   0.702 -11.179  0.00  0.00    -0.000 C 
+ATOM     26  C21 PJZ A 301      -5.226   2.135 -11.144  0.00  0.00    -0.000 C 
+BRANCH  25  28
+ATOM     27  C18 PJZ A 301      -4.011   0.910  -8.751  0.00  0.00    -0.000 C 
+ATOM     28  C19 PJZ A 301      -4.097   0.122 -10.011  0.00  0.00    -0.000 C 
+BRANCH  27  30
+ATOM     29  C16 PJZ A 301      -3.456   0.918  -6.241  0.00  0.00    -0.000 C 
+ATOM     30  C17 PJZ A 301      -3.237   0.361  -7.603  0.00  0.00    -0.000 C 
+BRANCH  29  32
+ATOM     31  C14 PJZ A 301      -1.442  -0.343  -5.287  0.00  0.00    -0.026 C 
+ATOM     32  C15 PJZ A 301      -2.786   0.252  -5.092  0.00  0.00    -0.005 C 
+BRANCH  31  34
+ATOM     33  C12 PJZ A 301      -1.473  -2.653  -4.329  0.00  0.00    +0.005 C 
+ATOM     34  C13 PJZ A 301      -0.923  -1.281  -4.264  0.00  0.00    +0.026 C 
+ENDBRANCH  31  34
+ENDBRANCH  29  32
+ENDBRANCH  27  30
+ENDBRANCH  25  28
+ENDBRANCH  23  26
+ENDBRANCH  22  24
+ENDBRANCH  21  22
+ENDBRANCH  19  21
+ENDBRANCH  18  19
+ENDBRANCH   1  18
+TORSDOF 19
+ENDMDL

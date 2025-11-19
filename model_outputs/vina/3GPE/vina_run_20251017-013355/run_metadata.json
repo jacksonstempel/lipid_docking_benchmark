@@ -1,0 +1,26 @@
+{
+  "pdbid": "3GPE",
+  "timestamp_utc": "20251017-013355",
+  "vina_executable": "/home/ackson_tempel/miniforge3/envs/boltz/bin/vina",
+  "prep_manifest": "/home/ackson_tempel/lipid_docking_benchmark/docking/prep/3GPE/run_manifest.json",
+  "config_file": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3GPE/vina_run_20251017-013355/vina_config.txt",
+  "output_pose": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3GPE/vina_run_20251017-013355/3GPE_vina_pose.pdbqt",
+  "output_log": "/home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/3GPE/vina_run_20251017-013355/3GPE_vina.log",
+  "center": [
+    32.337,
+    -22.594,
+    18.477
+  ],
+  "size": [
+    13.306,
+    11.168,
+    12.506
+  ],
+  "parameters": {
+    "exhaustiveness": 16,
+    "num_modes": 20,
+    "energy_range": 3.0,
+    "seed": null,
+    "cpu": null
+  }
+}

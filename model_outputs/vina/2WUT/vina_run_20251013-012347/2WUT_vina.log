@@ -1,0 +1,63 @@
+# AutoDock Vina run
+# Command: /home/ackson_tempel/miniforge3/envs/boltz/bin/vina --config /home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2WUT/vina_run_20251013-012347/vina_config.txt
+# Working dir: /home/ackson_tempel/lipid_docking_benchmark/model_outputs/vina/2WUT/vina_run_20251013-012347
+
+AutoDock Vina 23d1252-mod
+#################################################################
+# If you used AutoDock Vina in your work, please cite:          #
+#                                                               #
+# J. Eberhardt, D. Santos-Martins, A. F. Tillack, and S. Forli  #
+# AutoDock Vina 1.2.0: New Docking Methods, Expanded Force      #
+# Field, and Python Bindings, J. Chem. Inf. Model. (2021)       #
+# DOI 10.1021/acs.jcim.1c00203                                  #
+#                                                               #
+# O. Trott, A. J. Olson,                                        #
+# AutoDock Vina: improving the speed and accuracy of docking    #
+# with a new scoring function, efficient optimization and       #
+# multithreading, J. Comp. Chem. (2010)                         #
+# DOI 10.1002/jcc.21334                                         #
+#                                                               #
+# Please see https://github.com/ccsb-scripps/AutoDock-Vina for  #
+# more information.                                             #
+#################################################################
+
+Scoring function : vina
+Rigid receptor: /home/ackson_tempel/lipid_docking_benchmark/docking/prep/2WUT/receptor.pdbqt
+Ligand: /home/ackson_tempel/lipid_docking_benchmark/docking/prep/2WUT/ligand.pdbqt
+Grid center: X 27.326 Y 2.061 Z 21.142
+Grid size  : X 13.075 Y 12.612 Z 15.226
+Grid space : 0.375
+Exhaustiveness: 16
+CPU: 0
+Verbosity: 1
+
+Computing Vina grid ... done.
+WARNING: At low exhaustiveness, it may be impossible to utilize all CPUs.
+Performing docking (random seed: 36916149) ... 
+0%   10   20   30   40   50   60   70   80   90   100%
+|----|----|----|----|----|----|----|----|----|----|
+***************************************************
+
+mode |   affinity | dist from best mode
+     | (kcal/mol) | rmsd l.b.| rmsd u.b.
+-----+------------+----------+----------
+   1       -6.049          0          0
+   2       -6.039     0.8362      1.431
+   3       -5.923      2.796      5.477
+   4       -5.911      1.407      2.568
+   5       -5.858      1.139       3.57
+   6       -5.819       2.59      3.091
+   7       -5.764      2.592      4.592
+   8        -5.76       2.14       2.79
+   9       -5.724      2.529      2.953
+  10       -5.679      1.353      4.437
+  11       -5.676      2.559      5.952
+  12       -5.673      1.858      2.217
+  13       -5.619      2.691      4.644
+  14       -5.618      3.689      6.149
+  15       -5.617       3.47      7.061
+  16       -5.613      2.642      4.378
+  17       -5.607      3.438      6.959
+  18       -5.599      3.029      5.822
+  19       -5.598      2.841      4.222
+  20       -5.549      3.758      5.641
