@@ -1,15 +1,10 @@
 paths:
-  refs: raw_structures/benchmark_references
+  refs: benchmark_references
   preds: model_outputs
   boltz_preds: model_outputs/boltz
   vina_preds: model_outputs/vina
   analysis_root: analysis
   analysis_proteins: analysis/proteins
   analysis_aggregates: analysis/aggregates
-  benchmark_inputs: model_inputs/benchmark_inputs
-  model_outputs: model_outputs
-reports:
-  missing_benchmark_runs: analysis/aggregates/missing_benchmark_runs.csv
-  unrun_proteins: model_inputs/unrun_proteins.txt
-scripts:
-  pose_benchmark: scripts/pose_benchmark.py
+  boltz_pairs: scripts/boltz_pairs.csv
+  vina_pairs: scripts/vina_pairs.csv

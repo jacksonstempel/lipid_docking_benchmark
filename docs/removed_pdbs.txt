@@ -1,0 +1,12 @@
+Removed PDB IDs from the benchmark (with brief reasons):
+- 1SX6 – multiple ligands/sugars; ambiguous placement
+- 7W9A – duplicated ligand copies; ambiguous mapping
+- 1LFO – multiple lipids; inconsistent ligand selection
+- 1YIV – extra small molecule; lipid placement unreliable
+- 4TKB – primary DAO vs extra P6G; ambiguous ligand choice
+- 1G74 – RDKit failure (invalid valence in predicted ligand)
+- 1VYF – RDKit failure (unknown element in predicted ligand)
+- 2LKK – RDKit failure (unknown element in predicted ligand)
+- 5B27 – RDKit failure (unknown element in predicted ligand)
+- 7FW5 – RDKit failure (unknown element in predicted ligand)
+- 7NSR – RDKit failure (unknown element in predicted ligand)
