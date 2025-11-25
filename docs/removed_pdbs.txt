@@ -10,3 +10,11 @@ Removed PDB IDs from the benchmark (with brief reasons):
 - 5B27 – RDKit failure (unknown element in predicted ligand)
 - 7FW5 – RDKit failure (unknown element in predicted ligand)
 - 7NSR – RDKit failure (unknown element in predicted ligand)
+- 1ICN – RDKit mapping <50% coverage; ligand identity unclear
+- 3RGQ – RDKit mapping ~80% coverage; insufficient to trust per-atom contact mapping
+- 4N03 – RDKit mapping ~67% coverage; insufficient to trust per-atom contact mapping
+- 7O60 – RDKit mapping ~6% coverage; ligand chemistry/pathology
+- 7WKB – RDKit mapping ~28% coverage; ligand chemistry/pathology
+- 1MID – ligand in reference does not match Boltz/Vina ligand; ambiguous comparison
+- 4KII – no Vina prediction available; excluded to keep Boltz/Vina sets aligned
+- 1ZHT, 1ZHX, 3B74, 3B7N, 3KXW, 3Q8G, 4E6A, 4E6C, 4E8A, 5B29, 5E7X, 5HM3, 5NTY, 5TCX, 5WVR, 6OMK, 6SLD, 6XU9, 6XUA, 6XUW, 6XVQ, 6XVR, 6XW9, 7NRW, 8HD4, 8IQU, 8YR6 – no Boltz predictions present; removed from Vina list to match the curated benchmark set

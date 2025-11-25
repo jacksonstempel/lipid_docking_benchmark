@@ -22,6 +22,7 @@ from .structures import apply_rt_to_structure, ensure_protein_backbone, load_str
 LOGGER = logging.getLogger(__name__)
 
 # Common solvents/ions/noise that should not be picked as the "main ligand".
+MIN_LIGAND_COVERAGE = 0.9  # Require RDKit mapping to cover at least 90% of the ligand heavy atoms.
 _IGNORED_RES_NAMES = {
     # Solvents / buffers
     "HOH",
@@ -140,11 +141,21 @@ def _select_single_ligand(structure, *, include_h: bool = False) -> SimpleResidu
 
 
 def _pair_ligand_atoms(pred: SimpleResidue, ref: SimpleResidue) -> Tuple[List[Tuple[int, int]], str]:
-    """Return atom index pairs using chemistry-aware mapping only."""
+    """Return atom index pairs using chemistry-aware mapping only.
+
+    Requires the RDKit mapping to cover at least MIN_LIGAND_COVERAGE of the
+    reference ligand heavy atoms.
+    """
     rd_pairs = pairs_by_rdkit(pred, ref)
-    if len(rd_pairs) >= 3:
-        return rd_pairs, "chem"
-    raise AtomPairingError("RDKit atom pairing failed to find a confident mapping (no fallback to by-name).")
+    ref_heavy = ref.heavy_atom_count()
+    matched = len(rd_pairs)
+    coverage = matched / ref_heavy if ref_heavy > 0 else 0.0
+    if matched >= 3 and coverage >= MIN_LIGAND_COVERAGE:
+        return rd_pairs, "RDKit"
+    raise AtomPairingError(
+        f"RDKit atom pairing failed coverage check: matched {matched}/{ref_heavy} atoms "
+        f"(coverage={coverage:.2f}, required>={MIN_LIGAND_COVERAGE:.2f})."
+    )
 
 
 def _pick_pred_ligand(ref_ligand: SimpleResidue, candidates: List[SimpleResidue]) -> SimpleResidue:
@@ -224,17 +235,8 @@ def _best_pred_ligand_by_rmsd(ref_ligand: SimpleResidue, candidates: List[Simple
     return best, best_pairs, best_policy, best_rmsd, best_count
 
 
-def measure_ligand_pose(ref_path: Path | str, pred_path: Path | str, *, max_poses: int = 1) -> Dict[str, object]:
-    """Evaluate ligand pose quality between a reference and prediction structure.
-
-    Steps:
-    1. Load ref/pred structures.
-    2. Ensure prediction has protein backbone.
-    3. For up to `max_poses` models: align proteins (Cα, pruned Kabsch).
-    4. Auto-select a single significant ligand in each.
-    5. Pair ligand heavy atoms (RDKit chem-only).
-    6. Compute heavy-atom ligand RMSD in the aligned frame; return the best pose.
-    """
+def measure_ligand_pose_all(ref_path: Path | str, pred_path: Path | str, *, max_poses: int = 1) -> List[Dict[str, object]]:
+    """Evaluate ligand pose quality for each pose/model independently."""
     ref_path = Path(ref_path).expanduser().resolve()
     pred_path = Path(pred_path).expanduser().resolve()
 
@@ -259,15 +261,16 @@ def measure_ligand_pose(ref_path: Path | str, pred_path: Path | str, *, max_pose
             include_h=False,
         )
 
-    best: Dict[str, object] | None = None
-    errors: List[str] = []
+    # Prep that is identical for all poses.
+    ref_chains = extract_chain_sequences(ref_structure)
+    ref_ligand = _select_single_ligand(ref_structure, include_h=False)
 
+    entries: List[Dict[str, object]] = []
     for pose_index, pose_structure in enumerate(pose_structures, start=1):
         try:
             pose_with_backbone = ensure_protein_backbone(pose_structure, ref_structure)
 
             pred_chains = extract_chain_sequences(pose_with_backbone)
-            ref_chains = extract_chain_sequences(ref_structure)
             chain_pairs = pair_chains(pred_chains, ref_chains)
             if not chain_pairs:
                 raise RuntimeError("Unable to match protein chains between reference and prediction.")
@@ -283,8 +286,6 @@ def measure_ligand_pose(ref_path: Path | str, pred_path: Path | str, *, max_pose
 
             apply_rt_to_structure(pose_with_backbone, fit.R, fit.t)
 
-            LOGGER.info("Pose %d: Auto-selecting ligand in reference.", pose_index)
-            ref_ligand = _select_single_ligand(ref_structure, include_h=False)
             LOGGER.info("Pose %d: Auto-selecting ligand in prediction.", pose_index)
             pred_ligands = collect_ligands(pose_with_backbone, include_h=False)
             apply_template_names(pred_ligands, template_names)
@@ -314,18 +315,20 @@ def measure_ligand_pose(ref_path: Path | str, pred_path: Path | str, *, max_pose
                 "pairing_method": policy,
                 "ligand_heavy_atoms": pair_count,
                 "ligand_rmsd": rmsd,
-                "protein_pairs": fit.n_pruned,
-                "protein_rmsd": fit.rmsd_pruned,
-                "protein_pairs_all": fit.n_all,
-                "protein_rmsd_all_under_pruned": fit.rmsd_all_under_pruned,
-                "protein_rmsd_allfit": fit.rmsd_allfit,
+                "protein_pairs": fit.n_all,
+                "protein_rmsd": fit.rmsd_allfit,
             }
-            if best is None or rmsd < float(best["ligand_rmsd"]):
-                best = entry
+            entries.append(entry)
         except Exception as exc:  # noqa: BLE001
-            errors.append(f"pose {pose_index}: {exc}")
             continue
 
-    if best is None:
-        raise RuntimeError("All poses failed. Errors: " + "; ".join(errors))
+    if not entries:
+        raise RuntimeError("All poses failed.")
+    return entries
+
+
+def measure_ligand_pose(ref_path: Path | str, pred_path: Path | str, *, max_poses: int = 1) -> Dict[str, object]:
+    """Evaluate ligand pose quality and return the best pose."""
+    entries = measure_ligand_pose_all(ref_path, pred_path, max_poses=max_poses)
+    best = min(entries, key=lambda e: float(e["ligand_rmsd"]))
     return best

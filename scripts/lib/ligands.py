@@ -192,7 +192,6 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
     """
     if Chem is None or rdchem is None:  # RDKit not available
         return None, []
-
     atoms = residue.atoms
     if not atoms:
         return None, []
@@ -200,13 +199,25 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
     # Build atoms
     rw = rdchem.RWMol()
     rd_to_res: List[int] = []
+    periodic = Chem.GetPeriodicTable()
     for idx, a in enumerate(atoms):
         if a.element == "H":
             continue
-        try:
-            z = Chem.GetPeriodicTable().GetAtomicNumber(a.element)
-        except Exception:
-            z = 6  # default to carbon
+        elem = (a.element or "").strip()
+        if not elem:
+            try:
+                z = periodic.GetAtomicNumber("C")
+            except Exception:
+                z = 6
+        else:
+            try:
+                z = periodic.GetAtomicNumber(elem)
+            except Exception:
+                # Default to carbon
+                try:
+                    z = periodic.GetAtomicNumber("C")
+                except Exception:
+                    z = 6
         atom = rdchem.Atom(int(z))
         rd_idx = rw.AddAtom(atom)
         rd_to_res.append(idx)
@@ -236,15 +247,16 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
         conf.SetAtomPosition(rd_idx, Point3D(float(xyz[0]), float(xyz[1]), float(xyz[2])))
     mol.AddConformer(conf, assignId=True)
 
+    # Avoid verbose RDKit warnings: catch errors quietly and still return a usable molecule.
     try:
-        Chem.SanitizeMol(mol)
+        Chem.SanitizeMol(mol, catchErrors=True)
     except Exception:
-        # Ensure basic properties (valence, rings) are available even when full sanitization fails.
-        mol.UpdatePropertyCache(strict=False)
-        try:
-            Chem.GetSymmSSSR(mol)
-        except Exception:
-            pass
+        pass
+    mol.UpdatePropertyCache(strict=False)
+    try:
+        Chem.GetSymmSSSR(mol)
+    except Exception:
+        pass
     return mol, rd_to_res
 
 
