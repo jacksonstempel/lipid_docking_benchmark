@@ -14,6 +14,7 @@ if __package__ in {None, ""}:  # pragma: no cover
 
 from contact_tools import run_batch_contacts
 from scripts import compute_contact_metrics
+from scripts.lib.constants import VINA_MAX_POSES
 from scripts.measure_ligand_pose_batch import _default_pairs_path
 
 
@@ -55,9 +56,9 @@ def main() -> int:
         ]
     )
 
-    # RMSD batch: Vina (20 poses)
+    # RMSD batch: Vina (VINA_MAX_POSES poses)
     vina_out = tmp_dir / "vina_batch_results.csv"
-    print("[INFO] Running RMSD batch (Vina, 20 poses)...")
+    print(f"[INFO] Running RMSD batch (Vina, {VINA_MAX_POSES} poses)...")
     _run_cmd(
         [
             "python",
@@ -71,7 +72,7 @@ def main() -> int:
             "--kind",
             "vina",
             "--max-poses",
-            "20",
+            str(VINA_MAX_POSES),
             "--quiet",
         ]
     )

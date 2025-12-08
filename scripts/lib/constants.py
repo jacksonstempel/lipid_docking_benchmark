@@ -28,5 +28,11 @@ AA3_TO_1 = {
 WATER_RES_NAMES = {"HOH", "H2O", "WAT"}
 
 # Small ligands inflate reporting noise, so the default pipeline drops any with fewer
-# heavy atoms than this constant unless the CLI requests otherwise.
+# heavy atoms than this constant unless the CLI requests otherwise. Lipid ligands in
+# this benchmark are far larger; <10 heavy atoms is typical for buffer/ion fragments,
+# so this floor avoids accidentally picking solvent as the “ligand”.
 MIN_LIGAND_HEAVY_ATOMS = 10
+
+# Vina emits 20 poses per target in this benchmark; keep a single source of truth so
+# RMSD, contact extraction, and metrics all stay in sync if this ever changes.
+VINA_MAX_POSES = 20

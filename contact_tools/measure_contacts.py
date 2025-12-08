@@ -37,17 +37,6 @@ from scripts.lib.structures import ensure_protein_backbone, is_protein_res, load
 LOGGER = logging.getLogger("measure_contacts")
 
 
-def _residue_id(chain_name: str, residue) -> str:
-    """Create a stable residue identifier."""
-    chain = chain_name or "A"
-    resname = residue.name
-    try:
-        seqnum = residue.seqid.num
-    except Exception:  # pragma: no cover - defensive
-        seqnum = str(residue.seqid)
-    return f"{chain}:{resname}:{seqnum}"
-
-
 def _extract_with_pandamap(struct_path: Path, ligand) -> List[Dict[str, object]]:
     """Call PandaMap HybridProtLigMapper to get typed interactions."""
     # Avoid local contact_tools shadowing the real PandaMap package
@@ -80,7 +69,7 @@ def _extract_with_pandamap(struct_path: Path, ligand) -> List[Dict[str, object]]
                     resname = prot_res.resname if prot_res else ""
                     resnum = prot_res.id[1] if prot_res else ""
                     residue_id = f"{chain_id}:{resname}:{resnum}"
-                except Exception:
+                except (AttributeError, TypeError):
                     residue_id = ""
                 # Atom name
                 if hasattr(lig_atom, "get_id"):
@@ -122,7 +111,7 @@ def _contacts_for_pose(structure, ref_structure, template_names, pose_index: int
         if tmp_pdb and tmp_pdb.exists():
             try:
                 tmp_pdb.unlink()
-            except Exception:
+            except OSError:
                 pass
 
     for c in pose_contacts:
@@ -185,7 +174,7 @@ def extract_contacts(
     if tmp_cleanup and tmp_cleanup.exists():
         try:
             tmp_cleanup.unlink()
-        except Exception:
+        except OSError:
             pass
 
     if out_path:
@@ -225,7 +214,7 @@ def main(argv: List[str] | None = None) -> int:
 
     try:
         extract_contacts(struct_path, out_path, max_models=max(1, args.max_poses))
-    except Exception as exc:  # noqa: BLE001
+    except (FileNotFoundError, OSError, RuntimeError, ValueError, ImportError) as exc:
         LOGGER.error("Failed to extract contacts: %s", exc)
         return 2
     return 0

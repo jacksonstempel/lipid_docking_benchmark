@@ -24,6 +24,8 @@ def is_water_res(residue: gemmi.Residue) -> bool:
 
 def load_structure(path: Path) -> gemmi.Structure:
     """Load a structure allowing CIF/PDB/PDBQT inputs."""
+    if not path.exists():
+        raise FileNotFoundError(f"Structure file not found: {path}")
     suffix = path.suffix.lower()
     if suffix in {".pdb", ".ent", ".pdbqt"}:
         structure = gemmi.read_pdb(str(path))

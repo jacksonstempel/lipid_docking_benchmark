@@ -22,7 +22,10 @@ from .structures import apply_rt_to_structure, ensure_protein_backbone, load_str
 LOGGER = logging.getLogger(__name__)
 
 # Common solvents/ions/noise that should not be picked as the "main ligand".
-MIN_LIGAND_COVERAGE = 0.9  # Require RDKit mapping to cover at least 90% of the ligand heavy atoms.
+# Require RDKit mapping to cover ≥90% of ligand heavy atoms to avoid aligning only a
+# small substructure (e.g., just a headgroup) and falsely counting two different
+# ligands as matched.
+MIN_LIGAND_COVERAGE = 0.9
 _IGNORED_RES_NAMES = {
     # Solvents / buffers
     "HOH",
@@ -317,10 +320,31 @@ def measure_ligand_pose_all(ref_path: Path | str, pred_path: Path | str, *, max_
                 "ligand_rmsd": rmsd,
                 "protein_pairs": fit.n_all,
                 "protein_rmsd": fit.rmsd_allfit,
+                "status": "ok",
+                "error": "",
             }
             entries.append(entry)
-        except Exception as exc:  # noqa: BLE001
-            continue
+        except Exception as exc:
+            # Log at DEBUG level (only visible with --verbose)
+            LOGGER.debug("Pose %d failed: %s", pose_index, exc)
+            # Record failure in output for transparency
+            error_msg = str(exc)
+            # Truncate very long errors to keep CSV readable
+            if len(error_msg) > 150:
+                error_msg = error_msg[:147] + "..."
+            entries.append({
+                "ref_path": str(ref_path),
+                "pred_path": str(pred_path),
+                "pose_index": pose_index,
+                "ligand_id": "",
+                "pairing_method": "",
+                "ligand_heavy_atoms": "",
+                "ligand_rmsd": "",
+                "protein_pairs": "",
+                "protein_rmsd": "",
+                "status": "error",
+                "error": error_msg,
+            })
 
     if not entries:
         raise RuntimeError("All poses failed.")
@@ -330,5 +354,9 @@ def measure_ligand_pose_all(ref_path: Path | str, pred_path: Path | str, *, max_
 def measure_ligand_pose(ref_path: Path | str, pred_path: Path | str, *, max_poses: int = 1) -> Dict[str, object]:
     """Evaluate ligand pose quality and return the best pose."""
     entries = measure_ligand_pose_all(ref_path, pred_path, max_poses=max_poses)
-    best = min(entries, key=lambda e: float(e["ligand_rmsd"]))
+    # Filter to only successful entries before finding best
+    successful = [e for e in entries if e.get("status") == "ok"]
+    if not successful:
+        raise RuntimeError("All poses failed.")
+    best = min(successful, key=lambda e: float(e["ligand_rmsd"]))
     return best

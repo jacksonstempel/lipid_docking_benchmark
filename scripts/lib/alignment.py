@@ -126,7 +126,7 @@ class FitResult:
 
 
 def chimera_pruned_fit(P: np.ndarray, Q: np.ndarray, cutoff: float = 2.0, *, keep_mask: bool = False) -> FitResult:
-    """ChimeraX-style iterative pruning alignment."""
+    """ChimeraX-style iterative pruning alignment using a 2.0 Å outlier gate to drop mismatched Cα pairs."""
     n = P.shape[0]
     if n < 3:
         raise RuntimeError("Not enough pairs for fitting")

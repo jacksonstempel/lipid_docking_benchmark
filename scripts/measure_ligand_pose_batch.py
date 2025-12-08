@@ -100,8 +100,14 @@ def _read_pairs(csv_path: Path, pred_column: str) -> List[Dict[str, str]]:
     return rows
 
 
-def _ensure_path(path_str: str, label: str) -> Path:
-    path = Path(path_str).expanduser().resolve()
+def _ensure_path(path_str: str, label: str, project_root: Path) -> Path:
+    """Resolve path (relative or absolute) and verify it exists."""
+    path = Path(path_str).expanduser()
+    # If path is relative, resolve from project root
+    if not path.is_absolute():
+        path = (project_root / path).resolve()
+    else:
+        path = path.resolve()
     if not path.exists():
         raise FileNotFoundError(f"{label} does not exist: {path}")
     return path
@@ -144,6 +150,7 @@ def main(argv: List[str] | None = None) -> int:
         format="[%(levelname)s] %(message)s",
     )
 
+    project_root = Path(__file__).resolve().parent.parent
     pairs_path = Path(args.pairs).expanduser().resolve() if args.pairs else _default_pairs_path()
     if args.out:
         out_path = Path(args.out).expanduser().resolve()
@@ -169,8 +176,8 @@ def main(argv: List[str] | None = None) -> int:
         if not args.quiet:
             LOGGER.info("Evaluating %s", pdbid)
         try:
-            ref_path = _ensure_path(ref_str, "Reference")
-            pred_path = _ensure_path(pred_str, "Prediction")
+            ref_path = _ensure_path(ref_str, "Reference", project_root)
+            pred_path = _ensure_path(pred_str, "Prediction", project_root)
             if args.quiet:
                 with _suppress_stderr_fd():
                     entries = measure_ligand_pose_all(ref_path, pred_path, max_poses=max(1, args.max_poses))
@@ -189,8 +196,8 @@ def main(argv: List[str] | None = None) -> int:
                         "ligand_rmsd": res.get("ligand_rmsd", ""),
                         "protein_pairs": res.get("protein_pairs", ""),
                         "protein_rmsd": res.get("protein_rmsd", ""),
-                        "status": "ok",
-                        "error": "",
+                        "status": res.get("status", "ok"),
+                        "error": res.get("error", ""),
                     }
                 )
             success += 1

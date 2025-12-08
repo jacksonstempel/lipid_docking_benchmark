@@ -29,13 +29,13 @@ if __package__ in {None, ""}:  # pragma: no cover
     sys.path.insert(0, str(_PROJECT_ROOT))
 
 from contact_tools.measure_contacts import extract_contacts
+from scripts.lib.constants import VINA_MAX_POSES
 from scripts.lib.structures import load_structure
 
 LOGGER = logging.getLogger("run_batch_contacts")
 
 REF_POSES = 1
 BOLTZ_POSES = 1
-VINA_POSES = 20
 
 
 def _collect_ids(ref_dir: Path, boltz_dir: Path, vina_dir: Path) -> Tuple[set[str], set[str], set[str], list[str]]:
@@ -91,7 +91,7 @@ def main(quiet: bool | None = None) -> int:
                 boltz_path, ref_structure=ref_structure, max_models=BOLTZ_POSES
             )
             vina_contacts = extract_contacts(
-                vina_path, ref_structure=ref_structure, max_models=VINA_POSES
+                vina_path, ref_structure=ref_structure, max_models=VINA_MAX_POSES
             )
         except Exception as exc:  # noqa: BLE001
             LOGGER.warning("Skipping %s due to error: %s", pdbid, exc)

@@ -18,7 +18,14 @@ if __package__ in {None, ""}:  # pragma: no cover
     _PROJECT_ROOT = Path(__file__).resolve().parent.parent
     sys.path.insert(0, str(_PROJECT_ROOT))
 
-from scripts.lib.ligand_pose_core import _pair_ligand_atoms, _select_single_ligand, measure_ligand_pose_all
+from scripts.lib.constants import VINA_MAX_POSES
+from scripts.lib.ligand_pose_core import (
+    AtomPairingError,
+    LigandSelectionError,
+    _pair_ligand_atoms,
+    _select_single_ligand,
+    measure_ligand_pose_all,
+)
 from scripts.lib.structures import load_structure, split_models
 
 # Optional: silence RDKit chatter
@@ -27,12 +34,11 @@ try:  # pragma: no cover
 
     RDLogger.DisableLog("rdApp.error")
     RDLogger.DisableLog("rdApp.warning")
-except Exception:
+except ImportError:
     pass
 
 Contact = Tuple[str, str, str]  # (ligand_atom, residue, contact_type)
 AtomMap = Dict[str, str]
-VINA_MAX_POSES = 20  # use all 20 Vina poses
 
 
 @dataclass
@@ -50,7 +56,7 @@ def _load_contacts(path: Path) -> Dict[str, Dict[int, ContactSet]]:
             contact = (row["ligand_atom"], row["residue"], row["contact_type"])
             try:
                 dist = float(row["distance"]) if row["distance"] not in ("", None) else np.nan
-            except Exception:
+            except (TypeError, ValueError):
                 dist = np.nan
             cset = out[pdbid][pose]
             cset.contacts.add(contact)
@@ -120,7 +126,7 @@ def _parse_res(res_id: str) -> Tuple[str, str, int] | None:
     try:
         chain, name, seq = res_id.split(":")
         return chain, name, int(seq)
-    except Exception:
+    except (ValueError, AttributeError):
         return None
 
 
@@ -212,7 +218,7 @@ def _read_rmsd_csv(path: Path | None) -> Dict[str, Dict[str, object]]:
             try:
                 pose_idx = int(row.get("pose_index") or 1)
                 rmsd_val = float(row.get("ligand_rmsd", "nan"))
-            except Exception:
+            except (TypeError, ValueError):
                 continue
             entry = data.setdefault(pdbid, {"poses": {}})
             entry["poses"][pose_idx] = row
@@ -223,7 +229,7 @@ def _read_rmsd_csv(path: Path | None) -> Dict[str, Dict[str, object]]:
                 try:
                     if rmsd_val < float(best.get("ligand_rmsd", "inf")):
                         entry["best"] = row
-                except Exception:
+                except (TypeError, ValueError):
                     pass
     return data
 
@@ -293,7 +299,7 @@ def compute_metrics(
         try:
             ref_struct = load_structure(ref_file)
             ref_lig = _select_single_ligand(ref_struct, include_h=False)
-        except Exception as exc:  # noqa: BLE001
+        except (FileNotFoundError, OSError, RuntimeError, ValueError, LigandSelectionError) as exc:
             full_rows.append(_base_row(pdbid, "boltz", 1, status="error", error=f"Ref load failed: {exc}"))
             continue
 
@@ -303,7 +309,7 @@ def compute_metrics(
             boltz_lig = _select_single_ligand(boltz_struct, include_h=False)
             pairs, _ = _pair_ligand_atoms(boltz_lig, ref_lig)
             boltz_map = {boltz_lig.atoms[i].name: ref_lig.atoms[j].name for i, j in pairs}
-        except Exception as exc:  # noqa: BLE001
+        except (FileNotFoundError, OSError, RuntimeError, ValueError, LigandSelectionError, AtomPairingError) as exc:
             print(f"[WARN] Boltz mapping failed for {pdbid}: {exc}")
 
         vina_maps: Dict[int, AtomMap] = {}
@@ -314,9 +320,9 @@ def compute_metrics(
                     pred_lig = _select_single_ligand(pose, include_h=False)
                     pairs, _ = _pair_ligand_atoms(pred_lig, ref_lig)
                     vina_maps[pose_idx] = {pred_lig.atoms[i].name: ref_lig.atoms[j].name for i, j in pairs}
-                except Exception:
+                except (LigandSelectionError, AtomPairingError, RuntimeError, ValueError):
                     continue
-        except Exception as exc:  # noqa: BLE001
+        except (FileNotFoundError, OSError, RuntimeError, ValueError) as exc:
             full_rows.append(_base_row(pdbid, "vina_pose", 1, status="error", error=f"Vina prep failed: {exc}"))
             continue
 

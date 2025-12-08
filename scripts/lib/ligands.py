@@ -14,7 +14,7 @@ try:  # pragma: no cover - optional dependency
     from rdkit.Chem import rdchem
     from rdkit.Chem import rdFMCS
     from rdkit.Geometry import Point3D
-except Exception:  # pragma: no cover - gracefully degrade when RDKit absent
+except ImportError:  # pragma: no cover - gracefully degrade when RDKit absent
     Chem = None  # type: ignore
     rdchem = None  # type: ignore
     rdFMCS = None  # type: ignore
@@ -68,7 +68,7 @@ def load_ligand_template_names(
         return None
     try:
         structure = load_structure(template_path)
-    except Exception:
+    except (FileNotFoundError, OSError, RuntimeError, ValueError):
         return None
 
     names: List[str] = []
@@ -207,16 +207,16 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
         if not elem:
             try:
                 z = periodic.GetAtomicNumber("C")
-            except Exception:
+            except (ValueError, RuntimeError, TypeError):
                 z = 6
         else:
             try:
                 z = periodic.GetAtomicNumber(elem)
-            except Exception:
+            except (ValueError, RuntimeError, TypeError):
                 # Default to carbon
                 try:
                     z = periodic.GetAtomicNumber("C")
-                except Exception:
+                except (ValueError, RuntimeError, TypeError):
                     z = 6
         atom = rdchem.Atom(int(z))
         rd_idx = rw.AddAtom(atom)
@@ -233,11 +233,12 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
             ej = atoms[rd_to_res[j]].element
             rj = _element_radius(ej)
             d = float(np.linalg.norm(coords[i] - coords[j]))
-            # Allow a generous tolerance to accommodate crystallographic noise
+            # Allow a generous 0.5 Å cushion (typical single bonds ~1.5 Å) to tolerate
+            # crystallographic noise without fusing nonbonded atoms (>3 Å apart).
             if d <= (ri + rj + 0.5):
                 try:
                     rw.AddBond(i, j, rdchem.BondType.SINGLE)
-                except Exception:
+                except (RuntimeError, ValueError, TypeError):
                     pass
 
     mol = rw.GetMol()
@@ -250,12 +251,12 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
     # Avoid verbose RDKit warnings: catch errors quietly and still return a usable molecule.
     try:
         Chem.SanitizeMol(mol, catchErrors=True)
-    except Exception:
+    except (RuntimeError, ValueError):
         pass
     mol.UpdatePropertyCache(strict=False)
     try:
         Chem.GetSymmSSSR(mol)
-    except Exception:
+    except (RuntimeError, ValueError):
         pass
     return mol, rd_to_res
 
@@ -300,7 +301,7 @@ def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, i
         for ip, ir in zip(a_p, a_r):
             pairs.append((map_p[ip], map_r[ir]))
         return pairs
-    except Exception:
+    except (RuntimeError, ValueError):
         return []
 
 
@@ -319,47 +320,3 @@ def locked_rmsd(
     P = P @ rotation + translation
     rmsd = float(np.sqrt(((P - Q) ** 2).sum() / P.shape[0]))
     return rmsd, P.shape[0]
-
-
-def _random_rotation(rng: np.random.Generator) -> np.ndarray:
-    """Generate a random 3x3 rotation matrix via a unit quaternion."""
-    u1, u2, u3 = rng.random(3)
-    q1 = np.sqrt(1 - u1) * np.sin(2 * np.pi * u2)
-    q2 = np.sqrt(1 - u1) * np.cos(2 * np.pi * u2)
-    q3 = np.sqrt(u1) * np.sin(2 * np.pi * u3)
-    q4 = np.sqrt(u1) * np.cos(2 * np.pi * u3)
-    x, y, z, w = q1, q2, q3, q4
-    return np.array(
-        [
-            [1 - 2 * (y * y + z * z), 2 * (x * y - z * w), 2 * (x * z + y * w)],
-            [2 * (x * y + z * w), 1 - 2 * (x * x + z * z), 2 * (y * z - x * w)],
-            [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x * x + y * y)],
-        ],
-        dtype=float,
-    )
-
-
-def randomized_copy(residue: SimpleResidue, *, rng: np.random.Generator, box_min: np.ndarray, box_max: np.ndarray) -> SimpleResidue:
-    """Return a copy of the residue rigidly transformed to a random position/orientation.
-
-    The translation is sampled uniformly within the provided protein bounding box.
-    """
-    atoms = residue.atoms
-    if not atoms:
-        return residue
-    R = _random_rotation(rng)
-    # Uniform within bounding box
-    t = rng.uniform(box_min, box_max)
-    # Center original residue before rotation
-    coords = np.stack([a.xyz for a in atoms], axis=0)
-    centroid = coords.mean(axis=0)
-    new_atoms: List[SimpleAtom] = []
-    for a in atoms:
-        v = (a.xyz - centroid) @ R + t
-        new_atoms.append(SimpleAtom(name=a.name, element=a.element, xyz=v))
-    return SimpleResidue(
-        chain_id="R",
-        res_name=residue.res_name,
-        res_id="rand",
-        atoms=new_atoms,
-    )

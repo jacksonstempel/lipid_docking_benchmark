@@ -9,7 +9,16 @@ The goal is a small, understandable pipeline: one command to run everything and 
 
 # Quickstart
 
-Prereqs: Python env with `numpy`, `pandas`, `gemmi`, `rdkit`, `pandamap`.
+## Installation
+
+Install the exact dependencies used in this benchmark:
+```bash
+pip install -r requirements.txt
+```
+
+This ensures you have the same library versions used to generate the published results.
+
+## Running the Benchmark
 
 Run the full benchmark (RMSD + contacts) for all entries:
 ```bash
@@ -107,4 +116,17 @@ Columns include:
   - RDKit can reliably map ligands between reference and predictions.
 - PDB IDs that are ambiguous or problematic (multiple ligands, RDKit failures, poor coverage, mismatched ligands, missing outputs) are listed in `docs/removed_pdbs.txt` and removed from `scripts/pairs.csv`.
 
-If you’re unsure why a particular PDB is missing from the benchmark, check `docs/removed_pdbs.txt`. The `status` and `error` fields in the per-pose CSVs should make any remaining failures explicit.
+If you're unsure why a particular PDB is missing from the benchmark, check `docs/removed_pdbs.txt`. The `status` and `error` fields in the per-pose CSVs should make any remaining failures explicit.
+
+# Software Versions
+
+For full reproducibility, the following software versions were used:
+
+## Python Environment
+See `requirements.txt` for exact Python library versions.
+
+## Docking Software
+- **Boltz**: v2.2.0
+- **AutoDock Vina**: 23d1252-mod
+
+To reproduce the benchmark predictions, use these exact versions of the docking software.
