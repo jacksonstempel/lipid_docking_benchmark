@@ -66,79 +66,81 @@ This document tracks issues identified during the comprehensive code review for 
 
 ## HIGH — Should Fix
 
-### ⬜ 5. Magic Numbers Without Scientific Justification
-**Issue:** Several constants lack documentation of their scientific rationale
+### ✅ 5. Magic Numbers Without Scientific Justification (COMPLETED)
+**Status:** Fixed
+**What was done:** Added inline rationale/comments for ligand size cutoff, RDKit coverage threshold, Chimera-style 2.0 Å pruning cutoff, and bond tolerance cushion.
 
-**Locations:**
-- `MIN_LIGAND_HEAVY_ATOMS = 10` (constants.py:32) — Why 10 atoms?
-- `MIN_LIGAND_COVERAGE = 0.9` (ligand_pose_core.py:25) — Why 90% coverage?
-- `cutoff = 2.0` (alignment.py:128) — Why 2.0 Å for pruning?
-- Bond tolerance `0.5` (ligands.py:237) — Why 0.5 Å?
-
-**Fix needed:** Add docstrings/comments explaining the scientific rationale for each threshold.
-
----
-
-### ⬜ 6. Duplicated Constants
-**Issue:** Same constant defined in multiple places
-
-**Locations:**
-- `VINA_MAX_POSES = 20` in `compute_contact_metrics.py:35`
-- `VINA_POSES = 20` in `run_batch_contacts.py:38`
-- `--max-poses 20` hardcoded in `run_full_benchmark.py:74`
-
-**Fix needed:** Define once in `constants.py` and import everywhere.
+**Files changed:**
+- `scripts/lib/constants.py`
+- `scripts/lib/ligand_pose_core.py`
+- `scripts/lib/alignment.py`
+- `scripts/lib/ligands.py`
 
 ---
 
-### ⬜ 7. No Input Validation
-**Issue:** Functions don't check if files exist before attempting to read
+### ✅ 6. Duplicated Constants (COMPLETED)
+**Status:** Fixed
+**What was done:** Centralized Vina pose count as `VINA_MAX_POSES` in `scripts/lib/constants.py` and reused everywhere (compute_contact_metrics, run_batch_contacts, run_full_benchmark).
 
-**Location:** `scripts/lib/structures.py:25-33` (load_structure)
-
-**Fix needed:** Add `if not path.exists(): raise FileNotFoundError(...)` checks.
-
----
-
-### ⬜ 8. Broad Exception Catching
-**Issue:** Many `except Exception:` blocks that could mask bugs
-
-**Locations:**
-- `ligands.py:71, 252-254, 257-259, 303`
-- `compute_contact_metrics.py:53-54, 123-124, 296, 306, 317, 319`
-- `measure_contacts.py:46-47, 83-84`
-
-**Fix needed:** Catch specific exceptions where possible (ValueError, KeyError, etc.).
+**Files changed:**
+- `scripts/lib/constants.py`
+- `scripts/compute_contact_metrics.py`
+- `contact_tools/run_batch_contacts.py`
+- `scripts/run_full_benchmark.py`
 
 ---
 
-### ⬜ 9. Unused Function
-**Issue:** `_residue_id()` function defined but never called
+### ✅ 7. No Input Validation (COMPLETED)
+**Status:** Fixed
+**What was done:** `load_structure` now checks for existence and raises `FileNotFoundError` before parsing.
 
-**Location:** `contact_tools/measure_contacts.py:40-48`
+**Files changed:**
+- `scripts/lib/structures.py`
 
-**Fix needed:** Either use this function or remove it.
+---
+
+### ✅ 8. Broad Exception Catching (COMPLETED)
+**Status:** Fixed
+**What was done:** Narrowed broad `except Exception` blocks to specific error types in ligands, contact metrics, and measure_contacts to avoid masking real bugs.
+
+**Files changed:**
+- `scripts/lib/ligands.py`
+- `scripts/compute_contact_metrics.py`
+- `contact_tools/measure_contacts.py`
+
+---
+
+### ✅ 9. Unused Function (COMPLETED)
+**Status:** Fixed
+**What was done:** Removed unused `_residue_id` helper from `contact_tools/measure_contacts.py`.
+
+**Files changed:**
+- `contact_tools/measure_contacts.py`
 
 ---
 
 ## MEDIUM — Recommended Improvements
 
-### ⬜ 10. README Location
-**Issue:** README is at `docs/README.md` instead of project root
+### ✅ 10. README Location (COMPLETED)
+**Status:** Fixed
+**What was done:** Moved main README to project root.
 
-**Fix needed:** Move to root or create root README linking to docs.
+**Files changed:**
+- `README.md` (moved from `docs/README.md`)
 
 ---
 
-### ⬜ 11. No Unit Tests
-**Issue:** No test files found; key calculations (RMSD, Kabsch) should be validated
+### ✅ 11. No Unit Tests (COMPLETED)
+**Status:** Fixed
+**What was done:** Added `unittest` coverage for core geometry (Kabsch/pruned alignment/RMSD), ligand selection and naming, structure helpers, metrics math, and RMSD CSV parsing. Made `tests/` a package for easy discovery.
 
-**Fix needed:** Add basic tests for critical functions:
-```python
-# tests/test_alignment.py
-def test_kabsch_identity()
-def test_rmsd_known_value()
-```
+**Files added:**
+- `tests/__init__.py`
+- `tests/test_alignment.py`
+- `tests/test_rmsd.py`
+- `tests/test_ligand_selection.py`
+- `tests/test_structures.py`
+- `tests/test_metrics.py`
 
 ---
 
@@ -215,8 +217,8 @@ The RMSD implementation in `scripts/lib/ligands.py:307-321` uses the standard fo
 ## Progress Summary
 
 - **CRITICAL issues:** 4/4 completed (100%)
-- **HIGH priority:** 0/5 completed (0%)
-- **MEDIUM priority:** 0/5 completed (0%)
+- **HIGH priority:** 5/5 completed (100%)
+- **MEDIUM priority:** 2/5 completed (40%)
 - **LOW priority:** 0/3 completed (0%)
 
-**Next steps:** Address HIGH priority issues (#5-9) before publication.
+**Next steps:** Address remaining MEDIUM/LOW items (#12-17) as needed.

@@ -8,16 +8,9 @@ import numpy as np
 
 from .constants import MIN_LIGAND_HEAVY_ATOMS
 
-# Optional RDKit import for chemistry-aware atom mapping
-try:  # pragma: no cover - optional dependency
-    from rdkit import Chem
-    from rdkit.Chem import rdchem
-    from rdkit.Chem import rdFMCS
-    from rdkit.Geometry import Point3D
-except ImportError:  # pragma: no cover - gracefully degrade when RDKit absent
-    Chem = None  # type: ignore
-    rdchem = None  # type: ignore
-    rdFMCS = None  # type: ignore
+from rdkit import Chem
+from rdkit.Chem import rdFMCS, rdchem
+from rdkit.Geometry import Point3D
 from .structures import is_protein_res, is_water_res, load_structure
 
 
@@ -188,10 +181,7 @@ def _element_radius(sym: str) -> float:
 def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | None, List[int]]:
     """Construct an RDKit molecule from a residue via proximity-based bonding.
 
-    Returns (mol, rd_to_res_index). When RDKit is unavailable, returns (None, []).
-    """
-    if Chem is None or rdchem is None:  # RDKit not available
-        return None, []
+    Returns (mol, rd_to_res_index)."""
     atoms = residue.atoms
     if not atoms:
         return None, []
@@ -264,10 +254,8 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
 def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, int]]:
     """Map atoms using RDKit MCS (element-level) and return index pairs.
 
-    Falls back to an empty list if RDKit is unavailable or mapping fails.
+    Falls back to an empty list if mapping fails.
     """
-    if Chem is None or rdFMCS is None:
-        return []
     mol_p, map_p = _build_rdkit_mol_from_residue(pred)
     mol_r, map_r = _build_rdkit_mol_from_residue(ref)
     if mol_p is None or mol_r is None or mol_p.GetNumAtoms() == 0 or mol_r.GetNumAtoms() == 0:
