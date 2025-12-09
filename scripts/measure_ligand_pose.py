@@ -10,13 +10,7 @@ from __future__ import annotations
 
 import argparse
 import logging
-import sys
 from pathlib import Path
-
-# Allow running as `python scripts/measure_ligand_pose.py` without installation.
-if __package__ in {None, ""}:  # pragma: no cover
-    _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.insert(0, str(_PROJECT_ROOT))
 
 from scripts.lib.ligand_pose_core import (
     AtomPairingError,

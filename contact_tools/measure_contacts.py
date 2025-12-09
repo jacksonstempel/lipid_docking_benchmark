@@ -26,10 +26,6 @@ import numpy as np
 import contextlib
 import os
 
-if __package__ in {None, ""}:  # pragma: no cover
-    _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.insert(0, str(_PROJECT_ROOT))
-
 from scripts.lib.ligand_pose_core import _filter_ligands, _guess_pdbid_from_path, _select_single_ligand
 from scripts.lib.ligands import apply_template_names, collect_ligands, load_ligand_template_names
 from scripts.lib.structures import ensure_protein_backbone, is_protein_res, load_structure, split_models

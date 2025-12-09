@@ -7,3 +7,32 @@ __pycache__/
 *.swp
 *.swo
 
+# Python environments / packaging
+.venv/
+venv/
+env/
+.env
+*.egg-info/
+build/
+dist/
+
+# Analysis outputs (reproducible data products)
+analysis/tmp/
+analysis/pandamap_contacts/
+analysis/*.csv
+analysis/**/*.csv
+
+# Editor / IDE configs
+.vscode/
+.idea/
+*.code-workspace
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+
+# Logs and coverage
+*.log
+.coverage
+.coverage.*
+htmlcov/

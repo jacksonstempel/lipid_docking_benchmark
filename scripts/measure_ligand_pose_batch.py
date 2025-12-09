@@ -22,13 +22,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import Dict, List
 
-if __package__ in {None, ""}:  # pragma: no cover
-    import sys
-    from pathlib import Path as _Path
-
-    _PROJECT_ROOT = _Path(__file__).resolve().parent.parent
-    sys.path.insert(0, str(_PROJECT_ROOT))
-
 from scripts.lib.ligand_pose_core import AtomPairingError, LigandSelectionError, measure_ligand_pose, measure_ligand_pose_all
 
 LOGGER = logging.getLogger("measure_ligand_pose_batch")

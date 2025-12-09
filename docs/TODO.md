@@ -144,62 +144,58 @@ This document tracks issues identified during the comprehensive code review for 
 
 ---
 
-### ⬜ 12. Duplicate sys Import
-**Location:** `scripts/measure_ligand_pose_batch.py:19` and `26`
+### ✅ 12. Duplicate sys Import (COMPLETED)
+**Status:** Fixed
+**What was done:** Removed redundant `import sys` in `scripts/measure_ligand_pose_batch.py`.
 
-**Fix needed:** Remove the duplicate import.
-
----
-
-### ⬜ 13. Inconsistent Logging vs Print
-**Issue:** `run_full_benchmark.py` uses `print("[INFO] ...")` while other modules use `logging.info(...)`
-
-**Fix needed:** Use logging consistently throughout.
+**Files changed:**
+- `scripts/measure_ligand_pose_batch.py`
 
 ---
 
-### ⬜ 14. Missing External Tool Versions
-**Issue:** Software versions now documented (✅ completed in Issue #1)
+### ✅ 13. Inconsistent Logging vs Print (COMPLETED)
+**Status:** Fixed
+**What was done:** `run_full_benchmark.py` now uses `logging.info` with a basic logging config instead of raw `print`.
 
-**Status:** Actually completed as part of Issue #1 fix.
+**Files changed:**
+- `scripts/run_full_benchmark.py`
+
+---
+
+### ✅ 14. Missing External Tool Versions (COMPLETED)
+**Status:** Already completed as part of Issue #1 fix (versions documented in README/requirements).
 
 ---
 
 ## LOW — Polish
 
-### ⬜ 15. Minimal .gitignore
-**Current:** Only has `__pycache__/`, `*.py[cod]`, `.DS_Store`, `*.swp`
+### ✅ 15. Minimal .gitignore (COMPLETED)
+**Status:** Fixed
+**What was done:** Expanded `.gitignore` to cover virtual environments, build artifacts, coverage/log files, Jupyter checkpoints, IDE configs, and benchmark output CSVs under `analysis/` (including `analysis/pandamap_contacts/`).
 
-**Missing:**
-```
-.env
-*.csv
-analysis/tmp/
-analysis/pandamap_contacts/
-.vscode/
-.idea/
-*.egg-info/
-```
-
-**Fix needed:** Expand .gitignore to cover more common files.
+**Files changed:**
+- `.gitignore`
 
 ---
 
 ### ⬜ 16. Empty __init__.py
 **Location:** `contact_tools/__init__.py`
 
-**Fix needed:** Export main functions:
-```python
-from .measure_contacts import extract_contacts
-from .run_batch_contacts import main as run_batch
-```
+**Status:** ✅ Completed — `contact_tools` now exports `extract_contacts` and `run_batch` as its public API.
 
 ---
 
 ### ⬜ 17. Repeated sys.path Manipulation
-**Issue:** Bootstrap pattern repeated in 6+ files
+**Status:** ✅ Completed — Removed ad-hoc `sys.path` bootstraps and added `setup.py` so the package can be installed; scripts now rely on standard imports.
 
-**Fix needed:** Create a bootstrap module or use proper package installation with `pip install -e .`
+**Files changed:**
+- `setup.py` (added)
+- `scripts/measure_ligand_pose.py`
+- `scripts/measure_ligand_pose_batch.py`
+- `scripts/compute_contact_metrics.py`
+- `scripts/run_full_benchmark.py`
+- `contact_tools/measure_contacts.py`
+- `contact_tools/run_batch_contacts.py`
 
 ---
 

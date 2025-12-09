@@ -12,12 +12,6 @@ from typing import Dict, List, Set, Tuple
 
 import numpy as np
 
-if __package__ in {None, ""}:  # pragma: no cover
-    import sys
-
-    _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.insert(0, str(_PROJECT_ROOT))
-
 from scripts.lib.constants import VINA_MAX_POSES
 from scripts.lib.ligand_pose_core import (
     AtomPairingError,

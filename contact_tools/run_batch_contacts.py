@@ -22,12 +22,6 @@ import logging
 from pathlib import Path
 from typing import Dict, Tuple
 
-if __package__ in {None, ""}:  # pragma: no cover
-    import sys
-
-    _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-    sys.path.insert(0, str(_PROJECT_ROOT))
-
 from contact_tools.measure_contacts import extract_contacts
 from scripts.lib.constants import VINA_MAX_POSES
 from scripts.lib.structures import load_structure
