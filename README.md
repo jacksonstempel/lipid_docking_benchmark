@@ -168,6 +168,6 @@ lipid_docking_benchmark/
 ## Running Tests
 
 ```bash
-python -m pytest tests/
+python -m unittest
 ```
 
