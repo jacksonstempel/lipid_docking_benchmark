@@ -3,7 +3,7 @@ import unittest
 
 import numpy as np
 
-from scripts.lib.alignment import chimera_pruned_fit, kabsch, extract_chain_sequences, pair_chains
+from lipid_benchmark.alignment import chimera_pruned_fit, kabsch, extract_chain_sequences, pair_chains
 import gemmi
 
 

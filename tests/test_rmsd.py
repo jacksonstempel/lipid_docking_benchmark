@@ -2,7 +2,7 @@ import unittest
 
 import numpy as np
 
-from scripts.lib.ligands import SimpleAtom, locked_rmsd
+from lipid_benchmark.ligands import SimpleAtom, locked_rmsd
 
 
 class TestLockedRMSD(unittest.TestCase):

@@ -2,6 +2,9 @@ __pycache__/
 *.py[cod]
 *.pyo
 
+# Repo-local caches
+.cache/
+
 # OS/editor noise
 .DS_Store
 *.swp
@@ -19,8 +22,16 @@ dist/
 # Analysis outputs (reproducible data products)
 analysis/tmp/
 analysis/pandamap_contacts/
+analysis/benchmark/
 analysis/*.csv
 analysis/**/*.csv
+analysis/plots/
+analysis/.mplconfig/
+
+# Paper figures: keep PDFs, ignore previews
+paper/figures/_preview/
+paper/figures/**/*.png
+paper/figures/**/*.svg
 
 # Editor / IDE configs
 .vscode/

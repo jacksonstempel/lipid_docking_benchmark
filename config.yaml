@@ -1,9 +1,3 @@
 paths:
-  refs: benchmark_references
-  preds: model_outputs
-  boltz_preds: model_outputs/boltz
-  vina_preds: model_outputs/vina
-  analysis_root: analysis
-  analysis_proteins: analysis/proteins
-  analysis_aggregates: analysis/aggregates
-  pairs: scripts/pairs.csv
+  # Option A: the pairs CSV is the source of truth for input file locations.
+  pairs: scripts/pairs_curated.csv

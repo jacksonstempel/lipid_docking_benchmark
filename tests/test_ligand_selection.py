@@ -2,9 +2,9 @@ import unittest
 
 import numpy as np
 
-from scripts.lib.ligands import SimpleAtom, SimpleResidue, apply_template_names
-from scripts.lib.ligand_pose_core import LigandSelectionError, _filter_ligands, _select_single_ligand
-from scripts.lib.constants import MIN_LIGAND_HEAVY_ATOMS
+from lipid_benchmark.ligands import SimpleAtom, SimpleResidue, apply_template_names
+from lipid_benchmark.rmsd import LigandSelectionError, _filter_ligands, _select_single_ligand
+from lipid_benchmark.constants import MIN_LIGAND_HEAVY_ATOMS
 import gemmi
 
 
