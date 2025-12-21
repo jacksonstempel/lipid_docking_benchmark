@@ -18,9 +18,8 @@ import argparse
 import logging
 from pathlib import Path
 
-from .io import default_pairs_path, read_pairs_csv, write_csv
+from .io import default_pairs_path, find_project_root, read_pairs_csv, write_csv
 from .pipeline import BENCHMARK_FIELDNAMES, run_benchmark
-from .project import find_project_root
 
 
 def _default_cache_root(project_root: Path) -> Path:

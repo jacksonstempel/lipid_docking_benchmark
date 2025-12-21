@@ -1,15 +1,41 @@
 from __future__ import annotations
 
-import logging
 from pathlib import Path
-from typing import Iterable, List, Tuple
+from typing import List
 
 import gemmi
 import numpy as np
 
-from .constants import AA3_TO_1, WATER_RES_NAMES
+AA3_TO_1 = {
+    "ALA": "A",
+    "ARG": "R",
+    "ASN": "N",
+    "ASP": "D",
+    "CYS": "C",
+    "GLN": "Q",
+    "GLU": "E",
+    "GLY": "G",
+    "HIS": "H",
+    "ILE": "I",
+    "LEU": "L",
+    "LYS": "K",
+    "MET": "M",
+    "PHE": "F",
+    "PRO": "P",
+    "SER": "S",
+    "THR": "T",
+    "TRP": "W",
+    "TYR": "Y",
+    "VAL": "V",
+    "SEC": "U",
+    "PYL": "O",
+    # Common modified residues seen in PDB files (often marked HETATM but part of the polymer)
+    "MSE": "M",  # selenomethionine
+    "CSO": "C",  # cysteine sulfinic acid
+    "OCS": "C",  # cysteine sulfonic acid
+}
 
-LOGGER = logging.getLogger(__name__)
+WATER_RES_NAMES = {"HOH", "H2O", "WAT"}
 
 
 def is_protein_res(residue: gemmi.Residue) -> bool:
@@ -100,28 +126,6 @@ def ensure_protein_backbone(prediction: gemmi.Structure, reference: gemmi.Struct
     return combined
 
 
-def protein_bounding_box(structure: gemmi.Structure) -> Tuple[np.ndarray, np.ndarray]:
-    """Return axis-aligned bounding box (min_xyz, max_xyz) over protein heavy atoms."""
-    mins = np.array([np.inf, np.inf, np.inf], dtype=float)
-    maxs = -mins
-    any_atom = False
-    for model in structure:
-        for chain in model:
-            for residue in chain:
-                if not is_protein_res(residue):
-                    continue
-                for atom in residue:
-                    if atom.element.name.upper() == "H":
-                        continue
-                    any_atom = True
-                    v = np.array([atom.pos.x, atom.pos.y, atom.pos.z], dtype=float)
-                    mins = np.minimum(mins, v)
-                    maxs = np.maximum(maxs, v)
-    if not any_atom:
-        return np.array([0.0, 0.0, 0.0]), np.array([0.0, 0.0, 0.0])
-    return mins, maxs
-
-
 def split_models(structure: gemmi.Structure, count: int) -> List[gemmi.Structure]:
     """Return up to `count` models, each as an isolated structure."""
     total = len(structure)
@@ -174,24 +178,3 @@ def write_pdb_structure(structure: gemmi.Structure, destination: Path) -> None:
         lines.append("ENDMDL")
     lines.append("END")
     destination.write_text("\n".join(lines) + "\n")
-
-
-def write_transformed_structures(structure: gemmi.Structure, prefix: str, output_dir: Path) -> Tuple[Path, Path]:
-    """Write transformed prediction to CIF and PDB files."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    pdb_path = output_dir / f"pred_transformed_{prefix}.pdb"
-    write_pdb_structure(structure, pdb_path)
-
-    cif_path = output_dir / f"pred_transformed_{prefix}.cif"
-    try:
-        if hasattr(structure, "make_mmcif_document"):
-            document = structure.make_mmcif_document()
-            document.write_file(str(cif_path))
-            LOGGER.info("Wrote transformed structure (CIF): %s", cif_path)
-        else:
-            raise AttributeError("Structure.make_mmcif_document not available")
-    except Exception as exc:
-        LOGGER.warning("CIF write failed (%s). PDB written at %s. Continuing.", exc, pdb_path)
-
-    return cif_path, pdb_path

@@ -10,7 +10,7 @@ Core entry points live in `scripts/` (thin CLI/TUI wrappers). Benchmark logic li
 pip install -r requirements.txt      # install pinned dependencies
 pip install -e .                     # editable package install
 python scripts/benchmark.py          # run full benchmark, writes CSVs under analysis/benchmark/
-python scripts/benchmark_tui.py      # interactive TUI runner
+python scripts/benchmark.py --tui    # interactive TUI runner
 python -m unittest                   # run unit + integration tests
 ```
 Update `config.yaml` if you relocate input/output folders; it defines the default paths used by batch scripts.

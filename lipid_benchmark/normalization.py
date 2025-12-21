@@ -8,9 +8,8 @@ from typing import List
 
 import gemmi
 
-from .rmsd import LigandSelectionError, _filter_ligands, _select_single_ligand
-from .ligands import SimpleResidue, collect_ligands, find_ligand_by_id, headgroup_indices_functional, pairs_by_rdkit
-from .structures import is_protein_res, load_structure, split_models, write_pdb_structure
+from .ligands import SimpleResidue, find_ligand_by_id, headgroup_indices_functional, pairs_by_rdkit
+from .structures import is_protein_res, write_pdb_structure
 
 
 NORMALIZED_LIGAND_RESNAME = "LIG"
@@ -131,60 +130,6 @@ def _build_complex(
     new.add_model(model)
     new.remove_empty_chains()
     return new
-
-
-def _select_ligand_or_raise(structure: gemmi.Structure, *, pdbid: str) -> SimpleResidue:
-    ligands = collect_ligands(structure, include_h=False)
-    filtered = _filter_ligands(ligands)
-    if not filtered:
-        raise LigandSelectionError(f"{pdbid}: no ligand candidates after filtering.")
-    if len(filtered) == 1:
-        return filtered[0]
-    # Still ambiguous: fall back to the existing heuristic (largest ligand).
-    return _select_single_ligand(structure, include_h=False)
-
-
-def normalize_entry(
-    pdbid: str,
-    ref_path: Path,
-    boltz_path: Path,
-    vina_path: Path,
-    *,
-    out_dir: Path,
-    vina_max_poses: int = 3,
-    use_cache: bool = True,
-) -> NormalizedFiles:
-    out_dir.mkdir(parents=True, exist_ok=True)
-    entry_dir = out_dir / pdbid
-    entry_dir.mkdir(parents=True, exist_ok=True)
-
-    ref_structure = load_structure(ref_path)
-    boltz_structure = load_structure(boltz_path)
-    vina_structure = load_structure(vina_path)
-
-    ref_ligand = _select_ligand_or_raise(ref_structure, pdbid=pdbid)
-    boltz_ligand = _select_ligand_or_raise(boltz_structure, pdbid=pdbid)
-
-    vina_models = split_models(vina_structure, vina_max_poses)
-    if not vina_models:
-        raise LigandSelectionError(f"{pdbid}: Vina file has no poses/models.")
-
-    vina_ligand_ids: List[str] = []
-    for model in vina_models:
-        lig = _select_ligand_or_raise(model, pdbid=pdbid)
-        vina_ligand_ids.append(f"{lig.chain_id}:{lig.res_name}:{lig.res_id}")
-
-    return normalize_entry_from_selected(
-        pdbid,
-        ref_structure,
-        boltz_structure,
-        vina_models,
-        ref_ligand=ref_ligand,
-        boltz_ligand_id=f"{boltz_ligand.chain_id}:{boltz_ligand.res_name}:{boltz_ligand.res_id}",
-        vina_ligand_ids=vina_ligand_ids,
-        out_dir=out_dir,
-        use_cache=use_cache,
-    )
 
 
 def normalize_entry_from_selected(

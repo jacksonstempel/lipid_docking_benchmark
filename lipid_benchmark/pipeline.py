@@ -23,26 +23,27 @@ from __future__ import annotations
 
 import json
 import logging
+import math
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 from typing import Callable, Dict, List, Sequence, Set, Tuple
 
 from .contacts import (
     cached_contacts,
-    contacts_to_residue_set,
     contacts_to_typed_set,
     filter_headgroup_contacts,
     interaction_type_counts,
 )
-from .head_env import DEFAULT_HEAD_ENV_CUTOFF_A, headgroup_environment_residues
-from .metrics import NA, set_metrics_na_if_ref_empty
+from .contacts import DEFAULT_HEAD_ENV_CUTOFF_A, headgroup_environment_residues
 from .normalization import NORMALIZED_LIGAND_RESNAME, normalize_entry_from_selected
 from .residue_mapping import ResidueMapQc, build_residue_id_map_with_qc, remap_residue_ids, remap_typed_ids
 from .rmsd import _select_single_ligand, measure_ligand_pose_all
 from .structures import load_structure, split_models
-from .types import PairEntry
+from .io import PairEntry
 
 LOGGER = logging.getLogger("lipid_benchmark")
+
+NA = "NA"
 
 BENCHMARK_FIELDNAMES = [
     "pdbid",
@@ -76,6 +77,38 @@ BENCHMARK_FIELDNAMES = [
     "headgroup_typed_ref_size",
     "headgroup_typed_pred_size",
 ]
+
+
+def _set_metrics_na_if_ref_empty(ref: Set[str], pred: Set[str], prefix: str) -> Dict[str, float | int | str]:
+    if not ref:
+        return {
+            f"{prefix}_precision": NA,
+            f"{prefix}_recall": NA,
+            f"{prefix}_f1": NA,
+            f"{prefix}_jaccard": NA,
+            f"{prefix}_shared": 0,
+            f"{prefix}_ref_size": 0,
+            f"{prefix}_pred_size": len(pred),
+        }
+
+    shared = len(ref & pred)
+    tp = shared
+    fp = len(pred - ref)
+    fn = len(ref - pred)
+    precision = tp / (tp + fp) if (tp + fp) else 0.0
+    recall = tp / (tp + fn) if (tp + fn) else 0.0
+    f1 = 0.0 if (precision + recall) == 0 else 2 * precision * recall / (precision + recall)
+    denom = len(ref | pred)
+    jaccard = tp / denom if denom else 0.0
+    return {
+        f"{prefix}_precision": precision,
+        f"{prefix}_recall": recall,
+        f"{prefix}_f1": f1,
+        f"{prefix}_jaccard": jaccard,
+        f"{prefix}_shared": shared,
+        f"{prefix}_ref_size": len(ref),
+        f"{prefix}_pred_size": len(pred),
+    }
 
 
 def _contact_cache_dir(normalized_dir: Path, pdbid: str) -> Path:
@@ -112,15 +145,17 @@ def _safe_float(value) -> float | str:
         return ""
 
 
-def _safe_float_or_na(value) -> float | str:
+def _finite_float_or_na(value) -> float | str:
     """
-    Convert to float if possible; otherwise return the string `NA`.
+    Parse a numeric value and return `NA` when it is missing or not finite.
 
-    This is used for fields where downstream tools (spreadsheets, plotting) prefer a
-    consistent “not available” marker.
+    This keeps CSV outputs consistent when upstream tools report "nan"/"inf".
     """
-    out = _safe_float(value)
-    return out if out != "" else NA
+    try:
+        parsed = float(value)
+    except (TypeError, ValueError):
+        return NA
+    return parsed if math.isfinite(parsed) else NA
 
 
 def _require_all_ok(pdbid: str, rows: Sequence[Dict[str, object]], *, label: str) -> None:
@@ -301,19 +336,15 @@ def _run_entry(
         "ligand_heavy_atoms": _safe_int(boltz_rmsd.get("ligand_heavy_atoms")),
         "ligand_rmsd": _safe_float(boltz_rmsd.get("ligand_rmsd")),
         "headgroup_atoms": int(float(boltz_rmsd.get("headgroup_atoms") or 0)),
-        "headgroup_rmsd": (
-            float(boltz_rmsd["headgroup_rmsd"])
-            if str(boltz_rmsd.get("headgroup_rmsd") or "").strip() not in ("", "nan", "inf")
-            else NA
-        ),
+        "headgroup_rmsd": _finite_float_or_na(boltz_rmsd.get("headgroup_rmsd")),
         "protein_pairs": _safe_int(boltz_rmsd.get("protein_pairs")),
         "protein_rmsd": _safe_float(boltz_rmsd.get("protein_rmsd")),
         "headgroup_contacts_ref": ref_head_contact_count,
         "headgroup_contacts_pred": boltz_head_contact_count,
         "headgroup_types_ref": ref_head_types,
         "headgroup_types_pred": boltz_head_types,
-        **set_metrics_na_if_ref_empty(ref_head_env, boltz_head_env, "head_env"),
-        **set_metrics_na_if_ref_empty(ref_head_typed, boltz_head_typed, "headgroup_typed"),
+        **_set_metrics_na_if_ref_empty(ref_head_env, boltz_head_env, "head_env"),
+        **_set_metrics_na_if_ref_empty(ref_head_typed, boltz_head_typed, "headgroup_typed"),
     }
     allposes.append(boltz_row)
     summary.append(boltz_row)
@@ -356,19 +387,15 @@ def _run_entry(
             "ligand_heavy_atoms": _safe_int(rmsd_row.get("ligand_heavy_atoms")),
             "ligand_rmsd": _safe_float(rmsd_row.get("ligand_rmsd")),
             "headgroup_atoms": int(float(rmsd_row.get("headgroup_atoms") or 0)),
-            "headgroup_rmsd": (
-                float(rmsd_row["headgroup_rmsd"])
-                if str(rmsd_row.get("headgroup_rmsd") or "").strip() not in ("", "nan", "inf")
-                else NA
-            ),
+            "headgroup_rmsd": _finite_float_or_na(rmsd_row.get("headgroup_rmsd")),
             "protein_pairs": NA,
             "protein_rmsd": NA,
             "headgroup_contacts_ref": ref_head_contact_count,
             "headgroup_contacts_pred": pose_head_contact_count,
             "headgroup_types_ref": ref_head_types,
             "headgroup_types_pred": pose_head_types,
-            **set_metrics_na_if_ref_empty(ref_head_env, pose_head_env, "head_env"),
-            **set_metrics_na_if_ref_empty(ref_head_typed, pose_head_typed, "headgroup_typed"),
+            **_set_metrics_na_if_ref_empty(ref_head_env, pose_head_env, "head_env"),
+            **_set_metrics_na_if_ref_empty(ref_head_typed, pose_head_typed, "headgroup_typed"),
         }
         vina_rows.append(row)
         allposes.append(row)

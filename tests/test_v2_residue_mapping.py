@@ -2,7 +2,7 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
-from lipid_benchmark.residue_mapping import build_residue_id_map, remap_typed_ids
+from lipid_benchmark.residue_mapping import build_residue_id_map_with_qc, remap_typed_ids
 from lipid_benchmark.structures import load_structure
 
 
@@ -12,7 +12,7 @@ class TestV2ResidueMapping(unittest.TestCase):
         ref = load_structure(project_root / "benchmark_references" / "1B56.cif")
         pred = load_structure(project_root / "model_outputs" / "boltz" / "1B56_model_0.cif")
 
-        mapping = build_residue_id_map(pred, ref)
+        mapping, _qc = build_residue_id_map_with_qc(pred, ref)
         self.assertGreater(len(mapping), 10)
 
         diffs = Counter()
@@ -32,7 +32,7 @@ class TestV2ResidueMapping(unittest.TestCase):
         ref = load_structure(project_root / "benchmark_references" / "3STM.cif")
         pred = load_structure(project_root / "model_outputs" / "boltz" / "3STM_model_0.cif")
 
-        mapping = build_residue_id_map(pred, ref)
+        mapping, _qc = build_residue_id_map_with_qc(pred, ref)
         self.assertGreater(len(mapping), 10)
 
         any_a_to_x = any(k.startswith("A:") and v.startswith("X:") for k, v in mapping.items())

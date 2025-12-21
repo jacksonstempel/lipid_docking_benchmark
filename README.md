@@ -24,7 +24,7 @@ python scripts/benchmark.py --pairs scripts/pairs_curated.csv --out-dir analysis
 The TUI wrapper is optional:
 
 ```bash
-python scripts/benchmark_tui.py
+python scripts/benchmark.py --tui
 ```
 
 ## Inputs

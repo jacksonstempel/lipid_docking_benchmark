@@ -4,35 +4,12 @@ from dataclasses import dataclass
 from typing import Dict, Iterable, Set, Tuple
 
 from .alignment import extract_chain_sequences, pair_chains
-from .constants import AA3_TO_1
+from .structures import AA3_TO_1
 
 
 def _pdb_chain_id(chain_name: str) -> str:
     chain_name = (chain_name or "").strip()
     return chain_name[:1] if chain_name else ""
-
-
-def build_residue_id_map(pred_structure, ref_structure) -> Dict[str, str]:
-    pred_chains = extract_chain_sequences(pred_structure)
-    ref_chains = extract_chain_sequences(ref_structure)
-    chain_pairs = pair_chains(pred_chains, ref_chains)
-    if not chain_pairs:
-        raise RuntimeError("Unable to pair protein chains between prediction and reference.")
-
-    mapping: Dict[str, str] = {}
-    for pair in chain_pairs:
-        pred_chain = _pdb_chain_id(pair.pred.chain.name)
-        ref_chain = _pdb_chain_id(pair.ref.chain.name)
-        for pred_idx, ref_idx in pair.res_pairs:
-            pred_res = pair.pred.res_objs[pred_idx]
-            ref_res = pair.ref.res_objs[ref_idx]
-            pred_id = f"{pred_chain}:{pred_res.name}:{pred_res.seqid.num}"
-            ref_id = f"{ref_chain}:{ref_res.name}:{ref_res.seqid.num}"
-            mapping[pred_id] = ref_id
-    if not mapping:
-        raise RuntimeError("Residue mapping is empty after chain pairing.")
-    return mapping
-
 
 @dataclass(frozen=True)
 class ResidueMapQc:

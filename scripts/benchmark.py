@@ -12,6 +12,10 @@ Most users should run:
 
 `python scripts/benchmark.py`
 
+If you prefer an interactive menu (TUI):
+
+`python scripts/benchmark.py --tui`
+
 If you want to see all options (e.g., choose a different pairs CSV or output folder):
 
 `python scripts/benchmark.py --help`
@@ -26,8 +30,20 @@ from pathlib import Path
 # (This adds the repository root to the import search path.)
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lipid_benchmark.cli import main
+
+def _run() -> int:
+    if "--tui" in sys.argv[1:]:
+        argv = [a for a in sys.argv[1:] if a != "--tui"]
+        if argv:
+            raise SystemExit("--tui does not accept additional flags. Run without other options.")
+        from lipid_benchmark.tui import main as tui_main
+
+        return tui_main()
+
+    from lipid_benchmark.cli import main as cli_main
+
+    return cli_main()
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(_run())

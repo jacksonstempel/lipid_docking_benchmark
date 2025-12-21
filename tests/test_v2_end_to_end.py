@@ -15,7 +15,7 @@ class TestV2EndToEnd(unittest.TestCase):
             self.skipTest("PandaMap is required for the v2 end-to-end test.")
 
         from lipid_benchmark.pipeline import run_benchmark
-        from lipid_benchmark.types import PairEntry
+        from lipid_benchmark.io import PairEntry
 
         project_root = Path(__file__).resolve().parent.parent
         entry = PairEntry(

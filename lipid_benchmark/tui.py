@@ -11,7 +11,7 @@ Plain-language overview
 
 How to use
 
-Run `python scripts/benchmark_tui.py` and follow the on-screen menu.
+Run `python scripts/benchmark.py --tui` and follow the on-screen menu.
 """
 
 from __future__ import annotations
@@ -21,7 +21,7 @@ import statistics
 from pathlib import Path
 from typing import Dict, List, Tuple
 
-from .project import find_project_root
+from .io import find_project_root
 
 
 class BenchmarkTUI:

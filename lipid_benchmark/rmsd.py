@@ -7,15 +7,11 @@ from typing import Dict, List, Tuple
 import numpy as np
 
 from .alignment import FitResult, chimera_pruned_fit, extract_chain_sequences, pair_chains
-from .constants import MIN_LIGAND_HEAVY_ATOMS
 from .ligands import (
     SimpleResidue,
-    apply_template_names,
     collect_ligands,
     headgroup_indices_functional,
-    load_ligand_template_names,
     locked_rmsd,
-    pairs_by_name,
     pairs_by_rdkit,
 )
 from .structures import apply_rt_to_structure, ensure_protein_backbone, load_structure, split_models
@@ -27,6 +23,12 @@ LOGGER = logging.getLogger(__name__)
 # small substructure (e.g., just a headgroup) and falsely counting two different
 # ligands as matched.
 MIN_LIGAND_COVERAGE = 0.9
+
+# Small ligands inflate reporting noise, so the default pipeline drops any with fewer
+# heavy atoms than this constant unless the CLI requests otherwise. Lipid ligands in
+# this benchmark are far larger; <10 heavy atoms is typical for buffer/ion fragments,
+# so this floor avoids accidentally picking solvent as the “ligand”.
+MIN_LIGAND_HEAVY_ATOMS = 10
 _IGNORED_RES_NAMES = {
     # Solvents / buffers
     "HOH",
@@ -93,15 +95,6 @@ def _protein_alignment_pairs(chain_pairs) -> Tuple[np.ndarray, np.ndarray]:
     return np.stack(coords_pred, axis=0), np.stack(coords_ref, axis=0)
 
 
-def _guess_pdbid_from_path(path: Path) -> str | None:
-    """Best-effort PDB ID guess from filename (used for template names)."""
-    stem = path.stem.upper()
-    cleaned = "".join(ch for ch in stem if ch.isalnum())
-    if 3 <= len(cleaned) <= 6:
-        return cleaned
-    return None
-
-
 def _filter_ligands(ligands: List[SimpleResidue]) -> List[SimpleResidue]:
     """Return ligands that look like the main small molecule (heavy, not solvent/ion)."""
     selected: List[SimpleResidue] = []
@@ -162,30 +155,6 @@ def _pair_ligand_atoms(pred: SimpleResidue, ref: SimpleResidue) -> Tuple[List[Tu
         f"RDKit atom pairing failed coverage check: matched {matched}/{ref_heavy} atoms "
         f"(coverage={coverage:.2f}, required>={MIN_LIGAND_COVERAGE:.2f})."
     )
-
-
-def _pick_pred_ligand(ref_ligand: SimpleResidue, candidates: List[SimpleResidue]) -> SimpleResidue:
-    """Choose the predicted ligand that best corresponds to the reference ligand."""
-    same_name = [lig for lig in candidates if lig.res_name.upper() == ref_ligand.res_name.upper()]
-    if same_name:
-        exact = [
-            lig
-            for lig in same_name
-            if lig.res_id == ref_ligand.res_id and lig.chain_id == ref_ligand.chain_id
-        ]
-        pool = exact if exact else same_name
-    else:
-        pool = candidates
-    pool_sorted = sorted(
-        pool,
-        key=lambda lig: (
-            -lig.heavy_atom_count(),
-            lig.res_name,
-            lig.chain_id,
-            str(lig.res_id),
-        ),
-    )
-    return pool_sorted[0]
 
 
 def _best_pred_ligand_by_rmsd(
@@ -269,16 +238,6 @@ def measure_ligand_pose_all(
 
     LOGGER.info("Ensuring prediction has protein backbone for alignment context.")
 
-    template_names: List[str] | None = None
-    pdbid_guess = _guess_pdbid_from_path(ref_path)
-    if pdbid_guess:
-        project_root = Path(__file__).resolve().parent.parent.parent
-        template_names = load_ligand_template_names(
-            project_root,
-            pdbid_guess,
-            include_h=False,
-        )
-
     # Prep that is identical for all poses.
     ref_chains = extract_chain_sequences(ref_structure)
     ref_ligand = _select_single_ligand(ref_structure, include_h=False)
@@ -309,7 +268,6 @@ def measure_ligand_pose_all(
 
             LOGGER.info("Pose %d: Auto-selecting ligand in prediction.", pose_index)
             pred_ligands = collect_ligands(pose_with_backbone, include_h=False)
-            apply_template_names(pred_ligands, template_names)
 
             pred_ligand_candidates = _filter_ligands(pred_ligands)
             if len(pred_ligand_candidates) == 0:
@@ -327,7 +285,6 @@ def measure_ligand_pose_all(
                     pred_ligand.res_id,
                 )
 
-            ligand_id = f"{ref_ligand.chain_id}:{ref_ligand.res_name}:{ref_ligand.res_id}"
             pred_ligand_id = f"{pred_ligand.chain_id}:{pred_ligand.res_name}:{pred_ligand.res_id}"
             head_pairs = _headgroup_pair_subset(ref_ligand, pairs)
             head_rmsd = float("nan")
@@ -342,15 +299,8 @@ def measure_ligand_pose_all(
                 )
 
             entry = {
-                "ref_path": str(ref_path),
-                "pred_path": str(pred_path),
                 "pose_index": pose_index,
-                "ligand_id": ligand_id,
                 "pred_ligand_id": pred_ligand_id,
-                "pred_ligand_chain_id": pred_ligand.chain_id,
-                "pred_ligand_res_name": pred_ligand.res_name,
-                "pred_ligand_res_id": pred_ligand.res_id,
-                "pred_ligand_candidates": len(pred_ligand_candidates),
                 "pairing_method": policy,
                 "ligand_heavy_atoms": pair_count,
                 "ligand_rmsd": rmsd,
@@ -371,15 +321,8 @@ def measure_ligand_pose_all(
             if len(error_msg) > 150:
                 error_msg = error_msg[:147] + "..."
             entries.append({
-                "ref_path": str(ref_path),
-                "pred_path": str(pred_path),
                 "pose_index": pose_index,
-                "ligand_id": "",
                 "pred_ligand_id": "",
-                "pred_ligand_chain_id": "",
-                "pred_ligand_res_name": "",
-                "pred_ligand_res_id": "",
-                "pred_ligand_candidates": "",
                 "pairing_method": "",
                 "ligand_heavy_atoms": "",
                 "ligand_rmsd": "",
@@ -394,20 +337,3 @@ def measure_ligand_pose_all(
     if not entries:
         raise RuntimeError("All poses failed.")
     return entries
-
-
-def measure_ligand_pose(
-    ref_path: Path | str,
-    pred_path: Path | str,
-    *,
-    max_poses: int = 1,
-    align_protein: bool = True,
-) -> Dict[str, object]:
-    """Evaluate ligand pose quality and return the best pose."""
-    entries = measure_ligand_pose_all(ref_path, pred_path, max_poses=max_poses, align_protein=align_protein)
-    # Filter to only successful entries before finding best
-    successful = [e for e in entries if e.get("status") == "ok"]
-    if not successful:
-        raise RuntimeError("All poses failed.")
-    best = min(successful, key=lambda e: float(e["ligand_rmsd"]))
-    return best

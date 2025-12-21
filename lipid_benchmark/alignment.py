@@ -7,7 +7,7 @@ import numpy as np
 from Bio.Align import PairwiseAligner
 from scipy.optimize import linear_sum_assignment
 
-from .constants import AA3_TO_1
+from .structures import AA3_TO_1
 from .structures import is_protein_res
 
 if TYPE_CHECKING:
@@ -122,10 +122,9 @@ class FitResult:
     rmsd_all_under_pruned: float
     n_all: int
     rmsd_allfit: float
-    kept_mask: np.ndarray | None = None
 
 
-def chimera_pruned_fit(P: np.ndarray, Q: np.ndarray, cutoff: float = 2.0, *, keep_mask: bool = False) -> FitResult:
+def chimera_pruned_fit(P: np.ndarray, Q: np.ndarray, cutoff: float = 2.0) -> FitResult:
     """ChimeraX-style iterative pruning alignment using a 2.0 Å outlier gate to drop mismatched Cα pairs."""
     n = P.shape[0]
     if n < 3:
@@ -177,5 +176,4 @@ def chimera_pruned_fit(P: np.ndarray, Q: np.ndarray, cutoff: float = 2.0, *, kee
         rmsd_all_under_pruned=rmsd_all_under,
         n_all=n,
         rmsd_allfit=rmsd_allfit,
-        kept_mask=keep if keep_mask else None,
     )

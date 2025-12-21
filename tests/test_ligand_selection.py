@@ -2,9 +2,9 @@ import unittest
 
 import numpy as np
 
-from lipid_benchmark.ligands import SimpleAtom, SimpleResidue, apply_template_names
+from lipid_benchmark.ligands import SimpleAtom, SimpleResidue
 from lipid_benchmark.rmsd import LigandSelectionError, _filter_ligands, _select_single_ligand
-from lipid_benchmark.constants import MIN_LIGAND_HEAVY_ATOMS
+from lipid_benchmark.rmsd import MIN_LIGAND_HEAVY_ATOMS
 import gemmi
 
 
@@ -54,25 +54,6 @@ class TestLigandFiltering(unittest.TestCase):
         empty_structure.add_model(gemmi.Model("1"))
         with self.assertRaises(LigandSelectionError):
             _select_single_ligand(empty_structure, include_h=False)
-
-
-class TestApplyTemplateNames(unittest.TestCase):
-    def test_apply_template_names_length_match_and_mismatch(self):
-        # Template names for three atoms
-        template = ["A1", "A2", "A3"]
-        # Residue with matching atom count
-        atoms1 = [SimpleAtom(name=f"C{i}", element="C", xyz=np.zeros(3)) for i in range(3)]
-        res1 = SimpleResidue(chain_id="A", res_name="LIG", res_id="1", atoms=atoms1)
-        # Residue with different atom count (should be left unchanged)
-        atoms2 = [SimpleAtom(name=f"X{i}", element="C", xyz=np.zeros(3)) for i in range(4)]
-        res2 = SimpleResidue(chain_id="B", res_name="LIG", res_id="2", atoms=atoms2)
-
-        apply_template_names([res1, res2], template)
-
-        # res1 should have adopted template names
-        self.assertEqual([a.name for a in res1.atoms], template)
-        # res2 should remain with its original names (length mismatch)
-        self.assertEqual([a.name for a in res2.atoms], [f"X{i}" for i in range(4)])
 
 
 if __name__ == "__main__":

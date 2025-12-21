@@ -3,13 +3,13 @@ from pathlib import Path
 import tempfile
 
 from lipid_benchmark.contacts import (
-    contacts_to_residue_set,
     contacts_to_typed_set,
     extract_contacts,
     filter_headgroup_contacts,
 )
-from lipid_benchmark.normalization import NORMALIZED_LIGAND_RESNAME, normalize_entry
-from lipid_benchmark.structures import load_structure, write_pdb_structure
+from lipid_benchmark.normalization import NORMALIZED_LIGAND_RESNAME, normalize_entry_from_selected
+from lipid_benchmark.rmsd import _select_single_ligand, measure_ligand_pose_all
+from lipid_benchmark.structures import load_structure, split_models, write_pdb_structure
 
 
 class TestV2ControlExperiments(unittest.TestCase):
@@ -35,7 +35,36 @@ class TestV2ControlExperiments(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         out_dir = Path(tmp.name)
-        return normalize_entry(pdbid, ref_path, boltz_path, vina_path, out_dir=out_dir, vina_max_poses=1)
+
+        ref_structure = load_structure(ref_path)
+        boltz_structure = load_structure(boltz_path)
+        vina_structure = load_structure(vina_path)
+
+        ref_ligand = _select_single_ligand(ref_structure, include_h=False)
+        boltz_rmsd = measure_ligand_pose_all(ref_path, boltz_path, max_poses=1)[0]
+        vina_rmsd = measure_ligand_pose_all(ref_path, vina_path, max_poses=1, align_protein=False)[0]
+
+        boltz_models = split_models(boltz_structure, 1)
+        vina_models = split_models(vina_structure, 1)
+        self.assertEqual(len(boltz_models), 1)
+        self.assertEqual(len(vina_models), 1)
+
+        boltz_ligand_id = str(boltz_rmsd.get("pred_ligand_id") or "")
+        vina_ligand_id = str(vina_rmsd.get("pred_ligand_id") or "")
+        if not boltz_ligand_id or not vina_ligand_id:
+            self.skipTest("Could not identify ligand IDs for normalization.")
+
+        return normalize_entry_from_selected(
+            pdbid,
+            ref_structure,
+            boltz_models[0],
+            vina_models,
+            ref_ligand=ref_ligand,
+            boltz_ligand_id=boltz_ligand_id,
+            vina_ligand_ids=[vina_ligand_id],
+            out_dir=out_dir,
+            use_cache=False,
+        )
 
     def test_ref_vs_ref_headgroup_overlap_is_one(self):
         normalized = self._normalize_ref("1DSY")
@@ -44,7 +73,7 @@ class TestV2ControlExperiments(unittest.TestCase):
             contacts,
             allowed_atoms=set(normalized.ref_headgroup_atoms),
         )
-        ref_residues = contacts_to_residue_set(head_contacts)
+        ref_residues = {str(c.get("residue") or "") for c in head_contacts if str(c.get("residue") or "")}
         ref_typed = contacts_to_typed_set(head_contacts)
 
         if not ref_residues or not ref_typed:

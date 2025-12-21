@@ -1,12 +1,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from pathlib import Path
 from typing import Any, Dict, List, Sequence, Tuple
 
 import numpy as np
-
-from .constants import MIN_LIGAND_HEAVY_ATOMS
 
 from rdkit import Chem
 try:  # pragma: no cover
@@ -18,7 +15,7 @@ except Exception:  # pragma: no cover
     pass
 from rdkit.Chem import rdFMCS, rdchem
 from rdkit.Geometry import Point3D
-from .structures import is_protein_res, is_water_res, load_structure
+from .structures import is_protein_res, is_water_res
 
 
 @dataclass
@@ -37,63 +34,6 @@ class SimpleResidue:
 
     def heavy_atom_count(self) -> int:
         return sum(1 for atom in self.atoms if atom.element != "H")
-
-    def to_dict(self) -> Dict[str, str]:
-        return {"chain": self.chain_id, "name": self.res_name, "id": self.res_id}
-
-
-def load_ligand_template_names(
-    project_root: Path,
-    pdbid: str,
-    *,
-    include_h: bool = False,
-    prefer_pdbqt: bool | None = None,
-) -> List[str] | None:
-    """Return atom names from the docking prep template (if present).
-
-    Prefer the PDBQT used for docking if available (to preserve the atom order
-    that Vina will output), falling back to the PDB copy otherwise.
-    """
-    prep_dir = project_root / "docking" / "prep" / pdbid
-    pdbqt_path = prep_dir / "ligand.pdbqt"
-    pdb_path = prep_dir / "ligand.pdb"
-    if prefer_pdbqt is True:
-        template_path = pdbqt_path if pdbqt_path.is_file() else pdb_path
-    elif prefer_pdbqt is False:
-        template_path = pdb_path if pdb_path.is_file() else pdbqt_path
-    else:
-        # Default preference: PDB (unique atom names), then PDBQT
-        template_path = pdb_path if pdb_path.is_file() else pdbqt_path
-    if not template_path.is_file():
-        return None
-    try:
-        structure = load_structure(template_path)
-    except (FileNotFoundError, OSError, RuntimeError, ValueError):
-        return None
-
-    names: List[str] = []
-    for model in structure:
-        for chain in model:
-            for residue in chain:
-                if is_protein_res(residue) or is_water_res(residue):
-                    continue
-                for atom in residue:
-                    element = atom.element.name.upper()
-                    if element == "H" and not include_h:
-                        continue
-                    names.append(atom.name.strip())
-    return names or None
-
-
-def apply_template_names(residues: Sequence[SimpleResidue], template_names: Sequence[str] | None) -> None:
-    if not template_names:
-        return
-    for residue in residues:
-        if len(residue.atoms) != len(template_names):
-            continue
-        for atom, name in zip(residue.atoms, template_names):
-            atom.name = name
-
 
 def collect_ligands(structure: "gemmi.Structure", *, include_h: bool = False) -> List[SimpleResidue]:
     """Collect non-protein, non-water residues with altLoc deduplication."""
@@ -144,36 +84,6 @@ def find_ligand_by_id(structure: "gemmi.Structure", ligand_id: str) -> SimpleRes
         if f"{lig.chain_id}:{lig.res_name}:{lig.res_id}" == ligand_id:
             return lig
     raise RuntimeError(f"Ligand not found for ligand_id={ligand_id}")
-
-
-def filter_large_ligands(residues: Sequence[SimpleResidue]) -> List[SimpleResidue]:
-    return [residue for residue in residues if residue.heavy_atom_count() >= MIN_LIGAND_HEAVY_ATOMS]
-
-
-def pairs_by_name(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, int]]:
-    """Match atoms by label with an element-consistency check.
-
-    Only pairs heavy atoms (excludes H) and requires that the elements for the
-    matched labels are identical between prediction and reference.
-    """
-    lookup_pred = {
-        atom.name.upper(): (index, atom.element.upper())
-        for index, atom in enumerate(pred.atoms)
-        if atom.element != "H"
-    }
-    lookup_ref = {
-        atom.name.upper(): (index, atom.element.upper())
-        for index, atom in enumerate(ref.atoms)
-        if atom.element != "H"
-    }
-    pairs: List[Tuple[int, int]] = []
-    for name in sorted(set(lookup_pred) & set(lookup_ref)):
-        ip, ep = lookup_pred[name]
-        ir, er = lookup_ref[name]
-        if ep == er:
-            pairs.append((ip, ir))
-    return pairs
-
 
 # Simplistic covalent radii (Å) for bond inference
 _COV_RADII = {

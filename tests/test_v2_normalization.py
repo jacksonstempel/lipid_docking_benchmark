@@ -4,7 +4,7 @@ from pathlib import Path
 import tempfile
 
 from lipid_benchmark.contacts import HEADGROUP_INTERACTION_TYPES, extract_contacts, filter_headgroup_contacts
-from lipid_benchmark.normalization import NORMALIZED_LIGAND_RESNAME, normalize_entry, normalize_entry_from_selected
+from lipid_benchmark.normalization import NORMALIZED_LIGAND_RESNAME, normalize_entry_from_selected
 from lipid_benchmark.rmsd import _select_single_ligand, measure_ligand_pose_all
 from lipid_benchmark.ligands import collect_ligands, find_ligand_by_id
 from lipid_benchmark.structures import load_structure, split_models
@@ -88,7 +88,35 @@ class TestV2Normalization(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         out_dir = Path(tmp.name)
-        normalized = normalize_entry("1DSY", ref_path, boltz_path, vina_path, out_dir=out_dir, vina_max_poses=1)
+
+        ref_structure = load_structure(ref_path)
+        boltz_structure = load_structure(boltz_path)
+        vina_structure = load_structure(vina_path)
+
+        ref_ligand = _select_single_ligand(ref_structure, include_h=False)
+        boltz_rmsd = measure_ligand_pose_all(ref_path, boltz_path, max_poses=1)[0]
+        vina_rmsd = measure_ligand_pose_all(ref_path, vina_path, max_poses=1, align_protein=False)[0]
+        boltz_ligand_id = str(boltz_rmsd.get("pred_ligand_id") or "")
+        vina_ligand_id = str(vina_rmsd.get("pred_ligand_id") or "")
+        if not boltz_ligand_id or not vina_ligand_id:
+            self.skipTest("Could not identify ligand IDs for normalization.")
+
+        boltz_models = split_models(boltz_structure, 1)
+        vina_models = split_models(vina_structure, 1)
+        self.assertEqual(len(boltz_models), 1)
+        self.assertEqual(len(vina_models), 1)
+
+        normalized = normalize_entry_from_selected(
+            "1DSY",
+            ref_structure,
+            boltz_models[0],
+            vina_models,
+            ref_ligand=ref_ligand,
+            boltz_ligand_id=boltz_ligand_id,
+            vina_ligand_ids=[vina_ligand_id],
+            out_dir=out_dir,
+            use_cache=False,
+        )
 
         contacts = extract_contacts(normalized.ref_pdb, ligand_resname=NORMALIZED_LIGAND_RESNAME)
         head_contacts = filter_headgroup_contacts(
@@ -111,7 +139,35 @@ class TestV2Normalization(unittest.TestCase):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         out_dir = Path(tmp.name)
-        normalized = normalize_entry(pdbid, ref_path, boltz_path, vina_path, out_dir=out_dir, vina_max_poses=1, use_cache=False)
+
+        ref_structure = load_structure(ref_path)
+        boltz_structure = load_structure(boltz_path)
+        vina_structure = load_structure(vina_path)
+
+        ref_ligand = _select_single_ligand(ref_structure, include_h=False)
+        boltz_rmsd = measure_ligand_pose_all(ref_path, boltz_path, max_poses=1)[0]
+        vina_rmsd = measure_ligand_pose_all(ref_path, vina_path, max_poses=1, align_protein=False)[0]
+        boltz_ligand_id = str(boltz_rmsd.get("pred_ligand_id") or "")
+        vina_ligand_id = str(vina_rmsd.get("pred_ligand_id") or "")
+        if not boltz_ligand_id or not vina_ligand_id:
+            self.skipTest("Could not identify ligand IDs for normalization.")
+
+        boltz_models = split_models(boltz_structure, 1)
+        vina_models = split_models(vina_structure, 1)
+        self.assertEqual(len(boltz_models), 1)
+        self.assertEqual(len(vina_models), 1)
+
+        normalized = normalize_entry_from_selected(
+            pdbid,
+            ref_structure,
+            boltz_models[0],
+            vina_models,
+            ref_ligand=ref_ligand,
+            boltz_ligand_id=boltz_ligand_id,
+            vina_ligand_ids=[vina_ligand_id],
+            out_dir=out_dir,
+            use_cache=False,
+        )
         self.assertEqual(len(normalized.ref_headgroup_atoms), len(normalized.boltz_headgroup_atoms))
         self.assertEqual(len(normalized.ref_headgroup_atoms), len(normalized.vina_headgroup_atoms[0]))
 
@@ -130,7 +186,7 @@ class TestV2PipelineHeadgroupConsistency(unittest.TestCase):
 
     def test_headgroup_fields_consistent(self):
         from lipid_benchmark.pipeline import run_benchmark
-        from lipid_benchmark.types import PairEntry
+        from lipid_benchmark.io import PairEntry
 
         project_root = Path(__file__).resolve().parent.parent
         entry = PairEntry(

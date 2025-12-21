@@ -12,10 +12,35 @@ Plain-language overview
 from __future__ import annotations
 
 import csv
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Dict, List, Sequence
 
-from .types import PairEntry
+
+@dataclass(frozen=True)
+class PairEntry:
+    pdbid: str
+    ref_path: Path
+    boltz_path: Path
+    vina_path: Path
+
+
+def find_project_root(start: Path | None = None) -> Path:
+    """
+    Return the repository root directory.
+
+    How it works:
+    - Start from `start` (or the current working directory if omitted).
+    - Walk up parent directories until we find `config.yaml`.
+
+    Why `config.yaml`?
+    - It is a simple, reliable “marker file” that only exists at the repo root in this project.
+    """
+    here = (start or Path.cwd()).resolve()
+    for candidate in (here, *here.parents):
+        if (candidate / "config.yaml").is_file():
+            return candidate
+    raise RuntimeError(f"Could not find config.yaml in {here} or any parent directory.")
 
 
 def default_pairs_path(project_root: Path) -> Path:
