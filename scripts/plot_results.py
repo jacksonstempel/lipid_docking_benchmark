@@ -21,11 +21,7 @@ import argparse
 from dataclasses import dataclass
 import os
 from pathlib import Path
-import sys
-import textwrap
 import shutil
-import subprocess
-import tempfile
 from typing import Iterable
 
 # Ensure Matplotlib's cache/config directory is writable.
@@ -39,16 +35,9 @@ try:
 except OSError:
     pass
 
-# If we vendored any TeX helper binaries (e.g., dvipng), add them to PATH.
-_VENDORED_TEXBIN = _PROJECT_ROOT / "tools" / "texbin" / "usr" / "bin"
-if _VENDORED_TEXBIN.is_dir():
-    os.environ["PATH"] = f"{_VENDORED_TEXBIN}{os.pathsep}{os.environ.get('PATH','')}"
-
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
-from matplotlib.lines import Line2D
-from matplotlib.offsetbox import AnchoredOffsetbox, HPacker, TextArea, VPacker
 from matplotlib.ticker import MaxNLocator
 from scipy.stats import gaussian_kde
 
@@ -62,10 +51,6 @@ try:  # optional
 except Exception:  # pragma: no cover
     cmocean = None
 
-
-_FORCE_USETEX = False
-_USETEX_VALIDATED: bool | None = None
-_USETEX_FAILURE: str | None = None
 
 @dataclass(frozen=True)
 class SummaryFrames:
@@ -132,12 +117,9 @@ def _apply_pub_style() -> None:
     Set Matplotlib defaults for clean, publication-style figures.
 
     This adjusts fonts, line widths, tick styles, and PDF settings so the output looks
-    consistent across machines. By default we use Matplotlib’s built-in “mathtext”
-    Computer Modern look (LaTeX-like, without requiring TeX).
+    consistent across machines. We use Matplotlib’s built-in “mathtext” support so
+    the script does not depend on a system LaTeX installation.
     """
-    # We default to Matplotlib's built-in Computer Modern fonts (mathtext) for a LaTeX-like look
-    # without requiring a full TeX installation. True usetex can be enabled via --usetex.
-    use_tex = _validated_usetex()
     plt.rcParams.update(
         {
             "figure.dpi": 150,
@@ -145,7 +127,6 @@ def _apply_pub_style() -> None:
             "figure.facecolor": "white",
             "axes.facecolor": "white",
             "savefig.facecolor": "white",
-            # When usetex is on, prefer the classic LaTeX look (Computer Modern).
             "font.family": "serif",
             "font.serif": ["cmr10", "Computer Modern Roman", "CMU Serif", "DejaVu Serif"],
             "axes.spines.top": False,
@@ -171,78 +152,10 @@ def _apply_pub_style() -> None:
             "grid.linewidth": 0.5,
             "pdf.fonttype": 42,
             "ps.fonttype": 42,
-            "text.usetex": use_tex,
+            "text.usetex": False,
             "mathtext.fontset": "cm",
         }
     )
-    if use_tex:
-        # Keep the preamble minimal for portability.
-        plt.rcParams.update(
-            {
-                "text.latex.preamble": r"\usepackage{amsmath}\usepackage{amssymb}",
-            }
-        )
-
-
-def _validated_usetex() -> bool:
-    """
-    Return whether LaTeX rendering is enabled *and* actually works on this machine.
-
-    Why validate?
-    - Enabling `usetex` makes Matplotlib call external TeX binaries (`latex`, `dvipng`).
-    - On many systems those binaries are not installed, or are missing dependencies.
-
-    This function performs a small “smoke test” once per run so plotting fails gracefully
-    (falling back to mathtext) instead of crashing mid-figure.
-    """
-    global _USETEX_VALIDATED, _USETEX_FAILURE
-    if not _FORCE_USETEX:
-        _USETEX_VALIDATED = False
-        _USETEX_FAILURE = None
-        return False
-    if _USETEX_VALIDATED is not None:
-        return bool(_USETEX_VALIDATED)
-
-    latex_path = shutil.which("latex")
-    dvipng_path = shutil.which("dvipng")
-    if not bool(latex_path):
-        _USETEX_FAILURE = "missing `latex` executable on PATH"
-        _USETEX_VALIDATED = False
-        return False
-    if not bool(dvipng_path):
-        _USETEX_FAILURE = "missing `dvipng` executable on PATH"
-        _USETEX_VALIDATED = False
-        return False
-
-    test = r"\documentclass{article}\begin{document}lp\end{document}"
-    try:
-        with tempfile.TemporaryDirectory() as tmpdir:
-            tex_path = Path(tmpdir) / "mptest.tex"
-            tex_path.write_text(test, encoding="utf-8")
-            subprocess.run(
-                ["latex", "-interaction=nonstopmode", "--halt-on-error", str(tex_path.name)],
-                cwd=tmpdir,
-                stdout=subprocess.PIPE,
-                stderr=subprocess.STDOUT,
-                text=True,
-                check=True,
-            )
-    except Exception as exc:
-        details = ""
-        if isinstance(exc, subprocess.CalledProcessError):
-            out = str(exc.stdout or "").strip()
-            if out:
-                tail = "\n".join(out.splitlines()[-8:])
-                details = f":\n{tail}"
-        _USETEX_FAILURE = (
-            f"could not compile a minimal LaTeX document using latex={latex_path}, dvipng={dvipng_path}{details}"
-        )
-        _USETEX_VALIDATED = False
-        return False
-
-    _USETEX_FAILURE = None
-    _USETEX_VALIDATED = True
-    return True
 
 
 def _apply_theme() -> None:
@@ -252,9 +165,8 @@ def _apply_theme() -> None:
     This is called once near the start of `main()` so all figures share a coherent style.
     """
     _apply_pub_style()
-    use_tex = bool(plt.rcParams.get("text.usetex", False))
     if scienceplots is not None:
-        plt.style.use(["science", "nature"] + ([] if use_tex else ["no-latex"]))
+        plt.style.use(["science", "nature", "no-latex"])
     # Apply our refined settings after any style overrides.
     plt.rcParams["font.family"] = "serif"
     plt.rcParams["font.serif"] = ["cmr10", "Computer Modern Roman", "CMU Serif", "DejaVu Serif"]
@@ -276,13 +188,13 @@ def _palette3() -> tuple[str, str, str]:
     return ("#2E86AB", "#E94F37", "#41B3A3")  # Teal blue, Vermilion, Sea green
 
 
-def _save(fig: plt.Figure, out_dir: Path, stem: str, *, with_caption: bool = False) -> None:
+def _save(fig: plt.Figure, out_dir: Path, stem: str) -> None:
     """Save a figure to PDF."""
     out_dir.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_dir / f"{stem}.pdf", bbox_inches="tight")
 
 
-def _save_preview_png(fig: plt.Figure, out_dir: Path, stem: str, *, with_caption: bool = False) -> None:
+def _save_preview_png(fig: plt.Figure, out_dir: Path, stem: str) -> None:
     """
     Save a “preview” PNG version of a figure.
 
@@ -300,111 +212,6 @@ def _prune_non_pdf(out_dir: Path) -> None:
     if path.exists():
         shutil.rmtree(path, ignore_errors=True)
 
-def _add_caption(
-    fig: plt.Figure,
-    text: str,
-    *,
-    figure_num: int | None = None,
-    caption_top: float = 0.18,
-) -> None:
-    """
-    Add a figure caption beneath the plot area.
-
-    Captions can optionally be numbered (“Figure 1.”). When LaTeX is not available, this
-    uses Matplotlib layout primitives to bold only the “Figure N.” prefix.
-    """
-    text = " ".join(str(text).split())
-    fig_width_inches = fig.get_figwidth()
-    wrap_width = int(0.96 * fig_width_inches * 13)
-    use_tex = bool(plt.rcParams.get("text.usetex", False))
-
-    if figure_num is None:
-        wrapped = textwrap.fill(text, width=wrap_width)
-        fig.text(
-            0.02,
-            caption_top,
-            wrapped,
-            ha="left",
-            va="top",
-            fontsize=12,
-            color="#000000",
-            linespacing=1.3,
-        )
-        return
-
-    prefix_plain = f"Figure {figure_num}. "
-    full_plain = f"{prefix_plain}{text}"
-
-    if use_tex:
-        prefix_bold = rf"\textbf{{Figure~{figure_num}.}}"
-        wrapped = textwrap.fill(f"{prefix_bold} {text}", width=wrap_width)
-        fig.text(
-            0.02,
-            caption_top,
-            wrapped,
-            ha="left",
-            va="top",
-            fontsize=12,
-            color="#000000",
-            linespacing=1.3,
-        )
-        return
-
-    # Without usetex, build a multi-style caption using offsetboxes so only the
-    # "Figure N." prefix is bold while the remaining text stays normal.
-    wrapped = textwrap.fill(full_plain, width=wrap_width)
-    lines = wrapped.splitlines() if wrapped else [full_plain]
-    text_props = {"fontsize": 12, "color": "#000000", "fontfamily": "serif"}
-    bold_props = dict(text_props)
-    bold_props["fontweight"] = "bold"
-
-    first_line = lines[0] if lines else ""
-    if first_line.startswith(prefix_plain):
-        first_rest = first_line[len(prefix_plain) :]
-        first = HPacker(
-            children=[
-                TextArea(prefix_plain, textprops=bold_props),
-                TextArea(first_rest, textprops=text_props),
-            ],
-            align="baseline",
-            pad=0.0,
-            sep=0.0,
-        )
-    else:
-        first = TextArea(first_line, textprops=text_props)
-
-    children = [first] + [TextArea(line, textprops=text_props) for line in lines[1:]]
-    vbox = VPacker(children=children, align="left", pad=0.0, sep=2.0)
-    anchored = AnchoredOffsetbox(
-        loc="upper left",
-        child=vbox,
-        pad=0.0,
-        frameon=False,
-        bbox_to_anchor=(0.02, caption_top),
-        bbox_transform=fig.transFigure,
-        borderpad=0.0,
-    )
-    fig.add_artist(anchored)
-
-
-def _layout_with_caption(
-    fig: plt.Figure,
-    caption: str,
-    *,
-    bottom: float,
-    top: float = 1.0,
-    figure_num: int | None = None,
-) -> None:
-    """
-    Reserve space for a caption, then add it below the plot.
-
-    This is separate from `_add_caption()` so we can control layout spacing consistently
-    across figures.
-    """
-    fig.tight_layout(rect=(0.0, bottom, 1.0, top))
-    # Position caption just below the plot area
-    _add_caption(fig, caption, figure_num=figure_num, caption_top=bottom - 0.02)
-
 
 def _save_figure(
     fig: plt.Figure,
@@ -412,33 +219,18 @@ def _save_figure(
     *,
     stem: str,
     preview_png: bool,
-    figure_num: int | None,
-    caption: str,
-    no_caption_rect: tuple[float, float, float, float] | None = None,
-    caption_bottom: float | None = None,
-    caption_top: float = 1.0,
 ) -> None:
     """
     Save a figure in the standard output structure.
 
     What it writes:
-    - Always writes a PDF without caption (for clean figure panels).
-    - Optionally writes a “with caption” PDF named `figureN.pdf`.
-    - Optionally writes PNG previews mirroring the same structure.
+    - Always writes a PDF named `{stem}.pdf`.
+    - Optionally writes PNG previews to `{out_dir}/_preview/`.
     """
-    if caption and figure_num is not None and caption_bottom is not None:
-        _layout_with_caption(fig, caption, bottom=caption_bottom, top=caption_top, figure_num=figure_num)
-        out_stem = f"figure{figure_num}"
-    else:
-        if no_caption_rect is None:
-            fig.tight_layout()
-        else:
-            fig.tight_layout(rect=no_caption_rect)
-        out_stem = stem
-
-    _save(fig, out_dir, out_stem)
+    fig.tight_layout()
+    _save(fig, out_dir, stem)
     if preview_png:
-        _save_preview_png(fig, out_dir, out_stem)
+        _save_preview_png(fig, out_dir, stem)
 
 
 def plot_rmsd_distributions(
@@ -448,8 +240,6 @@ def plot_rmsd_distributions(
     out_dir: Path,
     rmsd_cap_a: float = 10.0,
     preview_png: bool = False,
-    figure_num: int | None = None,
-    caption: str = "",
 ) -> None:
     """
     Plot distributions of RMSD values for Boltz vs Vina.
@@ -495,15 +285,15 @@ def plot_rmsd_distributions(
             ("Vina best", xv_best, colors["Vina best"]),
             ("Boltz", xb, colors["Boltz"]),
         ]
-        for label, x, color in plot_order:
+        for _, x, color in plot_order:
             gx, gy = _kde_xy(x, xmin=xmin, xmax=xmax)
             if not gx.size:
                 continue
-            alpha = 0.15 if label == "Vina poses" else 0.25
-            lw = 1.8 if label == "Vina poses" else 2.2
+            alpha = 0.15 if x is xv_all else 0.25
+            lw = 1.8 if x is xv_all else 2.2
             ax.fill_between(gx, 0.0, gy, color=color, alpha=alpha, lw=0.0)
-            ax.plot(gx, gy, color=color, lw=lw, label=label)
-            if label != "Vina poses" and x.size:
+            ax.plot(gx, gy, color=color, lw=lw)
+            if x is not xv_all and x.size:
                 ax.axvline(float(np.median(x)), color=color, lw=1.2, alpha=0.8, ls="--")
 
         ax.set_title(title, fontsize=13, fontweight="medium", pad=10)
@@ -515,34 +305,12 @@ def plot_rmsd_distributions(
         ax.xaxis.set_major_locator(MaxNLocator(6))
         ax.tick_params(axis="both", which="major", labelsize=9)
 
-    # Create legend with refined styling
-    handles = [
-        Line2D([0], [0], color=colors["Boltz"], lw=2.2, label="Boltz"),
-        Line2D([0], [0], color=colors["Vina best"], lw=2.2, label="Vina best"),
-        Line2D([0], [0], color=colors["Vina poses"], lw=1.8, label="Vina poses"),
-    ]
-    fig.legend(
-        handles=handles,
-        frameon=False,
-        loc="upper center",
-        bbox_to_anchor=(0.5, 0.98),
-        ncol=3,
-        columnspacing=2.0,
-        handlelength=2.2,
-        fontsize=10,
-    )
-
-    stem = f"figure{figure_num}" if figure_num else "fig_rmsd_distributions"
+    stem = "fig_rmsd_distributions"
     _save_figure(
         fig,
         out_dir,
         stem=stem,
         preview_png=preview_png,
-        figure_num=figure_num,
-        caption=caption,
-        no_caption_rect=(0.0, 0.02, 1.0, 0.88),
-        caption_bottom=0.28,
-        caption_top=0.88,
     )
 
     plt.close(fig)
@@ -553,8 +321,6 @@ def plot_paired_rmsd(
     *,
     out_dir: Path,
     preview_png: bool = False,
-    figure_num: int | None = None,
-    caption: str = "",
 ) -> None:
     """
     Plot a paired per-target comparison: Boltz RMSD vs Vina-best RMSD.
@@ -598,7 +364,7 @@ def plot_paired_rmsd(
     cb.outline.set_linewidth(0.5)
 
     lim = float(max(np.max(x), np.max(y), 1.0)) * 1.05
-    ax.plot([0, lim], [0, lim], color="#555555", lw=1.2, ls="--", zorder=2, label="y = x")
+    ax.plot([0, lim], [0, lim], color="#555555", lw=1.2, ls="--", zorder=2)
     ax.set_xlim(0, lim)
     ax.set_ylim(0, lim)
     ax.set_xlabel(r"Boltz ligand RMSD ($\mathrm{\AA}$)", fontsize=11)
@@ -609,15 +375,12 @@ def plot_paired_rmsd(
     ax.yaxis.set_major_locator(MaxNLocator(6))
     ax.tick_params(axis="both", which="major", labelsize=9)
 
-    stem = f"figure{figure_num}" if figure_num else "fig_paired_ligand_rmsd"
+    stem = "fig_paired_ligand_rmsd"
     _save_figure(
         fig,
         out_dir,
         stem=stem,
         preview_png=preview_png,
-        figure_num=figure_num,
-        caption=caption,
-        caption_bottom=0.24,
     )
 
     plt.close(fig)
@@ -629,8 +392,6 @@ def plot_contacts_vs_rmsd(
     out_dir: Path,
     log_counts: bool = False,
     preview_png: bool = False,
-    figure_num: int | None = None,
-    caption: str = "",
 ) -> None:
     """
     Plot how contact overlap changes with RMSD across Vina poses.
@@ -706,9 +467,9 @@ def plot_contacts_vs_rmsd(
             # Use a bold color for the trend line that stands out
             trend_color = "#C41E3A"  # Cardinal red
             ax.fill_between(
-                centers[ok], q25s[ok], q75s[ok], color=trend_color, alpha=0.15, label="IQR", zorder=4
+                centers[ok], q25s[ok], q75s[ok], color=trend_color, alpha=0.15, zorder=4
             )
-            ax.plot(centers[ok], meds[ok], color=trend_color, lw=2.5, label="Median", zorder=5)
+            ax.plot(centers[ok], meds[ok], color=trend_color, lw=2.5, zorder=5)
 
         ax.set_title(title, fontsize=12, fontweight="medium", pad=10)
         ax.set_xlabel(r"Ligand RMSD ($\mathrm{\AA}$)", fontsize=11)
@@ -718,17 +479,12 @@ def plot_contacts_vs_rmsd(
         ax.yaxis.set_major_locator(MaxNLocator(6))
         ax.tick_params(axis="both", which="major", labelsize=9)
 
-    axes[0].legend(frameon=False, loc="upper right", fontsize=9)
-
-    stem = f"figure{figure_num}" if figure_num else "fig_contacts_vs_rmsd_vina_poses"
+    stem = "fig_contacts_vs_rmsd_vina_poses"
     _save_figure(
         fig,
         out_dir,
         stem=stem,
         preview_png=preview_png,
-        figure_num=figure_num,
-        caption=caption,
-        caption_bottom=0.26,
     )
 
     plt.close(fig)
@@ -743,8 +499,6 @@ def plot_contact_overlap_distributions(
     title: str,
     stem: str,
     preview_png: bool = False,
-    figure_num: int | None = None,
-    caption: str = "",
 ) -> None:
     """
     Plot distributions of contact-overlap scores (Jaccard) for Boltz vs Vina.
@@ -777,15 +531,15 @@ def plot_contact_overlap_distributions(
         ("Vina best", xv_best, colors["Vina best"]),
         ("Boltz", xb, colors["Boltz"]),
     ]
-    for label, x, color in plot_order:
+    for _, x, color in plot_order:
         gx, gy = _kde_xy(x, xmin=xmin, xmax=xmax)
         if not gx.size:
             continue
-        alpha = 0.15 if label == "Vina poses" else 0.25
-        lw = 1.8 if label == "Vina poses" else 2.2
+        alpha = 0.15 if x is xv_all else 0.25
+        lw = 1.8 if x is xv_all else 2.2
         ax.fill_between(gx, 0.0, gy, color=color, alpha=alpha, lw=0.0)
-        ax.plot(gx, gy, color=color, lw=lw, label=label)
-        if label != "Vina poses" and x.size:
+        ax.plot(gx, gy, color=color, lw=lw)
+        if x is not xv_all and x.size:
             ax.axvline(float(np.median(x)), color=color, lw=1.2, alpha=0.8, ls="--")
 
     ax.set_title(title, fontsize=13, fontweight="medium", pad=10)
@@ -797,33 +551,11 @@ def plot_contact_overlap_distributions(
     ax.xaxis.set_major_locator(MaxNLocator(6))
     ax.tick_params(axis="both", which="major", labelsize=9)
 
-    handles = [
-        Line2D([0], [0], color=colors["Boltz"], lw=2.2, label="Boltz"),
-        Line2D([0], [0], color=colors["Vina best"], lw=2.2, label="Vina best"),
-        Line2D([0], [0], color=colors["Vina poses"], lw=1.8, label="Vina poses"),
-    ]
-    fig.legend(
-        handles=handles,
-        frameon=False,
-        loc="upper center",
-        bbox_to_anchor=(0.5, 0.98),
-        ncol=3,
-        columnspacing=2.0,
-        handlelength=2.2,
-        fontsize=10,
-    )
-
-    out_stem = f"figure{figure_num}" if figure_num else stem
     _save_figure(
         fig,
         out_dir,
-        stem=out_stem,
+        stem=stem,
         preview_png=preview_png,
-        figure_num=figure_num,
-        caption=caption,
-        no_caption_rect=(0.0, 0.02, 1.0, 0.88),
-        caption_bottom=0.28,
-        caption_top=0.88,
     )
 
     plt.close(fig)
@@ -834,77 +566,67 @@ def main(argv: Iterable[str] | None = None) -> int:
     Command-line entry point for plot generation.
 
     - Reads CSV inputs (summary + all-poses).
-    - Generates a standard set of figures with captions.
+    - Generates a standard set of figures.
     - Writes PDFs (and optionally PNG previews) into `--out-dir`.
     """
-    global _FORCE_USETEX
     p = argparse.ArgumentParser(description="Generate publication-quality plots from benchmark CSVs.")
-    p.add_argument("--summary", default="analysis/benchmark/benchmark_summary.csv", help="Path to summary CSV.")
-    p.add_argument("--allposes", default="analysis/benchmark/benchmark_allposes.csv", help="Path to allposes CSV.")
-    p.add_argument("--out-dir", default="paper/figures", help="Output directory for figures.")
+    p.add_argument("--summary", default="output/benchmark_summary.csv", help="Path to summary CSV.")
+    p.add_argument("--allposes", default="output/benchmark_allposes.csv", help="Path to allposes CSV.")
+    p.add_argument("--out-dir", default="plots", help="Output directory for figures.")
     p.add_argument("--log-density", action="store_true", help="Use log10 scaling for hexbin pose densities.")
-    p.add_argument(
-        "--usetex",
-        action="store_true",
-        help="Render all text via LaTeX (falls back to mathtext if TeX is unavailable).",
-    )
-    p.add_argument(
-        "--texbin",
-        default="",
-        help="Optional directory to prepend to PATH for TeX binaries (latex, dvipng).",
-    )
     p.add_argument("--preview-png", action="store_true", help="Also write PNGs for local preview (then prune).")
     p.add_argument("--keep-preview", action="store_true", help="Keep preview PNGs (no pruning).")
     args = p.parse_args(list(argv) if argv is not None else None)
 
-    if args.texbin:
-        texbin_path = Path(args.texbin).expanduser().resolve()
-        os.environ["PATH"] = f"{texbin_path}{os.pathsep}{os.environ.get('PATH','')}"
+    def _resolve_csv(arg_value: str) -> Path:
+        """
+        Resolve a CSV path from either an explicit user path or a set of fallbacks.
 
-    _FORCE_USETEX = bool(args.usetex)
-    if _FORCE_USETEX and not _validated_usetex():
-        print(
-            f"Warning: --usetex requested but {_USETEX_FAILURE}; falling back to mathtext.",
-            file=sys.stderr,
+        Why this exists:
+        - Output CSVs are typically gitignored, so after cloning the repo you may not
+          have `output/benchmark_*.csv` yet.
+        - Older runs of this repo wrote to `analysis/benchmark/`, so we try that too.
+        """
+        p = Path(arg_value).expanduser()
+        if p.is_absolute():
+            return p.resolve()
+        return (_PROJECT_ROOT / p).resolve()
+
+    summary_csv = _resolve_csv(str(args.summary))
+    allposes_csv = _resolve_csv(str(args.allposes))
+    out_dir_arg = Path(args.out_dir).expanduser()
+    out_dir = (_PROJECT_ROOT / out_dir_arg).resolve() if not out_dir_arg.is_absolute() else out_dir_arg.resolve()
+
+    if not summary_csv.is_file() or not allposes_csv.is_file():
+        missing = []
+        if not summary_csv.is_file():
+            missing.append(f"summary CSV not found: {summary_csv}")
+        if not allposes_csv.is_file():
+            missing.append(f"allposes CSV not found: {allposes_csv}")
+        msg = (
+            "Cannot generate plots because benchmark CSVs are missing.\n"
+            + "\n".join(missing)
+            + "\n\nRun the benchmark first:\n"
+            "  python scripts/benchmark.py --out-dir output\n"
+            "Then re-run plotting:\n"
+            "  python scripts/plot_results.py --out-dir plots\n"
         )
-        _FORCE_USETEX = False
-
-    summary_csv = Path(args.summary).expanduser().resolve()
-    allposes_csv = Path(args.allposes).expanduser().resolve()
-    out_dir = Path(args.out_dir).expanduser().resolve()
-    if not summary_csv.is_file():
-        raise FileNotFoundError(summary_csv)
-    if not allposes_csv.is_file():
-        raise FileNotFoundError(allposes_csv)
+        raise FileNotFoundError(msg)
 
     frames = _load_frames(summary_csv)
     preview_png = bool(args.preview_png)
 
-    # Figure captions
-    captions = {
-        1: "RMSD distributions across benchmark targets. Kernel density estimates show that Boltz and Vina best-scoring poses concentrate at lower RMSD values, while the full Vina pose ensemble exhibits a broad distribution. Dashed lines indicate median values.",
-        2: "Per-target RMSD comparison between Boltz and Vina best-scoring poses. Each point represents one target structure. The dashed diagonal line indicates equal performance. Color encodes the RMSD difference (Vina minus Boltz), with blue favoring Vina and red favoring Boltz.",
-        3: "Relationship between ligand RMSD and headgroup interaction similarity for all Vina docking poses. Left panel shows distance-based headgroup environment overlap; right panel shows typed interaction overlap from PandaMap. Hexbin density reveals the inverse correlation between structural deviation and interaction fidelity. The red line traces median overlap across RMSD bins with interquartile range shown in shaded regions.",
-        4: "Headgroup interaction overlap distributions. Distance-based environment overlap (left) measures residue proximity to the headgroup, while typed interaction overlap (right) requires matching both residue identity and chemical interaction type. Boltz and Vina best-scoring poses show higher overlap than the full Vina ensemble.",
-        5: "Typed headgroup interaction overlap using PandaMap's interaction fingerprints. This stringent metric requires both correct residue contacts and proper interaction chemistry. Distributions reveal that Boltz predictions and top-ranked Vina poses better recapitulate native interaction patterns compared to the broader docking ensemble.",
-    }
-
-    # Generate all figures with numbering
     plot_rmsd_distributions(
         frames,
         allposes_csv,
         out_dir=out_dir,
         preview_png=preview_png,
-        figure_num=1,
-        caption=captions[1],
     )
 
     plot_paired_rmsd(
         frames,
         out_dir=out_dir,
         preview_png=preview_png,
-        figure_num=2,
-        caption=captions[2],
     )
 
     plot_contacts_vs_rmsd(
@@ -912,8 +634,6 @@ def main(argv: Iterable[str] | None = None) -> int:
         out_dir=out_dir,
         log_counts=bool(args.log_density),
         preview_png=preview_png,
-        figure_num=3,
-        caption=captions[3],
     )
 
     plot_contact_overlap_distributions(
@@ -924,23 +644,8 @@ def main(argv: Iterable[str] | None = None) -> int:
         title="Headgroup Environment Overlap",
         stem="fig_head_env_overlap_distributions",
         preview_png=preview_png,
-        figure_num=4,
-        caption=captions[4],
     )
 
-    # Commenting out Figure 5 to keep it at 4 figures as requested
-    # plot_contact_overlap_distributions(
-    #     frames,
-    #     allposes_csv,
-    #     out_dir=out_dir,
-    #     metric_col="headgroup_typed_jaccard",
-    #     title="Headgroup Typed Interaction Overlap",
-    #     stem="fig_headgroup_typed_overlap_distributions",
-    #     takeaway="",
-    #     preview_png=preview_png,
-    #     figure_num=5,
-    #     caption=captions[5],
-    # )
     if preview_png and not bool(args.keep_preview):
         _prune_non_pdf(out_dir)
     print(f"Wrote PDF figures to {out_dir}")

@@ -19,24 +19,25 @@ env/
 build/
 dist/
 
-# Analysis outputs (reproducible data products)
-analysis/tmp/
-analysis/pandamap_contacts/
-analysis/benchmark/
-analysis/*.csv
-analysis/**/*.csv
-analysis/plots/
-analysis/.mplconfig/
+# Human-facing benchmark outputs (generated)
+output/
 
-# Paper figures: keep PDFs, ignore previews
-paper/figures/_preview/
-paper/figures/**/*.png
-paper/figures/**/*.svg
+# Backward-compatible ignore (older runs)
+analysis/
+
+# Paper drafting (private)
+paper/
+
+# Publication plots: keep PDFs, ignore previews/rasters
+plots/_preview/
+plots/**/*.png
+plots/**/*.svg
 
 # Editor / IDE configs
 .vscode/
 .idea/
 *.code-workspace
+.claude/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/

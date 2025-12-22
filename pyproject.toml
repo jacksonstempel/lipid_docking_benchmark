@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lipid-docking-benchmark"
+description = "Benchmark pipeline for evaluating lipid docking predictions (Boltz vs Vina) using RMSD and contact metrics."
+version = "0.0.0"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.26",
+  "scipy>=1.13",
+  "gemmi>=0.7",
+  "rdkit>=2025.03.3",
+  "biopython>=1.84",
+  "pandamap>=4.1",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+plot = [
+  "pandas>=2.3",
+  "matplotlib>=3.10",
+  "scienceplots>=2.1",
+  "cmocean>=4.0",
+]
+
+[tool.setuptools]
+packages = ["lipid_benchmark"]

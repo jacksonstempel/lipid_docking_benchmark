@@ -7,7 +7,7 @@ Plain-language overview
   the experimental structure file and the prediction files to evaluate.
 - Runs the benchmark pipeline (RMSD + contact metrics) using library code in
   `lipid_benchmark/pipeline.py`.
-- Writes two CSV outputs (per-pose and per-target summary) under `analysis/` by default.
+- Writes two CSV outputs (per-pose and per-target summary) under `output/` by default.
 
 If you are a user, you typically run this via `python scripts/benchmark.py`.
 """
@@ -45,7 +45,7 @@ def build_parser() -> argparse.ArgumentParser:
     """
     p = argparse.ArgumentParser(description="Run the lipid docking benchmark.")
     p.add_argument("--pairs", help="Pairs CSV (default: config.yaml paths.pairs, else scripts/pairs_curated.csv).")
-    p.add_argument("--out-dir", default="analysis/benchmark", help="Output directory (default: analysis/benchmark).")
+    p.add_argument("--out-dir", default="output", help="Output directory (default: output).")
     p.add_argument(
         "--cache-dir",
         default="",
@@ -64,7 +64,7 @@ def _resolve_out_dir(project_root: Path, out_dir: str) -> Path:
     """
     Turn a user-provided output directory into an absolute path.
 
-    - If the user passes a relative path like `analysis/benchmark`, it is interpreted relative
+    - If the user passes a relative path like `output`, it is interpreted relative
       to the repository root.
     - If the user passes an absolute path, it is used as-is.
     """

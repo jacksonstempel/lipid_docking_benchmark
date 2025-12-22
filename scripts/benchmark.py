@@ -6,7 +6,7 @@ Plain-language overview
 
 - This script is a small “launcher” for the actual benchmark code in `lipid_benchmark/`.
 - It reads a pairs CSV (a table that lists, for each target, the experimental structure and the prediction files).
-- It then computes accuracy metrics (RMSD and contact overlap) and writes results under `analysis/`.
+- It then computes accuracy metrics (RMSD and contact overlap) and writes results under `output/`.
 
 Most users should run:
 

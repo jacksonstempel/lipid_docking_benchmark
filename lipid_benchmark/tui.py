@@ -7,7 +7,7 @@ Plain-language overview
 - This provides a simple menu in the terminal so you can run the benchmark without
   remembering command-line flags.
 - It calls the same underlying pipeline as `scripts/benchmark.py`.
-- It writes the same output CSVs under `analysis/benchmark/`.
+- It writes the same output CSVs under `output/`.
 
 How to use
 
@@ -43,7 +43,7 @@ class BenchmarkTUI:
         """
         self.stdscr = stdscr
         self.project_root = find_project_root()
-        self.out_dir = self.project_root / "analysis" / "benchmark"
+        self.out_dir = self.project_root / "output"
         self.cache_root = self.project_root / ".cache" / "lipid_benchmark"
         self.state = {
             "vina_max_poses": 20,

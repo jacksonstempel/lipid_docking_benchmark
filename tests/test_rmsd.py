@@ -35,6 +35,12 @@ class TestLockedRMSD(unittest.TestCase):
         self.assertEqual(n, 3)
         self.assertAlmostEqual(rmsd, 0.0, places=7)
 
+    def test_empty_pairs_returns_inf(self):
+        atom = SimpleAtom(name="C1", element="C", xyz=np.array([0.0, 0.0, 0.0]))
+        rmsd, n = locked_rmsd([atom], [atom], [], np.eye(3), np.zeros(3))
+        self.assertEqual(n, 0)
+        self.assertEqual(rmsd, float("inf"))
+
 
 if __name__ == "__main__":
     unittest.main()
