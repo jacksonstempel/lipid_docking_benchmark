@@ -27,9 +27,9 @@ class TestContactsControls(unittest.TestCase):
 
     def _normalize_ref(self, pdbid: str):
         project_root = Path(__file__).resolve().parent.parent
-        ref_path = project_root / "experimental_structures" / f"{pdbid}.cif"
-        boltz_path = project_root / "predicted_structures" / "boltz" / f"{pdbid}_model_0.cif"
-        vina_path = project_root / "predicted_structures" / "vina" / f"{pdbid}.pdbqt"
+        ref_path = project_root / "structures" / "experimental" / f"{pdbid}.cif"
+        boltz_path = project_root / "structures" / "boltz" / f"{pdbid}_model_0.cif"
+        vina_path = project_root / "structures" / "vina" / f"{pdbid}.pdbqt"
         if not (ref_path.exists() and boltz_path.exists() and vina_path.exists()):
             self.skipTest(f"Required input files for {pdbid} are missing.")
 

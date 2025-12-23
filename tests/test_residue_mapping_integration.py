@@ -9,8 +9,8 @@ from lipid_benchmark.structures import load_structure
 class TestResidueMappingIntegration(unittest.TestCase):
     def test_boltz_residue_offset_mapping_1b56(self):
         project_root = Path(__file__).resolve().parent.parent
-        ref = load_structure(project_root / "experimental_structures" / "1B56.cif")
-        pred = load_structure(project_root / "predicted_structures" / "boltz" / "1B56_model_0.cif")
+        ref = load_structure(project_root / "structures" / "experimental" / "1B56.cif")
+        pred = load_structure(project_root / "structures" / "boltz" / "1B56_model_0.cif")
 
         mapping, _qc = build_residue_id_map_with_qc(pred, ref)
         self.assertGreater(len(mapping), 10)
@@ -29,8 +29,8 @@ class TestResidueMappingIntegration(unittest.TestCase):
 
     def test_chain_mapping_3stm(self):
         project_root = Path(__file__).resolve().parent.parent
-        ref = load_structure(project_root / "experimental_structures" / "3STM.cif")
-        pred = load_structure(project_root / "predicted_structures" / "boltz" / "3STM_model_0.cif")
+        ref = load_structure(project_root / "structures" / "experimental" / "3STM.cif")
+        pred = load_structure(project_root / "structures" / "boltz" / "3STM_model_0.cif")
 
         mapping, _qc = build_residue_id_map_with_qc(pred, ref)
         self.assertGreater(len(mapping), 10)

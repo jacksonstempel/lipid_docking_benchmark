@@ -195,7 +195,7 @@ class BenchmarkTUI:
         """
         Load the pairs CSV used by the benchmark.
 
-        This uses `config.yaml` (`paths.pairs`) or falls back to `scripts/pairs_curated.csv`.
+        This uses `config.yaml` (`paths.pairs`) or falls back to `structures/benchmark_entries.csv`.
         Optionally, a “limit entries” setting restricts to only the first N targets for
         quick sanity checks.
         """
@@ -345,8 +345,8 @@ class BenchmarkTUI:
         if not self.stats_rows:
             return ["Stats: waiting for first target..."]
 
-        by_method: Dict[str, List[float]] = {"boltz": [], "vina_best": [], "vina_best_headgroup": []}
-        by_method_hg: Dict[str, List[float]] = {"boltz": [], "vina_best": [], "vina_best_headgroup": []}
+        by_method: Dict[str, List[float]] = {"boltz": [], "vina_top1": []}
+        by_method_hg: Dict[str, List[float]] = {"boltz": [], "vina_top1": []}
         for row in self.stats_rows:
             method = str(row.get("method") or "")
             if method not in by_method:
@@ -359,7 +359,7 @@ class BenchmarkTUI:
                 by_method_hg[method].append(float(jacc))
 
         lines = ["Stats (median so far):"]
-        for method in ("boltz", "vina_best", "vina_best_headgroup"):
+        for method in ("boltz", "vina_top1"):
             rmsd_vals = by_method[method]
             jacc_vals = by_method_hg[method]
             rmsd_med = f"{statistics.median(rmsd_vals):.3f}" if rmsd_vals else "NA"

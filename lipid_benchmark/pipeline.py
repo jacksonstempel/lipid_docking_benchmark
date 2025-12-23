@@ -406,11 +406,12 @@ def _run_entry(
         except (TypeError, ValueError):
             return float("inf")
 
-    best_vina = min(vina_rows, key=lambda r: _as_float(r.get("ligand_rmsd")))
-    summary.append({**best_vina, "method": "vina_best"})
-
-    best_headgroup = min(vina_rows, key=lambda r: _as_float(r.get("headgroup_rmsd")))
-    summary.append({**best_headgroup, "method": "vina_best_headgroup"})
+    # Select Vina's top-1 suggestion (non-oracular).
+    #
+    # Vina outputs poses in ranked order; pose_index=1 is the top suggestion a user would
+    # typically inspect first (without using the experimental structure to choose).
+    top1_vina = min(vina_rows, key=lambda r: _as_float(r.get("pose_index")))
+    summary.append({**top1_vina, "method": "vina_top1"})
 
     return allposes, summary
 

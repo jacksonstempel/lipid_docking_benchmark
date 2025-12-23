@@ -44,7 +44,7 @@ def build_parser() -> argparse.ArgumentParser:
     - whether to use caching and/or multiple CPU processes
     """
     p = argparse.ArgumentParser(description="Run the lipid docking benchmark.")
-    p.add_argument("--pairs", help="Pairs CSV (default: config.yaml paths.pairs, else scripts/pairs_curated.csv).")
+    p.add_argument("--pairs", help="Pairs CSV (default: config.yaml paths.pairs, else structures/benchmark_entries.csv).")
     p.add_argument("--out-dir", default="output", help="Output directory (default: output).")
     p.add_argument(
         "--cache-dir",
@@ -114,6 +114,25 @@ def main(argv: list[str] | None = None) -> int:
         cache_normalized=not bool(args.no_cache_normalized),
         cache_contacts=not bool(args.no_cache_contacts),
     )
+
+    # Help users catch accidental “partial” runs (e.g., plotting top-20 from a file that
+    # only contains top-5). We warn if the produced CSV does not contain the requested
+    # number of poses.
+    try:
+        requested = int(args.vina_max_poses)
+        max_written = max(
+            int(r.get("pose_index") or 0) for r in allposes if r.get("method") == "vina_pose"
+        ) if any(r.get("method") == "vina_pose" for r in allposes) else 0
+        if requested > 0 and 0 < max_written < requested:
+            logging.warning(
+                "Vina poses in output only go up to %d (requested %d). "
+                "This usually means the Vina .pdbqt contains fewer poses, or an earlier run used a smaller --vina-max-poses.",
+                max_written,
+                requested,
+            )
+    except Exception:
+        # Never fail the benchmark just because this convenience check couldn't run.
+        pass
 
     write_csv(out_dir / "benchmark_allposes.csv", allposes, BENCHMARK_FIELDNAMES)
     write_csv(out_dir / "benchmark_summary.csv", summary, BENCHMARK_FIELDNAMES)

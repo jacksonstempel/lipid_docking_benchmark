@@ -49,7 +49,7 @@ def default_pairs_path(project_root: Path) -> Path:
 
     Where it comes from:
     - If `config.yaml` exists and defines `paths.pairs`, we use that.
-    - Otherwise we fall back to `scripts/pairs_curated.csv`.
+    - Otherwise we fall back to `structures/benchmark_entries.csv`.
 
     This is intentionally the only repository “layout” setting: the pairs CSV itself is the
     source of truth for where the input files live.
@@ -63,7 +63,7 @@ def default_pairs_path(project_root: Path) -> Path:
         pairs = paths.get("pairs")
         if pairs:
             return (project_root / str(pairs)).resolve()
-    return (project_root / "scripts" / "pairs_curated.csv").resolve()
+    return (project_root / "structures" / "benchmark_entries.csv").resolve()
 
 
 def _resolve_existing(project_root: Path, path_str: str, *, label: str, pdbid: str) -> Path:

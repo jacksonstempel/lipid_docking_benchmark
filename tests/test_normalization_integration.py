@@ -24,9 +24,9 @@ class TestNormalizationIntegration(unittest.TestCase):
 
     def test_normalized_ligand_atom_count_and_unique_names(self):
         project_root = Path(__file__).resolve().parent.parent
-        ref_path = project_root / "experimental_structures" / "1B56.cif"
-        boltz_path = project_root / "predicted_structures" / "boltz" / "1B56_model_0.cif"
-        vina_path = project_root / "predicted_structures" / "vina" / "1B56.pdbqt"
+        ref_path = project_root / "structures" / "experimental" / "1B56.cif"
+        boltz_path = project_root / "structures" / "boltz" / "1B56_model_0.cif"
+        vina_path = project_root / "structures" / "vina" / "1B56.pdbqt"
         if not (ref_path.exists() and boltz_path.exists() and vina_path.exists()):
             self.skipTest("Required input files for 1B56 are missing.")
 
@@ -79,9 +79,9 @@ class TestNormalizationIntegration(unittest.TestCase):
 
     def test_pandamap_headgroup_interactions_nonzero(self):
         project_root = Path(__file__).resolve().parent.parent
-        ref_path = project_root / "experimental_structures" / "1DSY.cif"
-        boltz_path = project_root / "predicted_structures" / "boltz" / "1DSY_model_0.cif"
-        vina_path = project_root / "predicted_structures" / "vina" / "1DSY.pdbqt"
+        ref_path = project_root / "structures" / "experimental" / "1DSY.cif"
+        boltz_path = project_root / "structures" / "boltz" / "1DSY_model_0.cif"
+        vina_path = project_root / "structures" / "vina" / "1DSY.pdbqt"
         if not (ref_path.exists() and boltz_path.exists() and vina_path.exists()):
             self.skipTest("Required input files for 1DSY are missing.")
 
@@ -131,9 +131,9 @@ class TestNormalizationIntegration(unittest.TestCase):
     def test_headgroup_atoms_mapped_from_reference(self):
         project_root = Path(__file__).resolve().parent.parent
         pdbid = "1IKT"
-        ref_path = project_root / "experimental_structures" / f"{pdbid}.cif"
-        boltz_path = project_root / "predicted_structures" / "boltz" / f"{pdbid}_model_0.cif"
-        vina_path = project_root / "predicted_structures" / "vina" / f"{pdbid}.pdbqt"
+        ref_path = project_root / "structures" / "experimental" / f"{pdbid}.cif"
+        boltz_path = project_root / "structures" / "boltz" / f"{pdbid}_model_0.cif"
+        vina_path = project_root / "structures" / "vina" / f"{pdbid}.pdbqt"
         if not (ref_path.exists() and boltz_path.exists() and vina_path.exists()):
             self.skipTest(f"Required input files for {pdbid} are missing.")
 
@@ -192,9 +192,9 @@ class TestPipelineHeadgroupConsistency(unittest.TestCase):
         project_root = Path(__file__).resolve().parent.parent
         entry = PairEntry(
             pdbid="1B56",
-            ref_path=project_root / "experimental_structures" / "1B56.cif",
-            boltz_path=project_root / "predicted_structures" / "boltz" / "1B56_model_0.cif",
-            vina_path=project_root / "predicted_structures" / "vina" / "1B56.pdbqt",
+            ref_path=project_root / "structures" / "experimental" / "1B56.cif",
+            boltz_path=project_root / "structures" / "boltz" / "1B56_model_0.cif",
+            vina_path=project_root / "structures" / "vina" / "1B56.pdbqt",
         )
 
         with tempfile.TemporaryDirectory() as tmpdir:

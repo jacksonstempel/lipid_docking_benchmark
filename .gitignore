@@ -5,6 +5,12 @@ __pycache__/
 # Repo-local caches
 .cache/
 
+# Common Python/tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
+
 # OS/editor noise
 .DS_Store
 *.swp
@@ -32,6 +38,9 @@ paper/
 plots/_preview/
 plots/**/*.png
 plots/**/*.svg
+
+# Model-generation inputs (not required for publishing benchmark)
+prediction_inputs/
 
 # Editor / IDE configs
 .vscode/

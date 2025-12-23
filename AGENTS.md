@@ -3,7 +3,7 @@
 This document outlines contribution practices for the lipid docking benchmark pipeline.
 
 ## Project Structure & Module Organization
-Core entry points live in `scripts/` (thin CLI/TUI wrappers). Benchmark logic lives in `lipid_benchmark/` (library-style modules: RMSD, normalization, PandaMap contacts, metrics, and pipeline orchestration). Experimental structures are under `experimental_structures/` (`*.cif`), while predictions live in `predicted_structures/` (e.g., `predicted_structures/boltz/*_model_0.cif`, `predicted_structures/vina/*.pdbqt`). Benchmark outputs are written under `output/`, and caches are stored under `.cache/`. Test coverage is in `tests/` and supporting notes in `docs/`.
+Core entry points live in `scripts/` (thin CLI/TUI wrappers). Benchmark logic lives in `lipid_benchmark/` (library-style modules: RMSD, normalization, PandaMap contacts, metrics, and pipeline orchestration). Structure files are under `structures/` (`structures/experimental/*.cif`, `structures/boltz/*_model_0.cif`, `structures/vina/*.pdbqt`), and the benchmark entry list lives at `structures/benchmark_entries.csv`. Benchmark outputs are written under `output/`, and caches are stored under `.cache/`. Test coverage is in `tests/` and supporting notes in `docs/`.
 
 ## Build, Test, and Development Commands
 ```bash

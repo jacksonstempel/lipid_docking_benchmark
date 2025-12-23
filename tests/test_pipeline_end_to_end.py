@@ -20,9 +20,9 @@ class TestV2EndToEnd(unittest.TestCase):
         project_root = Path(__file__).resolve().parent.parent
         entry = PairEntry(
             pdbid="1B56",
-            ref_path=project_root / "experimental_structures" / "1B56.cif",
-            boltz_path=project_root / "predicted_structures" / "boltz" / "1B56_model_0.cif",
-            vina_path=project_root / "predicted_structures" / "vina" / "1B56.pdbqt",
+            ref_path=project_root / "structures" / "experimental" / "1B56.cif",
+            boltz_path=project_root / "structures" / "boltz" / "1B56_model_0.cif",
+            vina_path=project_root / "structures" / "vina" / "1B56.pdbqt",
         )
 
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -33,7 +33,7 @@ class TestV2EndToEnd(unittest.TestCase):
                 quiet=True,
             )
         self.assertEqual(len(allposes), 2)
-        self.assertEqual({row["method"] for row in summary}, {"boltz", "vina_best", "vina_best_headgroup"})
+        self.assertEqual({row["method"] for row in summary}, {"boltz", "vina_top1"})
 
         boltz = next(row for row in allposes if row["method"] == "boltz")
         self.assertIsInstance(boltz["ligand_rmsd"], float)
