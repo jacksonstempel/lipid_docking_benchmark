@@ -20,7 +20,6 @@ from __future__ import annotations
 import argparse
 import contextlib
 from dataclasses import dataclass
-import io
 import os
 from pathlib import Path
 import shutil
@@ -47,7 +46,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from matplotlib.lines import Line2D
 from matplotlib.ticker import MaxNLocator
-from scipy.stats import gaussian_kde
+from scipy.stats import gaussian_kde, linregress
 
 try:  # optional
     import scienceplots  # type: ignore  # noqa: F401
@@ -185,6 +184,43 @@ def _vina_topk_series_per_target(
     return grouped.min() if prefer == "min" else grouped.max()
 
 
+def _vina_topk_by_ligand_rmsd(
+    vina_pose_df: pd.DataFrame,
+    *,
+    return_col: str,
+    k: int,
+) -> pd.Series:
+    """
+    Select the pose with the best ligand RMSD among top-K, return another metric.
+
+    This ensures consistent pose selection across all metrics: we always pick the
+    pose that minimizes ligand RMSD within the first K poses, then report that
+    pose's value for `return_col`.
+
+    This is more realistic than per-metric oracle selection, since in practice
+    you'd select one pose (by RMSD or score) and be stuck with its performance
+    on all other metrics.
+    """
+    if "ligand_rmsd" not in vina_pose_df.columns:
+        return pd.Series(dtype=float)
+    if return_col not in vina_pose_df.columns:
+        return pd.Series(dtype=float)
+
+    df = vina_pose_df[["pdbid", "pose_index", "ligand_rmsd", return_col]].copy()
+    df["pose_index"] = pd.to_numeric(df["pose_index"], errors="coerce")
+    df["ligand_rmsd"] = pd.to_numeric(df["ligand_rmsd"], errors="coerce")
+    df[return_col] = pd.to_numeric(df[return_col], errors="coerce")
+    df = df.dropna(subset=["pdbid", "pose_index", "ligand_rmsd"])
+    df = df[df["pose_index"] <= int(k)]
+    if df.empty:
+        return pd.Series(dtype=float)
+
+    # For each target, find the row with the minimum ligand RMSD
+    idx_best = df.groupby("pdbid")["ligand_rmsd"].idxmin()
+    best_rows = df.loc[idx_best].set_index("pdbid")
+    return best_rows[return_col]
+
+
 def _ecdf(values: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
     """Return (x, y) for an empirical CDF."""
     x = np.sort(np.asarray(values, dtype=float))
@@ -300,12 +336,6 @@ def _apply_theme_once() -> None:
     _THEME_APPLIED = True
 
 
-def _palette3() -> tuple[str, str, str]:
-    """Return a refined, publication-quality 3-color palette."""
-    # Elegant, distinguishable palette with good contrast
-    return ("#2E86AB", "#E94F37", "#41B3A3")  # Teal blue, Vermilion, Sea green
-
-
 def _palette4() -> tuple[str, str, str, str]:
     """
     Return a colorblind-friendly 4-color palette.
@@ -359,6 +389,57 @@ def _median_iqr_trend(
         q25s.append(float(q25))
         q75s.append(float(q75))
     return centers, np.array(meds, float), np.array(q25s, float), np.array(q75s, float)
+
+
+def _plot_overlap_distribution_boltz_vs_vina_topk(
+    ax: plt.Axes,
+    *,
+    xb: np.ndarray,
+    xv_top1: np.ndarray,
+    xv_top20: np.ndarray,
+    title: str,
+    xmin: float,
+    xmax: float,
+    ymax: float = 2.0,
+) -> None:
+    c_boltz, c_top1, _, c_top20 = _palette4()
+
+    xb = xb[(xb >= xmin) & (xb <= xmax)]
+    xv_top1 = xv_top1[(xv_top1 >= xmin) & (xv_top1 <= xmax)]
+    xv_top20 = xv_top20[(xv_top20 >= xmin) & (xv_top20 <= xmax)]
+
+    labels = {
+        "Boltz": "Boltz",
+        "top1": _vina_topk_best_label(1),
+        "top20": _vina_topk_best_label(20),
+    }
+
+    # Plot broader set first (background), then tighter set, then Boltz on top.
+    plot_order = [
+        (labels["top20"], xv_top20, c_top20, 0.10),
+        (labels["top1"], xv_top1, c_top1, 0.14),
+        (labels["Boltz"], xb, c_boltz, 0.20),
+    ]
+
+    for label, x, color, fill_alpha in plot_order:
+        gx, gy = _kde_xy(x, xmin=xmin, xmax=xmax, bw_adjust=0.75)
+        if not gx.size:
+            continue
+        ax.fill_between(gx, 0.0, gy, color=color, alpha=fill_alpha, lw=0.0, zorder=1)
+        ax.plot(gx, gy, color=color, lw=2.5, label=f"{label} (N={int(x.size)})", zorder=2)
+        if x.size:
+            med = float(np.median(x))
+            if xmin <= med <= xmax:
+                ax.axvline(med, color=color, lw=1.6, ls="--", alpha=0.9, zorder=3)
+
+    ax.set_title(title, fontsize=13, fontweight="medium", pad=10)
+    ax.set_xlabel("Jaccard Overlap", fontsize=11)
+    ax.set_ylabel("Density", fontsize=11)
+    ax.set_xlim(xmin, xmax)
+    ax.set_ylim(0.0, float(ymax))
+    ax.yaxis.set_major_locator(MaxNLocator(5, prune="lower"))
+    ax.xaxis.set_major_locator(MaxNLocator(6))
+    ax.tick_params(axis="both", which="major", labelsize=9)
 
 
 @contextlib.contextmanager
@@ -496,13 +577,27 @@ def plot_rmsd_distributions(
         ("headgroup_rmsd", "Headgroup RMSD"),
     ]
 
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    # Pre-compute sample sizes (use ligand_rmsd as canonical; counts should be same for both metrics)
+    xb_full = _finite(frames.boltz["ligand_rmsd"])
+    n_boltz = len(xb_full)
+    n_vina_top1 = len(_vina_topk_per_target(vina_pose, metric_col="ligand_rmsd", k=1, prefer="min"))
+    n_vina_top5 = len(_vina_topk_per_target(vina_pose, metric_col="ligand_rmsd", k=5, prefer="min"))
+    n_vina_top20 = len(_vina_topk_per_target(vina_pose, metric_col="ligand_rmsd", k=20, prefer="min"))
+
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4))
     for ax, (col, title) in zip(axes, metrics):
         xb = _finite(frames.boltz[col])
-        # RMSD is "lower is better": summarize Vina as best-within-top-K per target.
-        xv_top1 = _vina_topk_per_target(vina_pose, metric_col=col, k=1, prefer="min")
-        xv_top5 = _vina_topk_per_target(vina_pose, metric_col=col, k=5, prefer="min")
-        xv_top20 = _vina_topk_per_target(vina_pose, metric_col=col, k=20, prefer="min")
+        # For ligand_rmsd: select by ligand RMSD (standard behavior)
+        # For other metrics: select pose by ligand RMSD, report that pose's value
+        if col == "ligand_rmsd":
+            xv_top1 = _vina_topk_per_target(vina_pose, metric_col=col, k=1, prefer="min")
+            xv_top5 = _vina_topk_per_target(vina_pose, metric_col=col, k=5, prefer="min")
+            xv_top20 = _vina_topk_per_target(vina_pose, metric_col=col, k=20, prefer="min")
+        else:
+            # Select by ligand RMSD, return value for this metric
+            xv_top1 = _finite(_vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=1))
+            xv_top5 = _finite(_vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=5))
+            xv_top20 = _finite(_vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=20))
 
         xmin = 0.0
         xmax = float(rmsd_cap_a)
@@ -554,13 +649,14 @@ def plot_rmsd_distributions(
         ax.xaxis.set_major_locator(MaxNLocator(6))
         ax.tick_params(axis="both", which="major", labelsize=9)
 
-    legend_handles = [Line2D([0], [0], color=colors["Boltz"], lw=2.5, label="Boltz")]
+    # Build legend with sample sizes
+    legend_handles = [Line2D([0], [0], color=colors["Boltz"], lw=2.5, label=f"Boltz (N={n_boltz})")]
     if 1 in vina_ks:
-        legend_handles.append(Line2D([0], [0], color=colors[labels[1]], lw=2.5, label=labels[1]))
+        legend_handles.append(Line2D([0], [0], color=colors[labels[1]], lw=2.5, label=f"{labels[1]} (N={n_vina_top1})"))
     if 5 in vina_ks:
-        legend_handles.append(Line2D([0], [0], color=colors[labels[5]], lw=2.5, label=labels[5]))
+        legend_handles.append(Line2D([0], [0], color=colors[labels[5]], lw=2.5, label=f"{labels[5]} (N={n_vina_top5})"))
     if 20 in vina_ks:
-        legend_handles.append(Line2D([0], [0], color=colors[labels[20]], lw=2.5, label=labels[20]))
+        legend_handles.append(Line2D([0], [0], color=colors[labels[20]], lw=2.5, label=f"{labels[20]} (N={n_vina_top20})"))
     for ax in axes:
         ax.legend(
             handles=legend_handles,
@@ -668,6 +764,7 @@ def plot_paired_rmsd(
     ]
     cax = fig.add_subplot(gs[:, 2])
     sc = None
+    pdbids = x.index.to_numpy()
     for ax, k in zip(axes, ks):
         yk = paired[k]
         ok = np.isfinite(x.to_numpy()) & np.isfinite(yk.to_numpy())
@@ -688,9 +785,10 @@ def plot_paired_rmsd(
             zorder=3,
         )
         ax.plot([0, lim], [0, lim], color="#555555", lw=1.2, ls="--", zorder=2)
+
         ax.set_xlim(0, lim)
         ax.set_ylim(0, lim)
-        ax.set_title(_vina_topk_best_label(k), fontsize=12, fontweight="medium", pad=8)
+        ax.set_title(f"{_vina_topk_best_label(k)} (N={int(ok.sum())})", fontsize=12, fontweight="medium", pad=8)
         ax.set_aspect("equal", adjustable="box")
         ax.xaxis.set_major_locator(MaxNLocator(6))
         ax.yaxis.set_major_locator(MaxNLocator(6))
@@ -733,27 +831,70 @@ def plot_contacts_vs_rmsd(
 
     The hexbin background is computed over *all* predictions (Vina poses + Boltz) to show
     the overall density of points. The trend line is computed over all points as well.
+
+    Empty-set cases (where both ref and pred sets have size <= 1 for typed interactions)
+    are filtered out to avoid misleading Jaccard=1.0 artifacts.
     """
     _apply_theme_once()
 
     vina_df = allposes_df[allposes_df["method"] == "vina_pose"].copy()
     boltz_df = allposes_df[allposes_df["method"] == "boltz"].copy()
 
-    x_vina = pd.to_numeric(vina_df["ligand_rmsd"], errors="coerce")
-    x_boltz = pd.to_numeric(boltz_df["ligand_rmsd"], errors="coerce")
+    # RMSD columns
+    lig_rmsd_vina = pd.to_numeric(vina_df["ligand_rmsd"], errors="coerce")
+    lig_rmsd_boltz = pd.to_numeric(boltz_df["ligand_rmsd"], errors="coerce")
+    head_rmsd_vina = pd.to_numeric(vina_df.get("headgroup_rmsd"), errors="coerce")
+    head_rmsd_boltz = pd.to_numeric(boltz_df.get("headgroup_rmsd"), errors="coerce")
 
+    # Overlap columns
     y_env_vina = pd.to_numeric(vina_df["head_env_jaccard"], errors="coerce")
     y_env_boltz = pd.to_numeric(boltz_df["head_env_jaccard"], errors="coerce")
     y_typed_vina = pd.to_numeric(vina_df["headgroup_typed_jaccard"], errors="coerce")
     y_typed_boltz = pd.to_numeric(boltz_df["headgroup_typed_jaccard"], errors="coerce")
 
-    fig, axes = plt.subplots(1, 2, figsize=(11, 4.5))
-    for ax, y_vina, y_boltz, title in [
-        (axes[0], y_env_vina, y_env_boltz, "Headgroup Environment Overlap"),
-        (axes[1], y_typed_vina, y_typed_boltz, "Headgroup Typed Interaction Overlap"),
-    ]:
+    # Size columns for filtering trivial cases
+    env_ref_size_vina = pd.to_numeric(vina_df.get("head_env_ref_size", pd.Series(dtype=float)), errors="coerce")
+    env_pred_size_vina = pd.to_numeric(vina_df.get("head_env_pred_size", pd.Series(dtype=float)), errors="coerce")
+    env_ref_size_boltz = pd.to_numeric(boltz_df.get("head_env_ref_size", pd.Series(dtype=float)), errors="coerce")
+    env_pred_size_boltz = pd.to_numeric(boltz_df.get("head_env_pred_size", pd.Series(dtype=float)), errors="coerce")
+
+    typed_ref_size_vina = pd.to_numeric(vina_df.get("headgroup_typed_ref_size", pd.Series(dtype=float)), errors="coerce")
+    typed_pred_size_vina = pd.to_numeric(vina_df.get("headgroup_typed_pred_size", pd.Series(dtype=float)), errors="coerce")
+    typed_ref_size_boltz = pd.to_numeric(boltz_df.get("headgroup_typed_ref_size", pd.Series(dtype=float)), errors="coerce")
+    typed_pred_size_boltz = pd.to_numeric(boltz_df.get("headgroup_typed_pred_size", pd.Series(dtype=float)), errors="coerce")
+
+    # For typed interactions, filter cases where both ref and pred are trivially small (<=1)
+    # This avoids misleading Jaccard=1.0 when e.g. both have exactly 1 matching H-bond by chance
+    min_typed_size = 2
+    typed_nontrivial_vina = (typed_ref_size_vina >= min_typed_size) | (typed_pred_size_vina >= min_typed_size)
+    typed_nontrivial_boltz = (typed_ref_size_boltz >= min_typed_size) | (typed_pred_size_boltz >= min_typed_size)
+
+    # 2x2 grid: rows = overlap type (env, typed), cols = RMSD type (ligand, headgroup)
+    fig, axes = plt.subplots(2, 2, figsize=(11, 9))
+
+    plot_configs = [
+        # (row, col, x_vina, x_boltz, y_vina, y_boltz, extra_mask_vina, extra_mask_boltz, title, xlabel)
+        (0, 0, lig_rmsd_vina, lig_rmsd_boltz, y_env_vina, y_env_boltz, None, None,
+         "Headgroup Environment Overlap", r"Ligand RMSD ($\mathrm{\AA}$)"),
+        (0, 1, head_rmsd_vina, head_rmsd_boltz, y_env_vina, y_env_boltz, None, None,
+         "Headgroup Environment Overlap", r"Headgroup RMSD ($\mathrm{\AA}$)"),
+        (1, 0, lig_rmsd_vina, lig_rmsd_boltz, y_typed_vina, y_typed_boltz, typed_nontrivial_vina, typed_nontrivial_boltz,
+         "Typed Interaction Overlap", r"Ligand RMSD ($\mathrm{\AA}$)"),
+        (1, 1, head_rmsd_vina, head_rmsd_boltz, y_typed_vina, y_typed_boltz, typed_nontrivial_vina, typed_nontrivial_boltz,
+         "Typed Interaction Overlap", r"Headgroup RMSD ($\mathrm{\AA}$)"),
+    ]
+
+    for row, col, x_vina, x_boltz, y_vina, y_boltz, extra_vina, extra_boltz, title, xlabel in plot_configs:
+        ax = axes[row, col]
+
+        # Build masks
         vina_mask = np.isfinite(x_vina.to_numpy(dtype=float)) & np.isfinite(y_vina.to_numpy(dtype=float))
         boltz_mask = np.isfinite(x_boltz.to_numpy(dtype=float)) & np.isfinite(y_boltz.to_numpy(dtype=float))
+
+        if extra_vina is not None:
+            vina_mask = vina_mask & extra_vina.to_numpy(dtype=bool)
+        if extra_boltz is not None:
+            boltz_mask = boltz_mask & extra_boltz.to_numpy(dtype=bool)
 
         xx_vina = x_vina.to_numpy(dtype=float)[vina_mask]
         yy_vina = y_vina.to_numpy(dtype=float)[vina_mask]
@@ -763,11 +904,12 @@ def plot_contacts_vs_rmsd(
         xx_all = np.concatenate([xx_vina, xx_boltz]) if (xx_vina.size or xx_boltz.size) else np.array([])
         yy_all = np.concatenate([yy_vina, yy_boltz]) if (yy_vina.size or yy_boltz.size) else np.array([])
 
+        n_poses = len(xx_all)
+
         if xx_all.size:
             xcap = float(np.percentile(xx_all, 99.0))
             ax.set_xlim(0.0, max(xcap, 1.0))
-            # Use a more vibrant, professional colormap with better contrast
-            cmap = "YlGnBu"  # Yellow-Green-Blue, good for density plots
+            cmap = "YlGnBu"
             if cmocean is not None:
                 cmap = cmocean.cm.dense
             hb = ax.hexbin(
@@ -783,19 +925,19 @@ def plot_contacts_vs_rmsd(
             )
             _add_colorbar(hb, ax=ax, label="Count" + (" (log)" if log_counts else ""))
 
-        # Bin RMSD and plot median + IQR as a robust trend line (all predictions).
+        # Bin RMSD and plot median + IQR as a robust trend line
         if xx_all.size:
             xmax = float(np.percentile(xx_all, 99))
             bins = np.linspace(0.0, max(xmax, 1.0), 10)
             centers, meds, q25s, q75s = _median_iqr_trend(xx_all, yy_all, bins=bins, min_n=10)
             ok = np.isfinite(meds)
 
-            trend_color = "#C41E3A"  # Cardinal red
+            trend_color = "#C41E3A"
             ax.fill_between(centers[ok], q25s[ok], q75s[ok], color=trend_color, alpha=0.15, zorder=4)
             ax.plot(centers[ok], meds[ok], color=trend_color, lw=2.5, zorder=5)
 
-        ax.set_title(title, fontsize=12, fontweight="medium", pad=10)
-        ax.set_xlabel(r"Ligand RMSD ($\mathrm{\AA}$)", fontsize=11)
+        ax.set_title(f"{title} (N={n_poses})", fontsize=12, fontweight="medium", pad=10)
+        ax.set_xlabel(xlabel, fontsize=11)
         ax.set_ylabel("Jaccard Overlap", fontsize=11)
         ax.set_ylim(-0.02, 1.02)
         ax.xaxis.set_major_locator(MaxNLocator(6))
@@ -813,111 +955,81 @@ def plot_contacts_vs_rmsd(
     plt.close(fig)
 
 
-def plot_contact_overlap_distributions(
+def plot_contact_overlap_distributions_side_by_side(
     frames: SummaryFrames,
     allposes_df: pd.DataFrame,
     *,
     out_dir: Path,
-    metric_col: str,
-    title: str,
-    stem: str,
     preview_png: bool = False,
 ) -> None:
     """
-    Plot distributions of contact-overlap scores (Jaccard) for Boltz vs Vina (top-K best).
+    Plot headgroup environment overlap and typed interaction overlap side-by-side.
 
-    This is the “interaction accuracy” companion to RMSD plots. The `metric_col` selects
-    which overlap metric to visualize (e.g., headgroup environment overlap vs typed
-    interaction overlap).
+    This figure combines the two overlap metrics into a single 1×2 panel for easier
+    visual comparison.
     """
     _apply_theme_once()
 
     vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
-    vina_pose["pose_index"] = pd.to_numeric(vina_pose.get("pose_index"), errors="coerce")
-    max_pose_index = int(vina_pose["pose_index"].max()) if vina_pose["pose_index"].notna().any() else 0
-    vina_ks = [k for k in (1, 5, 20) if k <= max_pose_index]
+    if vina_pose.empty:
+        return
 
-    xb = _finite(frames.boltz[metric_col])
-    # Overlap is "higher is better": summarize Vina as best-within-top-K per target.
-    xv_top1 = _vina_topk_per_target(vina_pose, metric_col=metric_col, k=1, prefer="max")
-    xv_top5 = _vina_topk_per_target(vina_pose, metric_col=metric_col, k=5, prefer="max")
-    xv_top20 = _vina_topk_per_target(vina_pose, metric_col=metric_col, k=20, prefer="max")
+    panels = [
+        ("head_env_jaccard", "Headgroup Environment Overlap"),
+        ("headgroup_typed_jaccard", "Headgroup Typed Interaction Overlap"),
+    ]
+
+    # 1x2: Boltz vs Vina top-K best (K=1,20), selecting by ligand RMSD.
+    fig, axes = plt.subplots(1, 2, figsize=(12, 4))
 
     xmin, xmax = 0.0, 1.0
-    xb = xb[(xb >= xmin) & (xb <= xmax)]
-    xv_top1 = xv_top1[(xv_top1 >= xmin) & (xv_top1 <= xmax)]
-    xv_top5 = xv_top5[(xv_top5 >= xmin) & (xv_top5 <= xmax)]
-    xv_top20 = xv_top20[(xv_top20 >= xmin) & (xv_top20 <= xmax)]
-
-    c_boltz, c_top1, c_top5, c_top20 = _palette4()
-    labels = {
-        1: _vina_topk_best_label(1),
-        5: _vina_topk_best_label(5),
-        20: _vina_topk_best_label(20),
-    }
-    colors = {"Boltz": c_boltz, labels[1]: c_top1, labels[5]: c_top5, labels[20]: c_top20}
-
-    # Reserve space on the right for the legend without shrinking the main plot.
-    # (We increase the figure width and use a tight-layout rect below.)
-    fig, ax = plt.subplots(1, 1, figsize=(9, 4))
-    vina_curves: list[tuple[str, np.ndarray, str]] = []
-    if 20 in vina_ks:
-        vina_curves.append((labels[20], xv_top20, colors[labels[20]]))
-    if 5 in vina_ks:
-        vina_curves.append((labels[5], xv_top5, colors[labels[5]]))
-    if 1 in vina_ks:
-        vina_curves.append((labels[1], xv_top1, colors[labels[1]]))
-
-    # Plot broader Vina sets first (background), then tighter sets, then Boltz on top.
-    plot_order = vina_curves + [("Boltz", xb, colors["Boltz"])]
-    for label, x, color in plot_order:
-        gx, gy = _kde_xy(x, xmin=xmin, xmax=xmax, bw_adjust=0.75)
-        if not gx.size:
+    for ax, (metric_col, panel_title) in zip(axes, panels):
+        if metric_col not in vina_pose.columns:
             continue
-        lw = 2.5
-        fill_alpha = {
-            "Boltz": 0.20,
-            labels[1]: 0.16,
-            labels[5]: 0.12,
-            labels[20]: 0.10,
-        }.get(label, 0.06)
-        ax.fill_between(gx, 0.0, gy, color=color, alpha=fill_alpha, lw=0.0)
-        ax.plot(gx, gy, color=color, lw=lw, label=label)
 
-        if x.size:
-            med = float(np.median(x))
-            if xmin <= med <= xmax:
-                ax.axvline(med, color=color, lw=1.6, ls="--", alpha=0.9, zorder=1)
+        boltz_df = frames.boltz
+        vina_df_for_topk = vina_pose
 
-    ax.set_title(title, fontsize=13, fontweight="medium", pad=10)
-    ax.set_xlabel("Jaccard Overlap", fontsize=11)
-    ax.set_ylabel("Density", fontsize=11)
-    ax.set_xlim(xmin, xmax)
-    ax.set_ylim(bottom=0)
-    ax.yaxis.set_major_locator(MaxNLocator(5, prune="lower"))
-    ax.xaxis.set_major_locator(MaxNLocator(6))
-    ax.tick_params(axis="both", which="major", labelsize=9)
+        if metric_col == "headgroup_typed_jaccard":
+            ref_vina = pd.to_numeric(vina_pose.get("headgroup_typed_ref_size"), errors="coerce")
+            pred_vina = pd.to_numeric(vina_pose.get("headgroup_typed_pred_size"), errors="coerce")
+            if not ref_vina.empty and not pred_vina.empty:
+                vina_df_for_topk = vina_df_for_topk[(ref_vina >= 2) | (pred_vina >= 2)]
 
-    ax.legend(
-        frameon=True,
-        facecolor="white",
-        framealpha=0.9,
-        edgecolor="none",
-        loc="upper left",
-        bbox_to_anchor=(1.02, 1.0),
-        borderaxespad=0.0,
-        ncol=1,
-        fontsize=10,
-    )
+            if "headgroup_typed_ref_size" in boltz_df.columns and "headgroup_typed_pred_size" in boltz_df.columns:
+                ref_b = pd.to_numeric(boltz_df["headgroup_typed_ref_size"], errors="coerce")
+                pred_b = pd.to_numeric(boltz_df["headgroup_typed_pred_size"], errors="coerce")
+                boltz_df = boltz_df[(ref_b >= 2) | (pred_b >= 2)]
 
-    _save_figure(
-        fig,
-        out_dir,
-        stem=stem,
-        preview_png=preview_png,
-        tight_layout_rect=(0.0, 0.0, 0.82, 1.0),
-    )
+        xb = _finite(boltz_df[metric_col]) if metric_col in boltz_df.columns else np.array([], dtype=float)
+        vina_df_for_topk = vina_df_for_topk.copy()
+        vina_df_for_topk["pose_index"] = pd.to_numeric(vina_df_for_topk.get("pose_index"), errors="coerce")
+        xv_top1 = _finite(_vina_topk_by_ligand_rmsd(vina_df_for_topk, return_col=metric_col, k=1))
+        xv_top20 = _finite(_vina_topk_by_ligand_rmsd(vina_df_for_topk, return_col=metric_col, k=20))
+        _plot_overlap_distribution_boltz_vs_vina_topk(
+            ax,
+            xb=xb,
+            xv_top1=xv_top1,
+            xv_top20=xv_top20,
+            title=panel_title,
+            xmin=xmin,
+            xmax=xmax,
+        )
+        ax.legend(
+            frameon=True,
+            facecolor="white",
+            framealpha=0.85,
+            edgecolor="none",
+            loc="upper left",
+            bbox_to_anchor=(0.02, 0.98),
+            borderaxespad=0.0,
+            ncol=1,
+            handlelength=2.2,
+            fontsize=8,
+        )
 
+    stem = "fig_contact_overlap_distributions"
+    _save_figure(fig, out_dir, stem=stem, preview_png=preview_png)
     plt.close(fig)
 
 
@@ -958,15 +1070,20 @@ def plot_topk_success_curves(
     ]
 
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    n_targets = None
     for ax, (col, title) in zip(axes, metrics):
         # Boltz baseline: one value per target from the summary.
         boltz = pd.to_numeric(frames.boltz.set_index("pdbid")[col], errors="coerce").dropna()
+        n_targets = len(boltz)
 
         for thr in thresholds:
-            # Vina top-K best per target (min RMSD in top-K).
+            # Vina top-K best per target: select by ligand RMSD, report this metric.
             rates: list[float] = []
             for k in ks:
-                s = _vina_topk_series_per_target(vina_pose, metric_col=col, k=k, prefer="min")
+                if col == "ligand_rmsd":
+                    s = _vina_topk_series_per_target(vina_pose, metric_col=col, k=k, prefer="min")
+                else:
+                    s = _vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=k)
                 # Align to targets present in Boltz summary so denominators match across methods.
                 s = pd.to_numeric(s.reindex(boltz.index), errors="coerce").dropna()
                 rate = float((s <= thr).mean()) if len(s) else float("nan")
@@ -986,7 +1103,7 @@ def plot_topk_success_curves(
             boltz_rate = float((boltz <= thr).mean()) if len(boltz) else float("nan")
             ax.axhline(boltz_rate, color=c_thr[thr], lw=1.2, ls=":", alpha=0.9)
 
-        ax.set_title(title, fontsize=13, fontweight="medium", pad=10)
+        ax.set_title(f"{title} (N={n_targets})", fontsize=13, fontweight="medium", pad=10)
         ax.set_xlabel("K (number of Vina poses)", fontsize=11)
         ax.set_ylabel("Fraction of targets", fontsize=11)
         ax.set_xlim(min(ks), max(ks))
@@ -1018,7 +1135,7 @@ def plot_ecdf_rmsd(
     """
     ECDF view of RMSD distributions (no KDE smoothing choices).
 
-    Shows Boltz vs Vina top-1 best vs Vina top-20 best (best-within-top-K per target).
+    Shows Boltz vs Vina top-1/top-5/top-20 best (best-within-top-K per target).
     """
     _apply_theme_once()
 
@@ -1026,9 +1143,15 @@ def plot_ecdf_rmsd(
     if vina_pose.empty:
         return
     vina_pose["pose_index"] = pd.to_numeric(vina_pose.get("pose_index"), errors="coerce")
+    max_pose_index = int(vina_pose["pose_index"].max()) if vina_pose["pose_index"].notna().any() else 0
 
-    c_boltz, c1, c2, _ = _palette4()
-    colors = {"Boltz": c_boltz, _vina_topk_best_label(1): c1, _vina_topk_best_label(20): c2}
+    c_boltz, c1, c5, c20 = _palette4()
+    colors = {
+        "Boltz": c_boltz,
+        _vina_topk_best_label(1): c1,
+        _vina_topk_best_label(5): c5,
+        _vina_topk_best_label(20): c20,
+    }
 
     metrics = [
         ("ligand_rmsd", "Ligand RMSD"),
@@ -1038,17 +1161,29 @@ def plot_ecdf_rmsd(
     fig, axes = plt.subplots(1, 2, figsize=(10, 4))
     for ax, (col, title) in zip(axes, metrics):
         boltz = _finite(frames.boltz[col])
-        vina1 = _finite(_vina_topk_series_per_target(vina_pose, metric_col=col, k=1, prefer="min"))
-        vina20 = _finite(_vina_topk_series_per_target(vina_pose, metric_col=col, k=20, prefer="min"))
+        # For ligand_rmsd: select by ligand RMSD
+        # For other metrics: select pose by ligand RMSD, report that pose's value
+        if col == "ligand_rmsd":
+            vina1 = _finite(_vina_topk_series_per_target(vina_pose, metric_col=col, k=1, prefer="min"))
+            vina5 = _finite(_vina_topk_series_per_target(vina_pose, metric_col=col, k=5, prefer="min"))
+            vina20 = _finite(_vina_topk_series_per_target(vina_pose, metric_col=col, k=20, prefer="min"))
+        else:
+            vina1 = _finite(_vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=1))
+            vina5 = _finite(_vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=5))
+            vina20 = _finite(_vina_topk_by_ligand_rmsd(vina_pose, return_col=col, k=20))
 
-        for label, values in [
-            ("Boltz", boltz),
-            (_vina_topk_best_label(1), vina1),
-            (_vina_topk_best_label(20), vina20),
-        ]:
+        # Build list of curves to plot (only include if we have enough poses)
+        curves = [("Boltz", boltz, len(boltz))]
+        curves.append((_vina_topk_best_label(1), vina1, len(vina1)))
+        if max_pose_index >= 5:
+            curves.append((_vina_topk_best_label(5), vina5, len(vina5)))
+        if max_pose_index >= 20:
+            curves.append((_vina_topk_best_label(20), vina20, len(vina20)))
+
+        for label, values, n in curves:
             x, y = _ecdf(values)
             if x.size:
-                ax.plot(x, y, color=colors[label], lw=2.5, label=label)
+                ax.plot(x, y, color=colors[label], lw=2.5, label=f"{label} (N={n})")
 
         ax.set_title(title + " (ECDF)", fontsize=13, fontweight="medium", pad=10)
         ax.set_xlabel(r"RMSD ($\mathrm{\AA}$)", fontsize=11)
@@ -1065,7 +1200,7 @@ def plot_ecdf_rmsd(
         facecolor="white",
         framealpha=0.9,
         edgecolor="none",
-        fontsize=10,
+        fontsize=9,
     )
 
     _save_figure(fig, out_dir, stem="fig_rmsd_ecdf", preview_png=preview_png)
@@ -1081,7 +1216,8 @@ def plot_vina_rank_vs_quality(
     """
     Show whether Vina's rank correlates with correctness.
 
-    For each pose_index (rank), plot the median (with IQR band) RMSD across targets.
+    Plots all individual poses as a scatter plot with a linear regression trendline,
+    showing the slope and p-value to quantify the correlation between rank and RMSD.
     """
     _apply_theme_once()
 
@@ -1094,49 +1230,78 @@ def plot_vina_rank_vs_quality(
         return
 
     max_pose_index = int(vina["pose_index"].max()) if vina["pose_index"].notna().any() else 0
-    ranks = np.arange(1, min(20, max_pose_index) + 1, dtype=int)
-    if ranks.size == 0:
+    if max_pose_index <= 0:
         return
 
     c_boltz, c1, _, _ = _palette4()
-    color = c1
+    scatter_color = "#4A90A4"  # Muted teal for scatter points
+    trend_color = "#C41E3A"  # Cardinal red for trendline
 
     metrics = [
         ("ligand_rmsd", "Ligand RMSD"),
         ("headgroup_rmsd", "Headgroup RMSD"),
     ]
 
-    fig, axes = plt.subplots(1, 2, figsize=(10, 4))
+    fig, axes = plt.subplots(1, 2, figsize=(10, 4.5))
     for ax, (col, title) in zip(axes, metrics):
-        medians: list[float] = []
-        q25s: list[float] = []
-        q75s: list[float] = []
-        for r in ranks:
-            vals = pd.to_numeric(vina.loc[vina["pose_index"] == r, col], errors="coerce").dropna().to_numpy(dtype=float)
-            vals = vals[np.isfinite(vals)]
-            if vals.size == 0:
-                medians.append(np.nan)
-                q25s.append(np.nan)
-                q75s.append(np.nan)
-                continue
-            q25, q50, q75 = np.percentile(vals, [25, 50, 75])
-            medians.append(float(q50))
-            q25s.append(float(q25))
-            q75s.append(float(q75))
+        # Extract all (rank, RMSD) pairs
+        x_col = vina["pose_index"].to_numpy(dtype=float)
+        y_col = pd.to_numeric(vina[col], errors="coerce").to_numpy(dtype=float)
 
-        x = ranks.astype(float)
-        med = np.array(medians, dtype=float)
-        q25 = np.array(q25s, dtype=float)
-        q75 = np.array(q75s, dtype=float)
-        ok = np.isfinite(med) & np.isfinite(q25) & np.isfinite(q75)
-        if ok.any():
-            ax.fill_between(x[ok], q25[ok], q75[ok], color=color, alpha=0.18, lw=0.0)
-            ax.plot(x[ok], med[ok], color=color, lw=2.5, marker="o", markersize=3.5)
+        # Filter to finite values and ranks <= 20
+        mask = np.isfinite(x_col) & np.isfinite(y_col) & (x_col <= 20)
+        xx = x_col[mask]
+        yy = y_col[mask]
 
-        ax.set_title(title + " vs Vina rank", fontsize=13, fontweight="medium", pad=10)
+        if len(xx) < 3:
+            continue
+
+        n_poses = len(xx)
+
+        # Scatter plot with transparency for overlapping points
+        ax.scatter(
+            xx, yy,
+            c=scatter_color,
+            s=20,
+            alpha=0.4,
+            edgecolors="none",
+            zorder=2,
+        )
+
+        # Linear regression
+        result = linregress(xx, yy)
+        slope = result.slope
+        intercept = result.intercept
+        pvalue = result.pvalue
+        rvalue = result.rvalue
+
+        # Plot trendline
+        x_line = np.array([xx.min(), xx.max()])
+        y_line = slope * x_line + intercept
+        ax.plot(x_line, y_line, color=trend_color, lw=2.5, ls="-", zorder=3)
+
+        # Format p-value for display
+        if pvalue < 0.001:
+            p_str = "p < 0.001"
+        elif pvalue < 0.01:
+            p_str = f"p = {pvalue:.3f}"
+        else:
+            p_str = f"p = {pvalue:.2f}"
+
+        # Add regression stats as text annotation
+        stats_text = f"slope = {slope:.3f} $\\mathrm{{\\AA}}$/rank\n{p_str}\n$r$ = {rvalue:.2f}"
+        ax.text(
+            0.97, 0.97, stats_text,
+            transform=ax.transAxes,
+            fontsize=9,
+            ha="right", va="top",
+            bbox=dict(boxstyle="round,pad=0.4", facecolor="white", edgecolor="none", alpha=0.9),
+        )
+
+        ax.set_title(f"{title} vs Vina rank (N={n_poses})", fontsize=13, fontweight="medium", pad=10)
         ax.set_xlabel("Vina rank (pose_index)", fontsize=11)
         ax.set_ylabel(r"RMSD ($\mathrm{\AA}$)", fontsize=11)
-        ax.set_xlim(float(ranks.min()), float(ranks.max()))
+        ax.set_xlim(0.5, min(20, max_pose_index) + 0.5)
         ax.set_ylim(bottom=0.0)
         ax.xaxis.set_major_locator(MaxNLocator(6, integer=True))
         ax.yaxis.set_major_locator(MaxNLocator(6))
@@ -1232,15 +1397,9 @@ def main(argv: Iterable[str] | None = None) -> int:
             ),
         ),
         (
-            "Headgroup environment overlap",
-            lambda: plot_contact_overlap_distributions(
-                frames,
-                allposes_df,
-                out_dir=out_dir,
-                metric_col="head_env_jaccard",
-                title="Headgroup Environment Overlap",
-                stem="fig_head_env_overlap_distributions",
-                preview_png=preview_png,
+            "Contact overlap distributions",
+            lambda: plot_contact_overlap_distributions_side_by_side(
+                frames, allposes_df, out_dir=out_dir, preview_png=preview_png
             ),
         ),
     ]
