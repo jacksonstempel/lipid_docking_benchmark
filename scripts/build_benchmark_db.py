@@ -120,7 +120,7 @@ def main() -> None:
         "--gnina-cnn-allposes",
         type=Path,
         default=Path(
-            "output/gnina/analysis/gnina_full_analysis_v5/benchmark_allposes_gnina_cnn_full_v5/benchmark_allposes.csv"
+            "output/gnina/analysis/gnina_full_analysis_v6/benchmark_allposes_gnina_cnn_full_v6/benchmark_allposes.csv"
         ),
         help="GNINA CNN benchmark_allposes.csv.",
     )
@@ -128,7 +128,7 @@ def main() -> None:
         "--gnina-nocnn-allposes",
         type=Path,
         default=Path(
-            "output/gnina/analysis/gnina_full_analysis_v5/benchmark_allposes_gnina_nocnn_full_v5/benchmark_allposes.csv"
+            "output/gnina/analysis/gnina_full_analysis_v6/benchmark_allposes_gnina_nocnn_full_v6/benchmark_allposes.csv"
         ),
         help="GNINA no-CNN benchmark_allposes.csv.",
     )
