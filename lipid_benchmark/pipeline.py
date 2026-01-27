@@ -253,18 +253,29 @@ def _run_entry(
             f"{entry.pdbid}: headgroup atom count mismatch between RMSD ({expected_head_atoms}) and normalization ({len(normalized.ref_headgroup_atoms)})"
         )
     if len(normalized.boltz_headgroup_atoms) != len(normalized.ref_headgroup_atoms):
-        raise RuntimeError(
-            f"{entry.pdbid}: boltz headgroup atom count mismatch (ref={len(normalized.ref_headgroup_atoms)}, boltz={len(normalized.boltz_headgroup_atoms)})"
+        LOGGER.warning(
+            "%s: boltz headgroup atom count mismatch (ref=%d, boltz=%d)",
+            entry.pdbid,
+            len(normalized.ref_headgroup_atoms),
+            len(normalized.boltz_headgroup_atoms),
         )
     for idx, (rmsd_row, atoms) in enumerate(zip(vina_rmsd_rows, normalized.vina_headgroup_atoms), start=1):
         rmsd_head = int(float(rmsd_row.get("headgroup_atoms") or 0))
         if rmsd_head != expected_head_atoms:
-            raise RuntimeError(
-                f"{entry.pdbid}: vina pose {idx} headgroup atom count mismatch vs boltz RMSD (vina={rmsd_head}, boltz={expected_head_atoms})"
+            LOGGER.warning(
+                "%s: vina pose %d headgroup atom count mismatch vs boltz RMSD (vina=%d, boltz=%d)",
+                entry.pdbid,
+                idx,
+                rmsd_head,
+                expected_head_atoms,
             )
         if len(atoms) != len(normalized.ref_headgroup_atoms):
-            raise RuntimeError(
-                f"{entry.pdbid}: vina pose {idx} headgroup atom count mismatch (ref={len(normalized.ref_headgroup_atoms)}, vina={len(atoms)})"
+            LOGGER.warning(
+                "%s: vina pose %d headgroup atom count mismatch (ref=%d, vina=%d)",
+                entry.pdbid,
+                idx,
+                len(normalized.ref_headgroup_atoms),
+                len(atoms),
             )
 
     head_env_cutoff_a = DEFAULT_HEAD_ENV_CUTOFF_A
@@ -455,6 +466,7 @@ def run_benchmark(
     workers: int = 1,
     cache_normalized: bool = True,
     cache_contacts: bool = True,
+    allow_errors: bool = False,
     progress_cb: Callable[[int, int, str], None] | None = None,
     stage_cb: Callable[[str, str], None] | None = None,
     entry_cb: Callable[[List[Dict[str, object]], List[Dict[str, object]], int, int], None] | None = None,
@@ -485,6 +497,19 @@ def run_benchmark(
     summary: List[Dict[str, object]] = []
 
     total = len(entries)
+
+    def _error_summary_rows(pdbid: str, error: BaseException) -> List[Dict[str, object]]:
+        msg = str(error).strip().replace("\n", " ")
+        if len(msg) > 220:
+            msg = msg[:217] + "..."
+        err = f"ERROR: {msg}" if msg else "ERROR"
+        base: Dict[str, object] = {"pdbid": pdbid, "pose_index": 0, "pairing_method": err}
+        # Keep the summary shape roughly consistent: include placeholders for Boltz and Vina top-1.
+        return [
+            {**base, "method": "boltz", "ligand_rmsd": NA, "headgroup_rmsd": NA, "head_env_jaccard": NA},
+            {**base, "method": "vina_top1", "ligand_rmsd": NA, "headgroup_rmsd": NA, "head_env_jaccard": NA},
+        ]
+
     if workers == 1:
         for idx, entry in enumerate(entries, start=1):
             if progress_cb is None:
@@ -492,16 +517,25 @@ def run_benchmark(
                     print(f"\rBenchmark: {idx}/{total}", end="", flush=True)
                 else:
                     LOGGER.info("[%d/%d] %s", idx, total, entry.pdbid)
-            entry_all, entry_summary = _run_entry(
-                entry,
-                vina_max_poses=vina_max_poses,
-                normalized_dir=normalized_dir,
-                cache_normalized=cache_normalized,
-                cache_contacts=cache_contacts,
-                stage_cb=stage_cb,
-            )
-            allposes.extend(entry_all)
-            summary.extend(entry_summary)
+            entry_all: List[Dict[str, object]] = []
+            entry_summary: List[Dict[str, object]] = []
+            try:
+                entry_all, entry_summary = _run_entry(
+                    entry,
+                    vina_max_poses=vina_max_poses,
+                    normalized_dir=normalized_dir,
+                    cache_normalized=cache_normalized,
+                    cache_contacts=cache_contacts,
+                    stage_cb=stage_cb,
+                )
+                allposes.extend(entry_all)
+                summary.extend(entry_summary)
+            except Exception as exc:
+                if not allow_errors:
+                    raise
+                LOGGER.error("%s: failed (%s)", entry.pdbid, exc)
+                entry_summary = _error_summary_rows(entry.pdbid, exc)
+                summary.extend(entry_summary)
             if progress_cb is not None:
                 progress_cb(idx, total, entry.pdbid)
             if entry_cb is not None:
@@ -522,9 +556,18 @@ def run_benchmark(
             completed = 0
             for future in as_completed(futures):
                 entry = futures[future]
-                entry_all, entry_summary = future.result()
-                allposes.extend(entry_all)
-                summary.extend(entry_summary)
+                entry_all = []
+                entry_summary = []
+                try:
+                    entry_all, entry_summary = future.result()
+                    allposes.extend(entry_all)
+                    summary.extend(entry_summary)
+                except Exception as exc:
+                    if not allow_errors:
+                        raise
+                    LOGGER.error("%s: failed (%s)", entry.pdbid, exc)
+                    entry_summary = _error_summary_rows(entry.pdbid, exc)
+                    summary.extend(entry_summary)
                 completed += 1
                 if progress_cb is None:
                     if quiet:

@@ -179,7 +179,7 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
     return mol, rd_to_res
 
 
-def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, int]]:
+def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue, *, ring_only: bool = True) -> List[Tuple[int, int]]:
     """Map atoms using RDKit MCS (element-level) and return index pairs.
 
     Falls back to an empty list if mapping fails.
@@ -194,7 +194,7 @@ def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue) -> List[Tuple[int, i
             [mol_p, mol_r],
             atomCompare=rdFMCS.AtomCompare.CompareElements,
             bondCompare=rdFMCS.BondCompare.CompareAny,
-            ringMatchesRingOnly=True,
+            ringMatchesRingOnly=ring_only,
             completeRingsOnly=False,
             timeout=5,
         )

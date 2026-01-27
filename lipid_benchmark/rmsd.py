@@ -19,10 +19,15 @@ from .structures import apply_rt_to_structure, ensure_protein_backbone, load_str
 LOGGER = logging.getLogger(__name__)
 
 # Common solvents/ions/noise that should not be picked as the "main ligand".
-# Require RDKit mapping to cover ≥90% of ligand heavy atoms to avoid aligning only a
+# Require RDKit mapping to cover most of the ligand to avoid aligning only a
 # small substructure (e.g., just a headgroup) and falsely counting two different
-# ligands as matched.
-MIN_LIGAND_COVERAGE = 0.9
+# ligands as matched. Some docking inputs are truncated relative to the reference
+# (e.g., headgroup-only variants), so allow a partial match so long as nearly all
+# predicted atoms are mapped and the match still spans a substantial fraction of
+# the reference ligand.
+MIN_LIGAND_COVERAGE_FULL = 0.9
+MIN_LIGAND_COVERAGE_REF = 0.6
+MIN_LIGAND_COVERAGE_PRED = 0.9
 
 # Small ligands inflate reporting noise, so the default pipeline drops any with fewer
 # heavy atoms than this constant unless the CLI requests otherwise. Lipid ligands in
@@ -95,14 +100,15 @@ def _protein_alignment_pairs(chain_pairs) -> Tuple[np.ndarray, np.ndarray]:
     return np.stack(coords_pred, axis=0), np.stack(coords_ref, axis=0)
 
 
-def _filter_ligands(ligands: List[SimpleResidue]) -> List[SimpleResidue]:
+def _filter_ligands(ligands: List[SimpleResidue], *, min_heavy_atoms: int | None = None) -> List[SimpleResidue]:
     """Return ligands that look like the main small molecule (heavy, not solvent/ion)."""
     selected: List[SimpleResidue] = []
+    min_heavy = MIN_LIGAND_HEAVY_ATOMS if min_heavy_atoms is None else min_heavy_atoms
     for lig in ligands:
         resname = lig.res_name.upper()
         if resname in _IGNORED_RES_NAMES:
             continue
-        if lig.heavy_atom_count() < MIN_LIGAND_HEAVY_ATOMS:
+        if lig.heavy_atom_count() < min_heavy:
             continue
         selected.append(lig)
     return selected
@@ -142,19 +148,53 @@ def _select_single_ligand(structure, *, include_h: bool = False) -> SimpleResidu
 def _pair_ligand_atoms(pred: SimpleResidue, ref: SimpleResidue) -> Tuple[List[Tuple[int, int]], str]:
     """Return atom index pairs using chemistry-aware mapping only.
 
-    Requires the RDKit mapping to cover at least MIN_LIGAND_COVERAGE of the
-    reference ligand heavy atoms.
+    Accept a partial match if it still covers a substantial fraction of the
+    reference ligand and nearly all of the predicted ligand.
     """
-    rd_pairs = pairs_by_rdkit(pred, ref)
     ref_heavy = ref.heavy_atom_count()
-    matched = len(rd_pairs)
-    coverage = matched / ref_heavy if ref_heavy > 0 else 0.0
-    if matched >= 3 and coverage >= MIN_LIGAND_COVERAGE:
-        return rd_pairs, "RDKit"
+    pred_heavy = pred.heavy_atom_count()
+
+    def _score_pairs(pairs: List[Tuple[int, int]]) -> Tuple[int, float, float]:
+        matched = len(pairs)
+        coverage_ref = matched / ref_heavy if ref_heavy > 0 else 0.0
+        coverage_pred = matched / pred_heavy if pred_heavy > 0 else 0.0
+        return matched, coverage_ref, coverage_pred
+
+    candidates: List[Tuple[float, int, str, List[Tuple[int, int]]]] = []
+    for ring_only in (True, False):
+        rd_pairs = pairs_by_rdkit(pred, ref, ring_only=ring_only)
+        if not rd_pairs:
+            continue
+        matched, coverage_ref, coverage_pred = _score_pairs(rd_pairs)
+        if matched < 3:
+            continue
+        if coverage_ref >= MIN_LIGAND_COVERAGE_REF and coverage_pred >= MIN_LIGAND_COVERAGE_PRED:
+            policy = "RDKit" if coverage_ref >= MIN_LIGAND_COVERAGE_FULL else "RDKit_partial"
+            candidates.append((coverage_ref, matched, policy, rd_pairs))
+        elif coverage_ref >= MIN_LIGAND_COVERAGE_FULL:
+            # Allow a larger predicted ligand if it fully covers the reference substructure.
+            candidates.append((coverage_ref, matched, "RDKit_partial_pred", rd_pairs))
+
+    if candidates:
+        _, _, policy, rd_pairs = max(candidates, key=lambda item: (item[0], item[1]))
+        return rd_pairs, policy
+
+    # Fall back to diagnostic error with the strict-ring run for clarity.
+    rd_pairs = pairs_by_rdkit(pred, ref, ring_only=True)
+    matched, coverage_ref, coverage_pred = _score_pairs(rd_pairs)
     raise AtomPairingError(
-        f"RDKit atom pairing failed coverage check: matched {matched}/{ref_heavy} atoms "
-        f"(coverage={coverage:.2f}, required>={MIN_LIGAND_COVERAGE:.2f})."
+        "RDKit atom pairing failed coverage check: matched "
+        f"{matched}/{ref_heavy} atoms (ref_cov={coverage_ref:.2f}, pred_cov={coverage_pred:.2f}, "
+        f"required_ref>={MIN_LIGAND_COVERAGE_REF:.2f}, required_pred>={MIN_LIGAND_COVERAGE_PRED:.2f})."
     )
+
+
+def _min_pred_heavy_atoms(ref_heavy: int) -> int:
+    """Choose a minimum heavy-atom cutoff for predicted ligands based on reference size."""
+    if ref_heavy <= 0:
+        return MIN_LIGAND_HEAVY_ATOMS
+    scaled = int(ref_heavy * MIN_LIGAND_COVERAGE_REF)
+    return max(3, min(MIN_LIGAND_HEAVY_ATOMS, scaled))
 
 
 def _best_pred_ligand_by_rmsd(
@@ -241,6 +281,8 @@ def measure_ligand_pose_all(
     # Prep that is identical for all poses.
     ref_chains = extract_chain_sequences(ref_structure)
     ref_ligand = _select_single_ligand(ref_structure, include_h=False)
+    ref_heavy = ref_ligand.heavy_atom_count()
+    pred_min_heavy = _min_pred_heavy_atoms(ref_heavy)
 
     entries: List[Dict[str, object]] = []
     for pose_index, pose_structure in enumerate(pose_structures, start=1):
@@ -269,7 +311,7 @@ def measure_ligand_pose_all(
             LOGGER.info("Pose %d: Auto-selecting ligand in prediction.", pose_index)
             pred_ligands = collect_ligands(pose_with_backbone, include_h=False)
 
-            pred_ligand_candidates = _filter_ligands(pred_ligands)
+            pred_ligand_candidates = _filter_ligands(pred_ligands, min_heavy_atoms=pred_min_heavy)
             if len(pred_ligand_candidates) == 0:
                 raise LigandSelectionError("Prediction: no obvious ligand found after filtering.")
             pred_ligand, pairs, policy, rmsd, pair_count = _best_pred_ligand_by_rmsd(

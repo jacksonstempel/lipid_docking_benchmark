@@ -68,8 +68,8 @@ For Vina, the benchmark always keeps per-pose rows (so you can evaluate “top�
 
 By default, outputs are written under `output/`:
 
-- `output/benchmark_allposes.csv`: one row per method/pose with RMSD and contact metrics
-- `output/benchmark_summary.csv`: one row per target for Boltz plus Vina top‑1 (non-oracular)
+- `output/benchmark/benchmark_allposes.csv`: one row per method/pose with RMSD and contact metrics
+- `output/benchmark/benchmark_summary.csv`: one row per target for Boltz plus Vina top‑1 (non-oracular)
 
 Generated caches (normalized PDBs and cached contacts) are stored under `.cache/lipid_benchmark/`.
 
@@ -78,7 +78,7 @@ Generated caches (normalized PDBs and cached contacts) are stored under `.cache/
 `scripts/plot_results.py` generates figures from the CSVs:
 
 ```bash
-python scripts/plot_results.py --summary output/benchmark_summary.csv --allposes output/benchmark_allposes.csv --out-dir plots
+python scripts/plot_results.py --summary output/benchmark/benchmark_summary.csv --allposes output/benchmark/benchmark_allposes.csv --out-dir plots
 ```
 
 ### Metrics at a glance

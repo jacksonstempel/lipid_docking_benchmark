@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -14,6 +15,8 @@ from .structures import is_protein_res, write_pdb_structure
 
 NORMALIZED_LIGAND_RESNAME = "LIG"
 HEADGROUP_SELECTION_VERSION = "functional_refmap_v1"
+MIN_HEADGROUP_COVERAGE = 0.0
+MIN_HEADGROUP_ATOMS = 0
 
 
 @dataclass(frozen=True)
@@ -38,6 +41,15 @@ def _assign_atom_names(ligand: SimpleResidue) -> List[str]:
     return names
 
 
+def _pose_signature(ligand: SimpleResidue) -> str:
+    hasher = hashlib.sha1()
+    for atom in ligand.atoms:
+        elem = (atom.element or "C").strip().upper()
+        x, y, z = atom.xyz
+        hasher.update(f"{elem}:{x:.3f},{y:.3f},{z:.3f};".encode())
+    return hasher.hexdigest()
+
+
 def _map_ref_indices_to_pred(
     pdbid: str,
     *,
@@ -45,15 +57,21 @@ def _map_ref_indices_to_pred(
     pred_ligand: SimpleResidue,
     ref_indices: List[int],
     label: str,
-) -> List[int]:
+    allow_partial: bool = False,
+) -> tuple[List[int], float, str]:
     pairs = pairs_by_rdkit(pred_ligand, ref_ligand)
     if not pairs:
         raise RuntimeError(f"{pdbid}: RDKit atom mapping failed for {label} ligand.")
     ref_to_pred = {ref_idx: pred_idx for pred_idx, ref_idx in pairs}
     missing = [ref_idx for ref_idx in ref_indices if ref_idx not in ref_to_pred]
+    mapped = [ref_to_pred[ref_idx] for ref_idx in ref_indices if ref_idx in ref_to_pred]
+    coverage = len(mapped) / len(ref_indices) if ref_indices else 0.0
     if missing:
+        if allow_partial:
+            policy = "RDKit_headgroup_missing" if not mapped else "RDKit_partial_headgroup"
+            return mapped, coverage, policy
         raise RuntimeError(f"{pdbid}: missing {len(missing)} mapped headgroup atoms for {label} ligand.")
-    return [ref_to_pred[ref_idx] for ref_idx in ref_indices]
+    return mapped, coverage, "RDKit_full"
 
 
 def _clone_residue(residue: gemmi.Residue) -> gemmi.Residue:
@@ -164,7 +182,8 @@ def normalize_entry_from_selected(
 
     boltz_ligand = find_ligand_by_id(boltz_structure, boltz_ligand_id)
     boltz_atom_names = _assign_atom_names(boltz_ligand)
-    boltz_head_indices = _map_ref_indices_to_pred(
+    boltz_pose_hash = _pose_signature(boltz_ligand)
+    boltz_head_indices, boltz_head_cov, boltz_head_policy = _map_ref_indices_to_pred(
         pdbid,
         ref_ligand=ref_ligand,
         pred_ligand=boltz_ligand,
@@ -175,21 +194,28 @@ def normalize_entry_from_selected(
 
     vina_ligands: List[SimpleResidue] = []
     vina_headgroup_atoms: List[List[str]] = []
+    vina_headgroup_cov: List[float] = []
+    vina_headgroup_policy: List[str] = []
     vina_atom_names: List[List[str]] = []
+    vina_pose_hashes: List[str] = []
     for pose_struct, ligand_id in zip(vina_models, vina_ligand_ids):
         vina_ligand = find_ligand_by_id(pose_struct, ligand_id)
         names = _assign_atom_names(vina_ligand)
-        head_indices = _map_ref_indices_to_pred(
+        vina_pose_hashes.append(_pose_signature(vina_ligand))
+        head_indices, head_cov, head_policy = _map_ref_indices_to_pred(
             pdbid,
             ref_ligand=ref_ligand,
             pred_ligand=vina_ligand,
             ref_indices=ref_head_indices,
             label=f"vina pose {ligand_id}",
+            allow_partial=True,
         )
         head_atoms = [names[i] for i in head_indices]
         vina_ligands.append(vina_ligand)
         vina_atom_names.append(names)
         vina_headgroup_atoms.append(head_atoms)
+        vina_headgroup_cov.append(head_cov)
+        vina_headgroup_policy.append(head_policy)
 
     expected = {
         "pdbid": pdbid,
@@ -198,9 +224,15 @@ def normalize_entry_from_selected(
         "ref_ligand_id": f"{ref_ligand.chain_id}:{ref_ligand.res_name}:{ref_ligand.res_id}",
         "boltz_ligand_id": boltz_ligand_id,
         "vina_ligand_ids": vina_ligand_ids,
+        "boltz_pose_hash": boltz_pose_hash,
+        "vina_pose_hashes": vina_pose_hashes,
         "ref_headgroup_atoms": ref_head_atoms,
         "boltz_headgroup_atoms": boltz_head_atoms,
         "vina_headgroup_atoms": vina_headgroup_atoms,
+        "boltz_headgroup_coverage": boltz_head_cov,
+        "boltz_headgroup_policy": boltz_head_policy,
+        "vina_headgroup_coverage": vina_headgroup_cov,
+        "vina_headgroup_policy": vina_headgroup_policy,
     }
 
     have_files = ref_pdb.exists() and boltz_pdb.exists() and all(p.exists() for p in vina_pdbs)
@@ -222,7 +254,15 @@ def normalize_entry_from_selected(
                 vina_headgroup_atoms=vina_headgroup_atoms,
             )
 
-        identity_keys = ("pdbid", "normalized_ligand_resname", "ref_ligand_id", "boltz_ligand_id", "vina_ligand_ids")
+        identity_keys = (
+            "pdbid",
+            "normalized_ligand_resname",
+            "ref_ligand_id",
+            "boltz_ligand_id",
+            "vina_ligand_ids",
+            "boltz_pose_hash",
+            "vina_pose_hashes",
+        )
         if all(audit.get(k) == expected.get(k) for k in identity_keys):
             audit_json.write_text(json.dumps(expected, indent=2))
             return NormalizedFiles(

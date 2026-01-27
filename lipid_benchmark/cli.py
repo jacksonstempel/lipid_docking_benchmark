@@ -7,7 +7,7 @@ Plain-language overview
   the experimental structure file and the prediction files to evaluate.
 - Runs the benchmark pipeline (RMSD + contact metrics) using library code in
   `lipid_benchmark/pipeline.py`.
-- Writes two CSV outputs (per-pose and per-target summary) under `output/` by default.
+- Writes two CSV outputs (per-pose and per-target summary) under `output/benchmark/` by default.
 
 If you are a user, you typically run this via `python scripts/benchmark.py`.
 """
@@ -45,7 +45,7 @@ def build_parser() -> argparse.ArgumentParser:
     """
     p = argparse.ArgumentParser(description="Run the lipid docking benchmark.")
     p.add_argument("--pairs", help="Pairs CSV (default: config.yaml paths.pairs, else structures/benchmark_entries.csv).")
-    p.add_argument("--out-dir", default="output", help="Output directory (default: output).")
+    p.add_argument("--out-dir", default="output/benchmark", help="Output directory (default: output/benchmark).")
     p.add_argument(
         "--cache-dir",
         default="",
@@ -55,6 +55,11 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--workers", type=int, default=1, help="Parallel workers (default: 1).")
     p.add_argument("--no-cache-normalized", action="store_true", help="Disable cached normalized complexes.")
     p.add_argument("--no-cache-contacts", action="store_true", help="Disable cached PandaMap contacts.")
+    p.add_argument(
+        "--allow-errors",
+        action="store_true",
+        help="Continue running even if a target fails; failed targets are written as NA rows in the summary CSV.",
+    )
     p.add_argument("--quiet", action="store_true", default=True, help="Compact progress output.")
     p.add_argument("--no-quiet", action="store_false", dest="quiet", help="Verbose progress output.")
     return p
@@ -113,6 +118,7 @@ def main(argv: list[str] | None = None) -> int:
         workers=int(args.workers),
         cache_normalized=not bool(args.no_cache_normalized),
         cache_contacts=not bool(args.no_cache_contacts),
+        allow_errors=bool(args.allow_errors),
     )
 
     # Help users catch accidental “partial” runs (e.g., plotting top-20 from a file that
