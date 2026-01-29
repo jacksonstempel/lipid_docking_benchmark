@@ -70,8 +70,34 @@ By default, outputs are written under `output/`:
 
 - `output/benchmark/benchmark_allposes.csv`: one row per method/pose with RMSD and contact metrics
 - `output/benchmark/benchmark_summary.csv`: one row per target for Boltz plus Vina top‑1 (non-oracular)
+- `output/benchmark/benchmark_full.sqlite`: unified database used for manuscript tables/figures (Boltz + Vina + GNINA + adversarial mutants)
 
 Generated caches (normalized PDBs and cached contacts) are stored under `.cache/lipid_benchmark/`.
+
+## Unified Database + Paper Figures
+
+To regenerate manuscript-ready tables/figures from a single file:
+
+1) Build/update the unified database:
+
+```bash
+python scripts/build_benchmark_db.py --out output/benchmark/benchmark_full.sqlite
+```
+
+2) Generate paper figures (to `manuscript/figures/`) and analysis CSVs (to `output/analysis/db_pipeline/`):
+
+```bash
+python scripts/analyze_benchmark_db.py \
+  --db output/benchmark/benchmark_full.sqlite \
+  --out-dir output/analysis/db_pipeline \
+  --fig-dir manuscript/figures
+```
+
+3) Verify the manuscript tables match the analysis outputs:
+
+```bash
+python scripts/verify_manuscript_numbers.py
+```
 
 ## Plotting (optional)
 
@@ -86,6 +112,14 @@ python scripts/plot_results.py --summary output/benchmark/benchmark_summary.csv 
 - `ligand_rmsd` / `headgroup_rmsd`: lower is better (Å).
 - `*_jaccard`: higher is better (0–1 overlap of contact sets).
 - “Vina top‑K best”: per target, take the best value among the first K ranked poses (min RMSD / max overlap).
+
+## Adversarial Mutagenesis Experiment
+
+Specification and report:
+
+- `docs/adversarial_experiment_spec.md`
+- `docs/adversarial_experiment_report.md`
+- `docs/resistant_case_analysis_report.md`
 
 ## Tests
 

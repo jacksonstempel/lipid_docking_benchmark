@@ -6,6 +6,7 @@ This script:
   - builds per-target metrics used in GNINA/Vina/Boltz figures
   - writes summary tables (numeric + formatted)
   - computes torsion-bin statistics with Wilson confidence intervals
+  - regenerates adversarial mutagenesis figures (WT vs Gly vs Phe)
   - regenerates manuscript figures from the database
 """
 
@@ -61,6 +62,23 @@ def main() -> None:
         default=Path("manuscript/figures"),
         help="Figure output directory (default: manuscript/figures).",
     )
+    parser.add_argument(
+        "--summary-csv",
+        type=Path,
+        default=Path("output/benchmark/benchmark_summary.csv"),
+        help="Baseline benchmark_summary.csv (used for WT frames; default: output/benchmark/benchmark_summary.csv).",
+    )
+    parser.add_argument(
+        "--adversarial-root",
+        type=Path,
+        default=Path("output/adversarial/bs_mutagenesis_cutoff5A"),
+        help="Root directory for adversarial mutagenesis outputs (default: output/adversarial/bs_mutagenesis_cutoff5A).",
+    )
+    parser.add_argument(
+        "--adversarial-protein-rmsd-cutoffs",
+        default="2.0,1.5",
+        help="Comma-separated protein RMSD cutoffs to render for adversarial plots (default: '2.0,1.5').",
+    )
     parser.add_argument("--k", type=int, default=20, help="Top-K for best-of-K analyses (default: 20).")
     args = parser.parse_args()
 
@@ -95,6 +113,37 @@ def main() -> None:
     plots.plot_per_target_comparison_gnina(gnina_frames, out_dir=args.fig_dir, preview_png=False)
     plots.plot_sampling_vs_ranking_gnina(gnina_frames, out_dir=args.fig_dir, preview_png=False)
     plots.plot_contact_overlap_methods(gnina_frames, out_dir=args.fig_dir, preview_png=False)
+
+    # Adversarial mutagenesis: use WT frames from the baseline summary CSV and mutant summaries
+    # from the adversarial output directory (Boltz-only rows are used for mutants).
+    try:
+        frames = plots._load_frames(Path(args.summary_csv))  # private helper; keeps WT Boltz/Vina aligned
+    except Exception as e:  # pragma: no cover
+        raise RuntimeError(f"Unable to load baseline summary CSV for adversarial plots: {args.summary_csv}") from e
+
+    gly_summary = Path(args.adversarial_root) / "benchmark_gly" / "benchmark_summary.csv"
+    phe_summary = Path(args.adversarial_root) / "benchmark_phe" / "benchmark_summary.csv"
+
+    cutoffs: list[float] = []
+    for raw in str(args.adversarial_protein_rmsd_cutoffs).split(","):
+        raw = raw.strip()
+        if not raw:
+            continue
+        cutoffs.append(float(raw))
+    if not cutoffs:
+        cutoffs = [2.0]
+
+    for cutoff in cutoffs:
+        stem = f"fig_adversarial_mutagenesis_prot{cutoff:g}A"
+        plots.plot_adversarial_mutagenesis(
+            frames,
+            gly_summary_csv=gly_summary,
+            phe_summary_csv=phe_summary,
+            out_dir=args.fig_dir,
+            protein_rmsd_cutoff_a=float(cutoff),
+            stem=stem,
+            preview_png=False,
+        )
 
 
 if __name__ == "__main__":

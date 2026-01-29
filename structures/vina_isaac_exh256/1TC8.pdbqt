@@ -1,0 +1,1380 @@
+MODEL 1
+REMARK VINA RESULT:     0.000      0.000      0.000
+REMARK INTER + INTRA:          -2.069
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.069
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -0.784  29.068   2.226  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -2.117  28.302   2.426  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -0.306  30.350   2.941  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       1.220  30.348   3.221  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       1.668  31.200   4.427  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.519  31.775   5.055  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       0.536  32.669   5.335  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       2.378  30.444   5.414  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       2.211  30.589   6.324  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -3.303  28.570   3.310  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -2.882  28.125   4.751  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -1.998  28.808   5.869  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -0.524  28.645   6.341  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -0.025  27.244   5.898  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       1.036  27.018   4.794  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       0.622  25.994   3.724  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -0.664  25.220   3.986  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:     0.000      3.627      5.270
+REMARK INTER + INTRA:          -2.068
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.068
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       2.619  25.178   0.838  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       2.148  24.278  -0.334  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       2.415  26.699   1.011  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       2.177  27.107   2.489  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       1.360  28.401   2.689  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.971  28.919   1.414  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       1.513  29.547   0.978  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       0.174  28.200   3.465  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -0.548  27.726   3.102  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       1.411  24.593  -1.605  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -0.092  24.772  -1.204  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -0.891  25.966  -0.545  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -1.354  26.297   0.903  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -1.450  24.968   1.697  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -0.495  24.584   2.854  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       0.134  23.188   2.712  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -0.402  22.312   1.587  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:     0.001      7.461      9.449
+REMARK INTER + INTRA:          -2.068
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.068
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -1.768  27.977  -3.109  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -2.269  28.622  -4.426  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.201  26.556  -2.900  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -0.064  26.513  -1.846  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       0.954  25.367  -2.023  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.612  24.604  -3.185  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       0.461  25.038  -4.001  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       2.299  25.831  -2.180  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       2.462  26.723  -2.415  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -2.376  28.086  -5.827  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -0.925  28.116  -6.416  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       0.324  27.165  -6.239  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       1.611  27.210  -5.365  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       1.885  28.689  -4.982  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       1.741  29.246  -3.545  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       0.888  30.522  -3.449  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122       0.469  31.161  -4.768  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:     0.001      6.292      8.139
+REMARK INTER + INTRA:          -2.068
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.068
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -2.150  26.187  -2.753  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -1.572  27.496  -3.351  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.640  24.743  -2.951  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -1.780  23.877  -1.672  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -0.770  22.717  -1.550  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.121  22.743  -2.670  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       0.283  21.959  -3.157  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       0.019  22.784  -0.358  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       0.804  22.276  -0.286  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -0.416  27.749  -4.277  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       0.877  27.629  -3.402  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       1.692  26.390  -2.856  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       1.760  25.650  -1.489  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       1.255  26.619  -0.387  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -0.084  26.439   0.369  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -0.961  27.701   0.403  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -0.334  28.979  -0.138  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:     0.001      2.598      3.500
+REMARK INTER + INTRA:          -2.068
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.068
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -2.682  30.876   0.726  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -3.669  30.205   1.715  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.428  31.715   1.055  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -0.274  31.489   0.043  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       1.144  31.741   0.596  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       1.057  32.105   1.977  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       1.561  32.825   2.304  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       1.997  30.596   0.495  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       2.777  30.546   1.012  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -3.722  30.183   3.217  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -2.636  29.154   3.676  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -1.064  29.245   3.821  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       0.137  28.818   2.929  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -0.337  27.676   1.991  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -0.497  27.831   0.459  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -1.860  27.366  -0.081  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -2.775  26.654   0.907  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:     0.001      5.415      7.623
+REMARK INTER + INTRA:          -2.068
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.068
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       1.909  28.620  -1.689  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       2.224  28.653  -3.207  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       2.236  29.691  -0.626  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       1.121  29.834   0.443  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       1.038  31.216   1.126  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       2.004  32.093   0.540  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       1.745  32.942   0.239  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -0.249  31.828   0.997  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -0.977  31.327   0.685  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       2.926  29.669  -4.063  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       1.898  30.826  -4.297  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       1.417  32.034  -3.398  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       0.181  32.288  -2.488  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -0.967  31.355  -2.958  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -1.495  30.157  -2.132  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -1.570  28.837  -2.918  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -1.312  28.923  -4.417  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:     0.001      5.795      7.538
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       3.241  28.026  -0.782  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       2.301  29.215  -1.109  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       3.017  26.888   0.238  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       3.590  25.529  -0.245  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       2.893  24.280   0.333  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       1.827  24.687   1.196  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       1.222  24.051   1.525  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       2.343  23.428  -0.677  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       2.365  23.692  -1.576  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       0.967  29.620  -0.550  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -0.088  28.667  -1.206  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -0.520  27.176  -0.908  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -0.154  25.794  -1.523  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       0.324  26.023  -2.981  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       1.785  25.816  -3.451  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       2.372  27.008  -4.223  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122       1.403  28.128  -4.584  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:     0.001      3.069      5.330
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -3.039  29.300   4.073  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -4.511  29.203   3.596  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.755  29.027   3.259  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -0.591  29.979   3.641  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       0.445  30.231   2.525  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.052  29.523   1.345  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       0.489  29.689   0.533  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       0.576  31.615   2.186  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       1.428  31.996   2.094  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -5.113  28.812   2.276  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -4.937  30.050   1.334  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -3.707  30.605   0.509  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -2.655  31.727   0.748  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -3.256  32.751   1.748  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -2.743  32.941   3.196  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -3.848  32.900   4.264  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -5.284  32.870   3.756  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:     0.001      5.309      7.066
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       0.432  26.358  -0.511  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       0.536  24.829  -0.277  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -0.010  27.098  -1.792  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -0.815  28.390  -1.491  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -1.805  28.818  -2.595  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -1.767  27.867  -3.663  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122      -0.969  27.419  -3.863  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -3.157  28.907  -2.130  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -3.609  28.133  -1.857  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       0.277  23.658  -1.183  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -1.279  23.496  -1.251  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -2.403  24.259  -2.060  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -3.403  25.401  -1.718  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -3.613  25.418  -0.181  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -3.104  26.550   0.744  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -2.299  26.055   1.958  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -2.275  24.550   2.189  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:     0.001      2.286      2.993
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -2.213  25.716   1.457  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -3.343  25.154   2.357  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.878  27.194   1.162  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -0.353  27.447   1.027  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       0.108  28.879   1.372  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -1.021  29.655   1.784  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122      -0.893  30.480   2.210  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       1.077  28.917   2.425  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       0.945  28.410   3.202  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -4.418  25.834   3.158  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -3.721  26.377   4.450  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -2.826  27.649   4.732  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -1.294  27.898   4.847  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -0.610  26.553   5.210  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       0.306  25.764   4.243  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -0.064  24.279   4.098  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -1.136  23.750   5.044  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:     0.001     10.016     11.797
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -0.598  25.754  -4.462  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       0.574  25.053  -5.195  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.348  27.039  -4.876  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -2.860  26.988  -4.533  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -3.767  27.857  -5.430  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -2.970  28.506  -6.425  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122      -2.682  29.387  -6.292  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -4.781  27.100  -6.101  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -4.591  26.688  -6.921  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       1.319  25.400  -6.453  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       0.388  24.983  -7.640  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -0.875  25.664  -8.304  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -2.413  25.472  -8.165  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -2.677  24.038  -7.637  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -3.226  23.728  -6.223  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -2.407  22.685  -5.445  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -1.303  21.974  -6.218  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:     0.001      5.066      6.389
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -0.844  27.867  -1.502  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -1.066  28.996  -0.463  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       0.234  27.785  -2.604  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       0.746  26.339  -2.837  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       2.181  26.231  -3.392  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       2.734  27.543  -3.536  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       2.228  28.294  -3.297  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       3.054  25.475  -2.546  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       2.721  25.077  -1.766  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -0.355  30.301  -0.235  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       0.979  29.947   0.504  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       2.365  29.378   0.002  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       3.013  27.963  -0.029  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       2.340  27.097   1.068  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       1.409  25.897   0.767  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       0.067  25.939   1.517  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -0.088  27.026   2.573  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:     0.001      4.351      6.644
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -0.258  22.600   2.487  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       1.230  22.186   2.621  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.400  22.387   3.504  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -2.412  23.562   3.525  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -3.159  23.763   4.860  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -2.704  22.794   5.809  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122      -1.941  22.282   5.627  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -2.957  25.062   5.425  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -3.108  25.204   6.339  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       1.976  21.465   3.709  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       2.216  22.517   4.842  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       1.289  23.095   5.984  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       0.441  24.390   6.147  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       1.033  25.477   5.211  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       0.311  26.015   3.951  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       1.174  26.003   2.679  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122       2.645  25.650   2.858  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:     0.001      7.338      9.256
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -1.965  25.050  -3.071  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -1.387  24.049  -4.104  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.223  25.763  -1.920  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -1.734  27.209  -1.682  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -0.704  28.176  -1.061  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.538  27.492  -0.874  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       1.252  27.925  -0.450  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -0.456  29.327  -1.875  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       0.381  29.441  -2.282  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -0.010  23.475  -4.282  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       0.846  24.598  -4.959  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       1.552  25.895  -4.397  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       1.180  27.406  -4.356  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       0.164  27.686  -5.495  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -1.324  28.039  -5.254  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -2.312  27.186  -6.065  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -1.709  26.261  -7.115  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:     0.001      9.562     11.166
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       0.503  26.092  -3.471  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       1.959  25.671  -3.146  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       0.025  27.185  -4.452  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -1.289  26.801  -5.183  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -1.488  27.459  -6.565  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -0.353  28.275  -6.870  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       0.512  27.932  -6.767  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -1.642  26.506  -7.622  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -2.347  26.595  -8.232  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       3.284  26.182  -3.638  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       3.478  25.581  -5.070  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       2.899  25.975  -6.487  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       1.727  25.452  -7.367  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       1.421  23.989  -6.948  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       0.128  23.555  -6.217  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       0.372  22.711  -4.955  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122       1.806  22.263  -4.704  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:     0.001      5.553      7.507
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       0.977  28.362  -1.167  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       0.477  29.276  -0.019  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       0.851  26.827  -1.284  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       0.601  26.356  -2.741  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -0.151  25.015  -2.879  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -0.492  24.527  -1.578  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       0.100  24.649  -0.862  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -1.359  25.126  -3.639  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -2.113  24.626  -3.396  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -0.223  28.969   1.274  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -1.718  28.688   0.904  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -2.455  27.426   0.300  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -2.952  27.034  -1.121  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -3.117  28.333  -1.954  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -2.199  28.718  -3.140  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -1.645  30.150  -3.067  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -2.198  31.037  -1.958  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:     0.001      4.669      6.653
+REMARK INTER + INTRA:          -2.067
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.067
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122       2.542  25.403   1.274  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       2.623  24.854   2.722  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       2.100  24.656  -0.004  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       1.318  25.564  -0.989  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       0.324  24.828  -1.913  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       0.337  23.430  -1.607  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122      -0.433  22.914  -1.741  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -1.021  25.297  -1.775  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -1.720  24.848  -2.208  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       2.337  23.495   3.295  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       0.778  23.380   3.388  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -0.341  23.068   2.316  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -1.321  23.941   1.481  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -1.515  25.293   2.218  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -0.979  26.646   1.691  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -0.171  27.448   2.725  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -0.169  26.910   4.151  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:     0.001      4.911      7.014
+REMARK INTER + INTRA:          -2.066
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.066
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -0.314  26.065   0.409  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122       0.673  26.666  -0.625  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -1.305  26.815   1.326  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122      -2.635  26.041   1.530  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122      -3.863  26.920   1.848  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122      -3.475  28.297   1.847  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122      -3.900  28.904   2.421  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122      -4.925  26.760   0.902  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122      -4.732  26.517   0.018  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122       0.973  28.086  -1.016  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -0.203  28.539  -1.945  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122      -1.678  29.023  -1.651  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122      -3.073  28.334  -1.669  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122      -2.993  27.101  -2.608  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122      -3.066  25.636  -2.112  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -1.932  24.738  -2.634  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -1.022  25.342  -3.696  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:     0.001      2.864      3.742
+REMARK INTER + INTRA:          -2.066
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.066
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -1.189  29.571   0.638  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -2.058  28.405   1.176  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122      -0.168  30.432   1.412  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       1.063  30.822   0.551  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       2.360  31.092   1.342  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       2.119  30.877   2.736  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       2.436  31.494   3.367  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       3.444  30.245   0.947  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       4.186  30.140   1.509  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -2.188  27.802   2.546  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122      -0.930  26.892   2.743  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       0.573  27.206   3.119  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       1.887  27.370   2.302  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       1.723  26.608   0.960  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       1.617  27.305  -0.418  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122       0.421  26.843  -1.266  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -0.371  25.655  -0.735  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL
+MODEL 20
+REMARK VINA RESULT:     0.002      5.007      6.246
+REMARK INTER + INTRA:          -2.066
+REMARK INTER:                   0.000
+REMARK INTRA:                  -2.066
+REMARK UNBOUND:                -2.069
+REMARK  Name = docking/prep/1TC8/ligand.pdb
+REMARK  13 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C21_3
+REMARK    2  A    between atoms: O22_2  and  C21_3
+REMARK    3  A    between atoms: C21_3  and  C22_4
+REMARK    4  A    between atoms: C22_4  and  C23_5
+REMARK    5  A    between atoms: C23_5  and  C24_6
+REMARK    6  A    between atoms: C25_7  and  C26_8
+REMARK    7  A    between atoms: C26_8  and  C27_9
+REMARK    8  A    between atoms: C27_9  and  C28_10
+REMARK    9  A    between atoms: C28_10  and  C29_11
+REMARK   10  A    between atoms: C29_11  and  C30_12
+REMARK   11  A    between atoms: C30_12  and  C31_13
+REMARK   12  A    between atoms: C31_13  and  C32_14
+REMARK   13  A    between atoms: C32_14  and  C33_15
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C24 TDA A 122      -0.202  27.085  -1.578  0.00  0.00    -0.030 C 
+ATOM      2  C25 TDA A 122      -0.979  27.575  -0.330  0.00  0.00    -0.031 C 
+ENDROOT
+BRANCH   1   3
+ATOM      3  C23 TDA A 122       1.311  27.198  -1.863  0.00  0.00    +0.034 C 
+BRANCH   3   4
+ATOM      4  C22 TDA A 122       1.871  25.966  -2.624  0.00  0.00    +0.104 C 
+BRANCH   4   5
+ATOM      5  C21 TDA A 122       3.369  25.677  -2.392  0.00  0.00    +0.426 C 
+BRANCH   5   6
+ATOM      6  O21 TDA A 122       3.900  26.633  -1.469  0.00  0.00    -0.267 OA
+ATOM      7  H   TDA A 122       4.760  26.515  -1.116  0.00  0.00    +0.000 HD
+ENDBRANCH   5   6
+BRANCH   5   8
+ATOM      8  O22 TDA A 122       3.611  24.370  -1.861  0.00  0.00    -0.267 OA
+ATOM      9  H   TDA A 122       4.475  24.007  -1.885  0.00  0.00    +0.000 HD
+ENDBRANCH   5   8
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   1   3
+BRANCH   2  10
+ATOM     10  C26 TDA A 122      -0.529  28.295   0.911  0.00  0.00    +0.026 C 
+BRANCH  10  11
+ATOM     11  C27 TDA A 122       0.154  27.216   1.817  0.00  0.00    +0.005 C 
+BRANCH  11  12
+ATOM     12  C28 TDA A 122       1.585  26.545   1.793  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C29 TDA A 122       2.146  25.198   1.253  0.00  0.00    +0.000 C 
+BRANCH  13  14
+ATOM     14  C30 TDA A 122       0.975  24.183   1.170  0.00  0.00    +0.000 C 
+BRANCH  14  15
+ATOM     15  C31 TDA A 122       0.384  23.656  -0.160  0.00  0.00    +0.000 C 
+BRANCH  15  16
+ATOM     16  C32 TDA A 122      -1.147  23.766  -0.256  0.00  0.00    +0.000 C 
+ATOM     17  C33 TDA A 122      -1.878  24.191   1.011  0.00  0.00    +0.000 C 
+ENDBRANCH  15  16
+ENDBRANCH  14  15
+ENDBRANCH  13  14
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   2  10
+TORSDOF 12
+ENDMDL

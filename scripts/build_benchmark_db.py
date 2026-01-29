@@ -7,8 +7,9 @@ all manuscript tables and figures. It merges:
   - Boltz + Vina benchmark_allposes.csv
   - GNINA CNN benchmark_allposes.csv
   - GNINA no-CNN benchmark_allposes.csv
+  - Adversarial mutagenesis (Boltz-only) benchmark_allposes.csv for Gly/Phe arms
 and normalizes method labels to:
-  boltz, vina_pose, gnina_cnn_pose, gnina_nocnn_pose.
+  boltz, vina_pose, gnina_cnn_pose, gnina_nocnn_pose, boltz_bs5A_gly, boltz_bs5A_phe.
 """
 
 from __future__ import annotations
@@ -48,6 +49,10 @@ def build_db(
     baseline_allposes: Path,
     gnina_cnn_allposes: Path,
     gnina_nocnn_allposes: Path,
+    adversarial_gly_allposes: Path | None,
+    adversarial_phe_allposes: Path | None,
+    adversarial_gly_summary: Path | None,
+    adversarial_phe_summary: Path | None,
     vina_dir: Path,
 ) -> None:
     base = _load_allposes(baseline_allposes, source="baseline", method_map=None)
@@ -66,7 +71,25 @@ def build_db(
     gnina_cnn = gnina_cnn[gnina_cnn["method"] != "boltz"].copy()
     gnina_nocnn = gnina_nocnn[gnina_nocnn["method"] != "boltz"].copy()
 
-    allposes = pd.concat([base, gnina_cnn, gnina_nocnn], ignore_index=True)
+    frames = [base, gnina_cnn, gnina_nocnn]
+
+    # Adversarial mutagenesis: keep only the Boltz prediction rows and normalize method labels.
+    if adversarial_gly_allposes is not None and adversarial_gly_allposes.exists():
+        gly = _load_allposes(
+            adversarial_gly_allposes,
+            source="adversarial_bs5A_gly_v1",
+            method_map={"boltz": "boltz_bs5A_gly"},
+        )
+        frames.append(gly)
+    if adversarial_phe_allposes is not None and adversarial_phe_allposes.exists():
+        phe = _load_allposes(
+            adversarial_phe_allposes,
+            source="adversarial_bs5A_phe_v1",
+            method_map={"boltz": "boltz_bs5A_phe"},
+        )
+        frames.append(phe)
+
+    allposes = pd.concat(frames, ignore_index=True)
 
     pdbids = sorted(allposes["pdbid"].dropna().unique().tolist())
     torsions = []
@@ -92,11 +115,47 @@ def build_db(
             "baseline_allposes": str(baseline_allposes),
             "gnina_cnn_allposes": str(gnina_cnn_allposes),
             "gnina_nocnn_allposes": str(gnina_nocnn_allposes),
+            "adversarial_gly_allposes": str(adversarial_gly_allposes) if adversarial_gly_allposes else "",
+            "adversarial_phe_allposes": str(adversarial_phe_allposes) if adversarial_phe_allposes else "",
+            "adversarial_gly_summary": str(adversarial_gly_summary) if adversarial_gly_summary else "",
+            "adversarial_phe_summary": str(adversarial_phe_summary) if adversarial_phe_summary else "",
             "vina_dir": str(vina_dir),
             "schema_version": "1",
         }
         con.execute("CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT)")
         con.executemany("INSERT INTO meta (key, value) VALUES (?, ?)", list(meta.items()))
+
+        # Minimal adversarial summary table (top-1 only) used for reporting.
+        # This is intentionally a small, schema-stable slice (avoid duplicating the full CSV).
+        def _load_adv_summary(path: Path, *, variant: str, source: str) -> pd.DataFrame:
+            df = pd.read_csv(path)
+            # Clarity: the adversarial experiment is about Boltz. Vina is unchanged and does
+            # not have a meaningful "mutant" counterpart, so we only store Boltz rows here.
+            df = df[df["method"] == "boltz"].copy()
+            keep_cols = [
+                "pdbid",
+                "method",
+                "pose_index",
+                "ligand_rmsd",
+                "headgroup_rmsd",
+                "protein_rmsd",
+                "head_env_f1",
+                "headgroup_typed_f1",
+            ]
+            df = df[keep_cols].copy()
+            df.insert(0, "source", source)
+            df.insert(0, "variant", variant)
+            return df
+
+        adv_frames = []
+        if adversarial_gly_summary is not None and Path(adversarial_gly_summary).exists():
+            adv_frames.append(_load_adv_summary(Path(adversarial_gly_summary), variant="bs5A_gly", source="adversarial_bs5A_gly_v1"))
+        if adversarial_phe_summary is not None and Path(adversarial_phe_summary).exists():
+            adv_frames.append(_load_adv_summary(Path(adversarial_phe_summary), variant="bs5A_phe", source="adversarial_bs5A_phe_v1"))
+        if adv_frames:
+            adv = pd.concat(adv_frames, ignore_index=True)
+            adv.to_sql("adversarial_summary", con, index=False)
+
         con.commit()
     finally:
         con.close()
@@ -120,7 +179,7 @@ def main() -> None:
         "--gnina-cnn-allposes",
         type=Path,
         default=Path(
-            "output/gnina/analysis/gnina_full_analysis_v6/benchmark_allposes_gnina_cnn_full_v6/benchmark_allposes.csv"
+            "output/gnina/analysis/gnina_full_analysis_v7/benchmark_allposes_gnina_cnn_full/benchmark_allposes.csv"
         ),
         help="GNINA CNN benchmark_allposes.csv.",
     )
@@ -128,9 +187,33 @@ def main() -> None:
         "--gnina-nocnn-allposes",
         type=Path,
         default=Path(
-            "output/gnina/analysis/gnina_full_analysis_v6/benchmark_allposes_gnina_nocnn_full_v6/benchmark_allposes.csv"
+            "output/gnina/analysis/gnina_full_analysis_v7/benchmark_allposes_gnina_nocnn_full/benchmark_allposes.csv"
         ),
         help="GNINA no-CNN benchmark_allposes.csv.",
+    )
+    parser.add_argument(
+        "--adversarial-gly-allposes",
+        type=Path,
+        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_gly/benchmark_allposes.csv"),
+        help="Adversarial Gly benchmark_allposes.csv (Boltz+Vina; Boltz rows are ingested).",
+    )
+    parser.add_argument(
+        "--adversarial-phe-allposes",
+        type=Path,
+        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_phe/benchmark_allposes.csv"),
+        help="Adversarial Phe benchmark_allposes.csv (Boltz+Vina; Boltz rows are ingested).",
+    )
+    parser.add_argument(
+        "--adversarial-gly-summary",
+        type=Path,
+        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_gly/benchmark_summary.csv"),
+        help="Adversarial Gly benchmark_summary.csv (top-1 only).",
+    )
+    parser.add_argument(
+        "--adversarial-phe-summary",
+        type=Path,
+        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_phe/benchmark_summary.csv"),
+        help="Adversarial Phe benchmark_summary.csv (top-1 only).",
     )
     parser.add_argument(
         "--vina-dir",
@@ -144,6 +227,10 @@ def main() -> None:
         baseline_allposes=args.baseline_allposes,
         gnina_cnn_allposes=args.gnina_cnn_allposes,
         gnina_nocnn_allposes=args.gnina_nocnn_allposes,
+        adversarial_gly_allposes=args.adversarial_gly_allposes if args.adversarial_gly_allposes.exists() else None,
+        adversarial_phe_allposes=args.adversarial_phe_allposes if args.adversarial_phe_allposes.exists() else None,
+        adversarial_gly_summary=args.adversarial_gly_summary if args.adversarial_gly_summary.exists() else None,
+        adversarial_phe_summary=args.adversarial_phe_summary if args.adversarial_phe_summary.exists() else None,
         vina_dir=args.vina_dir,
     )
 

@@ -9,7 +9,11 @@ Recommended structure:
 - `output/benchmark/`
   - `benchmark_allposes.csv` / `benchmark_allposes.sqlite`
   - `benchmark_summary.csv`
-  - `benchmark_full.sqlite` (merged Boltz + Vina + GNINA all-poses DB)
+  - `benchmark_full.sqlite` (merged Boltz + Vina + GNINA + adversarial-mutant all-poses DB)
+- `output/adversarial/bs_mutagenesis_cutoff5A/`
+  - `benchmark_gly/` and `benchmark_phe/` (mutant benchmark outputs)
+  - `mutation_summary.csv` (mutation bookkeeping)
+  - `resistant_case_analysis_contact5A_prot2A/` (Gly resistant-case analysis; main)
 - `output/gnina/runs/<run_name>/`
   - `flat/<PDBID>.pdbqt` (multi-pose PDBQT per target)
   - `logs/<PDBID>.log`

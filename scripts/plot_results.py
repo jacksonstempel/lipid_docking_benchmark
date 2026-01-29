@@ -296,29 +296,15 @@ def _boxplot(
     ax.tick_params(axis="both", which="major", labelsize=9)
 
 
-def _bootstrap_ci(
-    values: np.ndarray,
-    *,
-    stat_fn=np.median,
-    n_boot: int = 2000,
-    ci: float = 95.0,
-    seed: int = 7,
-) -> tuple[float, float, float]:
-    """Return (stat, lo, hi) via bootstrap resampling."""
-    vals = np.asarray(values, dtype=float)
-    vals = vals[np.isfinite(vals)]
-    if vals.size == 0:
-        return float("nan"), float("nan"), float("nan")
-    rng = np.random.default_rng(seed)
-    stats = np.empty(n_boot, dtype=float)
-    for i in range(n_boot):
-        sample = rng.choice(vals, size=vals.size, replace=True)
-        stats[i] = float(stat_fn(sample))
-    alpha = (100.0 - ci) / 2.0
-    lo = float(np.percentile(stats, alpha))
-    hi = float(np.percentile(stats, 100.0 - alpha))
-    stat = float(stat_fn(vals))
-    return stat, lo, hi
+def _wilson_ci(successes: int, n: int, *, z: float = 1.96) -> tuple[float, float]:
+    """Wilson score interval for a proportion (returns (lo, hi))."""
+    if n <= 0:
+        return (0.0, 0.0)
+    p = float(successes) / float(n)
+    denom = 1.0 + (z * z) / float(n)
+    center = (p + (z * z) / (2.0 * float(n))) / denom
+    spread = (z * np.sqrt(p * (1.0 - p) / float(n) + (z * z) / (4.0 * float(n * n)))) / denom
+    return (max(0.0, center - spread), min(1.0, center + spread))
 
 
 def plot_top1_rmsd_methods(
@@ -523,7 +509,7 @@ def plot_contact_overlap_methods(
     ax.set_ylim(0.0, 1.0)
     ax.yaxis.set_major_locator(MaxNLocator(6))
     ax.tick_params(axis="both", which="major", labelsize=9)
-    ax.legend(frameon=False, fontsize=9, loc="upper right")
+    handles, labels = ax.get_legend_handles_labels()
     _save_figure(fig, out_dir, stem="fig_contact_overlap_methods", preview_png=preview_png)
     plt.close(fig)
 
@@ -1621,6 +1607,220 @@ def plot_contact_overlap_distributions_side_by_side(
     plt.close(fig)
 
 
+def _classify_headgroup_rmsd(rmsd_a: float) -> str:
+    """
+    Classify headgroup RMSD into outcome categories used in the adversarial figure.
+
+    - strong: < 3 A
+    - partial: 3-6 A (inclusive)
+    - physical: > 6 A
+    """
+    x = float(rmsd_a)
+    if x < 3.0:
+        return "strong"
+    if x <= 6.0:
+        return "partial"
+    return "physical"
+
+
+def plot_adversarial_mutagenesis(
+    frames: SummaryFrames,
+    *,
+    gly_summary_csv: Path,
+    phe_summary_csv: Path,
+    out_dir: Path,
+    protein_rmsd_cutoff_a: float = 3.0,
+    stem: str = "fig_adversarial_mutagenesis",
+    preview_png: bool = False,
+) -> None:
+    """
+    Adversarial binding-site mutagenesis figure (WT vs Gly vs Phe).
+
+    Panel A: Outcome-category fractions based on headgroup RMSD.
+      - WT uses all targets.
+      - Mutants are filtered to fold-preserving cases (protein RMSD <= protein_rmsd_cutoff_a).
+
+    Panel B: Retention analysis in the Masters et al. style: among WT-correct targets
+    (WT headgroup RMSD < 3 A), what fraction remain < 3 A after mutation?
+    """
+    _apply_theme_once()
+
+    if not gly_summary_csv.is_file() or not phe_summary_csv.is_file():
+        return
+
+    wt_boltz = frames.boltz[["pdbid", "headgroup_rmsd", "protein_rmsd"]].copy()
+    wt_boltz = wt_boltz.rename(columns={"headgroup_rmsd": "wt_head", "protein_rmsd": "wt_prot"})
+
+    gly = pd.read_csv(gly_summary_csv)
+    phe = pd.read_csv(phe_summary_csv)
+    gly = gly[gly["method"] == "boltz"][["pdbid", "headgroup_rmsd", "protein_rmsd"]].copy()
+    phe = phe[phe["method"] == "boltz"][["pdbid", "headgroup_rmsd", "protein_rmsd"]].copy()
+    gly = gly.rename(columns={"headgroup_rmsd": "gly_head", "protein_rmsd": "gly_prot"})
+    phe = phe.rename(columns={"headgroup_rmsd": "phe_head", "protein_rmsd": "phe_prot"})
+
+    merged = wt_boltz.merge(gly, on="pdbid", how="inner").merge(phe, on="pdbid", how="inner")
+    if merged.empty:
+        return
+
+    merged["gly_fold_pass"] = pd.to_numeric(merged["gly_prot"], errors="coerce") <= float(protein_rmsd_cutoff_a)
+    merged["phe_fold_pass"] = pd.to_numeric(merged["phe_prot"], errors="coerce") <= float(protein_rmsd_cutoff_a)
+
+    # Color mapping consistent with this script's palettes, slightly softened.
+    c_boltz, c_orange, c_green, _ = _palette4()
+    c_strong = c_green
+    c_partial = c_orange
+    c_physical = c_boltz
+
+    def _counts(series: pd.Series) -> dict[str, int]:
+        return {
+            "strong": int((series == "strong").sum()),
+            "partial": int((series == "partial").sum()),
+            "physical": int((series == "physical").sum()),
+        }
+
+    # Panel A: category fractions (WT uses all; mutants use fold-passing subset).
+    wt_cat = pd.to_numeric(merged["wt_head"], errors="coerce").apply(_classify_headgroup_rmsd)
+    gly_cat = pd.to_numeric(merged.loc[merged["gly_fold_pass"], "gly_head"], errors="coerce").apply(_classify_headgroup_rmsd)
+    phe_cat = pd.to_numeric(merged.loc[merged["phe_fold_pass"], "phe_head"], errors="coerce").apply(_classify_headgroup_rmsd)
+
+    wt_counts = _counts(wt_cat)
+    gly_counts = _counts(gly_cat)
+    phe_counts = _counts(phe_cat)
+
+    ns = [len(wt_cat), len(gly_cat), len(phe_cat)]
+    count_list = [wt_counts, gly_counts, phe_counts]
+
+    strong_fracs = [c["strong"] / n for c, n in zip(count_list, ns)]
+    partial_fracs = [c["partial"] / n for c, n in zip(count_list, ns)]
+    physical_fracs = [c["physical"] / n for c, n in zip(count_list, ns)]
+
+    # Keep sizing consistent with the other 1x2 manuscript figures.
+    fig, axes = plt.subplots(1, 2, figsize=(12.0, 4.4), gridspec_kw={"width_ratios": [1.2, 1.0]})
+    ax = axes[0]
+
+    x = np.arange(3)
+    width = 0.6
+    ax.bar(x, strong_fracs, width, color=c_strong, alpha=0.85, label=r"$< 3\,\mathrm{\AA}$ (memorization-like)")
+    ax.bar(x, partial_fracs, width, bottom=strong_fracs, color=c_partial, alpha=0.85, label=r"$3$--$6\,\mathrm{\AA}$ (partial)")
+    ax.bar(
+        x,
+        physical_fracs,
+        width,
+        bottom=np.array(strong_fracs) + np.array(partial_fracs),
+        color=c_physical,
+        alpha=0.85,
+        label=r"$> 6\,\mathrm{\AA}$ (physical response)",
+    )
+
+    ax.set_ylabel("Fraction of targets", fontsize=12)
+    ax.set_xticks(x)
+    ax.set_xticklabels(["Wild-type", "Gly mutant", "Phe mutant"], rotation=20, ha="right")
+    ax.set_ylim(0.0, 1.02)
+    ax.yaxis.set_major_locator(MaxNLocator(6))
+    ax.tick_params(axis="both", which="major", labelsize=10)
+    # Collect legend handles/labels for a shared legend.
+    handles, labels = ax.get_legend_handles_labels()
+
+    # Percentage labels inside bars (only for segments that are visually large enough).
+    for i, (s, p, ph) in enumerate(zip(strong_fracs, partial_fracs, physical_fracs)):
+        if s >= 0.10:
+            ax.text(i, s / 2.0, f"{100*s:.0f}%", ha="center", va="center", fontsize=10, color="white", fontweight="medium")
+        if p >= 0.10:
+            ax.text(i, s + p / 2.0, f"{100*p:.0f}%", ha="center", va="center", fontsize=10, color="white", fontweight="medium")
+        if ph >= 0.10:
+            ax.text(i, s + p + ph / 2.0, f"{100*ph:.0f}%", ha="center", va="center", fontsize=10, color="white", fontweight="medium")
+
+    ax.set_title("A", loc="left", fontweight="medium", fontsize=14, pad=10)
+
+    # Panel B: retention among WT-correct cases.
+    ax = axes[1]
+    thresh_a = 3.0
+    wt_correct = merged[pd.to_numeric(merged["wt_head"], errors="coerce") < thresh_a].copy()
+    if wt_correct.empty:
+        plt.close(fig)
+        return
+
+    # For fold-filtered variants, denominators can differ across arms.
+    gly_wt_correct = wt_correct[wt_correct["gly_fold_pass"]].copy()
+    phe_wt_correct = wt_correct[wt_correct["phe_fold_pass"]].copy()
+    n_gly = int(len(gly_wt_correct))
+    n_phe = int(len(phe_wt_correct))
+    if n_gly == 0 or n_phe == 0:
+        plt.close(fig)
+        return
+
+    gly_retained = int((pd.to_numeric(gly_wt_correct["gly_head"], errors="coerce") < thresh_a).sum())
+    phe_retained = int((pd.to_numeric(phe_wt_correct["phe_head"], errors="coerce") < thresh_a).sum())
+    gly_rate = gly_retained / n_gly
+    phe_rate = phe_retained / n_phe
+    gly_ci = _wilson_ci(gly_retained, n_gly)
+    phe_ci = _wilson_ci(phe_retained, n_phe)
+
+    bx = np.array([0, 1], dtype=float)
+    ax.bar(
+        bx,
+        [gly_rate, phe_rate],
+        width=0.55,
+        color=[c_partial, c_physical],
+        alpha=0.85,
+        edgecolor="#222222",
+        linewidth=0.8,
+    )
+    ax.errorbar(
+        bx,
+        [gly_rate, phe_rate],
+        yerr=[
+            [gly_rate - gly_ci[0], phe_rate - phe_ci[0]],
+            [gly_ci[1] - gly_rate, phe_ci[1] - phe_rate],
+        ],
+        fmt="none",
+        ecolor="#222222",
+        elinewidth=1.2,
+        capsize=4,
+        capthick=1.2,
+    )
+
+    ax.set_ylabel("Retention rate", fontsize=12)
+    ax.set_xticks(bx)
+    ax.set_xticklabels(["Gly mutant", "Phe mutant"])
+    ax.set_ylim(0.0, 1.0)
+    ax.yaxis.set_major_locator(MaxNLocator(6))
+    ax.tick_params(axis="both", which="major", labelsize=10)
+    ax.set_title("B", loc="left", fontweight="medium", fontsize=14, pad=10)
+
+    gly_text_y = min(0.48, gly_ci[1] + 0.03)
+    phe_text_y = min(0.48, phe_ci[1] + 0.03)
+    ax.text(0, gly_text_y, f"{gly_retained}/{n_gly}\n({100*gly_rate:.0f}%)", ha="center", va="bottom", fontsize=10)
+    ax.text(1, phe_text_y, f"{phe_retained}/{n_phe}\n({100*phe_rate:.0f}%)", ha="center", va="bottom", fontsize=10)
+    ax.set_xlabel(
+        f"Among WT-correct targets (WT headgroup RMSD < {thresh_a:.0f} A)\n"
+        f"with mutant protein RMSD <= {protein_rmsd_cutoff_a:g} A",
+        fontsize=10,
+        labelpad=8,
+    )
+
+    # Shared legend above both panels (consistent with publication styling).
+    fig.legend(
+        handles,
+        labels,
+        loc="upper center",
+        bbox_to_anchor=(0.5, 1.02),
+        ncol=3,
+        frameon=False,
+        fontsize=9.5,
+        handlelength=1.4,
+    )
+
+    _save_figure(
+        fig,
+        out_dir,
+        stem=stem,
+        preview_png=preview_png,
+        tight_layout_rect=(0.0, 0.0, 1.0, 0.92),
+    )
+    plt.close(fig)
+
+
 def plot_topk_success_curves(
     frames: SummaryFrames,
     allposes_df: pd.DataFrame,
@@ -1921,6 +2121,27 @@ def main(argv: Iterable[str] | None = None) -> int:
         default="standard",
         help="Which figure set to render: standard, extra (manuscript variants), or all.",
     )
+    p.add_argument(
+        "--adversarial-root",
+        default="output/adversarial/bs_mutagenesis_cutoff5A",
+        help=(
+            "Root directory for adversarial mutagenesis outputs "
+            "(expects benchmark_gly/benchmark_summary.csv and benchmark_phe/benchmark_summary.csv)."
+        ),
+    )
+    p.add_argument(
+        "--no-adversarial",
+        action="store_true",
+        help="Do not render the adversarial mutagenesis figure even if inputs are present.",
+    )
+    p.add_argument(
+        "--adversarial-protein-rmsd-cutoffs",
+        default="3.0",
+        help=(
+            "Comma-separated mutant protein RMSD cutoffs (Angstrom) for fold-preserving filters "
+            "in adversarial mutagenesis plots. Example: '3.0,2.0,1.5'."
+        ),
+    )
     p.add_argument("--log-density", action="store_true", help="Use log10 scaling for hexbin pose densities.")
     p.add_argument("--preview-png", action="store_true", help="Also write PNGs for local preview (then prune).")
     p.add_argument("--keep-preview", action="store_true", help="Keep preview PNGs (no pruning).")
@@ -1942,6 +2163,7 @@ def main(argv: Iterable[str] | None = None) -> int:
 
     summary_csv = _resolve_csv(str(args.summary))
     allposes_csv = _resolve_csv(str(args.allposes))
+    adversarial_root = _resolve_csv(str(args.adversarial_root))
     out_dir_arg = Path(args.out_dir).expanduser()
     out_dir = (_PROJECT_ROOT / out_dir_arg).resolve() if not out_dir_arg.is_absolute() else out_dir_arg.resolve()
 
@@ -1964,6 +2186,14 @@ def main(argv: Iterable[str] | None = None) -> int:
     frames = _load_frames(summary_csv)
     allposes_df = pd.read_csv(allposes_csv)
     preview_png = bool(args.preview_png)
+    adversarial_cutoffs: list[float] = []
+    for raw in str(args.adversarial_protein_rmsd_cutoffs).split(","):
+        raw = raw.strip()
+        if not raw:
+            continue
+        adversarial_cutoffs.append(float(raw))
+    if not adversarial_cutoffs:
+        adversarial_cutoffs = [3.0]
     gnina_frames = None
     if args.gnina_analysis_dir:
         gnina_dir = _resolve_csv(str(args.gnina_analysis_dir))
@@ -2001,6 +2231,30 @@ def main(argv: Iterable[str] | None = None) -> int:
             lambda: plot_contact_overlap_distributions_side_by_side(frames, allposes_df, out_dir=out_dir, preview_png=preview_png),
         ),
     ]
+    if not bool(args.no_adversarial):
+        gly_summary = adversarial_root / "benchmark_gly" / "benchmark_summary.csv"
+        phe_summary = adversarial_root / "benchmark_phe" / "benchmark_summary.csv"
+        if gly_summary.is_file() and phe_summary.is_file():
+            for cutoff in adversarial_cutoffs:
+                stem = (
+                    "fig_adversarial_mutagenesis"
+                    if float(cutoff) == 3.0
+                    else f"fig_adversarial_mutagenesis_prot{cutoff:g}A"
+                )
+                standard_tasks.append(
+                    (
+                        f"Adversarial mutagenesis (protein RMSD <= {cutoff:g} A)",
+                        lambda c=float(cutoff), s=stem: plot_adversarial_mutagenesis(
+                            frames,
+                            gly_summary_csv=gly_summary,
+                            phe_summary_csv=phe_summary,
+                            out_dir=out_dir,
+                            protein_rmsd_cutoff_a=c,
+                            stem=s,
+                            preview_png=preview_png,
+                        ),
+                    )
+                )
 
     if gnina_frames is not None:
         standard_tasks.extend([

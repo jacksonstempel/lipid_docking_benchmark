@@ -1,0 +1,1767 @@
+MODEL 1
+REMARK VINA RESULT:    -7.331      0.000      0.000
+REMARK INTER + INTRA:         -15.908
+REMARK INTER:                 -14.616
+REMARK INTRA:                  -1.292
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.682   3.049  25.813  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.559   2.721  26.780  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.022   2.043  28.074  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       8.063   1.009  27.683  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.008  -0.327  28.379  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.848  -1.469  27.386  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.096  -0.892  26.010  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.795  -1.839  24.872  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.086  -3.135  25.260  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.405  -3.662  24.002  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       5.669  -4.972  24.202  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       4.188  -4.795  24.497  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.790   4.557  25.565  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.578   4.801  24.292  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.514   4.079  23.289  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       9.463   5.945  24.236  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.921   7.236  24.474  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       8.995   8.032  23.182  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.386   8.159  22.782  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186      10.628   7.414  22.210  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       8.059   7.463  22.095  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       8.518   6.307  21.329  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       9.488   6.288  21.321  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:    -7.236      1.173      1.527
+REMARK INTER + INTRA:         -15.719
+REMARK INTER:                 -14.365
+REMARK INTRA:                  -1.354
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.809   3.878  26.018  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.684   2.999  26.534  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.994   2.296  27.859  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.992   1.194  27.552  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.018   0.004  28.476  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.755  -1.294  27.726  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.549  -1.225  26.440  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.789  -1.671  25.212  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.394  -3.145  25.177  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.426  -3.319  24.012  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       5.821  -4.705  23.915  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       4.348  -4.751  24.291  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.443   4.536  24.683  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.475   5.594  24.347  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       9.697   5.393  24.337  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       8.016   6.926  24.013  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.816   7.860  25.063  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.086   8.678  25.224  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.000   7.969  26.104  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       9.498   7.543  26.816  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       9.688   9.090  23.864  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186      10.618   8.168  23.216  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186      11.529   8.418  23.438  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:    -7.136      0.615      1.120
+REMARK INTER + INTRA:         -15.520
+REMARK INTER:                 -13.904
+REMARK INTRA:                  -1.616
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.466   2.752  24.578  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.786   1.954  25.676  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.664   2.697  27.010  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.157   1.749  28.089  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.238   0.769  27.710  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.112  -0.532  28.488  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.634  -1.583  27.509  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       8.454  -1.676  26.243  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.657  -1.819  24.948  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       7.227  -3.278  24.849  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       6.207  -3.549  23.762  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       5.342  -4.769  24.033  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       8.093   4.039  25.124  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.736   4.805  23.983  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.638   4.485  22.792  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       9.513   5.986  24.296  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.830   7.211  24.514  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.249   8.193  23.433  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.699   8.204  23.337  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186      11.040   9.044  23.684  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       8.516   7.935  22.100  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       9.021   6.875  21.230  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       9.861   7.155  20.833  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -7.128      0.924      1.321
+REMARK INTER + INTRA:         -15.504
+REMARK INTER:                 -13.797
+REMARK INTRA:                  -1.707
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.453   2.737  24.850  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.617   1.915  25.814  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.492   2.525  27.214  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.009   1.487  28.195  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.166   0.629  27.749  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.113  -0.753  28.383  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.629  -1.708  27.313  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       8.154  -1.410  25.928  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.628  -2.312  24.813  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       7.022  -3.540  25.484  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       5.713  -3.995  24.871  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       5.841  -4.419  23.416  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.851   4.086  25.457  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.552   4.923  24.404  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       9.777   5.092  24.355  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       7.748   5.566  23.386  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.572   6.972  23.446  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       8.409   7.608  22.350  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       9.805   7.604  22.755  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186      10.360   7.356  21.999  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       8.135   6.976  20.969  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       8.716   5.666  20.686  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       8.020   5.062  20.381  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -7.103      1.179      1.843
+REMARK INTER + INTRA:         -15.455
+REMARK INTER:                 -14.376
+REMARK INTRA:                  -1.079
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.830   3.250  25.816  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.650   2.826  26.671  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.031   2.350  28.076  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       6.898   0.837  28.081  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.151   0.032  28.309  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.172  -1.227  27.454  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.734  -0.819  26.064  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.429  -1.976  25.141  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.755  -3.363  25.690  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.954  -4.366  24.867  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       5.892  -3.736  23.989  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       4.530  -4.401  24.114  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.718   4.718  25.388  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.648   4.970  24.217  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.606   4.342  23.151  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       9.648   6.010  24.340  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       9.371   7.289  23.790  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.977   8.343  24.700  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.155   9.574  23.949  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186      11.096   9.809  23.931  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       9.186   8.498  26.016  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       9.774   7.956  27.239  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186      10.554   8.478  27.483  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 6
+REMARK VINA RESULT:    -7.016      1.343      1.700
+REMARK INTER + INTRA:         -15.280
+REMARK INTER:                 -14.179
+REMARK INTRA:                  -1.101
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.529   3.853  26.212  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.123   2.454  26.641  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.837   2.315  28.139  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.446   0.997  28.585  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.197   0.197  27.551  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.845  -1.281  27.623  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.499  -1.946  26.432  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.571  -2.188  25.264  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.009  -3.603  25.148  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.418  -3.733  23.748  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       5.369  -4.819  23.620  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       4.246  -4.699  24.638  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.619   3.970  24.686  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.738   5.433  24.303  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       6.939   6.023  23.564  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       8.850   6.197  24.829  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       9.498   7.129  23.977  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.871   8.350  24.800  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.333   9.401  23.909  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       9.682   9.534  23.202  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       8.741   8.769  25.763  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       7.362   8.662  25.292  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       7.261   7.854  24.766  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 7
+REMARK VINA RESULT:    -6.947      1.136      1.681
+REMARK INTER + INTRA:         -15.143
+REMARK INTER:                 -14.355
+REMARK INTRA:                  -0.788
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.459   4.004  25.809  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.696   2.693  26.535  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.035   2.609  27.914  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.234   1.189  28.414  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.217   0.324  27.668  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.782  -1.134  27.655  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.530  -1.805  26.522  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.698  -2.051  25.285  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.187  -3.479  25.105  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.277  -3.475  23.881  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       5.529  -4.774  23.665  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       4.134  -4.777  24.269  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       8.104   4.004  24.419  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.368   5.434  23.989  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.044   5.898  22.887  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       9.037   6.322  24.916  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.610   7.673  24.993  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.747   8.563  24.522  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.385   7.949  23.369  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186      10.695   8.641  22.764  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       9.292  10.022  24.307  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186      10.169  10.912  23.551  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186      10.945  10.418  23.244  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 8
+REMARK VINA RESULT:    -6.893      3.874      9.394
+REMARK INTER + INTRA:         -15.036
+REMARK INTER:                 -13.508
+REMARK INTRA:                  -1.528
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.427   1.038  28.449  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.992   2.441  28.063  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.700   2.619  26.570  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.443   3.864  26.120  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.197   3.788  24.817  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.499   5.173  24.263  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.211   5.965  24.339  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.404   7.458  24.471  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       8.725   7.902  25.096  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       8.379   8.842  26.246  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       7.550  10.042  25.833  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       6.241  10.165  26.597  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       8.283   0.392  27.355  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.773  -1.010  27.082  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.000  -1.984  27.812  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       6.968  -1.235  25.900  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.453  -2.125  24.907  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       6.760  -3.465  25.084  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       7.608  -4.337  25.879  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       7.538  -4.091  26.815  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       5.319  -3.307  25.613  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       5.137  -2.980  27.026  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       5.979  -2.676  27.399  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 9
+REMARK VINA RESULT:    -6.890      1.103      1.516
+REMARK INTER + INTRA:         -15.029
+REMARK INTER:                 -13.902
+REMARK INTRA:                  -1.127
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.850   3.759  25.892  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.033   2.485  26.003  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.347   2.294  27.360  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.332   1.560  28.253  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       8.214   0.523  27.606  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.853  -0.883  28.061  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.345  -1.831  26.989  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       8.133  -1.339  25.576  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.204  -2.189  24.712  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.968  -3.494  25.464  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       6.695  -4.683  24.566  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       5.429  -4.538  23.737  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.473   4.563  24.643  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.588   5.539  24.320  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       9.791   5.251  24.349  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       8.234   6.894  23.951  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.277   7.258  22.580  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.312   8.358  22.409  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.475   8.046  23.221  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186      10.869   8.869  23.552  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       9.617   8.640  20.923  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186      10.963   9.087  20.571  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186      11.582   8.345  20.652  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 10
+REMARK VINA RESULT:    -6.850      3.593      9.723
+REMARK INTER + INTRA:         -14.951
+REMARK INTER:                 -13.499
+REMARK INTRA:                  -1.451
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.083   2.386  27.275  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.304   3.711  26.568  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.811   3.577  25.129  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       8.175   4.974  24.658  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.043   5.898  24.289  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.476   7.356  24.322  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.870   7.386  24.912  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       9.263   8.714  25.517  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       8.197   9.392  26.374  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       7.818  10.689  25.668  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       6.406  11.158  25.956  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       5.552  10.114  26.659  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       8.224   1.402  26.999  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.677   0.194  26.262  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       7.811   0.005  25.046  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       6.954  -0.807  27.018  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.630  -2.000  27.386  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       6.783  -3.184  26.950  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       5.378  -2.835  27.073  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       5.109  -2.300  26.310  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       7.198  -3.713  25.561  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       7.430  -2.740  24.496  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       7.404  -3.188  23.636  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 11
+REMARK VINA RESULT:    -6.764      3.556      9.337
+REMARK INTER + INTRA:         -14.779
+REMARK INTER:                 -13.670
+REMARK INTRA:                  -1.109
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       8.413   0.454  27.612  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.332   1.191  28.382  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.501   2.156  27.530  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.460   3.199  26.983  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.263   3.640  25.555  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.041   4.912  25.250  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.119   5.810  24.454  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.553   7.256  24.396  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       8.867   7.581  25.103  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       8.573   8.701  26.095  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       7.592   9.736  25.584  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       6.455  10.024  26.552  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.901  -0.881  27.060  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.852  -0.811  25.545  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       7.814   0.246  24.902  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       7.850  -2.050  24.796  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.397  -3.232  25.438  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       6.100  -3.669  24.778  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       6.329  -4.907  24.054  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       5.591  -5.516  24.213  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       4.926  -3.712  25.778  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       5.026  -2.904  26.992  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       5.203  -1.981  26.752  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 12
+REMARK VINA RESULT:    -6.723      2.575      3.289
+REMARK INTER + INTRA:         -14.696
+REMARK INTER:                 -13.696
+REMARK INTRA:                  -1.000
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       8.001   4.805  24.564  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.657   4.223  25.923  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.341   2.724  25.902  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       6.476   2.439  27.118  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.099   1.650  28.242  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.259   0.796  27.750  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.926  -0.638  28.101  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.003  -1.323  27.120  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.672  -1.901  25.875  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       6.891  -3.152  25.491  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       6.679  -3.313  23.999  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       5.687  -4.409  23.643  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.265   6.126  24.313  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.051   7.263  24.937  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       9.256   7.203  25.214  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       7.360   8.501  25.229  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.000   9.728  24.914  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       7.371  10.827  25.754  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       6.824  11.844  24.873  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       6.992  11.598  23.950  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       6.375  10.266  26.791  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       5.014   9.972  26.348  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       5.030   9.681  25.423  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 13
+REMARK VINA RESULT:    -6.717      3.496      9.346
+REMARK INTER + INTRA:         -14.684
+REMARK INTER:                 -13.434
+REMARK INTRA:                  -1.250
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       8.226   0.649  27.751  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.082   1.477  28.307  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.387   2.365  27.270  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.463   3.234  26.642  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.095   4.001  25.398  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.059   5.151  25.143  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.351   6.121  24.223  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.844   7.546  24.320  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       8.862   7.820  25.424  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       8.352   9.022  26.211  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       7.021   9.558  25.724  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       6.188  10.200  26.822  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.753  -0.740  27.309  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.706  -0.795  25.794  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.164   0.086  25.054  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       7.093  -1.944  25.163  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.177  -3.203  25.814  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       5.768  -3.737  26.009  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       5.055  -2.872  26.934  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       4.526  -2.231  26.435  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       5.048  -3.979  24.666  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       5.809  -3.785  23.433  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       5.209  -3.508  22.723  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 14
+REMARK VINA RESULT:    -6.599      3.975      9.738
+REMARK INTER + INTRA:         -14.450
+REMARK INTER:                 -13.203
+REMARK INTRA:                  -1.247
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.879   2.317  26.640  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.415   3.702  26.226  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.827   4.105  24.806  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       8.004   5.613  24.809  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       6.968   6.434  24.085  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.491   6.944  22.750  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.863   7.527  23.010  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       8.907   9.037  23.024  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       9.564   9.669  24.249  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       8.440  10.202  25.131  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       8.043   9.268  26.255  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       9.222   8.549  26.891  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.018   1.750  27.774  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.433   0.317  28.049  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.223  -0.016  28.941  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       6.874  -0.733  27.224  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       7.440  -2.033  27.303  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       6.536  -2.995  26.551  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       5.170  -2.826  27.017  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       5.051  -3.306  27.851  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       6.716  -2.887  25.022  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       5.837  -3.683  24.168  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       6.288  -4.504  23.916  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 15
+REMARK VINA RESULT:    -6.584      2.550      3.666
+REMARK INTER + INTRA:         -14.419
+REMARK INTER:                 -13.263
+REMARK INTRA:                  -1.157
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       8.302   5.576  23.845  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       8.177   4.194  24.459  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.562   4.183  25.862  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.613   2.748  26.355  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       6.625   2.345  27.419  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       7.271   1.466  28.480  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.220   0.535  27.759  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.731  -0.890  27.645  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       8.432  -1.749  26.595  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       7.703  -1.521  25.275  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       7.174  -2.788  24.636  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       7.406  -4.033  25.477  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.384   6.587  24.540  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.214   7.747  25.055  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       9.229   7.617  25.752  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       7.805   9.094  24.715  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.642  10.175  25.095  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       7.762  11.362  25.448  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       7.811  12.329  24.364  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       8.000  11.870  23.530  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       6.341  10.928  25.862  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       6.204  10.009  26.990  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       7.084   9.729  27.288  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 16
+REMARK VINA RESULT:    -6.538      1.610      2.478
+REMARK INTER + INTRA:         -14.327
+REMARK INTER:                 -13.335
+REMARK INTRA:                  -0.993
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.840   4.575  24.496  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.794   4.191  25.963  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       7.424   2.726  26.218  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       6.953   2.635  27.659  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       6.961   1.273  28.305  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.204   0.481  27.927  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       7.825  -0.983  27.987  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.117  -1.497  26.755  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.917  -2.465  25.887  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       7.028  -2.844  24.708  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       6.679  -4.317  24.648  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       5.732  -4.669  23.511  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.084   5.881  24.230  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.999   6.852  23.509  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       7.730   7.382  22.423  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       9.268   7.188  24.120  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       9.264   7.890  25.353  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       8.328   9.081  25.224  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       7.704   9.336  26.511  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       7.513  10.283  26.596  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       9.027  10.302  24.592  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       9.905  10.075  23.446  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186      10.757   9.729  23.755  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 17
+REMARK VINA RESULT:    -6.516      3.736      9.437
+REMARK INTER + INTRA:         -14.283
+REMARK INTER:                 -13.296
+REMARK INTRA:                  -0.988
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       8.189   0.477  27.890  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       6.973   1.259  28.352  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       6.462   2.285  27.335  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.671   2.776  26.558  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.547   4.100  25.849  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       8.098   4.030  24.432  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.256   5.456  23.952  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.051   6.334  24.196  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.352   7.756  24.666  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       8.848   7.822  24.953  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       9.597   8.823  24.097  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       9.186  10.265  24.352  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       7.860  -1.006  27.684  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       7.945  -1.337  26.206  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.208  -0.509  25.324  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       7.709  -2.704  25.790  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       6.608  -2.974  24.936  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       5.594  -3.800  25.708  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       5.049  -2.996  26.789  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       5.322  -2.072  26.674  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       4.537  -4.437  24.781  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       3.478  -5.237  25.393  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       3.785  -6.150  25.502  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 18
+REMARK VINA RESULT:    -6.469      2.808      4.684
+REMARK INTER + INTRA:         -14.190
+REMARK INTER:                 -13.205
+REMARK INTRA:                  -0.985
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.601   6.937  23.445  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.063   5.783  24.272  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       8.099   4.701  24.590  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.760   4.156  25.966  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.508   2.675  26.082  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       6.360   2.375  27.035  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       6.979   2.015  28.367  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.771   0.727  28.360  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       7.065  -0.479  27.746  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       8.142  -1.514  27.436  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       8.166  -1.964  25.989  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       8.073  -0.817  24.996  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       9.079   7.207  23.748  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       9.183   8.260  24.835  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       9.487   8.015  26.010  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       8.914   9.639  24.488  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       8.205  10.448  25.414  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       7.824  11.746  24.723  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186       6.438  12.058  25.029  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       6.246  12.971  24.761  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       8.825  12.881  25.027  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       8.332  14.256  25.007  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       7.466  14.297  25.443  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
+MODEL 19
+REMARK VINA RESULT:    -6.382      1.834      3.730
+REMARK INTER + INTRA:         -14.018
+REMARK INTER:                 -12.700
+REMARK INTRA:                  -1.318
+REMARK UNBOUND:                -1.292
+REMARK  Name = docking/prep/2WEX/ligand.pdb
+REMARK  19 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O21_1  and  C20_2
+REMARK    2  A    between atoms: C20_2  and  C18_3
+REMARK    3  A    between atoms: C18_3  and  O19_4
+REMARK    4  A    between atoms: C18_3  and  C17_5
+REMARK    5  A    between atoms: C17_5  and  O2_6
+REMARK    6  A    between atoms: O2_6  and  C1_7
+REMARK    7  A    between atoms: C1_7  and  C2_9
+REMARK    8  A    between atoms: C2_9  and  C3_10
+REMARK    9  A    between atoms: C3_10  and  C4_11
+REMARK   10  A    between atoms: C4_11  and  C5_12
+REMARK   11  A    between atoms: C5_12  and  C6_13
+REMARK   12  A    between atoms: C6_13  and  C7_14
+REMARK   13  A    between atoms: C7_14  and  C8_15
+REMARK   14  A    between atoms: C8_15  and  C9_16
+REMARK   15  A    between atoms: C9_16  and  C10_17
+REMARK   16  A    between atoms: C10_17  and  C11_18
+REMARK   17  A    between atoms: C11_18  and  C12_19
+REMARK   18  A    between atoms: C12_19  and  C13_20
+REMARK   19  A    between atoms: C13_20  and  C14_21
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C3  GYM A1186       7.049   6.409  23.662  0.00  0.00    +0.012 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C4  GYM A1186       7.170   5.391  24.781  0.00  0.00    +0.001 C 
+BRANCH   2   3
+ATOM      3  C5  GYM A1186       8.105   4.219  24.465  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C6  GYM A1186       7.765   3.108  25.443  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  GYM A1186       7.363   3.513  26.839  0.00  0.00    +0.000 C 
+BRANCH   5   6
+ATOM      6  C8  GYM A1186       6.996   2.304  27.688  0.00  0.00    +0.000 C 
+BRANCH   6   7
+ATOM      7  C9  GYM A1186       8.056   1.254  27.436  0.00  0.00    +0.000 C 
+BRANCH   7   8
+ATOM      8  C10 GYM A1186       7.812  -0.060  28.142  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C11 GYM A1186       8.151  -1.315  27.341  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C12 GYM A1186       7.439  -1.191  25.999  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C13 GYM A1186       7.717  -2.335  25.045  0.00  0.00    +0.000 C 
+ATOM     12  C14 GYM A1186       6.674  -3.440  25.105  0.00  0.00    +0.000 C 
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  13
+ATOM     13  C2  GYM A1186       8.347   6.518  22.855  0.00  0.00    +0.110 C 
+BRANCH  13  14
+ATOM     14  C1  GYM A1186       8.712   7.980  22.687  0.00  0.00    +0.317 C 
+ATOM     15  O1  GYM A1186       8.841   8.541  21.591  0.00  0.00    -0.250 OA
+BRANCH  14  16
+ATOM     16  O2  GYM A1186       8.924   8.780  23.876  0.00  0.00    -0.446 OA
+BRANCH  16  17
+ATOM     17  C17 GYM A1186       9.855   8.324  24.845  0.00  0.00    +0.244 C 
+BRANCH  17  18
+ATOM     18  C18 GYM A1186       9.159   8.278  26.194  0.00  0.00    +0.228 C 
+BRANCH  18  19
+ATOM     19  O19 GYM A1186      10.154   8.093  27.237  0.00  0.00    -0.216 OA
+ATOM     20  H   GYM A1186       9.731   7.716  28.025  0.00  0.00    +0.000 HD
+ENDBRANCH  18  19
+BRANCH  18  21
+ATOM     21  C20 GYM A1186       8.219   9.484  26.404  0.00  0.00    +0.219 C 
+BRANCH  21  22
+ATOM     22  O21 GYM A1186       6.850   9.384  25.903  0.00  0.00    -0.217 OA
+ATOM     23  H   GYM A1186       6.776   8.617  25.314  0.00  0.00    +0.000 HD
+ENDBRANCH  21  22
+ENDBRANCH  18  21
+ENDBRANCH  17  18
+ENDBRANCH  16  17
+ENDBRANCH  14  16
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+TORSDOF 18
+ENDMDL
