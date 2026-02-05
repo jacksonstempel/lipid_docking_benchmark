@@ -3,7 +3,6 @@ from pathlib import Path
 import tempfile
 
 from lipid_benchmark.contacts import (
-    contacts_to_typed_set,
     extract_contacts,
     filter_headgroup_contacts,
     HEADGROUP_INTERACTION_TYPES,

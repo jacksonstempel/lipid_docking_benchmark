@@ -1,6 +1,5 @@
 import unittest
 
-import numpy as np
 import gemmi
 
 from lipid_benchmark.structures import ensure_protein_backbone, load_structure, split_models

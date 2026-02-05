@@ -460,11 +460,17 @@ def plot_contact_overlap_methods(
         _finite(df["gnina_nocnn_headgroup_typed_jaccard"]),
         _finite(df["vina_headgroup_typed_jaccard"]),
     ]
-    labels = [
+    env_labels = [
         f"Boltz-2 (N={env[0].size})",
         f"GNINA CNN (N={env[1].size})",
         f"GNINA no-CNN (N={env[2].size})",
         f"Vina (N={env[3].size})",
+    ]
+    typed_labels = [
+        f"Boltz-2 (N={typed[0].size})",
+        f"GNINA CNN (N={typed[1].size})",
+        f"GNINA no-CNN (N={typed[2].size})",
+        f"Vina (N={typed[3].size})",
     ]
     colors = [c_boltz, c_gnn, c_gnn_nc, c_vina]
 
@@ -472,7 +478,7 @@ def plot_contact_overlap_methods(
     _boxplot(
         axes[0],
         env,
-        labels,
+        env_labels,
         colors,
         title="Headgroup Environment Overlap (Jaccard)",
         ylabel="Jaccard",
@@ -483,7 +489,7 @@ def plot_contact_overlap_methods(
     thresholds = [0.5, 0.75]
     offsets = [-0.18, 0.18]
     bar_width = 0.32
-    xs = np.arange(1, len(labels) + 1)
+    xs = np.arange(1, len(env_labels) + 1)
     for thr, offset in zip(thresholds, offsets):
         rates = []
         for vals in typed:
@@ -505,11 +511,10 @@ def plot_contact_overlap_methods(
     ax.set_title("Typed Interaction Success Rate", fontsize=12, fontweight="medium", pad=8)
     ax.set_ylabel("Success rate", fontsize=11)
     ax.set_xticks(xs)
-    ax.set_xticklabels(labels, rotation=20, ha="right")
+    ax.set_xticklabels(typed_labels, rotation=20, ha="right")
     ax.set_ylim(0.0, 1.0)
     ax.yaxis.set_major_locator(MaxNLocator(6))
     ax.tick_params(axis="both", which="major", labelsize=9)
-    handles, labels = ax.get_legend_handles_labels()
     _save_figure(fig, out_dir, stem="fig_contact_overlap_methods", preview_png=preview_png)
     plt.close(fig)
 

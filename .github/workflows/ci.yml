@@ -1,0 +1,89 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package and dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[analysis]"
+
+      - name: Run unit and integration tests
+        run: |
+          python -m unittest
+
+  workflow-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package and analysis dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[analysis]"
+
+      - name: Repro workflow dry-run
+        run: |
+          python scripts/reproduce_paper.py --dry-run
+
+  manuscript-verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install package and analysis dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[analysis]"
+
+      - name: Verify manuscript numbers when required artifacts are present
+        run: |
+          if [ -f manuscript/manuscript.tex ] && \
+             [ -f output/analysis/db_pipeline/summary_table_formatted.csv ] && \
+             [ -f output/analysis/db_pipeline/torsion_table_formatted.csv ]; then
+            python scripts/verify_manuscript_numbers.py
+          else
+            echo "Skipping manuscript verification (required artifacts not present in checkout)."
+          fi
+
+  artifact-boundary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Ensure generated output directories are not tracked
+        run: |
+          tracked_output="$(git ls-files 'output/**' 'output/*' | wc -l)"
+          tracked_cache="$(git ls-files '.cache/**' '.cache/*' | wc -l)"
+          if [ "$tracked_output" -ne 0 ] || [ "$tracked_cache" -ne 0 ]; then
+            echo "Tracked generated artifacts detected under output/ or .cache/."
+            git ls-files 'output/**' 'output/*' '.cache/**' '.cache/*'
+            exit 1
+          fi

@@ -1,138 +1,125 @@
 # Lipid Docking Benchmark
 
-Benchmark Boltz vs AutoDock Vina docking predictions on lipid–protein complexes against experimental structures.
+Reproducible benchmark and analysis pipeline for evaluating lipid pose predictions against experimental structures.
 
-## Scientific context
+## What This Repository Produces
 
-Lipids are flexible ligands whose biologically relevant binding modes are often defined by **headgroup chemistry** (specific polar/charged interactions) plus a highly mobile **hydrocarbon tail**. Because of this, “did we place the ligand correctly?” is not always captured by a single number.
+- Per-pose and per-target benchmark metrics (RMSD and contact-overlap)
+- Unified SQLite database for manuscript analysis
+- Manuscript tables and figures
+- Verification checks that manuscript-reported numbers match generated outputs
 
-This benchmark evaluates predictions in two complementary ways:
+## Environment Setup
 
-- **Geometry**: RMSD of the whole ligand and of the headgroup subset.
-- **Interactions**: how well predicted headgroup contacts match the experimental structure.
+Use one of the following:
 
-The goal is to compare methods on a curated set of lipid–protein complexes using consistent, reproducible metrics.
+### Option A: Conda (pinned publication environment)
 
-## Install
+```bash
+conda env create -f environment.yml
+conda activate lipid-docking-benchmark
+```
+
+### Option B: pip (editable install)
 
 ```bash
 pip install -e .
+pip install -e ".[analysis]"
 ```
 
-Optional plotting dependencies:
+## Canonical Reproducibility Workflow
+
+Run from repository root.
+
+### One-command orchestrator
 
 ```bash
-pip install -e ".[plot]"
+python scripts/reproduce_paper.py
 ```
 
-## Run
+### Equivalent staged commands
 
 ```bash
-python scripts/benchmark.py
-```
+python scripts/benchmark.py \
+  --pairs structures/benchmark_entries.csv \
+  --out-dir output/benchmark
 
-Common flags:
+python scripts/build_benchmark_db.py \
+  --out output/benchmark/benchmark_full.sqlite
 
-```bash
-python scripts/benchmark.py --pairs structures/benchmark_entries.csv --out-dir output --workers 4
-```
-
-The TUI wrapper is optional:
-
-```bash
-python scripts/benchmark.py --tui
-```
-
-## Inputs
-
-This repo treats the pairs CSV as the source of truth for file locations.
-
-- `structures/benchmark_entries.csv` lists one row per target: `pdbid,ref,boltz_pred,vina_pred`
-- Paths in the CSV are resolved relative to the repo root (or may be absolute)
-- `config.yaml` is only used to provide the default pairs CSV path (`paths.pairs`)
-
-## How it works (high level)
-
-For each benchmark target (one PDB ID), the pipeline:
-
-1. **Loads the experimental complex** and selects the target lipid ligand.
-2. **Loads predictions** (Boltz and a multi-pose Vina `*.pdbqt`).
-3. **Measures RMSD per pose** by matching ligand atoms between prediction and reference, including a headgroup-only RMSD.
-4. **Normalizes structures** into a consistent complex representation (used for contact analysis and caching).
-5. **Extracts protein–ligand contacts** and summarizes interaction similarity as Jaccard overlaps.
-6. **Writes CSV outputs** for downstream plotting/analysis.
-
-For Vina, the benchmark always keeps per-pose rows (so you can evaluate “top‑K best” performance), and the summary file also includes the non-oracular **top‑1** pose (what a user would typically inspect first).
-
-## Outputs
-
-By default, outputs are written under `output/`:
-
-- `output/benchmark/benchmark_allposes.csv`: one row per method/pose with RMSD and contact metrics
-- `output/benchmark/benchmark_summary.csv`: one row per target for Boltz plus Vina top‑1 (non-oracular)
-- `output/benchmark/benchmark_full.sqlite`: unified database used for manuscript tables/figures (Boltz + Vina + GNINA + adversarial mutants)
-
-Generated caches (normalized PDBs and cached contacts) are stored under `.cache/lipid_benchmark/`.
-
-## Unified Database + Paper Figures
-
-To regenerate manuscript-ready tables/figures from a single file:
-
-1) Build/update the unified database:
-
-```bash
-python scripts/build_benchmark_db.py --out output/benchmark/benchmark_full.sqlite
-```
-
-2) Generate paper figures (to `manuscript/figures/`) and analysis CSVs (to `output/analysis/db_pipeline/`):
-
-```bash
 python scripts/analyze_benchmark_db.py \
   --db output/benchmark/benchmark_full.sqlite \
   --out-dir output/analysis/db_pipeline \
   --fig-dir manuscript/figures
-```
 
-3) Verify the manuscript tables match the analysis outputs:
-
-```bash
 python scripts/verify_manuscript_numbers.py
 ```
 
-## Plotting (optional)
+## Canonical Inputs
 
-`scripts/plot_results.py` generates figures from the CSVs:
+Primary benchmark entry table:
 
-```bash
-python scripts/plot_results.py --summary output/benchmark/benchmark_summary.csv --allposes output/benchmark/benchmark_allposes.csv --out-dir plots
-```
+- `structures/benchmark_entries.csv`
 
-### Metrics at a glance
+Required columns:
 
-- `ligand_rmsd` / `headgroup_rmsd`: lower is better (Å).
-- `*_jaccard`: higher is better (0–1 overlap of contact sets).
-- “Vina top‑K best”: per target, take the best value among the first K ranked poses (min RMSD / max overlap).
+- `pdbid`
+- `ref`
+- `boltz_pred`
+- `vina_pred`
 
-## Adversarial Mutagenesis Experiment
+Paths can be absolute or repository-relative.
 
-Specification and report:
+## Canonical Outputs
 
-- `docs/adversarial_experiment_spec.md`
-- `docs/adversarial_experiment_report.md`
-- `docs/resistant_case_analysis_report.md`
+Benchmark:
 
-## Tests
+- `output/benchmark/benchmark_allposes.csv`
+- `output/benchmark/benchmark_summary.csv`
+
+Database:
+
+- `output/benchmark/benchmark_full.sqlite`
+
+Analysis:
+
+- `output/analysis/db_pipeline/per_target.csv`
+- `output/analysis/db_pipeline/summary_table_numeric.csv`
+- `output/analysis/db_pipeline/summary_table_formatted.csv`
+- `output/analysis/db_pipeline/torsion_table_numeric.csv`
+- `output/analysis/db_pipeline/torsion_table_formatted.csv`
+- `manuscript/figures/*`
+
+## Validation
 
 ```bash
 python -m unittest
+python scripts/verify_manuscript_numbers.py
 ```
 
-## Layout
+## Reproducibility and Organization Docs
 
-- `structures/experimental/`: experimental structures (`*.cif`)
-- `structures/boltz/`: Boltz predictions (`*_model_0.cif`)
-- `structures/vina/`: Vina predictions (`*.pdbqt`)
-- `lipid_benchmark/`: benchmark library code
-- `structures/benchmark_entries.csv`: benchmark entry list (paths to structure files)
-- `scripts/`: CLIs
-- `excluded_entries.txt`: excluded entries with reasons
+- Reproducibility contract: `docs/repro_contract.md`
+- Workflow reference: `docs/workflows.md`
+- Data/artifact policy: `docs/data_policy.md`
+- Script taxonomy: `docs/script_organization.md`
+- HPC operational guidance: `scripts/hpc/README.md`
+
+## Repository Scope
+
+Tracked source-of-truth inputs:
+
+- `structures/experimental/`
+- `structures/boltz/`
+- `structures/vina/`
+- `structures/benchmark_entries.csv`
+
+Generated artifacts (not source inputs):
+
+- `output/`
+- `.cache/`
+
+## Citation and License
+
+- Citation metadata: `CITATION.cff`
+- License: `LICENSE`
