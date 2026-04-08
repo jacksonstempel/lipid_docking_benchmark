@@ -20,15 +20,6 @@ class TestPoseAwareContactCaching(unittest.TestCase):
         out_path.write_text("\n".join(lines) + "\n")
 
     def test_contact_cache_changes_with_pose_geometry(self):
-        try:
-            import rdkit  # type: ignore  # noqa: F401
-        except ImportError:
-            self.skipTest("RDKit is required for the cache behavior test.")
-        try:
-            import pandamap  # type: ignore  # noqa: F401
-        except ImportError:
-            self.skipTest("PandaMap is required for the cache behavior test.")
-
         from lipid_benchmark.pipeline import run_benchmark
         from lipid_benchmark.io import PairEntry
 

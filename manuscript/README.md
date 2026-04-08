@@ -21,7 +21,7 @@ make -C manuscript \
 ```
 
 This builds both the main manuscript and the supporting information.
-It uses `tectonic` if available (recommended), otherwise falls back to `pdflatex`/`bibtex`.
+By default it uses `tectonic`.
 
 To build only one PDF:
 
@@ -48,6 +48,9 @@ make -C manuscript \
   TEX_ENGINE=pdflatex \
   all
 ```
+
+If you use `TEX_ENGINE=pdflatex`, you must have `pdflatex` and `bibtex` on your
+`PATH`.
 
 To clean generated files:
 

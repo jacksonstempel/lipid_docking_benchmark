@@ -8,12 +8,14 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -26,14 +28,16 @@ jobs:
         run: |
           python -m unittest
 
-  workflow-smoke:
+  reproduce-paper:
     runs-on: ubuntu-latest
+    env:
+      MPLCONFIGDIR: /tmp/matplotlib
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -42,41 +46,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -e ".[analysis]"
 
-      - name: Repro workflow dry-run
+      - name: Run public manuscript reproduction workflow
         run: |
-          python scripts/reproduce_paper.py --dry-run
-
-  manuscript-verify:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - name: Install package and analysis dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e ".[analysis]"
-
-      - name: Verify manuscript numbers when required artifacts are present
-        run: |
-          if [ -f manuscript/manuscript.tex ] && \
-             [ -f output/analysis/db_pipeline/summary_table_formatted.csv ] && \
-             [ -f output/analysis/db_pipeline/torsion_table_formatted.csv ]; then
-            python scripts/verify_manuscript_numbers.py
-          else
-            echo "Skipping manuscript verification (required artifacts not present in checkout)."
-          fi
+          python scripts/reproduce_paper.py
 
   artifact-boundary:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Ensure generated output directories are not tracked
         run: |

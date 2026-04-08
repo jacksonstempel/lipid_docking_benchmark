@@ -13,19 +13,11 @@ from lipid_benchmark.ligands import (
     headgroup_indices_functional,
     _build_rdkit_mol_from_residue,
 )
+from lipid_benchmark.public_archive import canonical_repro_archive
 from lipid_benchmark.structures import is_protein_res, load_structure
 
 
 BACKBONE_ATOMS = {"N", "CA", "C", "O"}
-
-
-def _default_adversarial_root() -> Path:
-    root = Path(__file__).resolve().parents[1]
-    archived = root / "data" / "adversarial" / "bs_mutagenesis_cutoff5A"
-    if archived.exists():
-        return archived
-    return root / "output" / "adversarial" / "bs_mutagenesis_cutoff5A"
-
 
 @dataclass(frozen=True)
 class ContactStats:
@@ -169,24 +161,24 @@ def _fisher_by_category(table: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> int:
-    default_adversarial_root = _default_adversarial_root()
+    archive = canonical_repro_archive()
     parser = argparse.ArgumentParser(description="Analyze memorization-resistant cases after Gly mutagenesis")
     parser.add_argument(
         "--wt-summary",
         type=Path,
-        default=Path("output/benchmark/benchmark_summary.csv"),
+        default=archive.baseline_summary,
         help="Wild-type benchmark_summary.csv",
     )
     parser.add_argument(
         "--gly-summary",
         type=Path,
-        default=default_adversarial_root / "benchmark_gly" / "benchmark_summary.csv",
+        default=archive.adversarial_gly_summary,
         help="Gly mutant benchmark_summary.csv",
     )
     parser.add_argument(
         "--mutation-summary",
         type=Path,
-        default=default_adversarial_root / "mutation_summary.csv",
+        default=archive.mutation_summary,
         help="mutation_summary.csv",
     )
     parser.add_argument(
@@ -262,11 +254,9 @@ def main() -> int:
         ligand = find_ligand_by_id(structure, ligand_id)
         mol, _ = _build_rdkit_mol_from_residue(ligand)
         if mol is None or mol.GetNumAtoms() == 0:
-            lipid_classes.append("unknown")
-            headgroup_types.append("unknown")
-        else:
-            lipid_classes.append(classify_lipid_class(mol=mol))
-            headgroup_types.append(classify_headgroup_chemistry(mol=mol))
+            raise RuntimeError(f"{pdbid}: could not construct an RDKit molecule for {ligand_id}")
+        lipid_classes.append(classify_lipid_class(mol=mol))
+        headgroup_types.append(classify_headgroup_chemistry(mol=mol))
 
     df["contact_cutoff_a"] = float(args.contact_cutoff)
     df["headgroup_contacts"] = total_contacts

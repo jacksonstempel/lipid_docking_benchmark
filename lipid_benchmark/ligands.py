@@ -227,7 +227,7 @@ def headgroup_indices_functional(residue: SimpleResidue) -> List[int]:
       1) If any phosphorus atoms exist: take atoms within 2 bonds of P.
       2) Else if any nitrogen with degree >= 3: take atoms within 2 bonds of N.
       3) Else if any carbon with >=2 oxygen neighbors: take that carbon + its O neighbors.
-      4) Else fall back to hetero atoms (O/N/P/S).
+      4) Else use all hetero atoms (O/N/P/S).
     """
     try:
         mol, rd_to_res = _build_rdkit_mol_from_residue(residue)

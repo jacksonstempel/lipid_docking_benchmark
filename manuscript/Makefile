@@ -13,15 +13,7 @@ all: $(DIST_DIR)/$(NAME).pdf $(SI_DIST_DIR)/$(SI_NAME).pdf
 
 FIGURES := $(wildcard figures/*.pdf) $(wildcard figures/*.png)
 
-TEX_ENGINE ?= auto
-
-ifeq ($(TEX_ENGINE),auto)
-  ifneq ($(shell command -v tectonic 2>/dev/null),)
-    TEX_ENGINE := tectonic
-  else
-    TEX_ENGINE := pdflatex
-  endif
-endif
+TEX_ENGINE ?= tectonic
 
 ifeq ($(TEX_ENGINE),tectonic)
 $(DIST_DIR)/$(NAME).pdf: $(TEX) references.bib $(FIGURES)
@@ -35,7 +27,7 @@ $(SI_DIST_DIR)/$(SI_NAME).pdf: $(SI_TEX) references.bib
 	tectonic -X compile --keep-logs --keep-intermediates \
 		--outdir $(SI_BUILD_DIR) $(SI_TEX)
 	cp $(SI_BUILD_DIR)/$(SI_NAME).pdf $(SI_DIST_DIR)/$(SI_NAME).pdf
-else
+else ifeq ($(TEX_ENGINE),pdflatex)
 $(DIST_DIR)/$(NAME).pdf: $(TEX) references.bib $(FIGURES)
 	mkdir -p $(BUILD_DIR) $(DIST_DIR)
 	pdflatex -interaction=nonstopmode -halt-on-error \
@@ -57,6 +49,8 @@ $(SI_DIST_DIR)/$(SI_NAME).pdf: $(SI_TEX) references.bib
 	pdflatex -interaction=nonstopmode -halt-on-error \
 		-output-directory=$(SI_BUILD_DIR) $(SI_TEX)
 	cp $(SI_BUILD_DIR)/$(SI_NAME).pdf $(SI_DIST_DIR)/$(SI_NAME).pdf
+else
+$(error Unsupported TEX_ENGINE '$(TEX_ENGINE)'. Use TEX_ENGINE=tectonic or TEX_ENGINE=pdflatex)
 endif
 
 clean:

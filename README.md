@@ -1,92 +1,92 @@
 # Lipid Docking Benchmark
 
-Minimal public companion repository for the manuscript:
+Public manuscript companion for:
 `Boltz-2 Outperforms AutoDock Vina on Lipid--Protein Complex Prediction`.
 
-This repo contains the benchmark code, the curated 100-target structure set, the
-manuscript/SI source, and the small archived data files needed to regenerate the
-manuscript-ready figures and tables. It does not mirror the full local working
-directory used during drafting.
+This repository is intentionally narrow. It contains:
 
-## Public Scope
+- the benchmark code in `lipid_benchmark/` and `scripts/`
+- the curated 100-target structure set in `structures/`
+- the manuscript and supporting information source in `manuscript/`
+- the final manuscript figure assets in `manuscript/figures/`
+- a tracked benchmark-result archive in `data/reproducibility/`
 
-Included:
+It does not attempt to mirror the full local working directory used during
+drafting, figure exploration, cluster submission, or manuscript review.
 
-- benchmark code in `lipid_benchmark/` and `scripts/`
-- curated benchmark inputs in `structures/`
-- manuscript and SI source in `manuscript/`
-- manuscript figure assets in `manuscript/figures/`
-- small archived mutant-summary CSVs in `data/adversarial/`
+## What Reproducibility Means Here
 
-Intentionally omitted:
+This repo supports two distinct workflows.
 
-- transient local drafting files
-- figure-preparation scratch work
-- large generated outputs under `output/`
-- cluster run directories and other local-only remnants
+### 1. Exact manuscript-analysis reproduction
 
-## Reproducibility Levels
+The tracked archive in `data/reproducibility/` contains the benchmark-result CSVs
+used to regenerate the manuscript analysis bundle:
 
-### 1. Core benchmark regeneration
+- baseline Boltz + Vina all-pose and summary tables
+- GNINA CNN and no-CNN all-pose tables
+- adversarial mutagenesis all-pose and summary tables
+- robustness reruns for Vina exhaustiveness 256 and higher-sampling Boltz-2
 
-This reproduces the main benchmark outputs from the tracked structures.
-
-```bash
-python scripts/benchmark.py \
-  --pairs structures/benchmark_entries.csv \
-  --out-dir output/benchmark
-
-python scripts/build_benchmark_db.py \
-  --out output/benchmark/benchmark_full.sqlite
-```
-
-### 2. Manuscript tables and figures
-
-This regenerates the manuscript-ready analysis tables and figures from the unified
-database. The analysis script automatically uses the tracked adversarial mutant
-summary archive in `data/adversarial/bs_mutagenesis_cutoff5A/` when present.
-
-```bash
-python scripts/analyze_benchmark_db.py \
-  --db output/benchmark/benchmark_full.sqlite \
-  --out-dir output/analysis/db_pipeline \
-  --fig-dir manuscript/figures
-
-python scripts/verify_manuscript_numbers.py
-```
-
-### 3. One-command publication workflow
+Run:
 
 ```bash
 python scripts/reproduce_paper.py
 ```
 
-This runs:
+This rebuilds:
 
-1. benchmark generation
-2. database build
-3. manuscript analysis/figure generation
-4. manuscript number verification
+1. `output/benchmark/benchmark_full.sqlite`
+2. `output/analysis/db_pipeline/*.csv`
+3. the manuscript figure files in `manuscript/figures/`
+4. the manuscript number audit in `scripts/verify_manuscript_numbers.py`
+
+This is the canonical public reproduction path for the paper.
+
+### 2. Core baseline rerun from tracked structures
+
+The repo also contains the curated experimental structures, Boltz predictions,
+and Vina poses needed to rerun the main baseline benchmark directly:
+
+```bash
+python scripts/benchmark.py \
+  --pairs structures/benchmark_entries.csv \
+  --out-dir output/benchmark
+```
+
+That command reproduces the baseline Boltz + Vina benchmark outputs from the
+tracked structure inputs. It does not regenerate the GNINA or adversarial
+results, which are provided as archived benchmark-result tables under
+`data/reproducibility/`.
 
 ## Environment Setup
 
-### Option A: Conda
+### Conda
 
 ```bash
 conda env create -f environment.yml
 conda activate lipid-docking-benchmark
 ```
 
-### Option B: pip
+### pip
 
 ```bash
-pip install -e .
 pip install -e ".[analysis]"
 ```
 
-## Build the Manuscript
+## Validation
 
-From the repo root:
+```bash
+python -m unittest
+python scripts/reproduce_paper.py
+```
+
+The CI workflow runs both the test suite and the full public manuscript-analysis
+reproduction path.
+
+## Build the Manuscript PDFs
+
+From the repository root:
 
 ```bash
 make -C manuscript all
@@ -99,44 +99,17 @@ Outputs:
 
 More detail: [manuscript/README.md](manuscript/README.md)
 
-## Canonical Inputs
+## Repository Layout
 
-- benchmark entry table: `structures/benchmark_entries.csv`
-- experimental structures: `structures/experimental/*.cif`
-- Boltz predictions: `structures/boltz/*_model_0.cif`
-- Vina poses: `structures/vina/*.pdbqt`
+- `data/reproducibility/`: tracked manuscript-analysis archive
+- `docs/repro_contract.md`: precise public reproduction contract
+- `docs/data_layout.md`: local output layout conventions
+- `lipid_benchmark/`: reusable benchmark library code
+- `scripts/`: canonical CLI entry points used by the public workflow
+- `structures/`: curated benchmark inputs
+- `manuscript/`: main paper and SI source
 
-## Canonical Generated Outputs
+## License
 
-- `output/benchmark/benchmark_allposes.csv`
-- `output/benchmark/benchmark_summary.csv`
-- `output/benchmark/benchmark_full.sqlite`
-- `output/analysis/db_pipeline/per_target.csv`
-- `output/analysis/db_pipeline/summary_table_formatted.csv`
-- `output/analysis/db_pipeline/torsion_table_formatted.csv`
-
-## Validation
-
-```bash
-python -m unittest
-python scripts/verify_manuscript_numbers.py
-```
-
-## Notes on the Adversarial Mutagenesis Figure
-
-The public repo includes only the small archived summary CSVs needed to regenerate the
-manuscript adversarial figure. It does not include the full mutant prediction workspace.
-The compute-heavy mutant runs originally lived under ignored `output/` paths in the local
-working repository.
-
-## Documentation
-
-- reproducibility contract: `docs/repro_contract.md`
-- workflow reference: `docs/workflows.md`
-- data layout: `docs/data_layout.md`
-- adversarial experiment notes: `docs/adversarial_experiment_report.md`
-
-## Citation and License
-
-- citation metadata: `CITATION.cff`
-- license: `LICENSE`
+Code in this repository is released under the [MIT License](LICENSE). Bundled ACS
+LaTeX support files in `manuscript/` retain their upstream licensing notices.

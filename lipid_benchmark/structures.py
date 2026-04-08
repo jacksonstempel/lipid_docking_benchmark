@@ -83,11 +83,11 @@ def _clone_residue(src: gemmi.Residue) -> gemmi.Residue:
 
 
 def _clone_model_subset(
-    model: gemmi.Model, *, keep_proteins: bool, keep_non_proteins: bool, fallback_chain: str = "L"
+    model: gemmi.Model, *, keep_proteins: bool, keep_non_proteins: bool, default_chain: str = "L"
 ) -> gemmi.Model:
     new_model = gemmi.Model(model.num)
     for chain in model:
-        new_chain = gemmi.Chain(chain.name or fallback_chain)
+        new_chain = gemmi.Chain(chain.name or default_chain)
         for residue in chain:
             as_protein = is_protein_res(residue)
             if (as_protein and keep_proteins) or (not as_protein and keep_non_proteins):

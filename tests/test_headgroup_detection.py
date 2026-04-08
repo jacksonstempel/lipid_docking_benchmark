@@ -4,12 +4,6 @@ import numpy as np
 
 
 class TestHeadgroupDetection(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        try:
-            import rdkit  # type: ignore  # noqa: F401
-        except ImportError:
-            raise unittest.SkipTest("RDKit is required for headgroup detection tests.")
 
     def test_phospholipid_headgroup_detects_phosphorus(self):
         from lipid_benchmark.ligands import SimpleAtom, SimpleResidue, headgroup_indices_functional
@@ -73,4 +67,3 @@ class TestHeadgroupDetection(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
-

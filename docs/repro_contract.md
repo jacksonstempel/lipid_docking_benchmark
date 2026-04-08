@@ -1,29 +1,59 @@
 # Reproducibility Contract
 
-This document defines the canonical, publication-relevant pipeline and output contract.
+This repository exposes one strict public reproduction contract for the paper and
+one narrower rerun path for the baseline benchmark.
 
-## Scope
+## Canonical Public Manuscript Workflow
 
-The canonical workflow for manuscript results is:
+The paper is reproduced from the tracked archive in `data/reproducibility/`.
+That archive contains the exact benchmark-result tables needed for:
 
-1. Benchmark execution from structure pairs CSV
-2. Unified SQLite database build
-3. Database analysis + figure generation
-4. Manuscript number verification
+- baseline Boltz + Vina analysis
+- GNINA CNN and no-CNN comparisons
+- adversarial mutagenesis figures
+- robustness analyses in the supporting information
 
-## Canonical Inputs
+The canonical command is:
 
-- Benchmark pair list: `structures/benchmark_entries.csv`
-- Structure files referenced by each pair row:
-  - experimental reference: `structures/experimental/*.cif`
-  - Boltz prediction: `structures/boltz/*_model_0.cif`
-  - Vina poses: `structures/vina/*.pdbqt`
+```bash
+python scripts/reproduce_paper.py
+```
 
-## Canonical Commands
+That command must complete without manual intervention and produces:
 
-Run from repository root.
+- `output/benchmark/benchmark_full.sqlite`
+- `output/analysis/db_pipeline/per_target.csv`
+- `output/analysis/db_pipeline/summary_table_numeric.csv`
+- `output/analysis/db_pipeline/summary_table_formatted.csv`
+- `output/analysis/db_pipeline/torsion_table_numeric.csv`
+- `output/analysis/db_pipeline/torsion_table_formatted.csv`
+- refreshed manuscript figure files in `manuscript/figures/`
 
-1. Benchmark stage:
+It also runs `python scripts/verify_manuscript_numbers.py`, which must return
+success.
+
+## Canonical Archive Contents
+
+The public manuscript workflow depends on these tracked files:
+
+- `data/reproducibility/baseline/benchmark_allposes.csv`
+- `data/reproducibility/baseline/benchmark_summary.csv`
+- `data/reproducibility/gnina/benchmark_allposes_gnina_cnn.csv`
+- `data/reproducibility/gnina/benchmark_allposes_gnina_nocnn.csv`
+- `data/reproducibility/adversarial/benchmark_gly/benchmark_allposes.csv`
+- `data/reproducibility/adversarial/benchmark_gly/benchmark_summary.csv`
+- `data/reproducibility/adversarial/benchmark_phe/benchmark_allposes.csv`
+- `data/reproducibility/adversarial/benchmark_phe/benchmark_summary.csv`
+- `data/reproducibility/adversarial/mutation_summary.csv`
+- `data/reproducibility/robustness/vina_exhaustiveness_256/benchmark_allposes.csv`
+- `data/reproducibility/robustness/vina_exhaustiveness_256/benchmark_summary.csv`
+- `data/reproducibility/robustness/boltz_high_sampling/benchmark_allposes.csv`
+- `data/reproducibility/robustness/boltz_high_sampling/benchmark_summary.csv`
+
+## Baseline Structure-Level Rerun
+
+The repository also supports rerunning the main baseline benchmark directly from
+the curated structures:
 
 ```bash
 python scripts/benchmark.py \
@@ -31,57 +61,16 @@ python scripts/benchmark.py \
   --out-dir output/benchmark
 ```
 
-2. Database stage:
-
-```bash
-python scripts/build_benchmark_db.py \
-  --out output/benchmark/benchmark_full.sqlite
-```
-
-3. Analysis stage:
-
-```bash
-python scripts/analyze_benchmark_db.py \
-  --db output/benchmark/benchmark_full.sqlite \
-  --out-dir output/analysis/db_pipeline \
-  --fig-dir manuscript/figures
-```
-
-4. Verification stage:
-
-```bash
-python scripts/verify_manuscript_numbers.py
-```
-
-## Canonical Outputs
-
-### Benchmark outputs
-
-- `output/benchmark/benchmark_allposes.csv`
-- `output/benchmark/benchmark_summary.csv`
-
-### Unified database
-
-- `output/benchmark/benchmark_full.sqlite`
-
-### Analysis outputs
-
-- `output/analysis/db_pipeline/per_target.csv`
-- `output/analysis/db_pipeline/summary_table_numeric.csv`
-- `output/analysis/db_pipeline/summary_table_formatted.csv`
-- `output/analysis/db_pipeline/torsion_table_numeric.csv`
-- `output/analysis/db_pipeline/torsion_table_formatted.csv`
-- figure files in `manuscript/figures/`
+This reproduces the baseline Boltz + Vina benchmark outputs only. It does not
+replace the archive-backed manuscript workflow above.
 
 ## Acceptance Criteria
 
-A run is considered reproducible when all of the following hold:
+The public manuscript companion is considered valid when all of the following
+hold in a clean checkout:
 
-1. The four canonical commands complete without error.
-2. The canonical output files exist at the expected paths.
+1. `python -m unittest` passes.
+2. `python scripts/reproduce_paper.py` completes without error.
 3. `python scripts/verify_manuscript_numbers.py` returns success.
-4. `python -m unittest` passes.
-
-## Non-Canonical Tools
-
-Cluster submission scripts, exploratory analysis scripts, and helper utilities are not part of the canonical publication workflow unless explicitly referenced in this document.
+4. The manuscript sources build with `make -C manuscript all` in an environment
+   that provides the required LaTeX engine.

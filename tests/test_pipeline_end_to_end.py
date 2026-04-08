@@ -5,15 +5,6 @@ import tempfile
 
 class TestV2EndToEnd(unittest.TestCase):
     def test_runs_single_entry(self):
-        try:
-            import rdkit  # type: ignore  # noqa: F401
-        except ImportError:
-            self.skipTest("RDKit is required for the end-to-end test.")
-        try:
-            import pandamap  # type: ignore  # noqa: F401
-        except ImportError:
-            self.skipTest("PandaMap is required for the end-to-end test.")
-
         from lipid_benchmark.pipeline import run_benchmark
         from lipid_benchmark.io import PairEntry
 

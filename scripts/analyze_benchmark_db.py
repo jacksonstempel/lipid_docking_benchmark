@@ -23,6 +23,7 @@ from lipid_benchmark.analysis_db import (
     summarize_methods,
     torsion_bin_table,
 )
+from lipid_benchmark.public_archive import canonical_repro_archive, require_paths
 
 
 def _load_allposes(db_path: Path) -> pd.DataFrame:
@@ -41,17 +42,8 @@ def _load_torsions(db_path: Path) -> pd.Series:
         con.close()
     return df.set_index("pdbid")["torsdof"]
 
-
-def _default_adversarial_root() -> Path:
-    """Prefer the tracked manuscript-companion summaries; fall back to local outputs."""
-    root = Path(__file__).resolve().parents[1]
-    archived = root / "data" / "adversarial" / "bs_mutagenesis_cutoff5A"
-    if archived.exists():
-        return archived
-    return root / "output" / "adversarial" / "bs_mutagenesis_cutoff5A"
-
-
 def main() -> None:
+    archive = canonical_repro_archive()
     parser = argparse.ArgumentParser(description="Analyze the benchmark SQLite database.")
     parser.add_argument(
         "--db",
@@ -74,17 +66,14 @@ def main() -> None:
     parser.add_argument(
         "--summary-csv",
         type=Path,
-        default=Path("output/benchmark/benchmark_summary.csv"),
-        help="Baseline benchmark_summary.csv (used for WT frames; default: output/benchmark/benchmark_summary.csv).",
+        default=archive.baseline_summary,
+        help="Baseline benchmark_summary.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-root",
         type=Path,
-        default=_default_adversarial_root(),
-        help=(
-            "Root directory for adversarial mutagenesis summaries "
-            "(default: tracked data/adversarial/... archive when present, otherwise output/adversarial/...)."
-        ),
+        default=archive.adversarial_root,
+        help="Root directory for adversarial mutagenesis summaries in the tracked manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-protein-rmsd-cutoffs",
@@ -93,6 +82,14 @@ def main() -> None:
     )
     parser.add_argument("--k", type=int, default=20, help="Top-K for best-of-K analyses (default: 20).")
     args = parser.parse_args()
+    require_paths(
+        [
+            args.db,
+            args.summary_csv,
+            args.adversarial_root / "benchmark_gly" / "benchmark_summary.csv",
+            args.adversarial_root / "benchmark_phe" / "benchmark_summary.csv",
+        ]
+    )
 
     allposes = _load_allposes(args.db)
     per_target = build_per_target(allposes, k=int(args.k))
@@ -128,10 +125,7 @@ def main() -> None:
 
     # Adversarial mutagenesis: use WT frames from the baseline summary CSV and mutant summaries
     # from the adversarial output directory (Boltz-only rows are used for mutants).
-    try:
-        frames = plots._load_frames(Path(args.summary_csv))  # private helper; keeps WT Boltz/Vina aligned
-    except Exception as e:  # pragma: no cover
-        raise RuntimeError(f"Unable to load baseline summary CSV for adversarial plots: {args.summary_csv}") from e
+    frames = plots._load_frames(Path(args.summary_csv))  # private helper; keeps WT Boltz/Vina aligned
 
     gly_summary = Path(args.adversarial_root) / "benchmark_gly" / "benchmark_summary.csv"
     phe_summary = Path(args.adversarial_root) / "benchmark_phe" / "benchmark_summary.csv"

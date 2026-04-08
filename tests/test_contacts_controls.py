@@ -13,24 +13,14 @@ from lipid_benchmark.structures import load_structure, split_models, write_pdb_s
 
 
 class TestContactsControls(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        try:
-            import rdkit  # type: ignore  # noqa: F401
-        except ImportError:
-            raise unittest.SkipTest("RDKit is required for control tests.")
-        try:
-            import pandamap  # type: ignore  # noqa: F401
-        except ImportError:
-            raise unittest.SkipTest("PandaMap is required for control tests.")
-
     def _normalize_ref(self, pdbid: str):
         project_root = Path(__file__).resolve().parent.parent
         ref_path = project_root / "structures" / "experimental" / f"{pdbid}.cif"
         boltz_path = project_root / "structures" / "boltz" / f"{pdbid}_model_0.cif"
         vina_path = project_root / "structures" / "vina" / f"{pdbid}.pdbqt"
-        if not (ref_path.exists() and boltz_path.exists() and vina_path.exists()):
-            self.skipTest(f"Required input files for {pdbid} are missing.")
+        self.assertTrue(ref_path.exists(), ref_path)
+        self.assertTrue(boltz_path.exists(), boltz_path)
+        self.assertTrue(vina_path.exists(), vina_path)
 
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
@@ -51,8 +41,8 @@ class TestContactsControls(unittest.TestCase):
 
         boltz_ligand_id = str(boltz_rmsd.get("pred_ligand_id") or "")
         vina_ligand_id = str(vina_rmsd.get("pred_ligand_id") or "")
-        if not boltz_ligand_id or not vina_ligand_id:
-            self.skipTest("Could not identify ligand IDs for normalization.")
+        self.assertTrue(boltz_ligand_id)
+        self.assertTrue(vina_ligand_id)
 
         return normalize_entry_from_selected(
             pdbid,
@@ -70,9 +60,7 @@ class TestContactsControls(unittest.TestCase):
         normalized = self._normalize_ref("1DSY")
         contacts = extract_contacts(normalized.ref_pdb, ligand_resname=NORMALIZED_LIGAND_RESNAME)
         head_contacts = filter_headgroup_contacts(contacts, allowed_atoms=set(normalized.ref_headgroup_atoms))
-
-        if not head_contacts:
-            self.skipTest("Reference has no headgroup interactions to validate.")
+        self.assertGreater(len(head_contacts), 0)
 
         allowed_atoms = set(normalized.ref_headgroup_atoms)
         for c in head_contacts:

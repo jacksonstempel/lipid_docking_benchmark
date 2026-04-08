@@ -80,7 +80,7 @@ class GninaFrames:
     """
     Convenience container for GNINA + Vina per-target metrics merged with Boltz top-1.
 
-    - `per_target`: per-target GNINA/Vina metrics from analyze_gnina_experiment.py
+    - `per_target`: per-target GNINA/Vina metrics table
     - `boltz`: boltz top-1 metrics from benchmark_summary.csv (merged into per_target)
     """
     per_target: pd.DataFrame
@@ -668,7 +668,7 @@ def _median_iqr_trend(
     Compute a binned trend summary (median + interquartile range).
 
     Returns `(centers, median, q25, q75)` arrays. Bins with fewer than `min_n` points
-    are filled with NaN so plotting code can naturally skip them.
+    are filled with NaN so downstream plotting ignores undersampled bins.
     """
     centers = 0.5 * (bins[:-1] + bins[1:])
     meds: list[float] = []
@@ -2112,8 +2112,16 @@ def main(argv: Iterable[str] | None = None) -> int:
     - Writes PDFs (and optionally PNG previews) into `--out-dir`.
     """
     p = argparse.ArgumentParser(description="Generate publication-quality plots from benchmark CSVs.")
-    p.add_argument("--summary", default="output/benchmark/benchmark_summary.csv", help="Path to summary CSV.")
-    p.add_argument("--allposes", default="output/benchmark/benchmark_allposes.csv", help="Path to allposes CSV.")
+    p.add_argument(
+        "--summary",
+        default="data/reproducibility/baseline/benchmark_summary.csv",
+        help="Path to baseline summary CSV.",
+    )
+    p.add_argument(
+        "--allposes",
+        default="data/reproducibility/baseline/benchmark_allposes.csv",
+        help="Path to baseline all-poses CSV.",
+    )
     p.add_argument(
         "--gnina-analysis-dir",
         default=None,
@@ -2128,7 +2136,7 @@ def main(argv: Iterable[str] | None = None) -> int:
     )
     p.add_argument(
         "--adversarial-root",
-        default="output/adversarial/bs_mutagenesis_cutoff5A",
+        default="data/reproducibility/adversarial",
         help=(
             "Root directory for adversarial mutagenesis outputs "
             "(expects benchmark_gly/benchmark_summary.csv and benchmark_phe/benchmark_summary.csv)."
@@ -2154,12 +2162,7 @@ def main(argv: Iterable[str] | None = None) -> int:
 
     def _resolve_csv(arg_value: str) -> Path:
         """
-        Resolve a CSV path from either an explicit user path or a set of fallbacks.
-
-        Why this exists:
-        - Output CSVs are typically gitignored, so after cloning the repo you may not
-          have `output/benchmark_*.csv` yet.
-        - Older runs of this repo wrote to `analysis/benchmark/`, so we try that too.
+        Resolve a CSV path from either an explicit user path or the repository root.
         """
         p = Path(arg_value).expanduser()
         if p.is_absolute():

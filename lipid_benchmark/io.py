@@ -49,7 +49,7 @@ def default_pairs_path(project_root: Path) -> Path:
 
     Where it comes from:
     - If `config.yaml` exists and defines `paths.pairs`, we use that.
-    - Otherwise we fall back to `structures/benchmark_entries.csv`.
+    - Otherwise we use `structures/benchmark_entries.csv`.
 
     This is intentionally the only repository “layout” setting: the pairs CSV itself is the
     source of truth for where the input files live.

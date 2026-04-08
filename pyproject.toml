@@ -10,7 +10,8 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
 authors = [
-  { name = "Lipid Docking Benchmark Authors" },
+  { name = "Jackson Stempel" },
+  { name = "Micholas Smith" },
 ]
 keywords = ["lipid", "docking", "benchmark", "structural-biology", "computational-chemistry"]
 classifiers = [
@@ -38,20 +39,20 @@ dependencies = [
 plot = [
   "pandas>=2.3",
   "matplotlib>=3.10",
-  "scienceplots>=2.1",
+  "scienceplots>=2.2",
   "cmocean>=4.0",
 ]
 analysis = [
   "pandas>=2.3",
   "matplotlib>=3.10",
-  "scienceplots>=2.1",
+  "scienceplots>=2.2",
   "cmocean>=4.0",
   "openpyxl>=3.1",
 ]
 dev = [
   "pandas>=2.3",
   "matplotlib>=3.10",
-  "scienceplots>=2.1",
+  "scienceplots>=2.2",
   "cmocean>=4.0",
   "openpyxl>=3.1",
 ]

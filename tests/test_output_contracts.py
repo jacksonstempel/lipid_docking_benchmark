@@ -175,15 +175,39 @@ class OutputContractTests(unittest.TestCase):
                     }
                 ]
             )
+            adversarial = pd.DataFrame(
+                [
+                    {
+                        "pdbid": "AAAA",
+                        "method": "boltz",
+                        "pose_index": 1,
+                        "ligand_rmsd": 2.5,
+                        "headgroup_rmsd": 2.6,
+                        "protein_rmsd": 0.8,
+                        "head_env_f1": 0.55,
+                        "head_env_jaccard": 0.55,
+                        "headgroup_typed_f1": 0.45,
+                        "headgroup_typed_jaccard": 0.45,
+                    }
+                ]
+            )
 
             baseline_path = tmp / "benchmark_allposes.csv"
             gnina_cnn_path = tmp / "gnina_cnn_allposes.csv"
             gnina_nocnn_path = tmp / "gnina_nocnn_allposes.csv"
+            adversarial_gly_allposes_path = tmp / "adversarial_gly_allposes.csv"
+            adversarial_phe_allposes_path = tmp / "adversarial_phe_allposes.csv"
+            adversarial_gly_summary_path = tmp / "adversarial_gly_summary.csv"
+            adversarial_phe_summary_path = tmp / "adversarial_phe_summary.csv"
             db_path = tmp / "benchmark_full.sqlite"
 
             baseline.to_csv(baseline_path, index=False)
             gnina_cnn.to_csv(gnina_cnn_path, index=False)
             gnina_nocnn.to_csv(gnina_nocnn_path, index=False)
+            adversarial.to_csv(adversarial_gly_allposes_path, index=False)
+            adversarial.to_csv(adversarial_phe_allposes_path, index=False)
+            adversarial.to_csv(adversarial_gly_summary_path, index=False)
+            adversarial.to_csv(adversarial_phe_summary_path, index=False)
 
             vina_dir = tmp / "vina"
             vina_dir.mkdir(parents=True, exist_ok=True)
@@ -194,10 +218,10 @@ class OutputContractTests(unittest.TestCase):
                 baseline_allposes=baseline_path,
                 gnina_cnn_allposes=gnina_cnn_path,
                 gnina_nocnn_allposes=gnina_nocnn_path,
-                adversarial_gly_allposes=None,
-                adversarial_phe_allposes=None,
-                adversarial_gly_summary=None,
-                adversarial_phe_summary=None,
+                adversarial_gly_allposes=adversarial_gly_allposes_path,
+                adversarial_phe_allposes=adversarial_phe_allposes_path,
+                adversarial_gly_summary=adversarial_gly_summary_path,
+                adversarial_phe_summary=adversarial_phe_summary_path,
                 vina_dir=vina_dir,
             )
 
@@ -214,6 +238,7 @@ class OutputContractTests(unittest.TestCase):
                 self.assertIn("allposes", tables)
                 self.assertIn("targets", tables)
                 self.assertIn("meta", tables)
+                self.assertIn("adversarial_summary", tables)
 
                 methods = {
                     row[0]
@@ -223,6 +248,8 @@ class OutputContractTests(unittest.TestCase):
                 self.assertIn("vina_pose", methods)
                 self.assertIn("gnina_cnn_pose", methods)
                 self.assertIn("gnina_nocnn_pose", methods)
+                self.assertIn("boltz_bs5A_gly", methods)
+                self.assertIn("boltz_bs5A_phe", methods)
 
                 torsdof = con.execute(
                     "SELECT torsdof FROM targets WHERE pdbid='AAAA'"

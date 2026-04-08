@@ -19,8 +19,11 @@ import re
 from pathlib import Path
 import statistics
 
+from lipid_benchmark.public_archive import canonical_repro_archive, require_paths
+
 
 ROOT = Path(__file__).resolve().parents[1]
+ARCHIVE = canonical_repro_archive(ROOT)
 
 MANUSCRIPT_TEX = ROOT / "manuscript" / "manuscript.tex"
 SI_TEX = ROOT / "manuscript" / "supporting_information.tex"
@@ -28,9 +31,6 @@ DB_PIPELINE_DIR = ROOT / "output" / "analysis" / "db_pipeline"
 
 SUMMARY_TABLE_CSV = DB_PIPELINE_DIR / "summary_table_formatted.csv"
 TORSION_TABLE_CSV = DB_PIPELINE_DIR / "torsion_table_formatted.csv"
-
-VINA_EXH256_DIR = ROOT / "output" / "benchmark_vina_exh256"
-HIGHER_SAMPLING_BOLTZ_DIR = ROOT / "output" / "boltz_isaac_recovered"
 
 
 def _read_csv(path: Path) -> list[dict[str, str]]:
@@ -146,21 +146,12 @@ def verify_adversarial_key_numbers(tex: str) -> None:
 def verify_si_robustness_table(si_tex: str) -> None:
     rows = _extract_tabular_rows(si_tex, label="tab:robustness")
 
-    base_summary = ROOT / "output" / "benchmark" / "benchmark_summary.csv"
-    base_allposes = ROOT / "output" / "benchmark" / "benchmark_allposes.csv"
-    exh_summary = VINA_EXH256_DIR / "benchmark_summary.csv"
-    exh_allposes = VINA_EXH256_DIR / "benchmark_allposes.csv"
-    alt_summary = HIGHER_SAMPLING_BOLTZ_DIR / "benchmark_summary.csv"
-
-    if not (
-        base_summary.exists()
-        and base_allposes.exists()
-        and exh_summary.exists()
-        and exh_allposes.exists()
-        and alt_summary.exists()
-    ):
-        # If robustness artifacts are not present locally, skip (but do not fail CI).
-        return
+    base_summary = ARCHIVE.baseline_summary
+    base_allposes = ARCHIVE.baseline_allposes
+    exh_summary = ARCHIVE.vina_exh256_summary
+    exh_allposes = ARCHIVE.vina_exh256_allposes
+    alt_summary = ARCHIVE.boltz_high_sampling_summary
+    require_paths([base_summary, base_allposes, exh_summary, exh_allposes, alt_summary])
 
     def _read_csv_rows(path: Path) -> list[dict[str, str]]:
         with path.open() as f:
@@ -276,9 +267,14 @@ def verify_si_robustness_table(si_tex: str) -> None:
 
 
 def main() -> int:
-    for p in [MANUSCRIPT_TEX, SI_TEX, SUMMARY_TABLE_CSV, TORSION_TABLE_CSV]:
-        if not p.exists():
-            raise SystemExit(f"Missing required file: {p}")
+    require_paths(
+        [
+            MANUSCRIPT_TEX,
+            SI_TEX,
+            SUMMARY_TABLE_CSV,
+            TORSION_TABLE_CSV,
+        ]
+    )
 
     tex = MANUSCRIPT_TEX.read_text()
     si_tex = SI_TEX.read_text()

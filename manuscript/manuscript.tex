@@ -188,12 +188,12 @@ Headgroup atoms were identified automatically with a functional-group heuristic:
     \item If phosphorus atoms are present, the headgroup comprises all atoms within two bonds of any phosphorus.
     \item Otherwise, if nitrogen atoms with degree $\geq$3 exist, atoms within two bonds of such nitrogens define the headgroup.
     \item Otherwise, if any carbon has $\geq$2 oxygen neighbors, that carbon and its oxygen neighbors constitute the headgroup.
-    \item As a fallback, all heteroatoms (O, N, P, S) are considered headgroup atoms.
+    \item Otherwise, all heteroatoms (O, N, P, S) are considered headgroup atoms.
 \end{enumerate}
 This rule set is intended to capture the polar functional groups that define lipid identity across chemically diverse ligands while remaining fully automated and reproducible.
 Headgroup RMSD was computed over the mapped headgroup atom pairs.
 Across the 100 targets, the headgroup selection contained a median of 3 atoms (IQR 2; range 1--19). A small number of sterol-like ligands have only a single polar atom, for which headgroup RMSD primarily reflects hydroxyl placement.
-The headgroup definition rule was triggered by phosphorus atoms in 20 ligands, a cationic nitrogen criterion in 1, a carbonyl/oxygen-neighborhood criterion in 73, and by the heteroatom fallback in 7.
+The headgroup definition rule was triggered by phosphorus atoms in 20 ligands, a cationic nitrogen criterion in 1, a carbonyl/oxygen-neighborhood criterion in 73, and by the final heteroatom rule in 7.
 
 \subsection{Interaction Metrics}
 
@@ -410,12 +410,12 @@ Boltz-2 substantially outperforms Vina in both geometric accuracy and interactio
 Adversarial mutagenesis experiments demonstrate that Boltz-2's lipid placement depends on binding-site chemistry: mutating binding-site residues to glycine or phenylalanine causes 75--80\% of accurate predictions to degrade, providing evidence against pure memorization of training poses.
 A minority of targets ($\sim$20\%) retain accurate predictions despite binding-site disruption, warranting further investigation into whether these represent backbone-dominated interactions or residual memorization.
 Future work should evaluate performance on prospectively solved structures to more directly assess generalization.
-The benchmark dataset, analysis code, and adversarial mutagenesis pipeline are publicly available to facilitate further method development.
+The benchmark dataset, analysis code, manuscript source, and archived benchmark-result bundle are publicly available to facilitate further method development.
 
 	\section*{Data and Code Availability}
 	
-	The benchmark dataset, analysis code, and prediction inputs are available at \url{https://github.com/jacksonstempel/lipid_docking_benchmark}.
-	The curated benchmark entry list is provided in \texttt{structures/benchmark\_entries.csv}.
+	The benchmark dataset, analysis code, manuscript source, and tracked benchmark-result archive are available at \url{https://github.com/jacksonstempel/lipid_docking_benchmark}.
+	The curated benchmark entry list is provided in \texttt{structures/benchmark\_entries.csv}, and the archived result tables used to reproduce the manuscript analyses are provided under \texttt{data/reproducibility/}.
 
 \begin{suppinfo}
 Benchmark composition by coarse lipid class; robustness checks for Vina exhaustiveness 256 and a higher-sampling Boltz-2 rerun; torsion-stratified docking performance; and a condensed summary of the 10 worst Boltz-2 failures (PDF).
@@ -444,7 +444,11 @@ Portions of the benchmark, visualization, and plotting code were developed with 
 
 \begin{tocentry}
 \centering
-\includegraphics[height=1.72in,keepaspectratio]{toc_graphic.png}
+\vspace*{\fill}
+\makebox[\linewidth][c]{%
+  \includegraphics[height=1.55in,keepaspectratio]{toc_graphic.png}%
+}
+\vspace*{\fill}
 \end{tocentry}
 
 \end{document}

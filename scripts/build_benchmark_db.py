@@ -21,6 +21,8 @@ from pathlib import Path
 
 import pandas as pd
 
+from lipid_benchmark.public_archive import canonical_repro_archive, require_paths
+
 
 def _load_allposes(path: Path, *, method_map: dict[str, str] | None = None, source: str) -> pd.DataFrame:
     df = pd.read_csv(path)
@@ -31,16 +33,13 @@ def _load_allposes(path: Path, *, method_map: dict[str, str] | None = None, sour
     return df
 
 
-def _read_torsdof(pdbqt_path: Path) -> int | None:
-    try:
-        for line in pdbqt_path.read_text().splitlines():
-            if line.startswith("TORSDOF"):
-                parts = line.split()
-                if len(parts) >= 2:
-                    return int(float(parts[1]))
-    except OSError:
-        return None
-    return None
+def _read_torsdof(pdbqt_path: Path) -> int:
+    for line in pdbqt_path.read_text().splitlines():
+        if line.startswith("TORSDOF"):
+            parts = line.split()
+            if len(parts) >= 2:
+                return int(float(parts[1]))
+    raise ValueError(f"Missing TORSDOF record in {pdbqt_path}")
 
 
 def build_db(
@@ -49,12 +48,23 @@ def build_db(
     baseline_allposes: Path,
     gnina_cnn_allposes: Path,
     gnina_nocnn_allposes: Path,
-    adversarial_gly_allposes: Path | None,
-    adversarial_phe_allposes: Path | None,
-    adversarial_gly_summary: Path | None,
-    adversarial_phe_summary: Path | None,
+    adversarial_gly_allposes: Path,
+    adversarial_phe_allposes: Path,
+    adversarial_gly_summary: Path,
+    adversarial_phe_summary: Path,
     vina_dir: Path,
 ) -> None:
+    require_paths(
+        [
+            baseline_allposes,
+            gnina_cnn_allposes,
+            gnina_nocnn_allposes,
+            adversarial_gly_allposes,
+            adversarial_phe_allposes,
+            adversarial_gly_summary,
+            adversarial_phe_summary,
+        ]
+    )
     base = _load_allposes(baseline_allposes, source="baseline", method_map=None)
     gnina_cnn = _load_allposes(
         gnina_cnn_allposes,
@@ -74,20 +84,18 @@ def build_db(
     frames = [base, gnina_cnn, gnina_nocnn]
 
     # Adversarial mutagenesis: keep only the Boltz prediction rows and normalize method labels.
-    if adversarial_gly_allposes is not None and adversarial_gly_allposes.exists():
-        gly = _load_allposes(
-            adversarial_gly_allposes,
-            source="adversarial_bs5A_gly_v1",
-            method_map={"boltz": "boltz_bs5A_gly"},
-        )
-        frames.append(gly)
-    if adversarial_phe_allposes is not None and adversarial_phe_allposes.exists():
-        phe = _load_allposes(
-            adversarial_phe_allposes,
-            source="adversarial_bs5A_phe_v1",
-            method_map={"boltz": "boltz_bs5A_phe"},
-        )
-        frames.append(phe)
+    gly = _load_allposes(
+        adversarial_gly_allposes,
+        source="adversarial_bs5A_gly_v1",
+        method_map={"boltz": "boltz_bs5A_gly"},
+    )
+    frames.append(gly)
+    phe = _load_allposes(
+        adversarial_phe_allposes,
+        source="adversarial_bs5A_phe_v1",
+        method_map={"boltz": "boltz_bs5A_phe"},
+    )
+    frames.append(phe)
 
     allposes = pd.concat(frames, ignore_index=True)
 
@@ -115,10 +123,10 @@ def build_db(
             "baseline_allposes": str(baseline_allposes),
             "gnina_cnn_allposes": str(gnina_cnn_allposes),
             "gnina_nocnn_allposes": str(gnina_nocnn_allposes),
-            "adversarial_gly_allposes": str(adversarial_gly_allposes) if adversarial_gly_allposes else "",
-            "adversarial_phe_allposes": str(adversarial_phe_allposes) if adversarial_phe_allposes else "",
-            "adversarial_gly_summary": str(adversarial_gly_summary) if adversarial_gly_summary else "",
-            "adversarial_phe_summary": str(adversarial_phe_summary) if adversarial_phe_summary else "",
+            "adversarial_gly_allposes": str(adversarial_gly_allposes),
+            "adversarial_phe_allposes": str(adversarial_phe_allposes),
+            "adversarial_gly_summary": str(adversarial_gly_summary),
+            "adversarial_phe_summary": str(adversarial_phe_summary),
             "vina_dir": str(vina_dir),
             "schema_version": "1",
         }
@@ -147,14 +155,14 @@ def build_db(
             df.insert(0, "variant", variant)
             return df
 
-        adv_frames = []
-        if adversarial_gly_summary is not None and Path(adversarial_gly_summary).exists():
-            adv_frames.append(_load_adv_summary(Path(adversarial_gly_summary), variant="bs5A_gly", source="adversarial_bs5A_gly_v1"))
-        if adversarial_phe_summary is not None and Path(adversarial_phe_summary).exists():
-            adv_frames.append(_load_adv_summary(Path(adversarial_phe_summary), variant="bs5A_phe", source="adversarial_bs5A_phe_v1"))
-        if adv_frames:
-            adv = pd.concat(adv_frames, ignore_index=True)
-            adv.to_sql("adversarial_summary", con, index=False)
+        adv = pd.concat(
+            [
+                _load_adv_summary(adversarial_gly_summary, variant="bs5A_gly", source="adversarial_bs5A_gly_v1"),
+                _load_adv_summary(adversarial_phe_summary, variant="bs5A_phe", source="adversarial_bs5A_phe_v1"),
+            ],
+            ignore_index=True,
+        )
+        adv.to_sql("adversarial_summary", con, index=False)
 
         con.commit()
     finally:
@@ -162,6 +170,7 @@ def build_db(
 
 
 def main() -> None:
+    archive = canonical_repro_archive()
     parser = argparse.ArgumentParser(description="Build a unified benchmark SQLite database.")
     parser.add_argument(
         "--out",
@@ -172,48 +181,44 @@ def main() -> None:
     parser.add_argument(
         "--baseline-allposes",
         type=Path,
-        default=Path("output/benchmark/benchmark_allposes.csv"),
-        help="Baseline Boltz+Vina benchmark_allposes.csv.",
+        default=archive.baseline_allposes,
+        help="Baseline Boltz+Vina benchmark_allposes.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--gnina-cnn-allposes",
         type=Path,
-        default=Path(
-            "output/gnina/analysis/gnina_full_analysis_v7/benchmark_allposes_gnina_cnn_full/benchmark_allposes.csv"
-        ),
-        help="GNINA CNN benchmark_allposes.csv.",
+        default=archive.gnina_cnn_allposes,
+        help="GNINA CNN benchmark_allposes.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--gnina-nocnn-allposes",
         type=Path,
-        default=Path(
-            "output/gnina/analysis/gnina_full_analysis_v7/benchmark_allposes_gnina_nocnn_full/benchmark_allposes.csv"
-        ),
-        help="GNINA no-CNN benchmark_allposes.csv.",
+        default=archive.gnina_nocnn_allposes,
+        help="GNINA no-CNN benchmark_allposes.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-gly-allposes",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_gly/benchmark_allposes.csv"),
-        help="Adversarial Gly benchmark_allposes.csv (Boltz+Vina; Boltz rows are ingested).",
+        default=archive.adversarial_gly_allposes,
+        help="Adversarial Gly benchmark_allposes.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-phe-allposes",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_phe/benchmark_allposes.csv"),
-        help="Adversarial Phe benchmark_allposes.csv (Boltz+Vina; Boltz rows are ingested).",
+        default=archive.adversarial_phe_allposes,
+        help="Adversarial Phe benchmark_allposes.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-gly-summary",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_gly/benchmark_summary.csv"),
-        help="Adversarial Gly benchmark_summary.csv (top-1 only).",
+        default=archive.adversarial_gly_summary,
+        help="Adversarial Gly benchmark_summary.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-phe-summary",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_phe/benchmark_summary.csv"),
-        help="Adversarial Phe benchmark_summary.csv (top-1 only).",
+        default=archive.adversarial_phe_summary,
+        help="Adversarial Phe benchmark_summary.csv from the tracked manuscript archive.",
     )
     parser.add_argument(
         "--vina-dir",
@@ -227,10 +232,10 @@ def main() -> None:
         baseline_allposes=args.baseline_allposes,
         gnina_cnn_allposes=args.gnina_cnn_allposes,
         gnina_nocnn_allposes=args.gnina_nocnn_allposes,
-        adversarial_gly_allposes=args.adversarial_gly_allposes if args.adversarial_gly_allposes.exists() else None,
-        adversarial_phe_allposes=args.adversarial_phe_allposes if args.adversarial_phe_allposes.exists() else None,
-        adversarial_gly_summary=args.adversarial_gly_summary if args.adversarial_gly_summary.exists() else None,
-        adversarial_phe_summary=args.adversarial_phe_summary if args.adversarial_phe_summary.exists() else None,
+        adversarial_gly_allposes=args.adversarial_gly_allposes,
+        adversarial_phe_allposes=args.adversarial_phe_allposes,
+        adversarial_gly_summary=args.adversarial_gly_summary,
+        adversarial_phe_summary=args.adversarial_phe_summary,
         vina_dir=args.vina_dir,
     )
 
