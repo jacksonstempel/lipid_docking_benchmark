@@ -1,43 +1,35 @@
 # Lipid Docking Benchmark
 
-Reproducible benchmark and analysis pipeline for evaluating lipid pose predictions against experimental structures.
+Minimal public companion repository for the manuscript:
+`Boltz-2 Outperforms AutoDock Vina on Lipid--Protein Complex Prediction`.
 
-## What This Repository Produces
+This repo contains the benchmark code, the curated 100-target structure set, the
+manuscript/SI source, and the small archived data files needed to regenerate the
+manuscript-ready figures and tables. It does not mirror the full local working
+directory used during drafting.
 
-- Per-pose and per-target benchmark metrics (RMSD and contact-overlap)
-- Unified SQLite database for manuscript analysis
-- Manuscript tables and figures
-- Verification checks that manuscript-reported numbers match generated outputs
+## Public Scope
 
-## Environment Setup
+Included:
 
-Use one of the following:
+- benchmark code in `lipid_benchmark/` and `scripts/`
+- curated benchmark inputs in `structures/`
+- manuscript and SI source in `manuscript/`
+- manuscript figure assets in `manuscript/figures/`
+- small archived mutant-summary CSVs in `data/adversarial/`
 
-### Option A: Conda (pinned publication environment)
+Intentionally omitted:
 
-```bash
-conda env create -f environment.yml
-conda activate lipid-docking-benchmark
-```
+- transient local drafting files
+- figure-preparation scratch work
+- large generated outputs under `output/`
+- cluster run directories and other local-only remnants
 
-### Option B: pip (editable install)
+## Reproducibility Levels
 
-```bash
-pip install -e .
-pip install -e ".[analysis]"
-```
+### 1. Core benchmark regeneration
 
-## Canonical Reproducibility Workflow
-
-Run from repository root.
-
-### One-command orchestrator
-
-```bash
-python scripts/reproduce_paper.py
-```
-
-### Equivalent staged commands
+This reproduces the main benchmark outputs from the tracked structures.
 
 ```bash
 python scripts/benchmark.py \
@@ -46,7 +38,15 @@ python scripts/benchmark.py \
 
 python scripts/build_benchmark_db.py \
   --out output/benchmark/benchmark_full.sqlite
+```
 
+### 2. Manuscript tables and figures
+
+This regenerates the manuscript-ready analysis tables and figures from the unified
+database. The analysis script automatically uses the tracked adversarial mutant
+summary archive in `data/adversarial/bs_mutagenesis_cutoff5A/` when present.
+
+```bash
 python scripts/analyze_benchmark_db.py \
   --db output/benchmark/benchmark_full.sqlite \
   --out-dir output/analysis/db_pipeline \
@@ -55,40 +55,65 @@ python scripts/analyze_benchmark_db.py \
 python scripts/verify_manuscript_numbers.py
 ```
 
+### 3. One-command publication workflow
+
+```bash
+python scripts/reproduce_paper.py
+```
+
+This runs:
+
+1. benchmark generation
+2. database build
+3. manuscript analysis/figure generation
+4. manuscript number verification
+
+## Environment Setup
+
+### Option A: Conda
+
+```bash
+conda env create -f environment.yml
+conda activate lipid-docking-benchmark
+```
+
+### Option B: pip
+
+```bash
+pip install -e .
+pip install -e ".[analysis]"
+```
+
+## Build the Manuscript
+
+From the repo root:
+
+```bash
+make -C manuscript all
+```
+
+Outputs:
+
+- `manuscript/dist/manuscript.pdf`
+- `manuscript/dist_si/supporting_information.pdf`
+
+More detail: [manuscript/README.md](manuscript/README.md)
+
 ## Canonical Inputs
 
-Primary benchmark entry table:
+- benchmark entry table: `structures/benchmark_entries.csv`
+- experimental structures: `structures/experimental/*.cif`
+- Boltz predictions: `structures/boltz/*_model_0.cif`
+- Vina poses: `structures/vina/*.pdbqt`
 
-- `structures/benchmark_entries.csv`
-
-Required columns:
-
-- `pdbid`
-- `ref`
-- `boltz_pred`
-- `vina_pred`
-
-Paths can be absolute or repository-relative.
-
-## Canonical Outputs
-
-Benchmark:
+## Canonical Generated Outputs
 
 - `output/benchmark/benchmark_allposes.csv`
 - `output/benchmark/benchmark_summary.csv`
-
-Database:
-
 - `output/benchmark/benchmark_full.sqlite`
-
-Analysis:
-
 - `output/analysis/db_pipeline/per_target.csv`
-- `output/analysis/db_pipeline/summary_table_numeric.csv`
 - `output/analysis/db_pipeline/summary_table_formatted.csv`
-- `output/analysis/db_pipeline/torsion_table_numeric.csv`
 - `output/analysis/db_pipeline/torsion_table_formatted.csv`
-- `manuscript/figures/*`
 
 ## Validation
 
@@ -97,29 +122,21 @@ python -m unittest
 python scripts/verify_manuscript_numbers.py
 ```
 
-## Reproducibility and Organization Docs
+## Notes on the Adversarial Mutagenesis Figure
 
-- Reproducibility contract: `docs/repro_contract.md`
-- Workflow reference: `docs/workflows.md`
-- Data/artifact policy: `docs/data_policy.md`
-- Script taxonomy: `docs/script_organization.md`
-- HPC operational guidance: `scripts/hpc/README.md`
+The public repo includes only the small archived summary CSVs needed to regenerate the
+manuscript adversarial figure. It does not include the full mutant prediction workspace.
+The compute-heavy mutant runs originally lived under ignored `output/` paths in the local
+working repository.
 
-## Repository Scope
+## Documentation
 
-Tracked source-of-truth inputs:
-
-- `structures/experimental/`
-- `structures/boltz/`
-- `structures/vina/`
-- `structures/benchmark_entries.csv`
-
-Generated artifacts (not source inputs):
-
-- `output/`
-- `.cache/`
+- reproducibility contract: `docs/repro_contract.md`
+- workflow reference: `docs/workflows.md`
+- data layout: `docs/data_layout.md`
+- adversarial experiment notes: `docs/adversarial_experiment_report.md`
 
 ## Citation and License
 
-- Citation metadata: `CITATION.cff`
-- License: `LICENSE`
+- citation metadata: `CITATION.cff`
+- license: `LICENSE`

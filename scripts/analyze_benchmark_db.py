@@ -42,6 +42,15 @@ def _load_torsions(db_path: Path) -> pd.Series:
     return df.set_index("pdbid")["torsdof"]
 
 
+def _default_adversarial_root() -> Path:
+    """Prefer the tracked manuscript-companion summaries; fall back to local outputs."""
+    root = Path(__file__).resolve().parents[1]
+    archived = root / "data" / "adversarial" / "bs_mutagenesis_cutoff5A"
+    if archived.exists():
+        return archived
+    return root / "output" / "adversarial" / "bs_mutagenesis_cutoff5A"
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="Analyze the benchmark SQLite database.")
     parser.add_argument(
@@ -71,8 +80,11 @@ def main() -> None:
     parser.add_argument(
         "--adversarial-root",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A"),
-        help="Root directory for adversarial mutagenesis outputs (default: output/adversarial/bs_mutagenesis_cutoff5A).",
+        default=_default_adversarial_root(),
+        help=(
+            "Root directory for adversarial mutagenesis summaries "
+            "(default: tracked data/adversarial/... archive when present, otherwise output/adversarial/...)."
+        ),
     )
     parser.add_argument(
         "--adversarial-protein-rmsd-cutoffs",

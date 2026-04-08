@@ -1,0 +1,126 @@
+\documentclass[journal=jcisd8,manuscript=suppinfo]{achemso}
+
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{xurl}
+\usepackage{float}
+
+\sisetup{
+  separate-uncertainty=true,
+  multi-part-units=single
+}
+\DeclareSIUnit\angstrom{\text{\AA}}
+
+\title{Boltz-2 Outperforms AutoDock Vina on Lipid--Protein Complex Prediction}
+
+\author{Jackson Stempel}
+\affiliation{Department of Biochemistry \& Cellular and Molecular Biology, University of Tennessee, Knoxville, Tennessee 37996, United States}
+
+\author{Micholas Smith}
+\email{msmit316@utk.edu}
+\affiliation{Biosciences Division and Center for Molecular Biophysics, Oak Ridge National Laboratory, Oak Ridge, Tennessee 37831, United States}
+\alsoaffiliation{Department of Biochemistry \& Cellular and Molecular Biology, University of Tennessee, Knoxville, Tennessee 37996, United States}
+
+\begin{document}
+
+\section{Benchmark Composition}
+
+Table~\ref{tab:composition} summarizes the curated 100-target benchmark by coarse lipid class. These class assignments use the same RDKit-based heuristic categories employed in the resistant-case analysis and are intended as descriptive bins rather than authoritative lipid taxonomy.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Benchmark composition by coarse lipid class. Ligand classes were assigned heuristically from the experimental ligand chemistry. Heavy-atom and headgroup-atom counts are reported as median [range].}
+\label{tab:composition}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Lipid class & $n$ & Ligand heavy atoms & Headgroup atoms \\
+\midrule
+Fatty acid & 69 & 18 [14--63] & 3 [3--6] \\
+Phospholipid & 20 & 47 [11--102] & 7 [6--19] \\
+Glycolipid & 5 & 35 [25--51] & 4 [3--6] \\
+Sterol & 3 & 28 [28--28] & 1 [1--1] \\
+Other & 3 & 25 [17--28] & 3 [1--4] \\
+\midrule
+All targets & 100 & 20 [11--102] & 3 [1--19] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Supplemental Robustness Analyses}
+
+Table~\ref{tab:robustness} summarizes two robustness checks referenced in the main text. For Vina, a full-dataset rerun at exhaustiveness 256 did not improve the qualitative top-1 versus top-20 picture. For Boltz-2, a more compute-intensive rerun of the target set was performed using increased inference settings (1000 sampling steps and 10 recycling steps), but these changes produced negligible median shifts relative to the main analysis. One target (5NU2) failed during the alternate Boltz-2 run, so the two Boltz-2 analyses are compared over 99 shared targets.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Supplemental robustness checks. Baseline values correspond to the primary manuscript analyses. Alternate values correspond either to the Vina exhaustiveness-256 rerun or to the higher-sampling Boltz-2 rerun.}
+\label{tab:robustness}
+\begin{tabular}{@{}llcc@{}}
+\toprule
+Metric & Comparison set & Baseline & Alternate \\
+\midrule
+\multicolumn{4}{@{}l}{\textit{Vina exhaustiveness 8 versus 256}} \\
+Top-1 ligand RMSD median (\AA) & 100 targets & 4.37 & 4.29 \\
+Top-1 success ($\leq$ \SI{2}{\angstrom}) & 100 targets & 12\% & 7\% \\
+Top-20 best ligand RMSD median (\AA) & 100 targets & 1.77 & 1.78 \\
+Top-20 success ($\leq$ \SI{2}{\angstrom}) & 100 targets & 65\% & 57\% \\
+\addlinespace
+\multicolumn{4}{@{}l}{\textit{Boltz-2 baseline versus higher-sampling rerun}} \\
+Ligand RMSD median (\AA) & 99 shared targets & 1.24 & 1.21 \\
+Headgroup RMSD median (\AA) & 99 shared targets & 1.76 & 1.74 \\
+Protein RMSD median (\AA) & 99 shared targets & 0.64 & 0.61 \\
+Headgroup environment Jaccard median & 99 shared targets & 0.77 & 0.78 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Exploratory Flexibility Stratification}
+
+Table~\ref{tab:flexibility} contains pose metrics for Boltz-2 and Vina stratified by ligand torsional degrees of freedom (\texttt{TORSDOF}). Note that the medium and high bins have small sample sizes and accordingly substantial uncertainty.
+
+\begin{table}[htbp]
+\centering
+\small
+\setlength{\tabcolsep}{3pt}
+\caption{Ligand RMSD stratified by ligand flexibility (Vina \texttt{TORSDOF}). Values are median ligand RMSD and success rate (fraction with RMSD $\leq$ \SI{2}{\angstrom}) with Wilson 95\% confidence intervals.}
+\label{tab:flexibility}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Bin (TORSDOF) & $n$ & Boltz-2 & Vina top-1 & Vina top-20 best \\
+\midrule
+0--20 & 81 & 1.29; 0.74 [0.64, 0.82] & 4.04; 0.14 [0.08, 0.23] & 1.71; 0.72 [0.61, 0.80] \\
+21--40 & 13 & 1.18; 0.69 [0.42, 0.87] & 6.07; 0.08 [0.01, 0.33] & 3.84; 0.38 [0.18, 0.64] \\
+$\geq$41 & 6 & 1.37; 0.67 [0.30, 0.90] & 7.49; 0.00 [0.00, 0.39] & 2.32; 0.33 [0.10, 0.70] \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Summary of the Ten Worst Boltz-2 Failures}
+
+Table~\ref{tab:worst_cases} summarizes the 10 worst Boltz-2 predictions ranked by ligand RMSD. The aggregate pattern is that the worst Boltz-2 outliers are usually accompanied by substantial headgroup displacement and loss of contact overlap, rather than by tail-only deviations.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Condensed summary of the 10 worst Boltz-2 predictions ranked by ligand RMSD.}
+\label{tab:worst_cases}
+\begin{tabular}{@{}lc@{}}
+\toprule
+Summary statistic & Value \\
+\midrule
+Median ligand RMSD (\AA) & 8.38 \\
+Mean ligand RMSD (\AA) & 8.41 \\
+Median headgroup RMSD (\AA) & 9.49 \\
+Mean headgroup RMSD (\AA) & 9.22 \\
+Median headgroup environment Jaccard & 0.10 \\
+Mean headgroup environment Jaccard & 0.26 \\
+Cases with headgroup RMSD $\leq$ \SI{3}{\angstrom} & 3/10 \\
+Cases with headgroup environment Jaccard $\geq$ 0.5 & 4/10 \\
+Cases where Vina top-1 has lower ligand RMSD & 8/10 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\end{document}

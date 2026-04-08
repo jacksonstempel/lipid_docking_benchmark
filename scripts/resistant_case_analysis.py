@@ -19,6 +19,14 @@ from lipid_benchmark.structures import is_protein_res, load_structure
 BACKBONE_ATOMS = {"N", "CA", "C", "O"}
 
 
+def _default_adversarial_root() -> Path:
+    root = Path(__file__).resolve().parents[1]
+    archived = root / "data" / "adversarial" / "bs_mutagenesis_cutoff5A"
+    if archived.exists():
+        return archived
+    return root / "output" / "adversarial" / "bs_mutagenesis_cutoff5A"
+
+
 @dataclass(frozen=True)
 class ContactStats:
     total_contacts: int
@@ -161,6 +169,7 @@ def _fisher_by_category(table: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> int:
+    default_adversarial_root = _default_adversarial_root()
     parser = argparse.ArgumentParser(description="Analyze memorization-resistant cases after Gly mutagenesis")
     parser.add_argument(
         "--wt-summary",
@@ -171,13 +180,13 @@ def main() -> int:
     parser.add_argument(
         "--gly-summary",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/benchmark_gly/benchmark_summary.csv"),
+        default=default_adversarial_root / "benchmark_gly" / "benchmark_summary.csv",
         help="Gly mutant benchmark_summary.csv",
     )
     parser.add_argument(
         "--mutation-summary",
         type=Path,
-        default=Path("output/adversarial/bs_mutagenesis_cutoff5A/mutation_summary.csv"),
+        default=default_adversarial_root / "mutation_summary.csv",
         help="mutation_summary.csv",
     )
     parser.add_argument(

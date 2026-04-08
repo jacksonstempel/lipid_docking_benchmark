@@ -27,7 +27,15 @@ def _run(cmd: Iterable[str], *, cwd: Path, dry_run: bool) -> None:
     subprocess.run(cmd_list, cwd=str(cwd), check=True)
 
 
+def _default_adversarial_root(repo_root: Path) -> Path:
+    archived = repo_root / "data" / "adversarial" / "bs_mutagenesis_cutoff5A"
+    if archived.exists():
+        return archived
+    return repo_root / "output" / "adversarial" / "bs_mutagenesis_cutoff5A"
+
+
 def main(argv: list[str] | None = None) -> int:
+    repo_root = Path(__file__).resolve().parents[1]
     parser = argparse.ArgumentParser(description="Run benchmark -> db -> analysis -> verify.")
     parser.add_argument("--python", default=sys.executable, help="Python executable (default: current interpreter).")
 
@@ -41,8 +49,11 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--summary-csv", default="output/benchmark/benchmark_summary.csv", help="Baseline summary CSV used by analysis script.")
     parser.add_argument(
         "--adversarial-root",
-        default="output/adversarial/bs_mutagenesis_cutoff5A",
-        help="Adversarial output root used by analysis script.",
+        default=str(_default_adversarial_root(repo_root)),
+        help=(
+            "Adversarial summary root used by analysis script "
+            "(default: tracked data/adversarial/... archive when present, otherwise output/adversarial/...)."
+        ),
     )
     parser.add_argument(
         "--adversarial-protein-rmsd-cutoffs",
@@ -58,8 +69,6 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--dry-run", action="store_true", help="Print commands without executing.")
 
     args = parser.parse_args(argv)
-
-    repo_root = Path(__file__).resolve().parents[1]
     py = str(args.python)
 
     if not args.skip_benchmark:
