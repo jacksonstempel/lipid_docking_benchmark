@@ -69,7 +69,7 @@ Among initially accurate wild-type cases, only 23\% (Gly) and 20\% (Phe) remaine
 
 Lipids are essential biomolecules that function as membrane components, signaling molecules, and energy stores.\cite{vanmeer2008membrane}
 Understanding lipid--protein interactions is therefore central to membrane protein function, lipid transport, and disease mechanisms involving lipid dysregulation.\cite{escriba2008membranes}
-Despite advances in structural biology, experimentally determining lipid binding poses and assigning functionally relevant bound lipids remain difficult, motivating computational docking methods.\cite{hunte2008lipids}
+Despite advances in structural biology, experimentally resolving lipid binding poses and distinguishing functionally relevant bound lipids from adventitious ones remain difficult, motivating computational docking methods.\cite{hunte2008lipids}
 
 Molecular docking is a standard tool for predicting protein--ligand binding modes.\cite{kitchen2004docking}
 Physics-based methods such as AutoDock Vina use empirical scoring functions to rank candidate poses,\cite{trott2010autodock} and CNN-based rescoring methods such as GNINA aim to improve ranking without changing the underlying sampling procedure.\cite{mcnutt2025gnina13}
@@ -77,11 +77,11 @@ Deep learning has since transformed biomolecular structure prediction: AlphaFold
 Boltz-2 is an open-source diffusion-based model for biomolecular complex prediction that jointly models protein and ligand conformations.\cite{passaro2025boltz2,wohlwend2024boltz}
 
 Lipids present challenges that differ from those of typical drug-like ligands.
-Their hydrocarbon tails are highly flexible, while the biologically relevant determinants of binding are often concentrated in the polar headgroup, which forms specific hydrogen-bonding and electrostatic contacts as the tail contributes largely hydrophobic packing.
+Their hydrocarbon tails are highly flexible, while the biologically relevant determinants of binding are often concentrated in the polar headgroup, which forms specific hydrogen-bonding and electrostatic contacts; the tail, by contrast, contributes largely hydrophobic packing.
 In addition, many lipid binding sites lie at membrane interfaces or within transmembrane regions rather than in conventional soluble-protein pockets.
 
 Previous docking benchmarks have focused predominantly on drug-like molecules,\cite{wang2016comprehensive,su2019comparative} leaving lipid--protein docking relatively underexplored.
-The limited lipid-docking literature emphasizes the difficulty of accurately predicting tail conformations and the importance of headgroup placement for biological relevance.\cite{sridhar2017computational}
+Long flexible tails and the biological importance of headgroup placement make lipids a distinct and demanding target for conventional docking scoring functions.
 
 Here we benchmark Boltz-2 against AutoDock Vina on 100 curated lipid--protein complexes; for the docking baselines (Vina and GNINA), each ligand is docked back into its cognate experimental receptor in a binding-site-known re-docking setting.
 We evaluate predictions with both geometric metrics (ligand and headgroup RMSD) and interaction-based metrics (protein--headgroup contact overlap), and we discuss the distinction between re-docking and prospective prediction.
@@ -151,7 +151,7 @@ For any multi-pose docking method (Vina or GNINA), we distinguish:
 (i) \textbf{top-1} performance (the program's highest-ranked pose; the practically relevant case) from
 (ii) \textbf{top-$K$ best} performance (the best RMSD among the top $K$ poses; an oracle upper bound that measures whether accurate poses exist somewhere in the candidate set, independent of ranking).
 We therefore analyze both and additionally quantify the \emph{ranking gap} (top-1 RMSD minus top-20 best RMSD) as a direct measure of ranking quality.
-Immediately before GNINA execution, the prepared ligand PDBQT was converted to SDF with OpenBabel inside the container to preserve explicit bonding, while outputs were written back to PDBQT for compatibility with the benchmark pipeline.
+Prior to each GNINA run, the prepared ligand PDBQT was converted to SDF with OpenBabel inside the container to preserve explicit bonding, and outputs were written back to PDBQT for compatibility with the benchmark pipeline.
 
 \subsubsection{Software and Versions}
 
@@ -302,7 +302,7 @@ GNINA-CNN outperformed Vina top-1 in 71 of 100 cases, reflecting a consistent (b
 Vina's multi-pose output shows that accurate poses often exist among lower-ranked candidates.
 Its best-of-20 ligand RMSD (mean \SI{2.55}{\angstrom}, median \SI{1.77}{\angstrom}) is far better than its top-1 RMSD (mean \SI{5.11}{\angstrom}), indicating that sampling is often adequate but ranking is weak.
 This separation between sampling and ranking is consistent with broader docking benchmarks that distinguish docking power from scoring power,\cite{wang2016comprehensive,su2019comparative} and supplemental robustness checks did not alter the qualitative picture: a full-dataset Vina exhaustiveness-256 rerun left the top-1 versus top-20 story unchanged, and a higher-sampling Boltz-2 rerun on 99 shared targets produced only minor aggregate shifts (Table S2, Supporting Information).
-Figure~\ref{fig:structural_examples} illustrates two qualitatively distinct Vina failure modes observed during case review: on highly flexible lipids it can collapse into a visibly tangled non-native pose (Panel A), and in other cases not shown here it can occupy the correct pocket but invert the ligand orientation, yielding deceptively plausible pocket-level overlap despite poor RMSD.
+Figure~\ref{fig:structural_examples} illustrates a characteristic Vina failure mode: on highly flexible lipids the top-ranked pose can collapse into a visibly tangled non-native conformation (Panel A). A second pattern observed during case review is inversion of the headgroup and tail within the correct pocket, which yields deceptively plausible pocket-level overlap despite poor RMSD.
 
 GNINA shifts the best-of-20 distribution toward lower RMSD relative to Vina, indicating modestly improved sampling (or local refinement) in addition to better ranking.
 GNINA-CNN achieves a best-of-20 mean ligand RMSD of \SI{1.95}{\angstrom} (median \SI{1.51}{\angstrom}) and reduces the ranking gap (top-1 minus best-of-20) from \SI{2.56}{\angstrom} for Vina to \SI{1.51}{\angstrom} (Figure~\ref{fig:sampling_ranking}).
@@ -377,7 +377,7 @@ Together, these results indicate that better scoring is helpful but not sufficie
 The adversarial mutagenesis experiment provides evidence that Boltz-2's lipid placement is chemistry-dependent rather than purely memorization-driven.
 When binding-site residues are mutated to glycine or phenylalanine, 75--80\% of previously accurate predictions degrade substantially, with headgroup RMSD shifting from sub-\SI{3}{\angstrom} to $>$\SI{5}{\angstrom} on average.
 The phenylalanine sweep produces larger displacements than the glycine sweep, consistent with steric blockage being more disruptive than simple side-chain removal.
-This sensitivity to local chemistry suggests that Boltz-2 has learned aspects of protein--lipid interaction physics, not merely where lipids ``typically sit'' in familiar protein folds.
+This sensitivity to local chemistry suggests that Boltz-2 has learned aspects of protein--lipid interaction physics, rather than merely recalling where lipids typically sit in familiar protein folds.
 However, the $\sim$20\% of targets that retain accurate predictions despite binding-site disruption warrant further investigation; our resistant-case analysis indicates that these are enriched for backbone-mediated headgroup contacts, supporting a backbone-dominated interaction geometry as one plausible explanation.
 
 The headgroup interaction metrics reinforce the biological relevance of these differences.
@@ -386,7 +386,7 @@ This motivates evaluating lipid docking with interaction-based metrics alongside
 
 Finally, the results highlight a practical implication: in workflows where only a single ranked pose is used, ranking quality is as important as sampling.
 GNINA narrows that gap but does not eliminate it, whereas Boltz-2 performs well without reliance on multi-pose reranking.
-For lipid systems where headgroup chemistry and local protein interactions dominate specificity, jointly generated protein--ligand models performed especially well in this benchmark.
+For lipid systems where headgroup chemistry and local protein interactions dominate specificity, jointly generated protein--ligand models performed especially well in the setting evaluated here.
 
 \subsection{Limitations}
 
@@ -397,9 +397,9 @@ Several important limitations should be noted.
 
     \item \textbf{Comparison constraints.} Boltz-2 can model protein flexibility implicitly, while Vina and GNINA use a rigid receptor. Additionally, Vina/GNINA require a user-defined search box, whereas Boltz-2 predicts the binding site de novo. A more controlled comparison might use flexible receptor docking or provide Vina/GNINA with ensemble receptor structures.
 
-    \item \textbf{Scope of targets.} Our benchmark is restricted to single-chain proteins with single lipid ligands. Many biologically important lipid--protein interactions involve oligomeric proteins or multiple cooperative lipid binding events, which we did not evaluate; extending the benchmark to dimeric or higher-order assemblies remains future work rather than a small add-on to the present study.
+    \item \textbf{Scope of targets.} Our benchmark is restricted to single-chain proteins with single lipid ligands. Many biologically important lipid--protein interactions involve oligomeric proteins or multiple cooperative lipid binding events; extending the benchmark to dimeric and higher-order assemblies is left to future work.
 
-	    \item \textbf{Scope of methods.} We evaluated Boltz-2, Vina, and GNINA. We prioritized methods that could be run reproducibly across the full benchmark in a local, scriptable workflow. AlphaFold3 was not included because the public AlphaFold Server supports only a narrow ligand whitelist that covers a minority of benchmark lipids, while a benchmark-wide local AF3 comparison would have required separate weight approval and substantial new infrastructure and integration work.
+	    \item \textbf{Scope of methods.} We evaluated Boltz-2, Vina, and GNINA. We prioritized methods that could be run reproducibly across the full benchmark in a local, scriptable workflow. AlphaFold3 was not included because the public AlphaFold Server supports only a narrow ligand whitelist that covers a minority of benchmark lipids, and a benchmark-wide local AF3 comparison would have required separate weight approval and substantial additional integration work.
 
 	\end{enumerate}
 
