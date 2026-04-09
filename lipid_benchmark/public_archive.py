@@ -1,10 +1,9 @@
 """
-Canonical tracked data paths for the public repository.
+Canonical data paths for the repository.
 
-This module centralizes the locations of the tracked manuscript archive, the
-curated model-input packages, and the tracked raw-prediction bundles. Public
-scripts and tests should use these paths directly rather than probing local
-scratch directories.
+This module centralizes the locations of the manuscript archive, the curated
+model-input packages, and the raw-prediction bundles so that scripts and tests
+can resolve them through a single source of truth.
 """
 
 from __future__ import annotations
@@ -132,4 +131,4 @@ def require_paths(paths: Iterable[Path]) -> None:
     missing = [path for path in paths if not path.is_file()]
     if missing:
         missing_str = "\n".join(f"  - {path}" for path in missing)
-        raise FileNotFoundError(f"Missing required tracked file(s):\n{missing_str}")
+        raise FileNotFoundError(f"Missing required file(s):\n{missing_str}")

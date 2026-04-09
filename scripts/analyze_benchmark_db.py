@@ -67,13 +67,13 @@ def main() -> None:
         "--summary-csv",
         type=Path,
         default=archive.baseline_summary,
-        help="Baseline benchmark_summary.csv from the tracked manuscript archive.",
+        help="Baseline benchmark_summary.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-root",
         type=Path,
         default=archive.adversarial_root,
-        help="Root directory for adversarial mutagenesis summaries in the tracked manuscript archive.",
+        help="Root directory for adversarial mutagenesis summaries in the manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-protein-rmsd-cutoffs",

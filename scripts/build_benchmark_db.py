@@ -182,43 +182,43 @@ def main() -> None:
         "--baseline-allposes",
         type=Path,
         default=archive.baseline_allposes,
-        help="Baseline Boltz+Vina benchmark_allposes.csv from the tracked manuscript archive.",
+        help="Baseline Boltz+Vina benchmark_allposes.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--gnina-cnn-allposes",
         type=Path,
         default=archive.gnina_cnn_allposes,
-        help="GNINA CNN benchmark_allposes.csv from the tracked manuscript archive.",
+        help="GNINA CNN benchmark_allposes.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--gnina-nocnn-allposes",
         type=Path,
         default=archive.gnina_nocnn_allposes,
-        help="GNINA no-CNN benchmark_allposes.csv from the tracked manuscript archive.",
+        help="GNINA no-CNN benchmark_allposes.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-gly-allposes",
         type=Path,
         default=archive.adversarial_gly_allposes,
-        help="Adversarial Gly benchmark_allposes.csv from the tracked manuscript archive.",
+        help="Adversarial Gly benchmark_allposes.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-phe-allposes",
         type=Path,
         default=archive.adversarial_phe_allposes,
-        help="Adversarial Phe benchmark_allposes.csv from the tracked manuscript archive.",
+        help="Adversarial Phe benchmark_allposes.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-gly-summary",
         type=Path,
         default=archive.adversarial_gly_summary,
-        help="Adversarial Gly benchmark_summary.csv from the tracked manuscript archive.",
+        help="Adversarial Gly benchmark_summary.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--adversarial-phe-summary",
         type=Path,
         default=archive.adversarial_phe_summary,
-        help="Adversarial Phe benchmark_summary.csv from the tracked manuscript archive.",
+        help="Adversarial Phe benchmark_summary.csv from the manuscript archive.",
     )
     parser.add_argument(
         "--vina-dir",

@@ -47,8 +47,7 @@ def default_pairs_path(project_root: Path) -> Path:
     """
     Return the default pairs CSV path for this repository.
 
-    The public repository has one canonical default pairs file:
-    `structures/benchmark_entries.csv`.
+    The canonical default pairs file is `structures/benchmark_entries.csv`.
     """
     return (project_root / "structures" / "benchmark_entries.csv").resolve()
 

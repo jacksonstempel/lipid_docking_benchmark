@@ -1,6 +1,6 @@
 # GNINA Raw Runs
 
-Tracked canonical GNINA runs for the curated benchmark:
+Canonical GNINA runs for the curated benchmark:
 
 - `cnn_rescore_exh8_cpu24/`
   - GNINA 1.3.1
@@ -21,4 +21,4 @@ Each run directory contains:
 
 - `flat/`: one multi-pose PDBQT per target
 - `logs/`: one GNINA log per target
-- `pairs.csv`: benchmark manifest using the tracked GNINA outputs
+- `pairs.csv`: benchmark manifest for that run

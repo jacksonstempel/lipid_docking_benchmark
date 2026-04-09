@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """
-Run the canonical public manuscript-reproduction workflow end-to-end.
+Run the canonical manuscript-reproduction workflow end-to-end.
 
 Stages:
-1) database build from the tracked manuscript archive
+1) database build from the manuscript archive
 2) analysis + figures
 3) manuscript number verification
 """
@@ -29,7 +29,7 @@ def _run(cmd: Iterable[str], *, cwd: Path) -> None:
 def main(argv: list[str] | None = None) -> int:
     repo_root = Path(__file__).resolve().parents[1]
     archive = canonical_repro_archive(repo_root)
-    parser = argparse.ArgumentParser(description="Rebuild the manuscript analysis bundle from the tracked public archive.")
+    parser = argparse.ArgumentParser(description="Rebuild the manuscript analysis bundle from the manuscript archive.")
     parser.add_argument("--python", default=sys.executable, help="Python executable (default: current interpreter).")
     parser.add_argument("--db-path", default="output/benchmark/benchmark_full.sqlite", help="Unified SQLite output path.")
     parser.add_argument("--analysis-out-dir", default="output/analysis/db_pipeline", help="Analysis CSV output directory.")

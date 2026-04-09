@@ -1,6 +1,6 @@
 # Adversarial Raw Runs
 
-Tracked canonical Boltz raw outputs for the binding-site mutagenesis experiment.
+Canonical Boltz raw outputs for the binding-site mutagenesis experiment.
 
 Contents:
 

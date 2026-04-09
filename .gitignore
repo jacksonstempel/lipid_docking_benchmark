@@ -2,16 +2,14 @@ __pycache__/
 *.py[cod]
 *.pyo
 
-# Repo-local caches
+# Caches
 .cache/
-
-# Common Python/tooling caches
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 .tox/
 
-# OS/editor noise
+# OS / editor
 .DS_Store
 *.swp
 *.swo
@@ -25,32 +23,21 @@ env/
 build/
 dist/
 
-# Human-facing benchmark outputs (generated)
+# Generated benchmark outputs
 output/
-
-# Backward-compatible ignore (older runs)
 analysis/
 
-# Paper drafting (private)
-paper/
-
-# Manuscript drafting (private)
-acs-manuscript.bib
-pdflatex*.fls
-
-# Publication plots: keep PDFs, ignore previews/rasters
+# Plot previews and rasters
 plots/_preview/
 plots/**/*.png
 plots/**/*.svg
-
-# Model-generation inputs (not required for publishing benchmark)
-prediction_inputs/
 
 # Editor / IDE configs
 .vscode/
 .idea/
 *.code-workspace
 .claude/
+.codex/
 
 # Jupyter checkpoints
 .ipynb_checkpoints/
@@ -61,3 +48,41 @@ prediction_inputs/
 .coverage
 .coverage.*
 htmlcov/
+
+# Manuscript build artifacts (figures under manuscript/figures/ are tracked separately)
+manuscript/.git/
+manuscript/build/
+manuscript/build_main/
+manuscript/build_si/
+manuscript/dist/
+manuscript/dist_main/
+manuscript/dist_si/
+manuscript/*.pdf
+manuscript/*.aux
+manuscript/*.log
+manuscript/*.out
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+manuscript/Template for Electronic Submission to ACS Journals.docx
+acs-manuscript.bib
+pdflatex*.fls
+
+# Local notes and reference material
+docs/todo/
+docs/isaac/
+docs/co-folding_physics_paper.pdf
+docs/manuscript_review_feedback.md
+docs/micholas_comment_tracker.md
+refactor-pass-skill.jpg
+paper/
+
+# Local helper scripts (kept out of the repository)
+scripts/gnina_smoketest_isaac.sh
+scripts/isaac_best_gpu.py
+scripts/isaac_submit_boltz_phe_dir_shards3.sh
+scripts/submit_gnina_fix4_nocnn_short.sh
+scripts/sync_isaac_scripts.sh
+scripts/vina_exhaustiveness_sensitivity.py
+manuscript/figures/fig_adversarial_mutagenesis_prot1.5A.pdf

@@ -6,7 +6,7 @@ The benchmark reads a "pairs CSV" (structures/benchmark_entries.csv by default)
 with columns: pdbid, ref, boltz_pred, vina_pred.
 
 This script rewrites only the `boltz_pred` column to point at a new directory
-(e.g., structures/boltz_isaac/) while keeping `ref` and `vina_pred` identical.
+while keeping `ref` and `vina_pred` identical.
 """
 
 from __future__ import annotations
@@ -64,14 +64,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser.add_argument(
         "--out-pairs",
         type=Path,
-        default=Path("structures/benchmark_entries_boltz_isaac.csv"),
-        help="Output pairs CSV (default: structures/benchmark_entries_boltz_isaac.csv).",
+        default=Path("structures/benchmark_entries_boltz_rerun.csv"),
+        help="Output pairs CSV (default: structures/benchmark_entries_boltz_rerun.csv).",
     )
     parser.add_argument(
         "--boltz-dir",
         type=Path,
-        default=Path("structures/boltz_isaac"),
-        help="Directory containing Boltz CIFs named <PDBID>_model_0.cif (default: structures/boltz_isaac).",
+        default=Path("structures/boltz_rerun"),
+        help="Directory containing Boltz CIFs named <PDBID>_model_0.cif (default: structures/boltz_rerun).",
     )
     parser.add_argument(
         "--suffix",

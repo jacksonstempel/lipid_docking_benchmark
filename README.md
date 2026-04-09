@@ -1,13 +1,13 @@
 # Lipid Docking Benchmark
 
-Public manuscript companion for:
+Manuscript companion for:
 `Boltz-2 Outperforms AutoDock Vina on Lipid--Protein Complex Prediction`.
 
 This repository contains the curated benchmark inputs, canonical prediction
 outputs, archived benchmark-result tables, analysis code, and manuscript source
 needed to reproduce the paper and rerun the benchmark workflows.
 
-## What Is Tracked
+## Contents
 
 - `structures/`
   - curated 100-target experimental structures
@@ -17,24 +17,24 @@ needed to reproduce the paper and rerun the benchmark workflows.
 - `prediction_inputs/`
   - Boltz YAML inputs for the curated 100-target set
   - Vina/GNINA receptor, ligand, and box inputs for the curated 100-target set
-  - `SHA256SUMS.txt` manifest for the tracked input bundle
+  - `SHA256SUMS.txt` manifest for the input bundle
 - `data/raw_predictions/`
   - canonical GNINA CNN-rescored and no-CNN raw run outputs
   - canonical adversarial mutagenesis mutant inputs and raw Boltz outputs
-  - pair manifests for benchmarking those tracked raw outputs directly
-  - `SHA256SUMS.txt` manifest for the tracked raw-prediction bundle
+  - pair manifests for benchmarking those raw outputs directly
+  - `SHA256SUMS.txt` manifest for the raw-prediction bundle
 - `data/reproducibility/`
-  - archived benchmark-result tables used to rebuild the manuscript analysis bundle
+  - benchmark-result tables used to rebuild the manuscript analysis bundle
 - `lipid_benchmark/` and `scripts/`
-  - benchmark library code and public CLI entry points
+  - benchmark library code and CLI entry points
 - `manuscript/`
   - main manuscript and supporting information source
-  - final manuscript figure assets
+  - manuscript figure assets
 
-## Exact Manuscript Reproduction
+## Manuscript Reproduction
 
-The tracked archive in `data/reproducibility/` contains the benchmark-result CSVs
-used to regenerate the manuscript analysis bundle:
+The archive in `data/reproducibility/` contains the benchmark-result CSVs used
+to regenerate the manuscript analysis bundle:
 
 - baseline Boltz + Vina all-pose and summary tables
 - GNINA CNN and no-CNN all-pose tables
@@ -54,9 +54,7 @@ This rebuilds:
 3. the manuscript figure files in `manuscript/figures/`
 4. the manuscript number audit in `scripts/verify_manuscript_numbers.py`
 
-This is the canonical manuscript-reproduction path for the paper.
-
-## Benchmark Reruns From Tracked Prediction Outputs
+## Benchmark Reruns From Prediction Outputs
 
 ### Baseline Boltz + Vina
 
@@ -94,17 +92,16 @@ python scripts/benchmark.py \
   --out-dir output/benchmark/adversarial_phe
 ```
 
-## Fresh Inference Reruns From Tracked Inputs
+## Fresh Inference Reruns From Inputs
 
-The curated Boltz and Vina/GNINA input packages are tracked under
-`prediction_inputs/`. Example ISAAC Slurm submission helpers are included for:
+The curated Boltz and Vina/GNINA input packages live under `prediction_inputs/`.
+ISAAC Slurm submission helpers are provided for:
 
 - `scripts/submit_boltz_isaac_array.sh`
 - `scripts/submit_vina_isaac_array.sh`
 - `scripts/submit_gnina_isaac_array.sh`
 
-These scripts are explicit about required paths and settings. They do not probe
-private local workspaces.
+Each helper takes its required paths and settings as command-line arguments.
 
 ## Environment Setup
 
@@ -128,8 +125,8 @@ python -m unittest
 python scripts/reproduce_paper.py
 ```
 
-The CI workflow runs both the test suite and the full public manuscript
-reproduction path.
+The CI workflow runs both the test suite and the full manuscript reproduction
+path.
 
 ## Build the Manuscript PDFs
 
@@ -148,13 +145,13 @@ More detail: [manuscript/README.md](manuscript/README.md)
 
 ## Repository Layout
 
-- `data/raw_predictions/`: tracked canonical GNINA and adversarial raw outputs
-- `data/reproducibility/`: tracked manuscript-analysis archive
-- `docs/repro_contract.md`: precise public reproduction contract
-- `docs/data_layout.md`: tracked versus generated data layout
+- `data/raw_predictions/`: canonical GNINA and adversarial raw outputs
+- `data/reproducibility/`: manuscript-analysis archive
+- `docs/repro_contract.md`: reproduction contract
+- `docs/data_layout.md`: data layout reference
 - `lipid_benchmark/`: reusable benchmark library code
-- `prediction_inputs/`: tracked Boltz and Vina/GNINA input packages
-- `scripts/`: canonical CLI entry points and rerun helpers
+- `prediction_inputs/`: Boltz and Vina/GNINA input packages
+- `scripts/`: CLI entry points and rerun helpers
 - `structures/`: curated baseline structures and baseline prediction outputs
 - `manuscript/`: main paper and SI source
 

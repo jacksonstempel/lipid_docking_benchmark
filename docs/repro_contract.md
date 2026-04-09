@@ -1,20 +1,20 @@
 # Reproducibility Contract
 
-This repository exposes two public reproduction layers:
+This repository exposes two reproduction layers:
 
-1. exact manuscript reproduction from tracked benchmark-result tables
-2. structure-level reruns from tracked canonical prediction outputs and inputs
+1. exact manuscript reproduction from the benchmark-result tables
+2. structure-level reruns from the canonical prediction outputs and inputs
 
-## 1. Canonical Manuscript Reproduction
+## 1. Manuscript Reproduction
 
-The paper is reproduced from the tracked archive in `data/reproducibility/`.
-The canonical command is:
+The paper is reproduced from the archive in `data/reproducibility/`. The
+canonical command is:
 
 ```bash
 python scripts/reproduce_paper.py
 ```
 
-That command must complete without manual intervention and produces:
+It completes without manual intervention and produces:
 
 - `output/benchmark/benchmark_full.sqlite`
 - `output/analysis/db_pipeline/per_target.csv`
@@ -27,7 +27,7 @@ That command must complete without manual intervention and produces:
 It also runs `python scripts/verify_manuscript_numbers.py`, which must return
 success.
 
-The tracked archive contains:
+The archive contains:
 
 - baseline Boltz + Vina benchmark tables
 - GNINA CNN and no-CNN all-pose tables
@@ -35,20 +35,16 @@ The tracked archive contains:
 - Vina exhaustiveness-256 robustness tables
 - higher-sampling Boltz-2 robustness tables
 
-The higher-sampling Boltz-2 robustness check is preserved as archived benchmark
-tables only. Its raw prediction workspace is not part of the tracked public
-bundle.
+## 2. Structure-Level Reruns
 
-## 2. Structure-Level Reruns From Tracked Outputs
-
-The repository also tracks canonical prediction outputs that can be benchmarked
-directly:
+The repository also includes canonical prediction outputs that can be
+benchmarked directly:
 
 - baseline Boltz + Vina outputs in `structures/`
 - GNINA CNN and no-CNN raw outputs in `data/raw_predictions/gnina/`
 - adversarial mutagenesis raw Boltz outputs in `data/raw_predictions/adversarial/`
 
-Use the tracked pair manifests to rerun those benchmarks:
+Use the pair manifests to rerun those benchmarks:
 
 ```bash
 python scripts/benchmark.py --pairs structures/benchmark_entries.csv --out-dir output/benchmark/baseline
@@ -58,21 +54,21 @@ python scripts/benchmark.py --pairs data/raw_predictions/adversarial/bs_mutagene
 python scripts/benchmark.py --pairs data/raw_predictions/adversarial/bs_mutagenesis_cutoff5A/phe/pairs.csv --out-dir output/benchmark/adversarial_phe
 ```
 
-## Tracked Fresh-Inference Inputs
+## Fresh-Inference Inputs
 
-The repository tracks the curated model-input packages needed to rerun the main
-inference stages:
+The curated model-input packages for the main inference stages live in:
 
 - `prediction_inputs/boltz_inputs/`
 - `prediction_inputs/vina_inputs/`
 
-Example ISAAC Slurm submission helpers are provided in `scripts/` for Boltz,
-Vina, and GNINA. They are explicit about required paths and settings.
+ISAAC Slurm submission helpers for Boltz, Vina, and GNINA are provided in
+`scripts/`. Each helper takes its required paths and settings as command-line
+arguments.
 
 ## Acceptance Criteria
 
-The public manuscript companion is considered valid when all of the following
-hold in a clean checkout:
+The manuscript companion is considered valid when all of the following hold in
+a clean checkout:
 
 1. `python -m unittest` passes.
 2. `python scripts/reproduce_paper.py` completes without error.

@@ -107,7 +107,7 @@ class TestPublicDataLayout(unittest.TestCase):
         mutation_ids = _csv_pdbids(self.raw.adversarial_mutation_summary)
         self.assertEqual(mutation_ids, self.targets)
 
-    def test_sha256_manifests_match_tracked_files(self) -> None:
+    def test_sha256_manifests_match_files(self) -> None:
         for root in (self.inputs.root, self.raw.root):
             manifest = root / "SHA256SUMS.txt"
             self.assertTrue(manifest.is_file(), manifest)
