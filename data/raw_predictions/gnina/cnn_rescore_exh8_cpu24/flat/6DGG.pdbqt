@@ -1,0 +1,570 @@
+MODEL        2
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -7.36689329
+REMARK CNNscore 0.96367383
+REMARK CNNaffinity 5.54964256
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       9.163   9.993   8.389  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1      10.382  10.810   8.860  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1      10.697  11.921   7.835  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1      11.922  12.786   8.199  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1      13.731  11.852   6.910  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1      13.050  13.817   6.275  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1      12.950  12.827   7.056  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       7.792  10.713   8.416  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       6.808   9.872   9.270  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       5.330  10.281   9.200  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       4.489   9.159   9.825  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1       4.183   9.341  11.318  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1       3.514  10.681  11.637  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1       4.504  11.665  12.266  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        3
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -6.65114975
+REMARK CNNscore 0.938925683
+REMARK CNNaffinity 5.75163412
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       9.807  10.439   8.440  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1      11.148  11.009   8.943  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1      11.369  12.421   8.357  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1      11.823  12.428   6.881  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1      13.310  14.179   6.154  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1      14.269  12.476   7.107  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1      13.216  13.058   6.717  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       9.175   9.306   9.286  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       7.632   9.459   9.245  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       7.096  10.730   8.570  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       5.566  10.739   8.706  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1       4.964   9.444   9.269  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1       4.094   9.672  10.508  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1       2.628   9.329  10.235  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        4
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -7.65625191
+REMARK CNNscore 0.610478401
+REMARK CNNaffinity 5.4465766
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       6.954  10.666   8.805  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       7.780   9.426   9.196  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       9.256   9.630   8.791  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       9.639  11.101   8.521  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1      12.014  11.442   8.746  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1      11.303  11.136   6.714  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1      11.063  11.224   7.953  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       5.416  10.488   8.753  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       5.048   9.155   9.454  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       3.659   9.092  10.104  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       3.837   9.157  11.629  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1       2.734   9.925  12.372  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1       3.149  11.344  12.768  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1       4.545  11.687  12.241  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        5
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -5.42908764
+REMARK CNNscore 0.572328806
+REMARK CNNaffinity 5.28203249
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       7.960   9.519   9.052  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       9.402   9.193   8.617  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       9.769  10.012   7.360  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1      11.170  10.658   7.415  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1      11.957  12.848   6.791  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1      10.195  12.818   8.065  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1      11.089  12.194   7.424  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       7.396  10.892   8.612  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       5.927  10.699   8.151  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       4.844  11.193   9.120  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       5.213  10.724  10.536  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1       4.220   9.735  11.164  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1       3.584   8.789  10.141  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1       4.633   7.900   9.471  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        6
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -6.6175189
+REMARK CNNscore 0.385078669
+REMARK CNNaffinity 4.50431108
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       6.395   9.761   9.547  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       4.945  10.106   9.155  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       3.961   9.231   9.962  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       2.793  10.017  10.597  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1       2.284   9.990  12.952  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1       4.083  11.080  12.398  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1       3.083  10.381  12.063  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       7.513  10.324   8.636  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       8.681   9.304   8.598  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1      10.011   9.819   8.030  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1      10.415  11.078   8.813  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1      11.850  11.560   8.560  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1      11.914  12.918   7.855  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1      13.141  13.020   6.946  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        7
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -7.24349022
+REMARK CNNscore 0.272946686
+REMARK CNNaffinity 4.70361376
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       5.240  10.488   8.988  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       4.697   9.158   9.545  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       3.470   9.427  10.443  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       3.796   9.510  11.949  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1       4.542  11.775  12.290  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1       2.605  11.292  13.150  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1       3.625  10.939  12.491  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       6.760  10.551   8.699  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       7.470   9.465   9.548  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       8.721   8.829   8.925  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       9.407   9.881   8.040  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1      10.325  10.854   8.794  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1      11.424  11.451   7.912  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1      11.616  12.943   8.189  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        8
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -6.65528631
+REMARK CNNscore 0.256595552
+REMARK CNNaffinity 4.1032052
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       7.627   9.490   9.475  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       6.793  10.520   8.689  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       5.290  10.298   8.964  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       4.879  10.513  10.436  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1       3.965   8.877  11.950  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1       2.762   9.291  10.187  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1       3.799   9.512  10.878  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       8.914   8.969   8.788  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       9.418  10.049   7.797  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       9.895  11.369   8.420  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1      11.421  11.302   8.584  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1      12.177  12.537   8.076  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1      13.036  12.252   6.841  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1      13.833  13.488   6.416  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL        9
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -5.48810434
+REMARK CNNscore 0.188687518
+REMARK CNNaffinity 4.59230423
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       6.133  10.507   8.972  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       7.128  10.938   7.878  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       8.461  11.376   8.524  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       9.574  10.309   8.459  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1       8.986   7.980   8.271  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1       8.826   8.825  10.268  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1       9.110   8.964   9.043  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       4.628  10.619   8.625  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       3.805   9.994   9.781  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       4.572   9.063  10.731  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       4.338   9.544  12.171  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1       4.041  11.045  12.306  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1       2.795  11.339  13.146  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1       1.711  12.031  12.317  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL       10
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -6.24264669
+REMARK CNNscore 0.180648997
+REMARK CNNaffinity 4.39109659
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       4.442   8.794   9.619  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       3.236   9.626  10.095  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       2.748   9.107  11.465  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       3.367   9.840  12.674  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1       2.389  12.022  12.374  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1       4.561  11.951  12.277  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1       3.455  11.357  12.436  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       5.846   9.386   9.895  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1       5.949  10.765   9.193  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1       6.975  10.870   8.055  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1       8.256  11.502   8.618  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1       9.557  10.809   8.188  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1       9.338   9.386   7.667  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1       9.129   8.395   8.814  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL
+MODEL       11
+REMARK  Name = docking/prep/6DGG/ligand.pdb
+REMARK minimizedAffinity -4.74289799
+REMARK CNNscore 0.152191415
+REMARK CNNaffinity 3.6909132
+REMARK  10 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C_1  and  C_2
+REMARK    2  A    between atoms: C_1  and  C_8
+REMARK    3  A    between atoms: C_2  and  C_3
+REMARK    4  A    between atoms: C_3  and  C_4
+REMARK    5  A    between atoms: C_4  and  C_7
+REMARK    6  A    between atoms: C_8  and  C_9
+REMARK    7  A    between atoms: C_9  and  C_10
+REMARK    8  A    between atoms: C_10  and  C_11
+REMARK    9  A    between atoms: C_11  and  C_12
+REMARK   10  A    between atoms: C_12  and  C_13
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C   UNL     1       9.853  10.574   8.330  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C   UNL     1       9.277   9.604   9.379  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C   UNL     1       7.849   9.179   8.973  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C   UNL     1       6.771  10.249   9.247  0.00  0.00    +0.000 C 
+BRANCH   4   7
+ATOM      5  O   UNL     1       4.862   8.809   9.549  0.00  0.00    +0.000 OA
+ATOM      6  O   UNL     1       5.350  10.080  11.245  0.00  0.00    +0.000 OA
+ATOM      7  C   UNL     1       5.602   9.681  10.071  0.00  0.00    +0.000 C 
+ENDBRANCH   4   7
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1   8
+ATOM      8  C   UNL     1       9.828  10.098   6.856  0.00  0.00    +0.000 C 
+BRANCH   8   9
+ATOM      9  C   UNL     1      11.242  10.288   6.250  0.00  0.00    +0.000 C 
+BRANCH   9  10
+ATOM     10  C   UNL     1      12.348  10.705   7.230  0.00  0.00    +0.000 C 
+BRANCH  10  11
+ATOM     11  C   UNL     1      13.443  11.437   6.439  0.00  0.00    +0.000 C 
+BRANCH  11  12
+ATOM     12  C   UNL     1      13.576  12.932   6.760  0.00  0.00    +0.000 C 
+BRANCH  12  13
+ATOM     13  C   UNL     1      12.236  13.604   7.072  0.00  0.00    +0.000 C 
+ATOM     14  C   UNL     1      11.957  13.626   8.576  0.00  0.00    +0.000 C 
+ENDBRANCH  12  13
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   9  10
+ENDBRANCH   8   9
+ENDBRANCH   1   8
+TORSDOF 10
+ENDMDL

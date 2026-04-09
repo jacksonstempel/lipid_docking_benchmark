@@ -1,18 +1,13 @@
 # Reproducibility Contract
 
-This repository exposes one strict public reproduction contract for the paper and
-one narrower rerun path for the baseline benchmark.
+This repository exposes two public reproduction layers:
 
-## Canonical Public Manuscript Workflow
+1. exact manuscript reproduction from tracked benchmark-result tables
+2. structure-level reruns from tracked canonical prediction outputs and inputs
+
+## 1. Canonical Manuscript Reproduction
 
 The paper is reproduced from the tracked archive in `data/reproducibility/`.
-That archive contains the exact benchmark-result tables needed for:
-
-- baseline Boltz + Vina analysis
-- GNINA CNN and no-CNN comparisons
-- adversarial mutagenesis figures
-- robustness analyses in the supporting information
-
 The canonical command is:
 
 ```bash
@@ -32,37 +27,47 @@ That command must complete without manual intervention and produces:
 It also runs `python scripts/verify_manuscript_numbers.py`, which must return
 success.
 
-## Canonical Archive Contents
+The tracked archive contains:
 
-The public manuscript workflow depends on these tracked files:
+- baseline Boltz + Vina benchmark tables
+- GNINA CNN and no-CNN all-pose tables
+- adversarial mutagenesis all-pose and summary tables
+- Vina exhaustiveness-256 robustness tables
+- higher-sampling Boltz-2 robustness tables
 
-- `data/reproducibility/baseline/benchmark_allposes.csv`
-- `data/reproducibility/baseline/benchmark_summary.csv`
-- `data/reproducibility/gnina/benchmark_allposes_gnina_cnn.csv`
-- `data/reproducibility/gnina/benchmark_allposes_gnina_nocnn.csv`
-- `data/reproducibility/adversarial/benchmark_gly/benchmark_allposes.csv`
-- `data/reproducibility/adversarial/benchmark_gly/benchmark_summary.csv`
-- `data/reproducibility/adversarial/benchmark_phe/benchmark_allposes.csv`
-- `data/reproducibility/adversarial/benchmark_phe/benchmark_summary.csv`
-- `data/reproducibility/adversarial/mutation_summary.csv`
-- `data/reproducibility/robustness/vina_exhaustiveness_256/benchmark_allposes.csv`
-- `data/reproducibility/robustness/vina_exhaustiveness_256/benchmark_summary.csv`
-- `data/reproducibility/robustness/boltz_high_sampling/benchmark_allposes.csv`
-- `data/reproducibility/robustness/boltz_high_sampling/benchmark_summary.csv`
+The higher-sampling Boltz-2 robustness check is preserved as archived benchmark
+tables only. Its raw prediction workspace is not part of the tracked public
+bundle.
 
-## Baseline Structure-Level Rerun
+## 2. Structure-Level Reruns From Tracked Outputs
 
-The repository also supports rerunning the main baseline benchmark directly from
-the curated structures:
+The repository also tracks canonical prediction outputs that can be benchmarked
+directly:
+
+- baseline Boltz + Vina outputs in `structures/`
+- GNINA CNN and no-CNN raw outputs in `data/raw_predictions/gnina/`
+- adversarial mutagenesis raw Boltz outputs in `data/raw_predictions/adversarial/`
+
+Use the tracked pair manifests to rerun those benchmarks:
 
 ```bash
-python scripts/benchmark.py \
-  --pairs structures/benchmark_entries.csv \
-  --out-dir output/benchmark
+python scripts/benchmark.py --pairs structures/benchmark_entries.csv --out-dir output/benchmark/baseline
+python scripts/benchmark.py --pairs data/raw_predictions/gnina/cnn_rescore_exh8_cpu24/pairs.csv --out-dir output/benchmark/gnina_cnn
+python scripts/benchmark.py --pairs data/raw_predictions/gnina/no_cnn_exh8_cpu24/pairs.csv --out-dir output/benchmark/gnina_nocnn
+python scripts/benchmark.py --pairs data/raw_predictions/adversarial/bs_mutagenesis_cutoff5A/gly/pairs.csv --out-dir output/benchmark/adversarial_gly
+python scripts/benchmark.py --pairs data/raw_predictions/adversarial/bs_mutagenesis_cutoff5A/phe/pairs.csv --out-dir output/benchmark/adversarial_phe
 ```
 
-This reproduces the baseline Boltz + Vina benchmark outputs only. It does not
-replace the archive-backed manuscript workflow above.
+## Tracked Fresh-Inference Inputs
+
+The repository tracks the curated model-input packages needed to rerun the main
+inference stages:
+
+- `prediction_inputs/boltz_inputs/`
+- `prediction_inputs/vina_inputs/`
+
+Example ISAAC Slurm submission helpers are provided in `scripts/` for Boltz,
+Vina, and GNINA. They are explicit about required paths and settings.
 
 ## Acceptance Criteria
 

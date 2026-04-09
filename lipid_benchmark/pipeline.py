@@ -121,28 +121,24 @@ def _contact_cache_dir(normalized_dir: Path, pdbid: str) -> Path:
     return normalized_dir.parent / "contacts" / pdbid
 
 
-def _safe_int(value) -> int | str:
+def _require_int(value, *, label: str) -> int:
     """
-    Convert a value to an integer if possible; otherwise return an empty string.
-
-    This exists so we can write “missing/unknown” values cleanly into CSV files.
+    Convert a required value to an integer.
     """
     try:
         return int(value)
     except (TypeError, ValueError):
-        return ""
+        raise ValueError(f"Missing or invalid integer for {label}: {value!r}") from None
 
 
-def _safe_float(value) -> float | str:
+def _require_float(value, *, label: str) -> float:
     """
-    Convert a value to a float if possible; otherwise return an empty string.
-
-    This exists so we can write “missing/unknown” values cleanly into CSV files.
+    Convert a required value to a float.
     """
     try:
         return float(value)
     except (TypeError, ValueError):
-        return ""
+        raise ValueError(f"Missing or invalid float for {label}: {value!r}") from None
 
 
 def _finite_float_or_na(value) -> float | str:
@@ -344,12 +340,12 @@ def _run_entry(
         "ref_ligand_id": ref_ligand_id,
         "pred_ligand_id": boltz_ligand_id,
         "pairing_method": boltz_rmsd.get("pairing_method", ""),
-        "ligand_heavy_atoms": _safe_int(boltz_rmsd.get("ligand_heavy_atoms")),
-        "ligand_rmsd": _safe_float(boltz_rmsd.get("ligand_rmsd")),
+        "ligand_heavy_atoms": _require_int(boltz_rmsd.get("ligand_heavy_atoms"), label="boltz ligand_heavy_atoms"),
+        "ligand_rmsd": _require_float(boltz_rmsd.get("ligand_rmsd"), label="boltz ligand_rmsd"),
         "headgroup_atoms": int(float(boltz_rmsd.get("headgroup_atoms") or 0)),
         "headgroup_rmsd": _finite_float_or_na(boltz_rmsd.get("headgroup_rmsd")),
-        "protein_pairs": _safe_int(boltz_rmsd.get("protein_pairs")),
-        "protein_rmsd": _safe_float(boltz_rmsd.get("protein_rmsd")),
+        "protein_pairs": _require_int(boltz_rmsd.get("protein_pairs"), label="boltz protein_pairs"),
+        "protein_rmsd": _require_float(boltz_rmsd.get("protein_rmsd"), label="boltz protein_rmsd"),
         "headgroup_contacts_ref": ref_head_contact_count,
         "headgroup_contacts_pred": boltz_head_contact_count,
         "headgroup_types_ref": ref_head_types,
@@ -395,8 +391,8 @@ def _run_entry(
             "ref_ligand_id": ref_ligand_id,
             "pred_ligand_id": str(rmsd_row.get("pred_ligand_id") or ""),
             "pairing_method": rmsd_row.get("pairing_method", ""),
-            "ligand_heavy_atoms": _safe_int(rmsd_row.get("ligand_heavy_atoms")),
-            "ligand_rmsd": _safe_float(rmsd_row.get("ligand_rmsd")),
+            "ligand_heavy_atoms": _require_int(rmsd_row.get("ligand_heavy_atoms"), label="vina ligand_heavy_atoms"),
+            "ligand_rmsd": _require_float(rmsd_row.get("ligand_rmsd"), label="vina ligand_rmsd"),
             "headgroup_atoms": int(float(rmsd_row.get("headgroup_atoms") or 0)),
             "headgroup_rmsd": _finite_float_or_na(rmsd_row.get("headgroup_rmsd")),
             "protein_pairs": NA,
@@ -411,17 +407,11 @@ def _run_entry(
         vina_rows.append(row)
         allposes.append(row)
 
-    def _as_float(value) -> float:
-        try:
-            return float(value)
-        except (TypeError, ValueError):
-            return float("inf")
-
     # Select Vina's top-1 suggestion (non-oracular).
     #
     # Vina outputs poses in ranked order; pose_index=1 is the top suggestion a user would
     # typically inspect first (without using the experimental structure to choose).
-    top1_vina = min(vina_rows, key=lambda r: _as_float(r.get("pose_index")))
+    top1_vina = min(vina_rows, key=lambda r: int(r["pose_index"]))
     summary.append({**top1_vina, "method": "vina_top1"})
 
     return allposes, summary
@@ -466,7 +456,6 @@ def run_benchmark(
     workers: int = 1,
     cache_normalized: bool = True,
     cache_contacts: bool = True,
-    allow_errors: bool = False,
     progress_cb: Callable[[int, int, str], None] | None = None,
     stage_cb: Callable[[str, str], None] | None = None,
     entry_cb: Callable[[List[Dict[str, object]], List[Dict[str, object]], int, int], None] | None = None,
@@ -498,18 +487,6 @@ def run_benchmark(
 
     total = len(entries)
 
-    def _error_summary_rows(pdbid: str, error: BaseException) -> List[Dict[str, object]]:
-        msg = str(error).strip().replace("\n", " ")
-        if len(msg) > 220:
-            msg = msg[:217] + "..."
-        err = f"ERROR: {msg}" if msg else "ERROR"
-        base: Dict[str, object] = {"pdbid": pdbid, "pose_index": 0, "pairing_method": err}
-        # Keep the summary shape roughly consistent: include placeholders for Boltz and Vina top-1.
-        return [
-            {**base, "method": "boltz", "ligand_rmsd": NA, "headgroup_rmsd": NA, "head_env_jaccard": NA},
-            {**base, "method": "vina_top1", "ligand_rmsd": NA, "headgroup_rmsd": NA, "head_env_jaccard": NA},
-        ]
-
     if workers == 1:
         for idx, entry in enumerate(entries, start=1):
             if progress_cb is None:
@@ -519,23 +496,16 @@ def run_benchmark(
                     LOGGER.info("[%d/%d] %s", idx, total, entry.pdbid)
             entry_all: List[Dict[str, object]] = []
             entry_summary: List[Dict[str, object]] = []
-            try:
-                entry_all, entry_summary = _run_entry(
-                    entry,
-                    vina_max_poses=vina_max_poses,
-                    normalized_dir=normalized_dir,
-                    cache_normalized=cache_normalized,
-                    cache_contacts=cache_contacts,
-                    stage_cb=stage_cb,
-                )
-                allposes.extend(entry_all)
-                summary.extend(entry_summary)
-            except Exception as exc:
-                if not allow_errors:
-                    raise
-                LOGGER.error("%s: failed (%s)", entry.pdbid, exc)
-                entry_summary = _error_summary_rows(entry.pdbid, exc)
-                summary.extend(entry_summary)
+            entry_all, entry_summary = _run_entry(
+                entry,
+                vina_max_poses=vina_max_poses,
+                normalized_dir=normalized_dir,
+                cache_normalized=cache_normalized,
+                cache_contacts=cache_contacts,
+                stage_cb=stage_cb,
+            )
+            allposes.extend(entry_all)
+            summary.extend(entry_summary)
             if progress_cb is not None:
                 progress_cb(idx, total, entry.pdbid)
             if entry_cb is not None:
@@ -558,16 +528,9 @@ def run_benchmark(
                 entry = futures[future]
                 entry_all = []
                 entry_summary = []
-                try:
-                    entry_all, entry_summary = future.result()
-                    allposes.extend(entry_all)
-                    summary.extend(entry_summary)
-                except Exception as exc:
-                    if not allow_errors:
-                        raise
-                    LOGGER.error("%s: failed (%s)", entry.pdbid, exc)
-                    entry_summary = _error_summary_rows(entry.pdbid, exc)
-                    summary.extend(entry_summary)
+                entry_all, entry_summary = future.result()
+                allposes.extend(entry_all)
+                summary.extend(entry_summary)
                 completed += 1
                 if progress_cb is None:
                     if quiet:

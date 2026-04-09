@@ -1,0 +1,120 @@
+REMARK  Name = docking/prep/6E5F/ligand.pdb
+REMARK  24 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C1_1  and  O1_25
+REMARK    2  A    between atoms: C2_2  and  O2_26
+REMARK    3  A    between atoms: C3_3  and  O3_27
+REMARK    4  A    between atoms: C4_4  and  O4_28
+REMARK    5  A    between atoms: C5_5  and  C6_6
+REMARK    6  A    between atoms: C6_6  and  O6_30
+REMARK    7  A    between atoms: CAA_7  and  O1_25
+REMARK    8  A    between atoms: CAO_8  and  CAP_9
+REMARK    9  A    between atoms: CAP_9  and  OAQ_32
+REMARK   10  A    between atoms: CAR_10  and  OAS_33
+REMARK   11  A    between atoms: CAT_11  and  OAU_34
+REMARK   12  A    between atoms: CAV_12  and  OAW_35
+REMARK   13  A    between atoms: CAX_13  and  CAY_14
+REMARK   14  A    between atoms: CAX_13  and  O6_30
+REMARK   15  A    between atoms: CAY_14  and  CAZ_15
+REMARK   16  A    between atoms: CAZ_15  and  CBA_16
+REMARK   17  A    between atoms: CBA_16  and  CBB_17
+REMARK   18  A    between atoms: CBB_17  and  CBC_18
+REMARK   19  A    between atoms: CBC_18  and  CBD_19
+REMARK   20  A    between atoms: CBD_19  and  CBE_20
+REMARK   21  A    between atoms: CBE_20  and  CBF_21
+REMARK   22  A    between atoms: CBF_21  and  CBG_22
+REMARK   23  A    between atoms: CBG_22  and  CBH_23
+REMARK   24  A    between atoms: CBH_23  and  CBI_24
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C1  L6T A 301     -25.225 -10.447  -4.526  0.00  0.00    +0.191 C 
+ATOM      2  C2  L6T A 301     -24.123 -11.492  -4.536  0.00  0.00    +0.134 C 
+ATOM      3  C3  L6T A 301     -24.726 -12.860  -4.754  0.00  0.00    +0.114 C 
+ATOM      4  C4  L6T A 301     -25.743 -13.123  -3.661  0.00  0.00    +0.112 C 
+ATOM      5  C5  L6T A 301     -26.818 -12.042  -3.737  0.00  0.00    +0.113 C 
+ATOM      6  O5  L6T A 301     -26.200 -10.755  -3.500  0.00  0.00    -0.340 OA
+ENDROOT
+BRANCH   4   7
+ATOM      7  O4  L6T A 301     -26.321 -14.410  -3.866  0.00  0.00    -0.386 OA
+ATOM      8  H   L6T A 301     -26.743 -14.439  -4.739  0.00  0.00    +0.000 HD
+ENDBRANCH   4   7
+BRANCH   3   9
+ATOM      9  O3  L6T A 301     -23.695 -13.855  -4.717  0.00  0.00    -0.386 OA
+ATOM     10  H   L6T A 301     -23.251 -13.829  -3.855  0.00  0.00    +0.000 HD
+ENDBRANCH   3   9
+BRANCH   2  11
+ATOM     11  O2  L6T A 301     -23.203 -11.205  -5.596  0.00  0.00    -0.384 OA
+ATOM     12  H   L6T A 301     -23.672 -11.222  -6.445  0.00  0.00    +0.000 HD
+ENDBRANCH   2  11
+BRANCH   1  13
+ATOM     13  O1  L6T A 301     -25.879 -10.413  -5.804  0.00  0.00    -0.317 OA
+BRANCH  13  14
+ATOM     14  CAA L6T A 301     -26.701  -9.237  -5.867  0.00  0.00    +0.191 C 
+ATOM     15  CAO L6T A 301     -24.998  -8.075  -7.069  0.00  0.00    +0.113 C 
+ATOM     16  CAR L6T A 301     -25.843  -8.068  -8.333  0.00  0.00    +0.112 C 
+ATOM     17  CAT L6T A 301     -26.716  -9.307  -8.340  0.00  0.00    +0.114 C 
+ATOM     18  CAV L6T A 301     -27.587  -9.281  -7.102  0.00  0.00    +0.134 C 
+ATOM     19  OAN L6T A 301     -25.856  -8.066  -5.911  0.00  0.00    -0.340 OA
+BRANCH  18  20
+ATOM     20  OAW L6T A 301     -28.408 -10.454  -7.063  0.00  0.00    -0.384 OA
+ATOM     21  H   L6T A 301     -27.844 -11.243  -7.042  0.00  0.00    +0.000 HD
+ENDBRANCH  18  20
+BRANCH  17  22
+ATOM     22  OAU L6T A 301     -27.541  -9.318  -9.513  0.00  0.00    -0.386 OA
+ATOM     23  H   L6T A 301     -28.101  -8.526  -9.522  0.00  0.00    +0.000 HD
+ENDBRANCH  17  22
+BRANCH  16  24
+ATOM     24  OAS L6T A 301     -24.994  -8.071  -9.489  0.00  0.00    -0.386 OA
+ATOM     25  H   L6T A 301     -24.436  -8.865  -9.479  0.00  0.00    +0.000 HD
+ENDBRANCH  16  24
+BRANCH  15  26
+ATOM     26  CAP L6T A 301     -24.101  -6.836  -7.037  0.00  0.00    +0.073 C 
+BRANCH  26  27
+ATOM     27  OAQ L6T A 301     -24.910  -5.661  -6.946  0.00  0.00    -0.392 OA
+ATOM     28  H   L6T A 301     -25.498  -5.613  -7.716  0.00  0.00    +0.000 HD
+ENDBRANCH  26  27
+ENDBRANCH  15  26
+ENDBRANCH  13  14
+ENDBRANCH   1  13
+BRANCH   5  29
+ATOM     29  C6  L6T A 301     -27.945 -12.314  -2.698  0.00  0.00    +0.076 C 
+BRANCH  29  30
+ATOM     30  O6  L6T A 301     -27.277 -12.558  -1.493  0.00  0.00    -0.377 OA
+BRANCH  30  31
+ATOM     31  CAX L6T A 301     -28.131 -12.317  -0.368  0.00  0.00    +0.048 C 
+BRANCH  31  32
+ATOM     32  CAY L6T A 301     -28.831 -13.612   0.140  0.00  0.00    -0.029 C 
+BRANCH  32  33
+ATOM     33  CAZ L6T A 301     -28.960 -13.319   1.633  0.00  0.00    -0.051 C 
+BRANCH  33  34
+ATOM     34  CBA L6T A 301     -30.013 -14.281   2.185  0.00  0.00    -0.053 C 
+BRANCH  34  35
+ATOM     35  CBB L6T A 301     -29.519 -14.411   3.631  0.00  0.00    -0.053 C 
+BRANCH  35  36
+ATOM     36  CBC L6T A 301     -30.728 -14.490   4.518  0.00  0.00    -0.053 C 
+BRANCH  36  37
+ATOM     37  CBD L6T A 301     -30.216 -14.482   5.999  0.00  0.00    -0.053 C 
+BRANCH  37  38
+ATOM     38  CBE L6T A 301     -31.376 -13.989   6.826  0.00  0.00    -0.053 C 
+BRANCH  38  39
+ATOM     39  CBF L6T A 301     -31.126 -12.561   7.434  0.00  0.00    -0.053 C 
+BRANCH  39  40
+ATOM     40  CBG L6T A 301     -30.193 -12.669   8.658  0.00  0.00    -0.053 C 
+BRANCH  40  41
+ATOM     41  CBH L6T A 301     -30.786 -13.580   9.715  0.00  0.00    -0.056 C 
+ATOM     42  CBI L6T A 301     -32.284 -13.363   9.962  0.00  0.00    -0.065 C 
+ENDBRANCH  40  41
+ENDBRANCH  39  40
+ENDBRANCH  38  39
+ENDBRANCH  37  38
+ENDBRANCH  36  37
+ENDBRANCH  35  36
+ENDBRANCH  34  35
+ENDBRANCH  33  34
+ENDBRANCH  32  33
+ENDBRANCH  31  32
+ENDBRANCH  30  31
+ENDBRANCH  29  30
+ENDBRANCH   5  29
+TORSDOF 23

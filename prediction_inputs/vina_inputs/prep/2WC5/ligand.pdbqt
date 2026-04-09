@@ -1,0 +1,66 @@
+REMARK  Name = docking/prep/2WC5/ligand.pdb
+REMARK  14 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: O1_1  and  C2_2
+REMARK    2  A    between atoms: C2_2  and  C4_3
+REMARK    3  A    between atoms: C4_3  and  C7_4
+REMARK    4  A    between atoms: C7_4  and  C10_5
+REMARK    5  A    between atoms: C10_5  and  C13_6
+REMARK    6  A    between atoms: C13_6  and  C16_7
+REMARK    7  A    between atoms: C16_7  and  C19_8
+REMARK    8  A    between atoms: C19_8  and  C22_9
+REMARK    9  A    between atoms: C22_9  and  C25_10
+REMARK   10  A    between atoms: C25_10  and  C28_11
+REMARK   11  A    between atoms: C31_12  and  C33_13
+REMARK   12  A    between atoms: C35_14  and  C37_15
+REMARK   13  A    between atoms: C37_15  and  C39_16
+REMARK   14  A    between atoms: C39_16  and  C42_17
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C19 BOM A1143       9.053  -3.875  18.149  0.00  0.00    +0.000 C 
+ENDROOT
+BRANCH   1   2
+ATOM      2  C16 BOM A1143       8.868  -2.710  19.161  0.00  0.00    +0.000 C 
+BRANCH   2   3
+ATOM      3  C13 BOM A1143      10.146  -1.848  19.356  0.00  0.00    +0.000 C 
+BRANCH   3   4
+ATOM      4  C10 BOM A1143      10.029  -0.665  20.322  0.00  0.00    +0.000 C 
+BRANCH   4   5
+ATOM      5  C7  BOM A1143      11.183  -0.694  21.327  0.00  0.00    +0.003 C 
+BRANCH   5   6
+ATOM      6  C4  BOM A1143      12.190   0.421  21.177  0.00  0.00    +0.036 C 
+BRANCH   6   7
+ATOM      7  C2  BOM A1143      13.269   0.428  22.240  0.00  0.00    +0.182 C 
+BRANCH   7   8
+ATOM      8  O1  BOM A1143      14.223   1.560  22.165  0.00  0.00    -0.220 OA
+ATOM      9  H   BOM A1143      14.874   1.482  22.880  0.00  0.00    +0.000 HD
+ENDBRANCH   7   8
+ENDBRANCH   6   7
+ENDBRANCH   5   6
+ENDBRANCH   4   5
+ENDBRANCH   3   4
+ENDBRANCH   2   3
+ENDBRANCH   1   2
+BRANCH   1  10
+ATOM     10  C22 BOM A1143       9.241  -3.341  16.736  0.00  0.00    +0.005 C 
+BRANCH  10  11
+ATOM     11  C25 BOM A1143       8.768  -4.057  15.465  0.00  0.00    +0.026 C 
+BRANCH  11  12
+ATOM     12  C28 BOM A1143       7.485  -4.872  15.530  0.00  0.00    -0.026 C 
+ATOM     13  C31 BOM A1143       6.295  -4.627  14.956  0.00  0.00    -0.005 C 
+BRANCH  13  14
+ATOM     14  C33 BOM A1143       5.217  -5.609  15.199  0.00  0.00    -0.005 C 
+ATOM     15  C35 BOM A1143       3.998  -5.347  15.730  0.00  0.00    -0.026 C 
+BRANCH  15  16
+ATOM     16  C37 BOM A1143       3.509  -3.965  16.130  0.00  0.00    +0.026 C 
+BRANCH  16  17
+ATOM     17  C39 BOM A1143       3.666  -3.576  17.608  0.00  0.00    +0.005 C 
+ATOM     18  C42 BOM A1143       5.106  -3.285  17.987  0.00  0.00    +0.000 C 
+ENDBRANCH  16  17
+ENDBRANCH  15  16
+ENDBRANCH  13  14
+ENDBRANCH  11  12
+ENDBRANCH  10  11
+ENDBRANCH   1  10
+TORSDOF 13

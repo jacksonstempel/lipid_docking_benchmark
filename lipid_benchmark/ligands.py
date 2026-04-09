@@ -2,20 +2,18 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any, Dict, List, Sequence, Tuple
+import re
 
 import numpy as np
 
 from rdkit import Chem
-try:  # pragma: no cover
-    from rdkit import RDLogger
-
-    RDLogger.DisableLog("rdApp.error")
-    RDLogger.DisableLog("rdApp.warning")
-except Exception:  # pragma: no cover
-    pass
+from rdkit import RDLogger
 from rdkit.Chem import rdFMCS, rdchem
 from rdkit.Geometry import Point3D
 from .structures import is_protein_res, is_water_res
+
+RDLogger.DisableLog("rdApp.error")
+RDLogger.DisableLog("rdApp.warning")
 
 
 @dataclass
@@ -35,6 +33,28 @@ class SimpleResidue:
     def heavy_atom_count(self) -> int:
         return sum(1 for atom in self.atoms if atom.element != "H")
 
+
+def _infer_element_symbol(atom) -> str:
+    """
+    Resolve a chemically meaningful element symbol from a Gemmi atom record.
+
+    PDBQT inputs sometimes round-trip through Gemmi with unknown element `X`
+    even though the atom name still carries the correct element prefix.
+    """
+    raw_elem = getattr(getattr(atom, "element", None), "name", "")
+    elem = (raw_elem or "").strip().upper()
+    if elem and elem != "X":
+        return elem
+
+    raw_name = getattr(atom, "name", "")
+    letters = re.sub(r"[^A-Za-z]", "", raw_name or "").upper()
+    if not letters:
+        raise ValueError(f"Could not infer element for atom with blank name and raw element {raw_elem!r}.")
+    for two_letter in ("CL", "BR"):
+        if letters.startswith(two_letter):
+            return two_letter
+    return letters[0]
+
 def collect_ligands(structure: "gemmi.Structure", *, include_h: bool = False) -> List[SimpleResidue]:
     """Collect non-protein, non-water residues with altLoc deduplication."""
     groups: Dict[Tuple[str, str, str], Dict[str, Any]] = {}
@@ -51,7 +71,7 @@ def collect_ligands(structure: "gemmi.Structure", *, include_h: bool = False) ->
                     order.append(key)
                 bucket = groups[key]
                 for atom in residue:
-                    element = atom.element.name.upper()
+                    element = _infer_element_symbol(atom)
                     if element == "H" and not include_h:
                         continue
                     xyz = np.array([atom.pos.x, atom.pos.y, atom.pos.z], dtype=float)
@@ -99,9 +119,7 @@ _COV_RADII = {
     "I": 1.39,
 }
 
-# Common element symbols seen in this benchmark. Treat unknown/blank symbols as carbon
-# to avoid noisy RDKit errors on malformed inputs while still producing a usable
-# molecule for MCS-based pairing.
+# Common element symbols seen in this benchmark.
 _ELEMENT_TO_Z = {
     "H": 1,
     "C": 6,
@@ -117,7 +135,10 @@ _ELEMENT_TO_Z = {
 
 
 def _element_radius(sym: str) -> float:
-    return _COV_RADII.get(sym.upper(), 0.77)
+    elem = sym.upper()
+    if elem not in _COV_RADII:
+        raise ValueError(f"Unsupported element for bond inference: {sym!r}")
+    return _COV_RADII[elem]
 
 
 def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | None, List[int]]:
@@ -135,7 +156,9 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
         if a.element == "H":
             continue
         elem = (a.element or "").strip().upper()
-        z = _ELEMENT_TO_Z.get(elem, 6)
+        if elem not in _ELEMENT_TO_Z:
+            raise ValueError(f"Unsupported ligand element for RDKit mapping: {elem!r}")
+        z = _ELEMENT_TO_Z[elem]
         atom = rdchem.Atom(int(z))
         rd_idx = rw.AddAtom(atom)
         rd_to_res.append(idx)
@@ -153,11 +176,8 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
             d = float(np.linalg.norm(coords[i] - coords[j]))
             # Allow a generous 0.5 Å cushion (typical single bonds ~1.5 Å) to tolerate
             # crystallographic noise without fusing nonbonded atoms (>3 Å apart).
-            if d <= (ri + rj + 0.5):
-                try:
-                    rw.AddBond(i, j, rdchem.BondType.SINGLE)
-                except (RuntimeError, ValueError, TypeError):
-                    pass
+            if d <= (ri + rj + 0.5) and rw.GetBondBetweenAtoms(i, j) is None:
+                rw.AddBond(i, j, rdchem.BondType.SINGLE)
 
     mol = rw.GetMol()
     conf = rdchem.Conformer(mol.GetNumAtoms())
@@ -166,59 +186,49 @@ def _build_rdkit_mol_from_residue(residue: SimpleResidue) -> tuple["Chem.Mol" | 
         conf.SetAtomPosition(rd_idx, Point3D(float(xyz[0]), float(xyz[1]), float(xyz[2])))
     mol.AddConformer(conf, assignId=True)
 
-    # Avoid verbose RDKit warnings: catch errors quietly and still return a usable molecule.
-    try:
-        Chem.SanitizeMol(mol, catchErrors=True)
-    except (RuntimeError, ValueError):
-        pass
+    Chem.SanitizeMol(mol, catchErrors=True)
     mol.UpdatePropertyCache(strict=False)
-    try:
-        Chem.GetSymmSSSR(mol)
-    except (RuntimeError, ValueError):
-        pass
+    Chem.GetSymmSSSR(mol)
     return mol, rd_to_res
 
 
 def pairs_by_rdkit(pred: SimpleResidue, ref: SimpleResidue, *, ring_only: bool = True) -> List[Tuple[int, int]]:
     """Map atoms using RDKit MCS (element-level) and return index pairs.
 
-    Falls back to an empty list if mapping fails.
+    Returns an empty list when no usable common substructure can be identified.
     """
     mol_p, map_p = _build_rdkit_mol_from_residue(pred)
     mol_r, map_r = _build_rdkit_mol_from_residue(ref)
     if mol_p is None or mol_r is None or mol_p.GetNumAtoms() == 0 or mol_r.GetNumAtoms() == 0:
         return []
 
-    try:
-        mcs = rdFMCS.FindMCS(
-            [mol_p, mol_r],
-            atomCompare=rdFMCS.AtomCompare.CompareElements,
-            bondCompare=rdFMCS.BondCompare.CompareAny,
-            ringMatchesRingOnly=ring_only,
-            completeRingsOnly=False,
-            timeout=5,
-        )
-        if not mcs or not mcs.smartsString:
-            return []
-        query = Chem.MolFromSmarts(mcs.smartsString)
-        if query is None:
-            return []
-        match_p = mol_p.GetSubstructMatches(query)
-        match_r = mol_r.GetSubstructMatches(query)
-        if not match_p or not match_r:
-            return []
-        # Take first match (maximum size by MCS definition)
-        a_p = list(match_p[0])
-        a_r = list(match_r[0])
-        if len(a_p) != len(a_r) or len(a_p) < 3:
-            return []
-        # Translate RDKit indices back to residue atom indices
-        pairs: List[Tuple[int, int]] = []
-        for ip, ir in zip(a_p, a_r):
-            pairs.append((map_p[ip], map_r[ir]))
-        return pairs
-    except (RuntimeError, ValueError):
+    mcs = rdFMCS.FindMCS(
+        [mol_p, mol_r],
+        atomCompare=rdFMCS.AtomCompare.CompareElements,
+        bondCompare=rdFMCS.BondCompare.CompareAny,
+        ringMatchesRingOnly=ring_only,
+        completeRingsOnly=False,
+        timeout=5,
+    )
+    if not mcs or not mcs.smartsString:
         return []
+    query = Chem.MolFromSmarts(mcs.smartsString)
+    if query is None:
+        return []
+    match_p = mol_p.GetSubstructMatches(query)
+    match_r = mol_r.GetSubstructMatches(query)
+    if not match_p or not match_r:
+        return []
+    # Take first match (maximum size by MCS definition)
+    a_p = list(match_p[0])
+    a_r = list(match_r[0])
+    if len(a_p) != len(a_r) or len(a_p) < 3:
+        return []
+    # Translate RDKit indices back to residue atom indices
+    pairs: List[Tuple[int, int]] = []
+    for ip, ir in zip(a_p, a_r):
+        pairs.append((map_p[ip], map_r[ir]))
+    return pairs
 
 def headgroup_indices_functional(residue: SimpleResidue) -> List[int]:
     """Return ligand atom indices (in residue.atoms) considered part of the headgroup.
@@ -229,10 +239,7 @@ def headgroup_indices_functional(residue: SimpleResidue) -> List[int]:
       3) Else if any carbon with >=2 oxygen neighbors: take that carbon + its O neighbors.
       4) Else use all hetero atoms (O/N/P/S).
     """
-    try:
-        mol, rd_to_res = _build_rdkit_mol_from_residue(residue)
-    except (RuntimeError, ValueError):
-        return []
+    mol, rd_to_res = _build_rdkit_mol_from_residue(residue)
     if mol is None or mol.GetNumAtoms() == 0:
         return []
 

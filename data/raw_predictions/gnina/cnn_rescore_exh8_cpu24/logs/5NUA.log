@@ -1,0 +1,42 @@
+              _             
+             (_)            
+   __ _ _ __  _ _ __   __ _ 
+  / _` | '_ \| | '_ \ / _` |
+ | (_| | | | | | | | | (_| |
+  \__, |_| |_|_|_| |_|\__,_|
+   __/ |                    
+  |___/                     
+
+gnina v1.3.1 master:5bd63bd   Built May 23 2025.
+gnina is based on smina and AutoDock Vina.
+Please cite appropriately.
+
+Commandline: /usr/local/bin/gnina -r /nfs/home/jstempel/vina_inputs/prep/5NUA/receptor_no_ligand.pdb -l /lustre/isaac24/scratch/jstempel/gnina_full_cnn_rescore_exh8_cpu24/_tmp_5NUA_Fj34/ligand.sdf --center_x 14.496 --center_y 8.902 --center_z 0.972 --size_x 14.003 --size_y 13.370 --size_z 9.804 --exhaustiveness 8 --num_modes 20 --cpu 24 --cnn_scoring rescore --scoring vina --addH 0 --log /lustre/isaac24/scratch/jstempel/gnina_full_cnn_rescore_exh8_cpu24/logs/5NUA.log --out /lustre/isaac24/scratch/jstempel/gnina_full_cnn_rescore_exh8_cpu24/flat/5NUA.pdbqt --seed 0 --device 0
+Using random seed: 0
+
+mode |  affinity  |  intramol  |    CNN     |   CNN
+     | (kcal/mol) | (kcal/mol) | pose score | affinity
+-----+------------+------------+------------+----------
+    1       -6.70       -0.61       0.9263      5.975
+    2       -5.95       -0.73       0.8785      6.070
+    3       -6.08       -0.34       0.8565      6.134
+    4       -6.48       -0.76       0.8263      6.282
+    5       -5.81       -0.53       0.7899      6.315
+    6       -5.77       -0.70       0.7550      6.323
+    7       -5.96       -0.66       0.7094      6.309
+    8       -5.59       -0.92       0.5921      5.976
+    9       -5.62       -0.71       0.5481      6.171
+   10       -5.75       -0.76       0.4697      5.820
+   11       -5.12       -0.58       0.4651      6.006
+   12       -5.32       -1.22       0.4330      5.811
+   13       -5.75       -0.88       0.4099      6.137
+   14       -4.60       -0.54       0.3779      5.673
+   15       -4.17       -0.69       0.2903      5.372
+   16       -5.08       -1.09       0.2694      5.342
+   17       -5.84       -0.64       0.2648      4.627
+   18       -5.40       -1.08       0.2538      4.892
+   19       -5.50       -0.39       0.2417      5.182
+   20       -5.49       -1.05       0.2373      4.920
+ 18       -5.40       -1.08       0.2538      4.892
+   19       -5.50       -0.39       0.2417      5.182
+   20       -5.49       -1.05       0.2373      4.920

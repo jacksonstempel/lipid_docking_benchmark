@@ -18,13 +18,11 @@ Run:
 from __future__ import annotations
 
 import argparse
-import contextlib
 from dataclasses import dataclass
 import os
 from pathlib import Path
 import shutil
 import sys
-import tempfile
 from typing import Iterable
 
 # Ensure Matplotlib's cache/config directory is writable.
@@ -32,14 +30,10 @@ from typing import Iterable
 # We keep this in a repo-local cache folder so it never mixes with human-facing outputs.
 _PROJECT_ROOT = Path(__file__).resolve().parents[1]
 _MPLCONFIGDIR = _PROJECT_ROOT / ".cache" / "lipid_benchmark" / "matplotlib"
-try:
-    _MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
-    os.environ.setdefault("MPLCONFIGDIR", str(_MPLCONFIGDIR))
-    # Force a non-GUI backend so Matplotlib doesn't try to load Qt (which can emit
-    # QStandardPaths warnings on some systems).
-    os.environ.setdefault("MPLBACKEND", "Agg")
-except OSError:
-    pass
+_MPLCONFIGDIR.mkdir(parents=True, exist_ok=True)
+os.environ["MPLCONFIGDIR"] = str(_MPLCONFIGDIR)
+# Force a non-GUI backend so Matplotlib doesn't try to load Qt.
+os.environ["MPLBACKEND"] = "Agg"
 
 import numpy as np
 import pandas as pd
@@ -48,15 +42,9 @@ from matplotlib.lines import Line2D
 from matplotlib.ticker import MaxNLocator
 from scipy.stats import gaussian_kde, linregress
 
-try:  # optional
-    import scienceplots  # type: ignore  # noqa: F401
-except Exception:  # pragma: no cover
-    scienceplots = None
+import scienceplots  # type: ignore  # noqa: F401
 
-try:  # optional
-    import cmocean  # type: ignore
-except Exception:  # pragma: no cover
-    cmocean = None
+import cmocean  # type: ignore
 
 _THEME_APPLIED = False
 
@@ -96,6 +84,13 @@ def _finite(series: pd.Series) -> np.ndarray:
     x = pd.to_numeric(series, errors="coerce").to_numpy(dtype=float)
     x = x[np.isfinite(x)]
     return x
+
+
+def _require_columns(df: pd.DataFrame, columns: Iterable[str], *, label: str) -> None:
+    missing = [col for col in columns if col not in df.columns]
+    if missing:
+        missing_str = ", ".join(missing)
+        raise ValueError(f"{label} is missing required column(s): {missing_str}")
 
 
 def _kde_xy(
@@ -148,9 +143,7 @@ def _vina_topk_per_target(
     """
     if prefer not in {"min", "max"}:
         raise ValueError("prefer must be 'min' or 'max'")
-
-    if metric_col not in vina_pose_df.columns:
-        return np.array([], dtype=float)
+    _require_columns(vina_pose_df, ["pdbid", "pose_index", metric_col], label="Vina pose table")
 
     df = vina_pose_df[["pdbid", "pose_index", metric_col]].copy()
     df["pose_index"] = pd.to_numeric(df["pose_index"], errors="coerce")
@@ -158,7 +151,7 @@ def _vina_topk_per_target(
     df = df.dropna(subset=["pdbid", "pose_index", metric_col])
     df = df[df["pose_index"] <= int(k)]
     if df.empty:
-        return np.array([], dtype=float)
+        raise ValueError(f"No valid Vina rows remain for metric '{metric_col}' within top-{int(k)} poses.")
 
     grouped = df.groupby("pdbid")[metric_col]
     series = grouped.min() if prefer == "min" else grouped.max()
@@ -180,8 +173,7 @@ def _vina_topk_series_per_target(
     """
     if prefer not in {"min", "max"}:
         raise ValueError("prefer must be 'min' or 'max'")
-    if metric_col not in vina_pose_df.columns:
-        return pd.Series(dtype=float)
+    _require_columns(vina_pose_df, ["pdbid", "pose_index", metric_col], label="Vina pose table")
 
     df = vina_pose_df[["pdbid", "pose_index", metric_col]].copy()
     df["pose_index"] = pd.to_numeric(df["pose_index"], errors="coerce")
@@ -189,7 +181,7 @@ def _vina_topk_series_per_target(
     df = df.dropna(subset=["pdbid", "pose_index", metric_col])
     df = df[df["pose_index"] <= int(k)]
     if df.empty:
-        return pd.Series(dtype=float)
+        raise ValueError(f"No valid Vina rows remain for metric '{metric_col}' within top-{int(k)} poses.")
 
     grouped = df.groupby("pdbid")[metric_col]
     return grouped.min() if prefer == "min" else grouped.max()
@@ -212,10 +204,7 @@ def _vina_topk_by_ligand_rmsd(
     you'd select one pose (by RMSD or score) and be stuck with its performance
     on all other metrics.
     """
-    if "ligand_rmsd" not in vina_pose_df.columns:
-        return pd.Series(dtype=float)
-    if return_col not in vina_pose_df.columns:
-        return pd.Series(dtype=float)
+    _require_columns(vina_pose_df, ["pdbid", "pose_index", "ligand_rmsd", return_col], label="Vina pose table")
 
     df = vina_pose_df[["pdbid", "pose_index", "ligand_rmsd", return_col]].copy()
     df["pose_index"] = pd.to_numeric(df["pose_index"], errors="coerce")
@@ -224,7 +213,7 @@ def _vina_topk_by_ligand_rmsd(
     df = df.dropna(subset=["pdbid", "pose_index", "ligand_rmsd"])
     df = df[df["pose_index"] <= int(k)]
     if df.empty:
-        return pd.Series(dtype=float)
+        raise ValueError(f"No valid Vina rows remain for return_col '{return_col}' within top-{int(k)} poses.")
 
     # For each target, find the row with the minimum ligand RMSD
     idx_best = df.groupby("pdbid")["ligand_rmsd"].idxmin()
@@ -256,7 +245,19 @@ def _load_gnina_frames(analysis_dir: Path, *, summary_csv: Path) -> GninaFrames:
         "headgroup_typed_jaccard": "boltz_headgroup_typed_jaccard",
     })
 
+    missing_boltz = sorted(set(per_target["pdbid"]) - set(boltz["pdbid"]))
+    if missing_boltz:
+        raise ValueError(
+            "benchmark_summary.csv is missing Boltz rows for GNINA targets: "
+            + ", ".join(missing_boltz[:10])
+        )
+
     merged = per_target.merge(boltz, on="pdbid", how="inner")
+    if len(merged) != len(per_target):
+        raise ValueError(
+            "Boltz/GNINA merge dropped targets unexpectedly "
+            f"(per_target={len(per_target)}, merged={len(merged)})."
+        )
     return GninaFrames(per_target=merged)
 
 
@@ -598,13 +599,12 @@ def _apply_pub_style() -> None:
 
 def _apply_theme() -> None:
     """
-    Apply a consistent plotting theme (fonts, styles, and optional scienceplots presets).
+    Apply a consistent plotting theme (fonts and scienceplots presets).
 
     This is called once near the start of `main()` so all figures share a coherent style.
     """
     _apply_pub_style()
-    if scienceplots is not None:
-        plt.style.use(["science", "nature", "no-latex"])
+    plt.style.use(["science", "nature", "no-latex"])
     # Apply our refined settings after any style overrides.
     plt.rcParams["font.family"] = "serif"
     plt.rcParams["font.serif"] = ["DejaVu Serif", "CMU Serif", "Computer Modern Roman"]
@@ -632,6 +632,32 @@ def _apply_theme_once() -> None:
         return
     _apply_theme()
     _THEME_APPLIED = True
+
+
+def _prepare_vina_pose_table(allposes_df: pd.DataFrame, *, min_pose_index: int) -> pd.DataFrame:
+    """
+    Return a validated Vina-pose table with numeric pose indices.
+
+    The public plotting contract expects ranked Vina poses to be present at the
+    depth needed by the requested figures. Truncated Vina tables are treated as
+    input errors rather than silently degrading top-K plots.
+    """
+    vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
+    if vina_pose.empty:
+        raise ValueError("No Vina pose rows were found in benchmark_allposes.csv.")
+    if "pose_index" not in vina_pose.columns:
+        raise ValueError("benchmark_allposes.csv is missing the required 'pose_index' column for Vina rows.")
+    vina_pose["pose_index"] = pd.to_numeric(vina_pose["pose_index"], errors="coerce")
+    vina_pose = vina_pose.dropna(subset=["pose_index"])
+    if vina_pose.empty:
+        raise ValueError("All Vina pose_index values are missing or invalid in benchmark_allposes.csv.")
+    max_pose_index = int(vina_pose["pose_index"].max())
+    if max_pose_index < int(min_pose_index):
+        raise ValueError(
+            f"benchmark_allposes.csv contains Vina poses only up to pose_index={max_pose_index}, "
+            f"but this figure requires at least {int(min_pose_index)} ranked poses."
+        )
+    return vina_pose
 
 
 def _palette4() -> tuple[str, str, str, str]:
@@ -740,53 +766,10 @@ def _plot_overlap_distribution_boltz_vs_vina_topk(
     ax.tick_params(axis="both", which="major", labelsize=9)
 
 
-@contextlib.contextmanager
-def _suppress_stderr_substrings(substrings: tuple[str, ...]):
-    """
-    Suppress noisy C-level stderr messages that aren't actionable for users.
-
-    Some PDF backends/libraries may emit messages directly to file descriptor 2
-    (bypassing Python warnings). We capture them, drop known-noisy lines, and
-    re-emit anything else so real issues remain visible.
-    """
-    try:
-        sys.stderr.flush()
-    except Exception:
-        pass
-
-    original_fd = os.dup(2)
-    try:
-        with tempfile.TemporaryFile(mode="w+b") as tmp:
-            os.dup2(tmp.fileno(), 2)
-            try:
-                yield
-            finally:
-                try:
-                    sys.stderr.flush()
-                except Exception:
-                    pass
-                os.dup2(original_fd, 2)
-
-                tmp.seek(0)
-                data = tmp.read().decode(errors="ignore")
-                if data:
-                    kept: list[str] = []
-                    for line in data.splitlines():
-                        if any(s in line for s in substrings):
-                            continue
-                        kept.append(line)
-                    if kept:
-                        sys.stderr.write("\n".join(kept) + "\n")
-                        sys.stderr.flush()
-    finally:
-        os.close(original_fd)
-
-
 def _save(fig: plt.Figure, out_dir: Path, stem: str) -> None:
     """Save a figure to PDF."""
     out_dir.mkdir(parents=True, exist_ok=True)
-    with _suppress_stderr_substrings(("timestamp seems very low",)):
-        fig.savefig(out_dir / f"{stem}.pdf", bbox_inches="tight")
+    fig.savefig(out_dir / f"{stem}.pdf", bbox_inches="tight")
 
 
 def _save_preview_png(fig: plt.Figure, out_dir: Path, stem: str) -> None:
@@ -798,8 +781,7 @@ def _save_preview_png(fig: plt.Figure, out_dir: Path, stem: str) -> None:
     """
     save_dir = out_dir / "_preview"
     save_dir.mkdir(parents=True, exist_ok=True)
-    with _suppress_stderr_substrings(("timestamp seems very low",)):
-        fig.savefig(save_dir / f"{stem}.png", bbox_inches="tight", dpi=300)
+    fig.savefig(save_dir / f"{stem}.png", bbox_inches="tight", dpi=300)
 
 
 def _prune_non_pdf(out_dir: Path) -> None:
@@ -856,9 +838,8 @@ def plot_rmsd_distributions(
     """
     _apply_theme_once()
 
-    vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
-    vina_pose["pose_index"] = pd.to_numeric(vina_pose.get("pose_index"), errors="coerce")
-    max_pose_index = int(vina_pose["pose_index"].max()) if vina_pose["pose_index"].notna().any() else 0
+    vina_pose = _prepare_vina_pose_table(allposes_df, min_pose_index=20)
+    max_pose_index = int(vina_pose["pose_index"].max())
 
     c_boltz, c_top1, c_top5, c_top20 = _palette4()
     labels = {
@@ -1197,10 +1178,7 @@ def plot_paired_rmsd(
             deltas.append((yk.to_numpy()[ok] - x.to_numpy()[ok]))
     delta_all = np.concatenate(deltas) if deltas else np.array([0.0])
 
-    if cmocean is not None:
-        cmap = cmocean.cm.balance
-    else:
-        cmap = "RdBu_r"
+    cmap = cmocean.cm.balance
     vmax = float(np.max(np.abs(delta_all))) if delta_all.size else 1.0
 
     y_all = np.concatenate([paired[k].dropna().to_numpy(dtype=float) for k in ks if paired[k].dropna().size])
@@ -1292,16 +1270,10 @@ def plot_paired_rmsd_vina_top1_vs_top20(
     boltz_df["ligand_rmsd"] = pd.to_numeric(boltz_df["ligand_rmsd"], errors="coerce")
     boltz_df = boltz_df.dropna(subset=["ligand_rmsd"]).sort_values("pdbid").reset_index(drop=True)
 
-    vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
-    vina_pose["pose_index"] = pd.to_numeric(vina_pose["pose_index"], errors="coerce")
+    vina_pose = _prepare_vina_pose_table(allposes_df, min_pose_index=20)
     vina_pose["ligand_rmsd"] = pd.to_numeric(vina_pose["ligand_rmsd"], errors="coerce")
-    vina_pose = vina_pose.dropna(subset=["pose_index", "ligand_rmsd"])
-
-    max_pose_index = int(vina_pose["pose_index"].max()) if vina_pose["pose_index"].notna().any() else 0
-    k_large = 20 if max_pose_index >= 20 else max_pose_index
-    if k_large <= 1:
-        return
-    ks = [1, int(k_large)]
+    vina_pose = vina_pose.dropna(subset=["ligand_rmsd"])
+    ks = [1, 20]
 
     vina_topk: dict[int, pd.Series] = {}
     for k in ks:
@@ -1321,10 +1293,7 @@ def plot_paired_rmsd_vina_top1_vs_top20(
             deltas.append((yk.to_numpy()[ok] - x.to_numpy()[ok]))
     delta_all = np.concatenate(deltas) if deltas else np.array([0.0])
 
-    if cmocean is not None:
-        cmap = cmocean.cm.balance
-    else:
-        cmap = "RdBu_r"
+    cmap = cmocean.cm.balance
     vmax = float(np.max(np.abs(delta_all))) if delta_all.size else 1.0
 
     y_all = np.concatenate([paired[k].dropna().to_numpy(dtype=float) for k in ks if paired[k].dropna().size])
@@ -1418,12 +1387,40 @@ def plot_contacts_vs_rmsd(
 
     vina_df = allposes_df[allposes_df["method"] == "vina_pose"].copy()
     boltz_df = allposes_df[allposes_df["method"] == "boltz"].copy()
+    _require_columns(
+        vina_df,
+        [
+            "ligand_rmsd",
+            "headgroup_rmsd",
+            "head_env_jaccard",
+            "headgroup_typed_jaccard",
+            "head_env_ref_size",
+            "head_env_pred_size",
+            "headgroup_typed_ref_size",
+            "headgroup_typed_pred_size",
+        ],
+        label="Vina pose rows",
+    )
+    _require_columns(
+        boltz_df,
+        [
+            "ligand_rmsd",
+            "headgroup_rmsd",
+            "head_env_jaccard",
+            "headgroup_typed_jaccard",
+            "head_env_ref_size",
+            "head_env_pred_size",
+            "headgroup_typed_ref_size",
+            "headgroup_typed_pred_size",
+        ],
+        label="Boltz rows",
+    )
 
     # RMSD columns
     lig_rmsd_vina = pd.to_numeric(vina_df["ligand_rmsd"], errors="coerce")
     lig_rmsd_boltz = pd.to_numeric(boltz_df["ligand_rmsd"], errors="coerce")
-    head_rmsd_vina = pd.to_numeric(vina_df.get("headgroup_rmsd"), errors="coerce")
-    head_rmsd_boltz = pd.to_numeric(boltz_df.get("headgroup_rmsd"), errors="coerce")
+    head_rmsd_vina = pd.to_numeric(vina_df["headgroup_rmsd"], errors="coerce")
+    head_rmsd_boltz = pd.to_numeric(boltz_df["headgroup_rmsd"], errors="coerce")
 
     # Overlap columns
     y_env_vina = pd.to_numeric(vina_df["head_env_jaccard"], errors="coerce")
@@ -1432,15 +1429,15 @@ def plot_contacts_vs_rmsd(
     y_typed_boltz = pd.to_numeric(boltz_df["headgroup_typed_jaccard"], errors="coerce")
 
     # Size columns for filtering trivial cases
-    env_ref_size_vina = pd.to_numeric(vina_df.get("head_env_ref_size", pd.Series(dtype=float)), errors="coerce")
-    env_pred_size_vina = pd.to_numeric(vina_df.get("head_env_pred_size", pd.Series(dtype=float)), errors="coerce")
-    env_ref_size_boltz = pd.to_numeric(boltz_df.get("head_env_ref_size", pd.Series(dtype=float)), errors="coerce")
-    env_pred_size_boltz = pd.to_numeric(boltz_df.get("head_env_pred_size", pd.Series(dtype=float)), errors="coerce")
+    env_ref_size_vina = pd.to_numeric(vina_df["head_env_ref_size"], errors="coerce")
+    env_pred_size_vina = pd.to_numeric(vina_df["head_env_pred_size"], errors="coerce")
+    env_ref_size_boltz = pd.to_numeric(boltz_df["head_env_ref_size"], errors="coerce")
+    env_pred_size_boltz = pd.to_numeric(boltz_df["head_env_pred_size"], errors="coerce")
 
-    typed_ref_size_vina = pd.to_numeric(vina_df.get("headgroup_typed_ref_size", pd.Series(dtype=float)), errors="coerce")
-    typed_pred_size_vina = pd.to_numeric(vina_df.get("headgroup_typed_pred_size", pd.Series(dtype=float)), errors="coerce")
-    typed_ref_size_boltz = pd.to_numeric(boltz_df.get("headgroup_typed_ref_size", pd.Series(dtype=float)), errors="coerce")
-    typed_pred_size_boltz = pd.to_numeric(boltz_df.get("headgroup_typed_pred_size", pd.Series(dtype=float)), errors="coerce")
+    typed_ref_size_vina = pd.to_numeric(vina_df["headgroup_typed_ref_size"], errors="coerce")
+    typed_pred_size_vina = pd.to_numeric(vina_df["headgroup_typed_pred_size"], errors="coerce")
+    typed_ref_size_boltz = pd.to_numeric(boltz_df["headgroup_typed_ref_size"], errors="coerce")
+    typed_pred_size_boltz = pd.to_numeric(boltz_df["headgroup_typed_pred_size"], errors="coerce")
 
     # For typed interactions, filter cases where both ref and pred are trivially small (<=1)
     # This avoids misleading Jaccard=1.0 when e.g. both have exactly 1 matching H-bond by chance
@@ -1488,9 +1485,7 @@ def plot_contacts_vs_rmsd(
         if xx_all.size:
             xcap = float(np.percentile(xx_all, 99.0))
             ax.set_xlim(0.0, max(xcap, 1.0))
-            cmap = "YlGnBu"
-            if cmocean is not None:
-                cmap = cmocean.cm.dense
+            cmap = cmocean.cm.dense
             hb = ax.hexbin(
                 xx_all,
                 yy_all,
@@ -1549,9 +1544,7 @@ def plot_contact_overlap_distributions_side_by_side(
     """
     _apply_theme_once()
 
-    vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
-    if vina_pose.empty:
-        return
+    vina_pose = _prepare_vina_pose_table(allposes_df, min_pose_index=20)
 
     panels = [
         ("head_env_jaccard", "Headgroup Environment Overlap"),
@@ -1564,25 +1557,36 @@ def plot_contact_overlap_distributions_side_by_side(
     xmin, xmax = 0.0, 1.0
     for ax, (metric_col, panel_title) in zip(axes, panels):
         if metric_col not in vina_pose.columns:
-            continue
+            raise ValueError(f"benchmark_allposes.csv is missing the required column '{metric_col}' for overlap plots.")
+        if metric_col not in frames.boltz.columns:
+            raise ValueError(f"benchmark_summary.csv is missing the required Boltz column '{metric_col}'.")
 
         boltz_df = frames.boltz
         vina_df_for_topk = vina_pose
 
         if metric_col == "headgroup_typed_jaccard":
-            ref_vina = pd.to_numeric(vina_pose.get("headgroup_typed_ref_size"), errors="coerce")
-            pred_vina = pd.to_numeric(vina_pose.get("headgroup_typed_pred_size"), errors="coerce")
-            if not ref_vina.empty and not pred_vina.empty:
-                vina_df_for_topk = vina_df_for_topk[(ref_vina >= 2) | (pred_vina >= 2)]
+            _require_columns(
+                vina_pose,
+                ["headgroup_typed_ref_size", "headgroup_typed_pred_size"],
+                label="Vina pose rows",
+            )
+            _require_columns(
+                boltz_df,
+                ["headgroup_typed_ref_size", "headgroup_typed_pred_size"],
+                label="Boltz summary rows",
+            )
+            ref_vina = pd.to_numeric(vina_pose["headgroup_typed_ref_size"], errors="coerce")
+            pred_vina = pd.to_numeric(vina_pose["headgroup_typed_pred_size"], errors="coerce")
+            vina_df_for_topk = vina_df_for_topk[(ref_vina >= 2) | (pred_vina >= 2)]
 
-            if "headgroup_typed_ref_size" in boltz_df.columns and "headgroup_typed_pred_size" in boltz_df.columns:
-                ref_b = pd.to_numeric(boltz_df["headgroup_typed_ref_size"], errors="coerce")
-                pred_b = pd.to_numeric(boltz_df["headgroup_typed_pred_size"], errors="coerce")
-                boltz_df = boltz_df[(ref_b >= 2) | (pred_b >= 2)]
+            ref_b = pd.to_numeric(boltz_df["headgroup_typed_ref_size"], errors="coerce")
+            pred_b = pd.to_numeric(boltz_df["headgroup_typed_pred_size"], errors="coerce")
+            boltz_df = boltz_df[(ref_b >= 2) | (pred_b >= 2)]
 
-        xb = _finite(boltz_df[metric_col]) if metric_col in boltz_df.columns else np.array([], dtype=float)
+        xb = _finite(boltz_df[metric_col])
         vina_df_for_topk = vina_df_for_topk.copy()
-        vina_df_for_topk["pose_index"] = pd.to_numeric(vina_df_for_topk.get("pose_index"), errors="coerce")
+        _require_columns(vina_df_for_topk, ["pose_index"], label="Vina pose rows")
+        vina_df_for_topk["pose_index"] = pd.to_numeric(vina_df_for_topk["pose_index"], errors="coerce")
         xv_top1 = _finite(_vina_topk_by_ligand_rmsd(vina_df_for_topk, return_col=metric_col, k=1))
         xv_top20 = _finite(_vina_topk_by_ligand_rmsd(vina_df_for_topk, return_col=metric_col, k=20))
         _plot_overlap_distribution_boltz_vs_vina_topk(
@@ -1650,22 +1654,46 @@ def plot_adversarial_mutagenesis(
     """
     _apply_theme_once()
 
-    if not gly_summary_csv.is_file() or not phe_summary_csv.is_file():
-        return
+    if not gly_summary_csv.is_file():
+        raise FileNotFoundError(f"Missing adversarial Gly summary CSV: {gly_summary_csv}")
+    if not phe_summary_csv.is_file():
+        raise FileNotFoundError(f"Missing adversarial Phe summary CSV: {phe_summary_csv}")
 
     wt_boltz = frames.boltz[["pdbid", "headgroup_rmsd", "protein_rmsd"]].copy()
     wt_boltz = wt_boltz.rename(columns={"headgroup_rmsd": "wt_head", "protein_rmsd": "wt_prot"})
 
     gly = pd.read_csv(gly_summary_csv)
     phe = pd.read_csv(phe_summary_csv)
+    _require_columns(gly, ["pdbid", "method", "headgroup_rmsd", "protein_rmsd"], label=str(gly_summary_csv))
+    _require_columns(phe, ["pdbid", "method", "headgroup_rmsd", "protein_rmsd"], label=str(phe_summary_csv))
     gly = gly[gly["method"] == "boltz"][["pdbid", "headgroup_rmsd", "protein_rmsd"]].copy()
     phe = phe[phe["method"] == "boltz"][["pdbid", "headgroup_rmsd", "protein_rmsd"]].copy()
+    if gly.empty:
+        raise ValueError(f"{gly_summary_csv} does not contain any Boltz rows.")
+    if phe.empty:
+        raise ValueError(f"{phe_summary_csv} does not contain any Boltz rows.")
     gly = gly.rename(columns={"headgroup_rmsd": "gly_head", "protein_rmsd": "gly_prot"})
     phe = phe.rename(columns={"headgroup_rmsd": "phe_head", "protein_rmsd": "phe_prot"})
 
+    wt_ids = set(wt_boltz["pdbid"])
+    gly_ids = set(gly["pdbid"])
+    phe_ids = set(phe["pdbid"])
+    if wt_ids != gly_ids or wt_ids != phe_ids:
+        def _fmt_missing(label: str, missing: set[str]) -> str:
+            if not missing:
+                return ""
+            return f"{label} missing " + ", ".join(sorted(missing)[:10])
+
+        details = [msg for msg in [
+            _fmt_missing("WT", (gly_ids | phe_ids) - wt_ids),
+            _fmt_missing("Gly", wt_ids - gly_ids),
+            _fmt_missing("Phe", wt_ids - phe_ids),
+        ] if msg]
+        raise ValueError("WT/Gly/Phe adversarial target sets do not match. " + "; ".join(details))
+
     merged = wt_boltz.merge(gly, on="pdbid", how="inner").merge(phe, on="pdbid", how="inner")
     if merged.empty:
-        return
+        raise ValueError("Adversarial mutagenesis plot has no overlapping WT/Gly/Phe targets after merging.")
 
     merged["gly_fold_pass"] = pd.to_numeric(merged["gly_prot"], errors="coerce") <= float(protein_rmsd_cutoff_a)
     merged["phe_fold_pass"] = pd.to_numeric(merged["phe_prot"], errors="coerce") <= float(protein_rmsd_cutoff_a)
@@ -1743,7 +1771,7 @@ def plot_adversarial_mutagenesis(
     wt_correct = merged[pd.to_numeric(merged["wt_head"], errors="coerce") < thresh_a].copy()
     if wt_correct.empty:
         plt.close(fig)
-        return
+        raise ValueError("No WT-correct targets remain for the adversarial retention panel.")
 
     # For fold-filtered variants, denominators can differ across arms.
     gly_wt_correct = wt_correct[wt_correct["gly_fold_pass"]].copy()
@@ -1752,7 +1780,7 @@ def plot_adversarial_mutagenesis(
     n_phe = int(len(phe_wt_correct))
     if n_gly == 0 or n_phe == 0:
         plt.close(fig)
-        return
+        raise ValueError("No fold-preserving Gly/Phe mutant targets remain for the adversarial retention panel.")
 
     gly_retained = int((pd.to_numeric(gly_wt_correct["gly_head"], errors="coerce") < thresh_a).sum())
     phe_retained = int((pd.to_numeric(phe_wt_correct["phe_head"], errors="coerce") < thresh_a).sum())
@@ -1843,13 +1871,8 @@ def plot_topk_success_curves(
     """
     _apply_theme_once()
 
-    vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
-    if vina_pose.empty:
-        return
-    vina_pose["pose_index"] = pd.to_numeric(vina_pose.get("pose_index"), errors="coerce")
-    max_pose_index = int(vina_pose["pose_index"].max()) if vina_pose["pose_index"].notna().any() else 0
-    if max_pose_index <= 0:
-        return
+    vina_pose = _prepare_vina_pose_table(allposes_df, min_pose_index=20)
+    max_pose_index = int(vina_pose["pose_index"].max())
 
     ks = list(range(1, min(20, max_pose_index) + 1))
     thresholds = [2.0, 5.0]
@@ -1932,11 +1955,8 @@ def plot_ecdf_rmsd(
     """
     _apply_theme_once()
 
-    vina_pose = allposes_df[allposes_df["method"] == "vina_pose"].copy()
-    if vina_pose.empty:
-        return
-    vina_pose["pose_index"] = pd.to_numeric(vina_pose.get("pose_index"), errors="coerce")
-    max_pose_index = int(vina_pose["pose_index"].max()) if vina_pose["pose_index"].notna().any() else 0
+    vina_pose = _prepare_vina_pose_table(allposes_df, min_pose_index=20)
+    max_pose_index = int(vina_pose["pose_index"].max())
 
     c_boltz, c1, c5, c20 = _palette4()
     colors = {
@@ -2014,17 +2034,12 @@ def plot_vina_rank_vs_quality(
     """
     _apply_theme_once()
 
-    vina = allposes_df[allposes_df["method"] == "vina_pose"].copy()
+    vina = _prepare_vina_pose_table(allposes_df, min_pose_index=1)
+    vina = vina.dropna(subset=["pdbid"])
     if vina.empty:
-        return
-    vina["pose_index"] = pd.to_numeric(vina.get("pose_index"), errors="coerce")
-    vina = vina.dropna(subset=["pose_index", "pdbid"])
-    if vina.empty:
-        return
+        raise ValueError("No Vina rows with both pdbid and pose_index are available for the rank-vs-quality plot.")
 
-    max_pose_index = int(vina["pose_index"].max()) if vina["pose_index"].notna().any() else 0
-    if max_pose_index <= 0:
-        return
+    max_pose_index = int(vina["pose_index"].max())
 
     c_boltz, c1, _, _ = _palette4()
     scatter_color = "#4A90A4"  # Muted teal for scatter points
@@ -2047,7 +2062,7 @@ def plot_vina_rank_vs_quality(
         yy = y_col[mask]
 
         if len(xx) < 3:
-            continue
+            raise ValueError(f"Not enough finite Vina points are available to fit the rank-vs-quality plot for '{col}'.")
 
         n_poses = len(xx)
 
@@ -2143,11 +2158,6 @@ def main(argv: Iterable[str] | None = None) -> int:
         ),
     )
     p.add_argument(
-        "--no-adversarial",
-        action="store_true",
-        help="Do not render the adversarial mutagenesis figure even if inputs are present.",
-    )
-    p.add_argument(
         "--adversarial-protein-rmsd-cutoffs",
         default="3.0",
         help=(
@@ -2201,26 +2211,24 @@ def main(argv: Iterable[str] | None = None) -> int:
             continue
         adversarial_cutoffs.append(float(raw))
     if not adversarial_cutoffs:
-        adversarial_cutoffs = [3.0]
+        raise ValueError("--adversarial-protein-rmsd-cutoffs did not contain any numeric cutoff values.")
     gnina_frames = None
     if args.gnina_analysis_dir:
         gnina_dir = _resolve_csv(str(args.gnina_analysis_dir))
         gnina_frames = _load_gnina_frames(gnina_dir, summary_csv=summary_csv)
+    _prepare_vina_pose_table(allposes_df, min_pose_index=20)
 
-    # Print a single helpful note if the input file doesn't contain enough Vina poses
-    # to support "top-20 best" curves.
-    try:
-        vina_pose_idx = pd.to_numeric(
-            allposes_df.loc[allposes_df["method"] == "vina_pose", "pose_index"], errors="coerce"
-        )
-        max_pose_index = int(vina_pose_idx.max()) if vina_pose_idx.notna().any() else 0
-        if 0 < max_pose_index < 20:
-            sys.stderr.write(
-                f"[plot_results] Note: {allposes_csv} contains Vina pose_index up to {max_pose_index}; "
-                "to generate top-20 best curves, re-run: python scripts/benchmark.py --vina-max-poses 20\n"
+    if args.figset in {"standard", "all"}:
+        gly_summary = adversarial_root / "benchmark_gly" / "benchmark_summary.csv"
+        phe_summary = adversarial_root / "benchmark_phe" / "benchmark_summary.csv"
+        if not gly_summary.is_file():
+            raise FileNotFoundError(f"Missing adversarial Gly summary CSV: {gly_summary}")
+        if not phe_summary.is_file():
+            raise FileNotFoundError(f"Missing adversarial Phe summary CSV: {phe_summary}")
+        if gnina_frames is None:
+            raise ValueError(
+                "--gnina-analysis-dir is required for the standard manuscript figure set because it includes GNINA panels."
             )
-    except Exception:
-        pass
 
     standard_tasks: list[tuple[str, callable]] = [
         ("RMSD distributions", lambda: plot_rmsd_distributions(frames, allposes_df, out_dir=out_dir, preview_png=preview_png)),
@@ -2238,39 +2246,40 @@ def main(argv: Iterable[str] | None = None) -> int:
             "Contact overlap distributions",
             lambda: plot_contact_overlap_distributions_side_by_side(frames, allposes_df, out_dir=out_dir, preview_png=preview_png),
         ),
+        (
+            "Adversarial mutagenesis (protein RMSD <= 3 A)",
+            lambda: plot_adversarial_mutagenesis(
+                frames,
+                gly_summary_csv=adversarial_root / "benchmark_gly" / "benchmark_summary.csv",
+                phe_summary_csv=adversarial_root / "benchmark_phe" / "benchmark_summary.csv",
+                out_dir=out_dir,
+                protein_rmsd_cutoff_a=3.0,
+                stem="fig_adversarial_mutagenesis",
+                preview_png=preview_png,
+            ),
+        ),
+        ("Top-1 RMSD (Boltz/Vina/GNINA)", lambda: plot_top1_rmsd_methods(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
+        ("Sampling vs ranking (GNINA)", lambda: plot_sampling_vs_ranking_gnina(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
+        ("Per-target comparisons (GNINA)", lambda: plot_per_target_comparison_gnina(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
+        ("Contact overlap (GNINA)", lambda: plot_contact_overlap_methods(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
     ]
-    if not bool(args.no_adversarial):
-        gly_summary = adversarial_root / "benchmark_gly" / "benchmark_summary.csv"
-        phe_summary = adversarial_root / "benchmark_phe" / "benchmark_summary.csv"
-        if gly_summary.is_file() and phe_summary.is_file():
-            for cutoff in adversarial_cutoffs:
-                stem = (
-                    "fig_adversarial_mutagenesis"
-                    if float(cutoff) == 3.0
-                    else f"fig_adversarial_mutagenesis_prot{cutoff:g}A"
-                )
-                standard_tasks.append(
-                    (
-                        f"Adversarial mutagenesis (protein RMSD <= {cutoff:g} A)",
-                        lambda c=float(cutoff), s=stem: plot_adversarial_mutagenesis(
-                            frames,
-                            gly_summary_csv=gly_summary,
-                            phe_summary_csv=phe_summary,
-                            out_dir=out_dir,
-                            protein_rmsd_cutoff_a=c,
-                            stem=s,
-                            preview_png=preview_png,
-                        ),
-                    )
-                )
-
-    if gnina_frames is not None:
-        standard_tasks.extend([
-            ("Top-1 RMSD (Boltz/Vina/GNINA)", lambda: plot_top1_rmsd_methods(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
-            ("Sampling vs ranking (GNINA)", lambda: plot_sampling_vs_ranking_gnina(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
-            ("Per-target comparisons (GNINA)", lambda: plot_per_target_comparison_gnina(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
-            ("Contact overlap (GNINA)", lambda: plot_contact_overlap_methods(gnina_frames, out_dir=out_dir, preview_png=preview_png)),
-        ])
+    for cutoff in adversarial_cutoffs:
+        if float(cutoff) == 3.0:
+            continue
+        standard_tasks.append(
+            (
+                f"Adversarial mutagenesis (protein RMSD <= {cutoff:g} A)",
+                lambda c=float(cutoff): plot_adversarial_mutagenesis(
+                    frames,
+                    gly_summary_csv=adversarial_root / "benchmark_gly" / "benchmark_summary.csv",
+                    phe_summary_csv=adversarial_root / "benchmark_phe" / "benchmark_summary.csv",
+                    out_dir=out_dir,
+                    protein_rmsd_cutoff_a=c,
+                    stem=f"fig_adversarial_mutagenesis_prot{c:g}A",
+                    preview_png=preview_png,
+                ),
+            )
+        )
 
     extra_tasks: list[tuple[str, callable]] = [
         (

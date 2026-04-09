@@ -1,10 +1,10 @@
 """
-Canonical tracked manuscript archive paths.
+Canonical tracked data paths for the public repository.
 
-The public repository ships a small, explicit archive of benchmark-result CSVs
-that is sufficient to rebuild the manuscript analysis bundle. Scripts that
-operate on the publication companion should use these paths directly rather than
-probing local `output/` directories.
+This module centralizes the locations of the tracked manuscript archive, the
+curated model-input packages, and the tracked raw-prediction bundles. Public
+scripts and tests should use these paths directly rather than probing local
+scratch directories.
 """
 
 from __future__ import annotations
@@ -33,6 +33,32 @@ class ReproArchive:
     boltz_high_sampling_root: Path
     boltz_high_sampling_allposes: Path
     boltz_high_sampling_summary: Path
+
+
+@dataclass(frozen=True)
+class PredictionInputs:
+    root: Path
+    boltz_inputs_root: Path
+    vina_inputs_root: Path
+    vina_box_root: Path
+    vina_prep_root: Path
+
+
+@dataclass(frozen=True)
+class RawPredictions:
+    root: Path
+    gnina_root: Path
+    gnina_cnn_root: Path
+    gnina_cnn_pairs: Path
+    gnina_nocnn_root: Path
+    gnina_nocnn_pairs: Path
+    adversarial_root: Path
+    adversarial_bs5A_root: Path
+    adversarial_gly_root: Path
+    adversarial_gly_pairs: Path
+    adversarial_phe_root: Path
+    adversarial_phe_pairs: Path
+    adversarial_mutation_summary: Path
 
 
 def repo_root() -> Path:
@@ -66,8 +92,44 @@ def canonical_repro_archive(root: Path | None = None) -> ReproArchive:
     )
 
 
+def canonical_prediction_inputs(root: Path | None = None) -> PredictionInputs:
+    repo = (root or repo_root()).resolve()
+    inputs_root = repo / "prediction_inputs"
+    vina_root = inputs_root / "vina_inputs"
+    return PredictionInputs(
+        root=inputs_root,
+        boltz_inputs_root=inputs_root / "boltz_inputs",
+        vina_inputs_root=vina_root,
+        vina_box_root=vina_root / "box",
+        vina_prep_root=vina_root / "prep",
+    )
+
+
+def canonical_raw_predictions(root: Path | None = None) -> RawPredictions:
+    repo = (root or repo_root()).resolve()
+    raw_root = repo / "data" / "raw_predictions"
+    gnina_root = raw_root / "gnina"
+    adversarial_root = raw_root / "adversarial"
+    adversarial_bs5a_root = adversarial_root / "bs_mutagenesis_cutoff5A"
+    return RawPredictions(
+        root=raw_root,
+        gnina_root=gnina_root,
+        gnina_cnn_root=gnina_root / "cnn_rescore_exh8_cpu24",
+        gnina_cnn_pairs=gnina_root / "cnn_rescore_exh8_cpu24" / "pairs.csv",
+        gnina_nocnn_root=gnina_root / "no_cnn_exh8_cpu24",
+        gnina_nocnn_pairs=gnina_root / "no_cnn_exh8_cpu24" / "pairs.csv",
+        adversarial_root=adversarial_root,
+        adversarial_bs5A_root=adversarial_bs5a_root,
+        adversarial_gly_root=adversarial_bs5a_root / "gly",
+        adversarial_gly_pairs=adversarial_bs5a_root / "gly" / "pairs.csv",
+        adversarial_phe_root=adversarial_bs5a_root / "phe",
+        adversarial_phe_pairs=adversarial_bs5a_root / "phe" / "pairs.csv",
+        adversarial_mutation_summary=adversarial_bs5a_root / "mutation_summary.csv",
+    )
+
+
 def require_paths(paths: Iterable[Path]) -> None:
     missing = [path for path in paths if not path.is_file()]
     if missing:
         missing_str = "\n".join(f"  - {path}" for path in missing)
-        raise FileNotFoundError(f"Missing required tracked manuscript-archive files:\n{missing_str}")
+        raise FileNotFoundError(f"Missing required tracked file(s):\n{missing_str}")

@@ -97,13 +97,12 @@ def _build_ligand_residue(
     if atom_names is None:
         atom_names = _assign_atom_names(ligand)
     for atom, atom_name in zip(ligand.atoms, atom_names):
-        elem = (atom.element or "C").strip().upper()
+        elem = (atom.element or "").strip().upper()
+        if not elem:
+            raise ValueError("Encountered a ligand atom with no element symbol during normalization.")
         gatom = gemmi.Atom()
         gatom.name = atom_name
-        try:
-            gatom.element = gemmi.Element(elem)
-        except Exception:
-            gatom.element = gemmi.Element("C")
+        gatom.element = gemmi.Element(elem)
         gatom.pos = gemmi.Position(float(atom.xyz[0]), float(atom.xyz[1]), float(atom.xyz[2]))
         residue.add_atom(gatom)
     return residue

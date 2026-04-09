@@ -44,7 +44,7 @@ def build_parser() -> argparse.ArgumentParser:
     - whether to use caching and/or multiple CPU processes
     """
     p = argparse.ArgumentParser(description="Run the lipid docking benchmark.")
-    p.add_argument("--pairs", help="Pairs CSV (default: config.yaml paths.pairs, else structures/benchmark_entries.csv).")
+    p.add_argument("--pairs", help="Pairs CSV (default: structures/benchmark_entries.csv).")
     p.add_argument("--out-dir", default="output/benchmark", help="Output directory (default: output/benchmark).")
     p.add_argument(
         "--cache-dir",
@@ -55,11 +55,6 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--workers", type=int, default=1, help="Parallel workers (default: 1).")
     p.add_argument("--no-cache-normalized", action="store_true", help="Disable cached normalized complexes.")
     p.add_argument("--no-cache-contacts", action="store_true", help="Disable cached PandaMap contacts.")
-    p.add_argument(
-        "--allow-errors",
-        action="store_true",
-        help="Continue running even if a target fails; failed targets are written as NA rows in the summary CSV.",
-    )
     p.add_argument("--quiet", action="store_true", default=True, help="Compact progress output.")
     p.add_argument("--no-quiet", action="store_false", dest="quiet", help="Verbose progress output.")
     return p
@@ -118,27 +113,23 @@ def main(argv: list[str] | None = None) -> int:
         workers=int(args.workers),
         cache_normalized=not bool(args.no_cache_normalized),
         cache_contacts=not bool(args.no_cache_contacts),
-        allow_errors=bool(args.allow_errors),
     )
 
     # Help users catch accidental “partial” runs (e.g., plotting top-20 from a file that
     # only contains top-5). We warn if the produced CSV does not contain the requested
     # number of poses.
-    try:
-        requested = int(args.vina_max_poses)
-        max_written = max(
-            int(r.get("pose_index") or 0) for r in allposes if r.get("method") == "vina_pose"
-        ) if any(r.get("method") == "vina_pose" for r in allposes) else 0
-        if requested > 0 and 0 < max_written < requested:
-            logging.warning(
-                "Vina poses in output only go up to %d (requested %d). "
-                "This usually means the Vina .pdbqt contains fewer poses, or an earlier run used a smaller --vina-max-poses.",
-                max_written,
-                requested,
-            )
-    except Exception:
-        # Never fail the benchmark just because this convenience check couldn't run.
-        pass
+    requested = int(args.vina_max_poses)
+    has_vina = any(r.get("method") == "vina_pose" for r in allposes)
+    max_written = max(
+        int(r.get("pose_index") or 0) for r in allposes if r.get("method") == "vina_pose"
+    ) if has_vina else 0
+    if requested > 0 and 0 < max_written < requested:
+        logging.warning(
+            "Vina poses in output only go up to %d (requested %d). "
+            "This usually means the Vina .pdbqt contains fewer poses than requested.",
+            max_written,
+            requested,
+        )
 
     write_csv(out_dir / "benchmark_allposes.csv", allposes, BENCHMARK_FIELDNAMES)
     write_csv(out_dir / "benchmark_summary.csv", summary, BENCHMARK_FIELDNAMES)

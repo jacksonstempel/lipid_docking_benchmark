@@ -1,0 +1,49 @@
+              _             
+             (_)            
+   __ _ _ __  _ _ __   __ _ 
+  / _` | '_ \| | '_ \ / _` |
+ | (_| | | | | | | | | (_| |
+  \__, |_| |_|_|_| |_|\__,_|
+   __/ |                    
+  |___/                     
+
+gnina v1.3.1 master:5bd63bd   Built May 23 2025.
+gnina is based on smina and AutoDock Vina.
+Please cite appropriately.
+
+Commandline: /usr/local/bin/gnina -r /nfs/home/jstempel/vina_inputs/prep/2Z9Y/receptor_no_ligand.pdb -l /lustre/isaac24/scratch/jstempel/gnina_full_no_cnn_exh8_cpu24/_tmp_2Z9Y_6aZT/ligand.sdf --center_x -7.910 --center_y 0.745 --center_z 0.299 --size_x 13.594 --size_y 12.793 --size_z 19.367 --exhaustiveness 8 --num_modes 20 --cpu 24 --cnn_scoring none --scoring vina --addH 0 --log /lustre/isaac24/scratch/jstempel/gnina_full_no_cnn_exh8_cpu24/logs/2Z9Y.log --out /lustre/isaac24/scratch/jstempel/gnina_full_no_cnn_exh8_cpu24/flat/2Z9Y.pdbqt --seed 0 --device 0
+Using random seed: 0
+
+mode |  affinity  |  intramol  |    CNN     |   CNN
+     | (kcal/mol) | (kcal/mol) | pose score | affinity
+-----+------------+------------+------------+----------
+    1       -7.56       -1.98      -1.0000      0.000
+    2       -7.28       -2.27      -1.0000      0.000
+    3       -7.15       -2.68      -1.0000      0.000
+    4       -7.12       -1.32      -1.0000      0.000
+    5       -7.06       -1.88      -1.0000      0.000
+    6       -7.01       -1.31      -1.0000      0.000
+    7       -6.96       -1.90      -1.0000      0.000
+    8       -6.88       -2.15      -1.0000      0.000
+    9       -6.87       -1.41      -1.0000      0.000
+   10       -6.82       -0.98      -1.0000      0.000
+   11       -6.79       -1.72      -1.0000      0.000
+   12       -6.79       -2.00      -1.0000      0.000
+   13       -6.77       -2.25      -1.0000      0.000
+   14       -6.76       -2.40      -1.0000      0.000
+   15       -6.75       -1.23      -1.0000      0.000
+   16       -6.73       -1.26      -1.0000      0.000
+   17       -6.73       -1.23      -1.0000      0.000
+   18       -6.72       -2.48      -1.0000      0.000
+   19       -6.70       -1.80      -1.0000      0.000
+   20       -6.67       -2.27      -1.0000      0.000
+       -1.72      -1.0000      0.000
+   12       -6.79       -2.00      -1.0000      0.000
+   13       -6.77       -2.25      -1.0000      0.000
+   14       -6.76       -2.40      -1.0000      0.000
+   15       -6.75       -1.23      -1.0000      0.000
+   16       -6.73       -1.26      -1.0000      0.000
+   17       -6.73       -1.23      -1.0000      0.000
+   18       -6.72       -2.48      -1.0000      0.000
+   19       -6.70       -1.80      -1.0000      0.000
+   20       -6.67       -2.27      -1.0000      0.000

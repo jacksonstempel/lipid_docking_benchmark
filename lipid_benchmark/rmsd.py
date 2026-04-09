@@ -236,7 +236,7 @@ def _best_pred_ligand_by_rmsd(
                 best_policy = policy
                 best_rmsd = rmsd
                 best_count = pair_count
-        except Exception:
+        except (AtomPairingError, RuntimeError, ValueError):
             continue
     if best is None:
         raise AtomPairingError("Could not confidently match ligand atoms between reference and prediction.")
@@ -354,7 +354,7 @@ def measure_ligand_pose_all(
                 "error": "",
             }
             entries.append(entry)
-        except Exception as exc:
+        except (AtomPairingError, LigandSelectionError, RuntimeError, ValueError, FileNotFoundError) as exc:
             # Log at DEBUG level (only visible with --verbose)
             LOGGER.debug("Pose %d failed: %s", pose_index, exc)
             # Record failure in output for transparency

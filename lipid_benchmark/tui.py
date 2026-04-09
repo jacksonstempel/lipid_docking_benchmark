@@ -152,31 +152,28 @@ class BenchmarkTUI:
             self.state["limit_entries"] = 0
 
         self._render_progress(0, 1, "Starting...")
-        try:
-            from lipid_benchmark.io import write_csv
-            from lipid_benchmark.pipeline import BENCHMARK_FIELDNAMES, run_benchmark
+        from lipid_benchmark.io import write_csv
+        from lipid_benchmark.pipeline import BENCHMARK_FIELDNAMES, run_benchmark
 
-            self.cache_root.mkdir(parents=True, exist_ok=True)
-            normalized_dir = self.cache_root / "normalized"
-            self.current_stage = ""
-            self.stats_rows = []
-            allposes, summary = run_benchmark(
-                self._load_pairs(),
-                vina_max_poses=self.state["vina_max_poses"],
-                normalized_dir=normalized_dir,
-                quiet=True,
-                workers=self.state["workers"],
-                cache_normalized=self.state["cache_normalized"],
-                cache_contacts=self.state["cache_contacts"],
-                progress_cb=self._render_progress,
-                stage_cb=self._render_stage,
-                entry_cb=self._update_stats,
-            )
-            write_csv(self.out_dir / "benchmark_allposes.csv", allposes, BENCHMARK_FIELDNAMES)
-            write_csv(self.out_dir / "benchmark_summary.csv", summary, BENCHMARK_FIELDNAMES)
-            self._show_summary()
-        except Exception as exc:
-            self._display_lines("Run Failed", [str(exc)])
+        self.cache_root.mkdir(parents=True, exist_ok=True)
+        normalized_dir = self.cache_root / "normalized"
+        self.current_stage = ""
+        self.stats_rows = []
+        allposes, summary = run_benchmark(
+            self._load_pairs(),
+            vina_max_poses=self.state["vina_max_poses"],
+            normalized_dir=normalized_dir,
+            quiet=True,
+            workers=self.state["workers"],
+            cache_normalized=self.state["cache_normalized"],
+            cache_contacts=self.state["cache_contacts"],
+            progress_cb=self._render_progress,
+            stage_cb=self._render_stage,
+            entry_cb=self._update_stats,
+        )
+        write_csv(self.out_dir / "benchmark_allposes.csv", allposes, BENCHMARK_FIELDNAMES)
+        write_csv(self.out_dir / "benchmark_summary.csv", summary, BENCHMARK_FIELDNAMES)
+        self._show_summary()
 
     def _show_paths(self) -> None:
         """Show the main output file/folder locations for the default output directory."""
@@ -193,11 +190,10 @@ class BenchmarkTUI:
 
     def _load_pairs(self):
         """
-        Load the pairs CSV used by the benchmark.
+        Load the canonical benchmark pairs CSV.
 
-        This uses `config.yaml` (`paths.pairs`) or falls back to `structures/benchmark_entries.csv`.
-        Optionally, a “limit entries” setting restricts to only the first N targets for
-        quick sanity checks.
+        This uses `structures/benchmark_entries.csv`. Optionally, a “limit entries”
+        setting restricts to only the first N targets for quick sanity checks.
         """
         from lipid_benchmark.io import default_pairs_path, read_pairs_csv
 

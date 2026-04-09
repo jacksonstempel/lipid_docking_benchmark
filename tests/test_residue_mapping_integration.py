@@ -17,11 +17,12 @@ class TestResidueMappingIntegration(unittest.TestCase):
 
         diffs = Counter()
         for k, v in mapping.items():
-            try:
-                k_num = int(k.split(":")[2])
-                v_num = int(v.split(":")[2])
-            except Exception:
+            k_part = k.split(":")[2]
+            v_part = v.split(":")[2]
+            if not k_part.lstrip("-").isdigit() or not v_part.lstrip("-").isdigit():
                 continue
+            k_num = int(k_part)
+            v_num = int(v_part)
             diffs[v_num - k_num] += 1
 
         # 1B56 is a canonical offset case: reference residue numbers are +2 vs Boltz.

@@ -134,10 +134,12 @@ def main() -> None:
     for raw in str(args.adversarial_protein_rmsd_cutoffs).split(","):
         raw = raw.strip()
         if not raw:
-            continue
+            raise ValueError(
+                "--adversarial-protein-rmsd-cutoffs must be a comma-separated list of numeric values with no empty items."
+            )
         cutoffs.append(float(raw))
     if not cutoffs:
-        cutoffs = [2.0]
+        raise ValueError("--adversarial-protein-rmsd-cutoffs must contain at least one numeric cutoff.")
 
     for cutoff in cutoffs:
         stem = f"fig_adversarial_mutagenesis_prot{cutoff:g}A"

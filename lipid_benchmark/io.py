@@ -47,22 +47,9 @@ def default_pairs_path(project_root: Path) -> Path:
     """
     Return the default pairs CSV path for this repository.
 
-    Where it comes from:
-    - If `config.yaml` exists and defines `paths.pairs`, we use that.
-    - Otherwise we use `structures/benchmark_entries.csv`.
-
-    This is intentionally the only repository “layout” setting: the pairs CSV itself is the
-    source of truth for where the input files live.
+    The public repository has one canonical default pairs file:
+    `structures/benchmark_entries.csv`.
     """
-    cfg_path = project_root / "config.yaml"
-    if cfg_path.exists():
-        import yaml  # type: ignore
-
-        data = yaml.safe_load(cfg_path.read_text()) or {}
-        paths = data.get("paths", {}) or {}
-        pairs = paths.get("pairs")
-        if pairs:
-            return (project_root / str(pairs)).resolve()
     return (project_root / "structures" / "benchmark_entries.csv").resolve()
 
 
@@ -118,11 +105,16 @@ def write_csv(path: Path, rows: Sequence[Dict[str, object]], fieldnames: Sequenc
     Write a CSV file (creating parent folders if needed).
 
     `rows` is a list of dictionaries. `fieldnames` defines the column order.
-    Any missing key in a row is written as an empty string.
+    Every row must provide every declared field explicitly.
     """
     path.parent.mkdir(parents=True, exist_ok=True)
+    ordered_fields = list(fieldnames)
     with path.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=list(fieldnames), lineterminator="\n")
+        writer = csv.DictWriter(f, fieldnames=ordered_fields, lineterminator="\n")
         writer.writeheader()
-        for row in rows:
-            writer.writerow({k: row.get(k, "") for k in fieldnames})
+        for idx, row in enumerate(rows, start=1):
+            missing = [k for k in ordered_fields if k not in row]
+            if missing:
+                missing_str = ", ".join(missing)
+                raise KeyError(f"Row {idx} is missing required CSV field(s): {missing_str}")
+            writer.writerow({k: row[k] for k in ordered_fields})
